@@ -1,0 +1,606 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Auto Performance Tracker – Drive Smarter. Grow Faster.</title>
+  <meta name="description" content="GPS-Fahrttracking, Live-Tachometer, Fahrscore & Kraftstoffpreise für dein iPhone. Drive Smarter. Grow Faster." />
+  <meta name="theme-color" content="#060A14" />
+  <meta property="og:title" content="Auto Performance Tracker" />
+  <meta property="og:description" content="Drive Smarter. Grow Faster. – GPS-Fahrttracking für iPhone." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="assets/img/app-poster.png" />
+
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:opsz,wght@9..40,300;9..40,400;9..40,500;9..40,600;9..40,700;9..40,800&family=Space+Grotesk:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    :root {
+      --bg:    #060A14;
+      --bg1:   #090F1C;
+      --bg2:   #0D1426;
+      --card:  #111827;
+      --bdr:   rgba(255,255,255,.07);
+      --bdr2:  rgba(255,255,255,.13);
+      --text:  #F0F4FF;
+      --muted: #5B6A84;
+      --mt2:   #8A9ABF;
+      --cyan:  #06B6D4;
+      --cyn2:  #0EA5E9;
+      --green: #22C55E;
+      --purp:  #7C3AED;
+      --prp2:  #6366F1;
+      --amb:   #F59E0B;
+      --org:   #FB923C;
+      --red:   #EF4444;
+      --grad:  linear-gradient(135deg, #0EA5E9 0%, #6366F1 55%, #7C3AED 100%);
+      --gsub:  linear-gradient(135deg, rgba(14,165,233,.14) 0%, rgba(124,58,237,.09) 100%);
+      --body:  'DM Sans', sans-serif;
+      --ui:    'Space Grotesk', sans-serif;
+    }
+
+    html { scroll-behavior: smooth; }
+    body { background:var(--bg); color:var(--text); font-family:var(--body); font-size:16px; line-height:1.65; overflow-x:hidden; }
+    a { color:inherit; text-decoration:none; }
+
+    /* ── NAV ── */
+    nav {
+      position:fixed; top:0; left:0; right:0; z-index:500;
+      height:64px;
+      display:flex; align-items:center; justify-content:space-between;
+      padding:0 clamp(1.25rem,5vw,3.5rem);
+      background:rgba(6,10,20,.82);
+      backdrop-filter:blur(20px) saturate(1.6);
+      border-bottom:1px solid var(--bdr);
+    }
+    .nav-brand { display:flex; align-items:center; gap:.65rem; }
+    .nav-icon { width:32px; height:32px; border-radius:9px; overflow:hidden; box-shadow:0 0 0 1px rgba(255,255,255,.1); flex-shrink:0; }
+    .nav-icon img { width:100%; height:100%; object-fit:cover; display:block; }
+    .nav-name { font-family:var(--ui); font-size:.8rem; font-weight:600; letter-spacing:.04em; }
+    .nav-links { display:flex; gap:2.25rem; list-style:none; align-items:center; }
+    .nav-links a { font-size:.85rem; font-weight:500; color:var(--mt2); transition:color .2s; }
+    .nav-links a:hover { color:var(--text); }
+    .nav-cta { background:var(--grad) !important; color:#fff !important; padding:.48rem 1.15rem; border-radius:10px; font-weight:600 !important; font-size:.82rem !important; transition:opacity .2s,transform .2s !important; }
+    .nav-cta:hover { opacity:.85; transform:translateY(-1px); }
+    @media(max-width:700px){ .nav-links{ display:none; } }
+
+    /* ── HERO ── */
+    .hero {
+      position:relative; min-height:100svh;
+      display:flex; align-items:center; justify-content:center;
+      text-align:center; padding:8rem 1.5rem 3rem;
+      overflow:hidden;
+    }
+    .hero-orb {
+      position:absolute; width:900px; height:900px;
+      top:50%; left:50%; transform:translate(-50%,-55%);
+      background:radial-gradient(circle, rgba(14,165,233,.17) 0%, rgba(99,102,241,.1) 40%, transparent 70%);
+      pointer-events:none;
+    }
+    .hero-inner { position:relative; z-index:1; display:flex; flex-direction:column; align-items:center; max-width:860px; }
+
+    .hero-badge {
+      display:inline-flex; align-items:center; gap:.5rem;
+      font-family:var(--ui); font-size:.7rem; font-weight:600; letter-spacing:.15em; text-transform:uppercase;
+      color:var(--cyan); border:1px solid rgba(6,182,212,.3); background:rgba(6,182,212,.08);
+      padding:.38rem 1rem; border-radius:99px; margin-bottom:1.6rem;
+      animation:fadeUp .5s ease both;
+    }
+    .pulse-dot { width:7px; height:7px; border-radius:50%; background:var(--cyan); animation:pulseA 2s infinite; }
+
+    .hero h1 {
+      font-family:var(--ui); font-size:clamp(2.6rem,7vw,5.4rem);
+      font-weight:700; line-height:1.06; letter-spacing:-.025em;
+      animation:fadeUp .55s .1s ease both;
+    }
+    .grad-text { background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; }
+
+    .hero-tagline { font-family:var(--ui); font-size:clamp(.95rem,2vw,1.15rem); font-weight:600; color:var(--cyan); letter-spacing:.05em; margin-top:.75rem; animation:fadeUp .55s .15s ease both; }
+    .hero-sub { margin-top:1.2rem; font-size:clamp(.95rem,2vw,1.1rem); color:var(--mt2); max-width:510px; animation:fadeUp .55s .2s ease both; }
+
+    .hero-actions { margin-top:2rem; display:flex; gap:.8rem; flex-wrap:wrap; justify-content:center; animation:fadeUp .55s .25s ease both; }
+
+    .btn-grad {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:var(--grad); color:#fff;
+      padding:.82rem 1.9rem; border-radius:14px;
+      font-family:var(--ui); font-weight:600; font-size:.93rem;
+      box-shadow:0 8px 38px rgba(14,165,233,.28);
+      transition:transform .2s,box-shadow .2s;
+    }
+    .btn-grad:hover { transform:translateY(-3px); box-shadow:0 14px 50px rgba(14,165,233,.42); }
+
+    .btn-ghost {
+      display:inline-flex; align-items:center; gap:.5rem;
+      background:rgba(255,255,255,.05); border:1px solid var(--bdr2); color:var(--text);
+      padding:.82rem 1.6rem; border-radius:14px; font-weight:500; font-size:.93rem;
+      transition:background .2s,border-color .2s;
+    }
+    .btn-ghost:hover { background:rgba(255,255,255,.09); border-color:rgba(255,255,255,.22); }
+
+    /* Poster */
+    .hero-poster { position:relative; margin-top:3.2rem; width:min(660px,95vw); animation:fadeUp .6s .35s ease both; }
+    .poster-glow { position:absolute; inset:-20px; background:radial-gradient(ellipse at center,rgba(14,165,233,.14) 0%,transparent 70%); pointer-events:none; border-radius:30px; }
+    .poster-img { width:100%; border-radius:22px; border:1px solid rgba(255,255,255,.1); box-shadow:0 0 0 1px rgba(14,165,233,.15),0 40px 80px rgba(0,0,0,.6); display:block; }
+
+    /* ── SECTION BASE ── */
+    section { position:relative; z-index:1; padding:clamp(4rem,8vw,7rem) clamp(1.25rem,5vw,3.5rem); }
+    .bg1 { background:var(--bg1); }
+
+    .sec-label {
+      display:inline-flex; align-items:center; gap:.5rem;
+      font-family:var(--ui); font-size:.67rem; font-weight:700; letter-spacing:.18em; text-transform:uppercase;
+      color:var(--cyan); margin-bottom:.65rem;
+    }
+    .sec-label::before { content:''; width:18px; height:2px; background:var(--cyan); border-radius:99px; }
+
+    .sec-title { font-family:var(--ui); font-size:clamp(1.8rem,4vw,2.8rem); font-weight:700; line-height:1.1; letter-spacing:-.022em; margin-bottom:.85rem; }
+    .sec-body { font-size:1.04rem; color:var(--mt2); max-width:530px; line-height:1.7; }
+    .center { text-align:center; margin-left:auto; margin-right:auto; }
+
+    /* ── SCREENSHOTS ── */
+    .screens-wrap { max-width:1200px; margin:0 auto; }
+    .screens-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:1.5rem; align-items:start; margin-top:3rem; }
+    @media(max-width:900px){ .screens-grid{ grid-template-columns:repeat(2,1fr); } }
+    @media(max-width:520px){ .screens-grid{ grid-template-columns:1fr 1fr; gap:.75rem; } }
+
+    .iphone {
+      position:relative; border-radius:42px; background:#0c0c18;
+      padding:9px;
+      box-shadow:0 0 0 1.5px rgba(255,255,255,.12),0 0 0 3px #14142a,0 30px 60px rgba(0,0,0,.72),inset 0 0 0 1px rgba(255,255,255,.04);
+      transition:transform .35s,box-shadow .35s;
+    }
+    .iphone:hover { transform:translateY(-8px) scale(1.02); box-shadow:0 0 0 1.5px rgba(14,165,233,.35),0 0 0 3px #14142a,0 50px 80px rgba(0,0,0,.82),0 0 40px rgba(14,165,233,.14); }
+    /* Dynamic island */
+    .iphone::before { content:''; position:absolute; top:14px; left:50%; transform:translateX(-50%); width:32%; height:20px; background:#050510; border-radius:99px; z-index:10; box-shadow:0 0 0 1px rgba(255,255,255,.06); }
+    .iphone-scr { border-radius:34px; overflow:hidden; width:100%; aspect-ratio:9/19.5; background:#060A14; }
+    .iphone-scr img { width:100%; height:100%; object-fit:cover; object-position:top center; display:block; }
+
+    .screen-cap { margin-top:1.1rem; text-align:center; }
+    .screen-cap .sct { font-family:var(--ui); font-size:.83rem; font-weight:600; }
+    .screen-cap .scs { font-size:.77rem; color:var(--muted); margin-top:.18rem; }
+
+    /* ── FEATURES BENTO ── */
+    .features-wrap { max-width:1160px; margin:0 auto; }
+    .bento {
+      display:grid; grid-template-columns:repeat(3,1fr);
+      gap:1px; background:var(--bdr);
+      border:1px solid var(--bdr); border-radius:24px; overflow:hidden;
+      margin-top:3rem;
+    }
+    @media(max-width:900px){ .bento{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:560px){ .bento{ grid-template-columns:1fr; } }
+    .bc { background:var(--bg1); padding:1.9rem 1.7rem; display:flex; flex-direction:column; gap:.8rem; transition:background .25s; }
+    .bc:hover { background:var(--bg2); }
+    .bc.w2 { grid-column:span 2; }
+    .bi { width:44px; height:44px; border-radius:13px; display:flex; align-items:center; justify-content:center; font-size:1.25rem; flex-shrink:0; }
+    .bc h3 { font-family:var(--ui); font-size:.87rem; font-weight:600; letter-spacing:.025em; }
+    .bc p { font-size:.87rem; color:var(--mt2); line-height:1.6; }
+    .pro-pill { display:inline-block; background:rgba(14,165,233,.14); color:var(--cyan); font-family:var(--ui); font-size:.59rem; font-weight:700; letter-spacing:.1em; padding:.18rem .55rem; border-radius:99px; border:1px solid rgba(14,165,233,.25); vertical-align:middle; margin-left:.35rem; }
+
+    /* ── SPEED ZONES ── */
+    .zones-wrap { max-width:1000px; margin:0 auto; }
+    .zones-layout { display:grid; grid-template-columns:1fr 1fr; gap:3rem; align-items:center; margin-top:2.5rem; }
+    @media(max-width:700px){ .zones-layout{ grid-template-columns:1fr; } }
+    .zone-list { display:flex; flex-direction:column; gap:.7rem; }
+    .zone-row { display:flex; align-items:center; gap:.9rem; }
+    .zdot { width:11px; height:11px; border-radius:50%; flex-shrink:0; }
+    .zname { font-size:.87rem; font-weight:500; min-width:95px; }
+    .ztrack { flex:1; height:6px; background:rgba(255,255,255,.07); border-radius:99px; overflow:hidden; }
+    .zfill { height:100%; border-radius:99px; }
+    .zrng { font-family:var(--ui); font-size:.7rem; color:var(--muted); min-width:82px; text-align:right; }
+
+    .map-card { background:var(--bg2); border:1px solid var(--bdr); border-radius:20px; overflow:hidden; padding:1.4rem; display:flex; flex-direction:column; gap:1rem; }
+    .map-stub { width:100%; aspect-ratio:4/3; border-radius:14px; background:linear-gradient(160deg,#0f2a1e 0%,#0a1a2f 50%,#1a0f2e 100%); position:relative; overflow:hidden; }
+    .map-stub svg { position:absolute; inset:0; width:100%; height:100%; }
+    .map-legend { display:flex; flex-wrap:wrap; gap:.45rem; }
+    .leg { display:flex; align-items:center; gap:.35rem; font-size:.71rem; color:var(--mt2); }
+    .ldot { width:8px; height:8px; border-radius:50%; }
+
+    /* ── STATS ── */
+    .stats-wrap { max-width:1100px; margin:0 auto; }
+    .stats-grid { display:grid; grid-template-columns:1.2fr 1fr 1fr; gap:1.2rem; margin-top:2.5rem; }
+    @media(max-width:860px){ .stats-grid{ grid-template-columns:1fr 1fr; } }
+    @media(max-width:520px){ .stats-grid{ grid-template-columns:1fr; } }
+
+    .sc { background:var(--bg2); border:1px solid var(--bdr); border-radius:22px; padding:1.4rem; }
+    .sc.r2 { grid-row:span 2; }
+    .sc.c2 { grid-column:span 2; }
+    .slbl { font-family:var(--ui); font-size:.67rem; font-weight:600; letter-spacing:.13em; text-transform:uppercase; color:var(--muted); margin-bottom:.55rem; }
+
+    .score-row-wrap { display:flex; align-items:center; gap:1.4rem; padding:.4rem 0; }
+    .score-svg { width:96px; height:96px; flex-shrink:0; }
+    .srb { fill:none; stroke:rgba(255,255,255,.07); stroke-width:9; }
+    .srv { fill:none; stroke:var(--green); stroke-width:9; stroke-linecap:round; stroke-dasharray:251.2; stroke-dashoffset:251.2; transform:rotate(-90deg); transform-origin:50px 50px; animation:sRing 1.8s .5s ease forwards; }
+    @keyframes sRing { to { stroke-dashoffset:37; } }
+    .snum { font-family:var(--ui); font-size:1.45rem; font-weight:700; fill:var(--text); text-anchor:middle; dominant-baseline:middle; }
+    .sdenom { font-size:.55rem; fill:var(--muted); text-anchor:middle; font-family:var(--body); }
+
+    .score-cats { display:flex; flex-direction:column; gap:.4rem; flex:1; }
+    .scat { display:flex; align-items:center; gap:.45rem; font-size:.76rem; }
+    .scat .sn { color:var(--mt2); min-width:95px; }
+    .scat .sb { flex:1; height:5px; background:rgba(255,255,255,.07); border-radius:99px; overflow:hidden; }
+    .scat .sf { height:100%; border-radius:99px; }
+    .scat .sv { font-family:var(--ui); font-size:.73rem; font-weight:600; min-width:26px; text-align:right; color:var(--text); }
+
+    .bignum { font-family:var(--ui); font-size:2.5rem; font-weight:700; background:var(--grad); -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text; line-height:1; }
+    .bignote { font-size:.78rem; color:var(--muted); margin-top:.4rem; }
+
+    .mbars { display:flex; align-items:flex-end; gap:4px; height:54px; margin-top:.8rem; }
+    .mb { flex:1; border-radius:4px 4px 0 0; background:linear-gradient(to top,var(--cyn2),rgba(14,165,233,.32)); transform:scaleY(0); transform-origin:bottom; animation:mbG .6s ease forwards; }
+    @keyframes mbG { to{ transform:scaleY(1); } }
+
+    /* ── FUEL ── */
+    .fuel-wrap { max-width:1000px; margin:0 auto; }
+    .fuel-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(175px,1fr)); gap:1rem; margin-top:2rem; }
+    .fc { background:var(--bg2); border:1px solid var(--bdr); border-radius:16px; padding:1.2rem; display:flex; flex-direction:column; gap:.4rem; transition:border-color .2s; }
+    .fc:hover { border-color:rgba(14,165,233,.25); }
+    .ftype { font-family:var(--ui); font-size:.68rem; font-weight:600; letter-spacing:.1em; text-transform:uppercase; color:var(--mt2); }
+    .fprice { font-family:var(--ui); font-size:1.5rem; font-weight:700; }
+    .fprice span { font-size:.9rem; color:var(--mt2); }
+    .floc { font-size:.77rem; color:var(--muted); }
+
+    /* ── PRICING ── */
+    .pricing-wrap { max-width:880px; margin:0 auto; }
+    .plan-grid { display:grid; grid-template-columns:1fr 1fr; gap:1.4rem; margin-top:2.5rem; }
+    @media(max-width:600px){ .plan-grid{ grid-template-columns:1fr; } }
+
+    .plan { background:var(--bg2); border:1px solid var(--bdr); border-radius:24px; padding:2rem; display:flex; flex-direction:column; gap:.95rem; position:relative; transition:border-color .25s; }
+    .plan:hover { border-color:var(--bdr2); }
+    .plan.pro { border-color:rgba(14,165,233,.3); background:linear-gradient(150deg,rgba(14,165,233,.06) 0%,var(--bg2) 55%); }
+    .pbadge { position:absolute; top:1.2rem; right:1.2rem; background:var(--grad); color:#fff; font-family:var(--ui); font-size:.59rem; font-weight:700; letter-spacing:.1em; padding:.22rem .65rem; border-radius:99px; }
+    .pname { font-family:var(--ui); font-size:.72rem; font-weight:700; letter-spacing:.16em; text-transform:uppercase; color:var(--mt2); }
+    .pprice { font-family:var(--ui); font-size:2.7rem; font-weight:700; line-height:1; }
+    .pprice .cur { font-size:1.1rem; color:var(--mt2); vertical-align:super; }
+    .pprice .per { font-size:.88rem; color:var(--mt2); }
+    .psub { font-size:.8rem; color:var(--muted); margin-top:-.4rem; }
+    .psub strong { color:var(--cyan); }
+    .pfeats { list-style:none; display:flex; flex-direction:column; gap:.5rem; }
+    .pfeats li { display:flex; align-items:flex-start; gap:.5rem; font-size:.86rem; color:var(--mt2); }
+    .ck { color:var(--green); font-weight:700; flex-shrink:0; margin-top:.05rem; }
+    .nx { color:rgba(255,255,255,.18); flex-shrink:0; margin-top:.05rem; }
+    .pbtn { display:block; text-align:center; padding:.88rem; border-radius:13px; font-family:var(--ui); font-weight:600; font-size:.88rem; margin-top:auto; transition:opacity .2s,transform .2s; }
+    .pbtn:hover { opacity:.85; transform:translateY(-1px); }
+    .pbtn.free { background:rgba(255,255,255,.06); border:1px solid var(--bdr2); }
+    .pbtn.paid { background:var(--grad); color:#fff; box-shadow:0 8px 28px rgba(14,165,233,.25); }
+    .snote { text-align:center; font-size:.8rem; color:var(--muted); margin-top:.7rem; }
+    .snote strong { color:var(--cyan); }
+
+    /* ── DOWNLOAD ── */
+    .dl-wrap { max-width:800px; margin:0 auto; }
+    .dl-card { background:var(--bg2); border:1px solid rgba(14,165,233,.2); border-radius:28px; padding:clamp(2.5rem,5vw,4rem); text-align:center; background-image:var(--gsub); position:relative; overflow:hidden; }
+    .dl-card::before { content:''; position:absolute; top:-80px; right:-80px; width:320px; height:320px; background:radial-gradient(circle,rgba(14,165,233,.1),transparent 70%); pointer-events:none; }
+    .dl-icon { width:76px; height:76px; border-radius:19px; overflow:hidden; margin:0 auto 1.4rem; box-shadow:0 20px 50px rgba(0,0,0,.5),0 0 0 1px rgba(255,255,255,.12); }
+    .dl-icon img { width:100%; height:100%; object-fit:cover; display:block; }
+    .dl-card h2 { font-family:var(--ui); font-size:clamp(1.5rem,4vw,2.3rem); font-weight:700; letter-spacing:-.02em; line-height:1.1; margin-bottom:.7rem; }
+    .dl-card p { color:var(--mt2); max-width:400px; margin:0 auto; font-size:.98rem; }
+    .as-btn { display:inline-flex; align-items:center; gap:.7rem; margin-top:1.8rem; background:rgba(255,255,255,.07); border:1px solid rgba(255,255,255,.13); color:rgba(255,255,255,.4); padding:.85rem 1.9rem; border-radius:14px; font-weight:600; font-size:.92rem; cursor:not-allowed; }
+    .as-btn svg { width:19px; height:19px; flex-shrink:0; }
+    .as-inner { display:flex; flex-direction:column; align-items:flex-start; gap:.08rem; }
+    .as-top { font-size:.6rem; opacity:.7; letter-spacing:.06em; }
+    .as-bot { font-size:.86rem; font-weight:700; }
+
+    /* ── FOOTER ── */
+    footer { border-top:1px solid var(--bdr); padding:2.8rem clamp(1.25rem,5vw,3.5rem) 2.2rem; display:flex; flex-wrap:wrap; gap:2.5rem; justify-content:space-between; position:relative; z-index:1; }
+    .fbrand { display:flex; flex-direction:column; gap:.7rem; }
+    .flogo { display:flex; align-items:center; gap:.6rem; }
+    .flogo-icon { width:30px; height:30px; border-radius:8px; overflow:hidden; box-shadow:0 0 0 1px rgba(255,255,255,.08); }
+    .flogo-icon img { width:100%; height:100%; object-fit:cover; display:block; }
+    .flogo-name { font-family:var(--ui); font-size:.78rem; font-weight:600; letter-spacing:.04em; }
+    .ftagline { font-size:.8rem; color:var(--muted); }
+    .fcol { display:flex; flex-direction:column; gap:.5rem; }
+    .fcol h4 { font-family:var(--ui); font-size:.67rem; font-weight:700; letter-spacing:.14em; text-transform:uppercase; color:var(--muted); margin-bottom:.2rem; }
+    .fcol a { font-size:.84rem; color:var(--mt2); transition:color .2s; }
+    .fcol a:hover { color:var(--text); }
+    .fbot { width:100%; padding-top:1.6rem; border-top:1px solid var(--bdr); display:flex; justify-content:space-between; align-items:center; flex-wrap:wrap; gap:.5rem; font-size:.76rem; color:var(--muted); }
+
+    /* ── ANIMS ── */
+    @keyframes fadeUp { from{opacity:0;transform:translateY(20px)} to{opacity:1;transform:translateY(0)} }
+    @keyframes pulseA { 0%,100%{opacity:1;transform:scale(1)} 50%{opacity:.45;transform:scale(.82)} }
+
+    .reveal { opacity:0; transform:translateY(26px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.vis { opacity:1; transform:translateY(0); }
+    .d1{transition-delay:.08s} .d2{transition-delay:.16s} .d3{transition-delay:.24s} .d4{transition-delay:.32s}
+  </style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-brand">
+    <div class="nav-icon"><img src="assets/img/app-icon.png" alt="APT Icon"/></div>
+    <span class="nav-name">Auto Performance Tracker</span>
+  </div>
+  <ul class="nav-links">
+    <li><a href="#screens">App</a></li>
+    <li><a href="#features">Features</a></li>
+    <li><a href="#pricing">Pro</a></li>
+    <li><a href="#download" class="nav-cta">Download</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-orb"></div>
+  <div class="hero-inner">
+    <div class="hero-badge"><span class="pulse-dot"></span>Bald im App Store</div>
+    <h1>Dein Auto.<br/><span class="grad-text">Deine Daten.</span></h1>
+    <p class="hero-tagline">Drive Smarter. Grow Faster.</p>
+    <p class="hero-sub">GPS-Fahrttracking, Live-Tachometer, Fahrscore &amp; Kraftstoffpreise – alles für dein iPhone.</p>
+    <div class="hero-actions">
+      <a href="#screens" class="btn-grad">
+        <svg width="15" height="15" viewBox="0 0 24 24" fill="none"><path d="M5 12h14M12 5l7 7-7 7" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        App entdecken
+      </a>
+      <a href="#pricing" class="btn-ghost">Pro ansehen</a>
+    </div>
+    <div class="hero-poster">
+      <div class="poster-glow"></div>
+      <img class="poster-img" src="assets/img/app-poster.png" alt="Auto Performance Tracker"/>
+    </div>
+  </div>
+</section>
+
+<!-- SCREENSHOTS -->
+<section id="screens" class="bg1">
+  <div class="screens-wrap">
+    <div class="reveal">
+      <span class="sec-label">App</span>
+      <h2 class="sec-title">Vier Ansichten.<br/>Eine App.</h2>
+      <p class="sec-body">Aufnahme, Fahrtdetails, Statistik & Einstellungen – durchdacht gestaltet.</p>
+    </div>
+    <div class="screens-grid">
+      <div class="reveal d1">
+        <div class="iphone"><div class="iphone-scr"><img src="assets/img/screen-1.png" alt="Live-Tachometer"/></div></div>
+        <div class="screen-cap"><div class="sct">Live-Tachometer</div><div class="scs">Aufnahme</div></div>
+      </div>
+      <div class="reveal d2">
+        <div class="iphone"><div class="iphone-scr"><img src="assets/img/screen-2.png" alt="Fahrtdetails"/></div></div>
+        <div class="screen-cap"><div class="sct">Fahrtdetails</div><div class="scs">Karte &amp; Metriken</div></div>
+      </div>
+      <div class="reveal d3">
+        <div class="iphone"><div class="iphone-scr"><img src="assets/img/screen-3.png" alt="Driving Score"/></div></div>
+        <div class="screen-cap"><div class="sct">Driving Score</div><div class="scs">Statistik</div></div>
+      </div>
+      <div class="reveal d4">
+        <div class="iphone"><div class="iphone-scr"><img src="assets/img/screen-4.png" alt="Einstellungen"/></div></div>
+        <div class="screen-cap"><div class="sct">Einstellungen</div><div class="scs">Profile &amp; Sync</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FEATURES -->
+<section id="features">
+  <div class="features-wrap">
+    <div style="text-align:center;margin-bottom:3rem;" class="reveal">
+      <span class="sec-label">Features</span>
+      <h2 class="sec-title">Alles, was du brauchst.</h2>
+      <p class="sec-body center">Von der ersten Kurve bis zur letzten Statistik.</p>
+    </div>
+    <div class="bento">
+      <div class="bc reveal"><div class="bi" style="background:rgba(6,182,212,.12);">🛰️</div><h3>GPS-Aufzeichnung</h3><p>Jede Fahrt präzise erfasst mit Koordinaten, Höhe, Geschwindigkeit und Kurs.</p></div>
+      <div class="bc reveal d1"><div class="bi" style="background:rgba(14,165,233,.12);">🏎️</div><h3>Live-Tachometer</h3><p>Animierter Analogtacho mit Echtzeit-km/h – genau wie ein echter Tacho.</p></div>
+      <div class="bc reveal d2"><div class="bi" style="background:rgba(239,68,68,.12);">🚦</div><h3>Tempolimit <span class="pro-pill">PRO</span></h3><p>Live-Tempolimit-Anzeige direkt neben der Nadel.</p></div>
+      <div class="bc w2 reveal"><div class="bi" style="background:rgba(34,197,94,.12);">⭐</div><h3>7-Faktor Fahrscore <span class="pro-pill">PRO</span></h3><p>Bewertung nach Geschwindigkeit, Beschleunigung, Bremsen, Kurvenverhalten, Konsistenz, Effizienz & mehr. Werde mit jeder Fahrt besser.</p></div>
+      <div class="bc reveal"><div class="bi" style="background:rgba(245,158,11,.12);">🗺️</div><h3>Farbkarte</h3><p>Deine Strecke nach 5 Tempo-Zonen eingefärbt.</p></div>
+      <div class="bc reveal d1"><div class="bi" style="background:rgba(14,165,233,.12);">📊</div><h3>Detailstatistiken</h3><p>6 Zeiträume – Tag bis Gesamt oder eigener Bereich.</p></div>
+      <div class="bc reveal d2"><div class="bi" style="background:rgba(251,146,60,.12);">⛽</div><h3>Kraftstoffpreise</h3><p>Aktuelle Preise für E5, E10, Diesel, LPG & Strom.</p></div>
+      <div class="bc reveal"><div class="bi" style="background:rgba(99,102,241,.12);">🚗</div><h3>Fahrzeugprofile</h3><p>Mehrere Fahrzeuge anlegen und jeder Fahrt zuordnen.</p></div>
+      <div class="bc reveal d1"><div class="bi" style="background:rgba(6,182,212,.12);">☁️</div><h3>Cloud Sync</h3><p>Alle Fahrten sicher gesichert. Gerätewechsel ohne Datenverlust.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- SPEED ZONES -->
+<section class="bg1">
+  <div class="zones-wrap">
+    <div class="reveal">
+      <span class="sec-label">Tempo-Zonen</span>
+      <h2 class="sec-title">Fünf Farben.<br/>Eine Wahrheit.</h2>
+      <p class="sec-body">Genau wie in der App – jeder Streckenabschnitt einer Farb-Zone zugeordnet.</p>
+    </div>
+    <div class="zones-layout">
+      <div class="zone-list reveal">
+        <div class="zone-row"><div class="zdot" style="background:#22C55E"></div><span class="zname">🏙️ Stadt</span><div class="ztrack"><div class="zfill" style="width:22%;background:#22C55E"></div></div><span class="zrng">&lt; 30 km/h</span></div>
+        <div class="zone-row"><div class="zdot" style="background:#3B82F6"></div><span class="zname">🚦 Ortschaft</span><div class="ztrack"><div class="zfill" style="width:40%;background:#3B82F6"></div></div><span class="zrng">30–50 km/h</span></div>
+        <div class="zone-row"><div class="zdot" style="background:#F59E0B"></div><span class="zname">🛣️ Landstraße</span><div class="ztrack"><div class="zfill" style="width:62%;background:#F59E0B"></div></div><span class="zrng">50–80 km/h</span></div>
+        <div class="zone-row"><div class="zdot" style="background:#FB923C"></div><span class="zname">⚡ Express</span><div class="ztrack"><div class="zfill" style="width:80%;background:#FB923C"></div></div><span class="zrng">80–130 km/h</span></div>
+        <div class="zone-row"><div class="zdot" style="background:#EF4444"></div><span class="zname">🏁 Autobahn</span><div class="ztrack"><div class="zfill" style="width:100%;background:#EF4444"></div></div><span class="zrng">&gt; 130 km/h</span></div>
+      </div>
+      <div class="map-card reveal d1">
+        <div class="map-stub">
+          <svg viewBox="0 0 300 220" xmlns="http://www.w3.org/2000/svg">
+            <defs><linearGradient id="mbg" x1="0" y1="0" x2="1" y2="1"><stop offset="0%" stop-color="#0f2a1e"/><stop offset="50%" stop-color="#0a1a2f"/><stop offset="100%" stop-color="#1a0f2e"/></linearGradient></defs>
+            <rect width="300" height="220" fill="url(#mbg)"/>
+            <path d="M 150 200 C 152 185,153 175,150 165" stroke="#22C55E" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M 150 165 C 148 155,147 145,145 130" stroke="#3B82F6" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M 145 130 C 140 115,135 100,140 80" stroke="#F59E0B" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M 140 80 C 143 65,148 52,152 38" stroke="#FB923C" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <path d="M 152 38 C 154 28,156 18,158 8" stroke="#EF4444" stroke-width="5" stroke-linecap="round" fill="none"/>
+            <circle cx="150" cy="200" r="8" fill="#22C55E" opacity=".9"/>
+            <text x="150" y="204" text-anchor="middle" font-size="6" fill="white" font-weight="bold">S</text>
+            <circle cx="158" cy="8" r="8" fill="#EF4444" opacity=".9"/>
+            <text x="158" y="12" text-anchor="middle" font-size="6" fill="white" font-weight="bold">Z</text>
+          </svg>
+        </div>
+        <div class="map-legend">
+          <div class="leg"><div class="ldot" style="background:#22C55E"></div>&lt;30</div>
+          <div class="leg"><div class="ldot" style="background:#3B82F6"></div>30–50</div>
+          <div class="leg"><div class="ldot" style="background:#F59E0B"></div>50–80</div>
+          <div class="leg"><div class="ldot" style="background:#FB923C"></div>80–130</div>
+          <div class="leg"><div class="ldot" style="background:#EF4444"></div>&gt;130 km/h</div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<section id="stats">
+  <div class="stats-wrap">
+    <div style="text-align:center;" class="reveal">
+      <span class="sec-label">Statistiken</span>
+      <h2 class="sec-title">Fahrtbuch. Digital.</h2>
+      <p class="sec-body center">Score-Verlauf, 6 Zeiträume, CO₂-Ausstoss & Spritverbrauch.</p>
+    </div>
+    <div class="stats-grid">
+      <div class="sc r2 reveal">
+        <div class="slbl">Driving Score · Feb 2026</div>
+        <div class="score-row-wrap">
+          <svg class="score-svg" viewBox="0 0 100 100">
+            <circle class="srb" cx="50" cy="50" r="40"/>
+            <circle class="srv" cx="50" cy="50" r="40"/>
+            <text class="snum" x="50" y="47">93</text>
+            <text class="sdenom" x="50" y="60">/100</text>
+          </svg>
+          <div><div style="font-family:var(--ui);font-size:.88rem;font-weight:600;">Hervorragend ⭐</div><div style="font-size:.78rem;color:var(--muted);margin-top:.2rem;">Feb 2026</div></div>
+        </div>
+        <div class="score-cats">
+          <div class="scat"><span class="sn">Geschwindigkeit</span><div class="sb"><div class="sf" style="width:90%;background:#3B82F6"></div></div><span class="sv">90</span></div>
+          <div class="scat"><span class="sn">Beschleunigung</span><div class="sb"><div class="sf" style="width:100%;background:#22C55E"></div></div><span class="sv">100</span></div>
+          <div class="scat"><span class="sn">Bremsen</span><div class="sb"><div class="sf" style="width:100%;background:#EF4444"></div></div><span class="sv">100</span></div>
+          <div class="scat"><span class="sn">Kurvenverhalten</span><div class="sb"><div class="sf" style="width:100%;background:#F59E0B"></div></div><span class="sv">100</span></div>
+          <div class="scat"><span class="sn">Konsistenz</span><div class="sb"><div class="sf" style="width:100%;background:#06B6D4"></div></div><span class="sv">100</span></div>
+          <div class="scat"><span class="sn">Effizienz</span><div class="sb"><div class="sf" style="width:77%;background:#22C55E"></div></div><span class="sv">77</span></div>
+        </div>
+      </div>
+      <div class="sc reveal d1"><div class="slbl">Gesamtstrecke</div><div class="bignum">8 km</div><div class="bignote">2 Fahrten · Feb 2026</div></div>
+      <div class="sc reveal d2"><div class="slbl">Ø Geschwindigkeit</div><div class="bignum">36 km/h</div><div class="bignote">Max: 67 km/h</div></div>
+      <div class="sc c2 reveal"><div class="slbl">Fahrtpunkte-Verlauf · Ø 93 Pkt.</div>
+        <div class="mbars">
+          <div class="mb" style="height:96%;animation-delay:.05s"></div>
+          <div class="mb" style="height:100%;animation-delay:.1s;background:linear-gradient(to top,var(--green),rgba(34,197,94,.32))"></div>
+          <div class="mb" style="height:88%;animation-delay:.15s"></div>
+          <div class="mb" style="height:93%;animation-delay:.2s"></div>
+          <div class="mb" style="height:80%;animation-delay:.25s"></div>
+          <div class="mb" style="height:95%;animation-delay:.3s"></div>
+          <div class="mb" style="height:86%;animation-delay:.35s"></div>
+          <div class="mb" style="height:100%;animation-delay:.4s;background:linear-gradient(to top,var(--green),rgba(34,197,94,.32))"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FUEL -->
+<section class="bg1">
+  <div class="fuel-wrap">
+    <div class="reveal">
+      <span class="sec-label">Kraftstoff</span>
+      <h2 class="sec-title">Preise immer im Blick.</h2>
+      <p class="sec-body">Aktuelle Tankstellenpreise entlang deiner Route – automatisch.</p>
+    </div>
+    <div class="fuel-grid">
+      <div class="fc reveal"><div style="width:10px;height:10px;border-radius:50%;background:#22C55E"></div><div class="ftype">Super E5</div><div class="fprice">1.72 <span>€/L</span></div><div class="floc">Aral · 2.0 km</div></div>
+      <div class="fc reveal d1"><div style="width:10px;height:10px;border-radius:50%;background:#3B82F6"></div><div class="ftype">Super E10</div><div class="fprice">1.68 <span>€/L</span></div><div class="floc">BP · 1.4 km</div></div>
+      <div class="fc reveal d2"><div style="width:10px;height:10px;border-radius:50%;background:#F59E0B"></div><div class="ftype">Diesel</div><div class="fprice">1.58 <span>€/L</span></div><div class="floc">Shell · 0.8 km</div></div>
+      <div class="fc reveal d3"><div style="width:10px;height:10px;border-radius:50%;background:#FB923C"></div><div class="ftype">LPG</div><div class="fprice">0.89 <span>€/L</span></div><div class="floc">Jet · 3.2 km</div></div>
+      <div class="fc reveal d4"><div style="width:10px;height:10px;border-radius:50%;background:#06B6D4"></div><div class="ftype">Strom</div><div class="fprice">0.39 <span>€/kWh</span></div><div class="floc">EnBW · 1.2 km</div></div>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING -->
+<section id="pricing">
+  <div class="pricing-wrap">
+    <div style="text-align:center;" class="reveal">
+      <span class="sec-label">Preise</span>
+      <h2 class="sec-title">Kostenlos starten.<br/>Pro werden.</h2>
+      <p class="sec-body center">Starte gratis. Upgrade für unbegrenzte Fahrten, Tempolimit &amp; vollen Fahrscore.</p>
+    </div>
+    <div class="plan-grid">
+      <div class="plan reveal">
+        <div class="pname">Free</div>
+        <div class="pprice"><span class="cur">€</span>0</div>
+        <div class="psub">Für immer kostenlos</div>
+        <ul class="pfeats">
+          <li><span class="ck">✓</span> GPS-Fahrtaufzeichnung</li>
+          <li><span class="ck">✓</span> Live-Tachometer</li>
+          <li><span class="ck">✓</span> Basis-Statistiken</li>
+          <li><span class="ck">✓</span> Kraftstoffpreise</li>
+          <li><span class="ck">✓</span> 1 Fahrzeugprofil</li>
+          <li><span class="nx">✗</span> Begrenzte km/Monat</li>
+          <li><span class="nx">✗</span> Werbung</li>
+          <li><span class="nx">✗</span> Tempolimit-Anzeige</li>
+          <li><span class="nx">✗</span> 7-Faktor Fahrscore</li>
+        </ul>
+        <a href="#download" class="pbtn free">Kostenlos laden</a>
+      </div>
+      <div class="plan pro reveal d1">
+        <div class="pbadge">BELIEBT</div>
+        <div class="pname">Pro</div>
+        <div class="pprice"><span class="cur">€</span>4.99<span class="per">/Mo</span></div>
+        <div class="psub">oder <strong>42.99 €/Jahr</strong> – 28% gespart</div>
+        <ul class="pfeats">
+          <li><span class="ck">✓</span> Alles aus Free</li>
+          <li><span class="ck">✓</span> Unbegrenzte Fahrten</li>
+          <li><span class="ck">✓</span> Keine Werbung</li>
+          <li><span class="ck">✓</span> Live-Tempolimit-Anzeige</li>
+          <li><span class="ck">✓</span> 7-Faktor Fahrscore</li>
+          <li><span class="ck">✓</span> Score-Verlauf &amp; Grafiken</li>
+          <li><span class="ck">✓</span> Mehrere Fahrzeugprofile</li>
+          <li><span class="ck">✓</span> Cloud Backup &amp; Sync</li>
+          <li><span class="ck">✓</span> CO₂-Ausstoss-Tracking</li>
+        </ul>
+        <a href="#download" class="pbtn paid">Pro freischalten</a>
+      </div>
+    </div>
+    <p class="snote reveal">Jährlich buchen und <strong>über 17 € sparen</strong>. Kündbar jederzeit über deine Apple ID.</p>
+  </div>
+</section>
+
+<!-- DOWNLOAD -->
+<section id="download" class="bg1">
+  <div class="dl-wrap">
+    <div class="dl-card reveal">
+      <div class="dl-icon"><img src="assets/img/app-icon.png" alt="Auto Performance Tracker"/></div>
+      <h2>Bald im App Store.<br/>Sei Erster dabei.</h2>
+      <p>Auto Performance Tracker erscheint demnächst im Apple App Store für iPhone.</p>
+      <div class="as-btn">
+        <svg viewBox="0 0 24 24" fill="currentColor"><path d="M18.71 19.5c-.83 1.24-1.71 2.45-3.05 2.47-1.34.03-1.77-.79-3.29-.79-1.53 0-2 .77-3.27.82-1.31.05-2.3-1.32-3.14-2.53C4.25 17 2.94 12.45 4.7 9.39c.87-1.52 2.43-2.48 4.12-2.51 1.28-.02 2.5.87 3.29.87.78 0 2.26-1.07 3.8-.91.65.03 2.47.26 3.64 1.98-.09.06-2.17 1.28-2.15 3.81.03 3.02 2.65 4.03 2.68 4.04-.03.07-.42 1.44-1.38 2.83M13 3.5c.73-.83 1.94-1.46 2.94-1.5.13 1.17-.34 2.35-1.04 3.19-.69.85-1.83 1.51-2.95 1.42-.15-1.15.41-2.35 1.05-3.11z"/></svg>
+        <div class="as-inner"><span class="as-top">Demnächst im</span><span class="as-bot">App Store</span></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="fbrand">
+    <div class="flogo">
+      <div class="flogo-icon"><img src="assets/img/app-icon.png" alt="APT"/></div>
+      <span class="flogo-name">Auto Performance Tracker</span>
+    </div>
+    <div class="ftagline">Drive Smarter. Grow Faster.</div>
+  </div>
+  <div class="fcol">
+    <h4>Rechtliches</h4>
+    <a href="impressum.html">Impressum</a>
+    <a href="https://antonmelken.github.io/private-policy-apt/" target="_blank" rel="noopener">Datenschutzerklärung</a>
+  </div>
+  <div class="fcol">
+    <h4>App</h4>
+    <a href="#screens">Screenshots</a>
+    <a href="#features">Features</a>
+    <a href="#pricing">Pro-Abo</a>
+    <a href="#download">Download</a>
+  </div>
+  <div class="fbot">
+    <span>© 2025 Auto Performance Tracker · Alle Rechte vorbehalten</span>
+    <span>Made with ♥ for iPhone</span>
+  </div>
+</footer>
+
+<script>
+  const obs = new IntersectionObserver(
+    e => e.forEach(x => { if(x.isIntersecting) x.target.classList.add('vis'); }),
+    { threshold: 0.1 }
+  );
+  document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+</body>
+</html>
