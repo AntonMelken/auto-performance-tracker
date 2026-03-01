@@ -148,6 +148,9 @@
     .icon-blue   { background: rgba(34,211,238,0.10); }
     .icon-orange { background: rgba(249,115,22,0.15); }
     .icon-red    { background: rgba(239,68,68,0.15); }
+
+    /* ── EN hidden by default ── */
+    .en { display: none; }
     .icon-teal   { background: rgba(20,184,166,0.15); }
     .icon-sky    { background: rgba(34,211,238,0.12); }
     .icon-indigo { background: rgba(99,102,241,0.15); }
@@ -583,3 +586,33 @@
   </div>
 
 </div>
+
+<script>
+  function setLang(lang) {
+    document.querySelectorAll('.de, .en').forEach(function(el) {
+      el.style.display = 'none';
+    });
+    document.querySelectorAll('.' + lang).forEach(function(el) {
+      var tag = el.tagName.toLowerCase();
+      if (tag === 'li' || tag === 'ul') {
+        el.style.display = tag === 'ul' ? 'block' : 'list-item';
+      } else if (tag === 'table') {
+        el.style.display = 'table';
+      } else if (tag === 'a' || tag === 'span') {
+        el.style.display = 'inline';
+      } else {
+        el.style.display = '';
+      }
+    });
+    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
+    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    document.documentElement.lang = lang;
+  }
+
+  document.addEventListener('DOMContentLoaded', function() {
+    setLang('de');
+  });
+</script>
+
+</body>
+</html>
