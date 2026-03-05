@@ -400,6 +400,179 @@
   ::-webkit-scrollbar { width: 6px; }
   ::-webkit-scrollbar-track { background: var(--bg); }
   ::-webkit-scrollbar-thumb { background: var(--card2); border-radius: 3px; }
+
+  /* ── AGB Modal ───────────────────────────────────── */
+  .modal-backdrop {
+    position: fixed; inset: 0; z-index: 9000;
+    background: rgba(4,7,16,0.85);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    display: flex; align-items: center; justify-content: center;
+    padding: 20px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 0.3s ease;
+  }
+  .modal-backdrop.open {
+    opacity: 1; pointer-events: all;
+  }
+  .modal-box {
+    background: #0D1420;
+    border: 1px solid rgba(255,255,255,0.1);
+    border-radius: 24px;
+    width: 100%; max-width: 740px;
+    max-height: 88vh;
+    display: flex; flex-direction: column;
+    box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(34,211,238,0.08);
+    transform: translateY(24px) scale(0.98);
+    transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+    opacity: 0;
+  }
+  .modal-backdrop.open .modal-box {
+    transform: none; opacity: 1;
+  }
+  .modal-header {
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 22px 28px 18px;
+    border-bottom: 1px solid rgba(255,255,255,0.07);
+    flex-shrink: 0;
+  }
+  .modal-header-left { display: flex; align-items: center; gap: 14px; }
+  .modal-icon {
+    width: 40px; height: 40px; border-radius: 12px;
+    background: rgba(34,211,238,0.12);
+    border: 1px solid rgba(34,211,238,0.2);
+    display: flex; align-items: center; justify-content: center;
+    font-size: 18px; flex-shrink: 0;
+  }
+  .modal-title { font-size: 1.1rem; font-weight: 800; color: var(--text); }
+  .modal-subtitle { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+  .modal-close {
+    width: 36px; height: 36px; border-radius: 50%;
+    background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+    color: var(--muted); font-size: 18px; cursor: pointer;
+    display: flex; align-items: center; justify-content: center;
+    transition: all 0.2s; flex-shrink: 0;
+    font-family: inherit;
+  }
+  .modal-close:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+  .modal-toc {
+    display: flex; gap: 6px; flex-wrap: wrap;
+    padding: 14px 28px;
+    border-bottom: 1px solid rgba(255,255,255,0.06);
+    flex-shrink: 0;
+    overflow-x: auto;
+  }
+  .modal-toc a {
+    font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.06em; color: var(--muted);
+    background: rgba(255,255,255,0.04);
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 50px; padding: 4px 10px;
+    text-decoration: none; transition: all 0.2s; white-space: nowrap;
+  }
+  .modal-toc a:hover { color: var(--cyan); border-color: rgba(34,211,238,0.3); background: rgba(34,211,238,0.07); }
+  .modal-body {
+    overflow-y: auto; padding: 28px;
+    flex: 1;
+    scroll-behavior: smooth;
+  }
+  .modal-body::-webkit-scrollbar { width: 4px; }
+  .modal-body::-webkit-scrollbar-track { background: transparent; }
+  .modal-body::-webkit-scrollbar-thumb { background: rgba(255,255,255,0.1); border-radius: 2px; }
+
+  /* AGB Paragraphen */
+  .agb-para {
+    background: #111827;
+    border: 1px solid rgba(255,255,255,0.07);
+    border-radius: 16px;
+    padding: 22px 24px;
+    margin-bottom: 14px;
+  }
+  .agb-para:last-child { margin-bottom: 0; }
+  .agb-para-title {
+    display: flex; align-items: center; gap: 10px;
+    margin-bottom: 14px;
+  }
+  .agb-para-num {
+    background: rgba(34,211,238,0.15);
+    color: var(--cyan);
+    font-size: 0.68rem; font-weight: 800;
+    letter-spacing: 0.08em; text-transform: uppercase;
+    padding: 3px 9px; border-radius: 6px; flex-shrink: 0;
+  }
+  .agb-para-heading {
+    font-size: 0.75rem; font-weight: 700;
+    text-transform: uppercase; letter-spacing: 0.08em;
+    color: var(--cyan);
+  }
+  .agb-text { font-size: 14px; color: var(--muted); line-height: 1.75; }
+  .agb-text p { margin-bottom: 10px; }
+  .agb-text p:last-child { margin-bottom: 0; }
+  .agb-text a { color: var(--cyan); }
+  .agb-text strong { color: var(--text); }
+  .agb-info-box {
+    background: rgba(34,211,238,0.06);
+    border: 1px solid rgba(34,211,238,0.18);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    font-size: 13px; color: var(--muted); line-height: 1.6;
+  }
+  .agb-warn-box {
+    background: rgba(245,158,11,0.07);
+    border: 1px solid rgba(245,158,11,0.22);
+    border-radius: 10px;
+    padding: 12px 16px;
+    margin: 10px 0;
+    display: flex; gap: 10px;
+    font-size: 13px; color: #FCD34D; line-height: 1.6;
+  }
+  .agb-items {
+    list-style: none; padding: 0; margin: 10px 0 0;
+    display: flex; flex-direction: column; gap: 7px;
+  }
+  .agb-items li {
+    display: flex; gap: 10px; align-items: flex-start;
+    background: rgba(255,255,255,0.03);
+    border: 1px solid rgba(255,255,255,0.05);
+    border-radius: 9px;
+    padding: 8px 12px;
+    font-size: 13px; color: var(--muted); line-height: 1.55;
+  }
+  .agb-items li .n {
+    flex-shrink: 0; width: 20px; height: 20px;
+    background: rgba(34,211,238,0.14); color: var(--cyan);
+    border-radius: 5px; display: flex; align-items: center;
+    justify-content: center; font-size: 10px; font-weight: 800; margin-top: 1px;
+  }
+  .agb-sub-label {
+    font-size: 11px; font-weight: 700; text-transform: uppercase;
+    letter-spacing: 0.07em; color: var(--cyan);
+    margin: 14px 0 6px; display: block;
+  }
+  .modal-footer-bar {
+    padding: 16px 28px;
+    border-top: 1px solid rgba(255,255,255,0.07);
+    display: flex; align-items: center; justify-content: space-between;
+    flex-shrink: 0; gap: 12px; flex-wrap: wrap;
+  }
+  .modal-footer-bar span { font-size: 12px; color: var(--muted); }
+  .modal-footer-bar a { color: var(--cyan); text-decoration: none; font-size: 12px; }
+  .modal-dl-btn {
+    background: rgba(34,211,238,0.1);
+    border: 1px solid rgba(34,211,238,0.25);
+    color: var(--cyan); font-size: 0.78rem; font-weight: 700;
+    padding: 8px 16px; border-radius: 50px; cursor: pointer;
+    text-decoration: none; transition: all 0.2s; font-family: inherit;
+    display: inline-flex; align-items: center; gap: 6px;
+  }
+  .modal-dl-btn:hover { background: rgba(34,211,238,0.18); }
+  @media (max-width: 600px) {
+    .modal-body { padding: 16px; }
+    .modal-header { padding: 16px; }
+    .modal-toc { padding: 10px 16px; }
+    .modal-footer-bar { padding: 12px 16px; }
+  }
 </style>
 </head>
 <body>
@@ -590,9 +763,25 @@
       <!-- Pro Jährlich (featured) -->
       <div class="price-card featured" data-badge="BELIEBTESTE WAHL">
         <div class="price-name" data-de="Pro Jährlich" data-en="Pro Yearly">Pro Jährlich</div>
-        <div class="price-val">3,58 € <span data-de="/Monat" data-en="/month">/Monat</span></div>
-        <div class="price-period" data-de="42,99 € / Jahr" data-en="€42.99 / year">42,99 € / Jahr</div>
-        <div class="price-save" data-de="💰 28% GÜNSTIGER als monatlich" data-en="💰 SAVE 28% vs monthly">💰 28% GÜNSTIGER als monatlich</div>
+
+        <!-- Trial badge Apple-style -->
+        <div style="
+          display:inline-flex; align-items:center; gap:6px;
+          background: linear-gradient(135deg, rgba(34,211,238,0.18), rgba(129,140,248,0.18));
+          border: 1px solid rgba(34,211,238,0.35);
+          border-radius: 10px; padding: 7px 13px;
+          margin-bottom: 14px; width: 100%;
+        ">
+          <span style="font-size:18px;">🎁</span>
+          <div>
+            <div style="font-size:0.8rem;font-weight:800;color:var(--text);" data-de="1 Woche kostenlos testen" data-en="Try free for 1 week">1 Woche kostenlos testen</div>
+            <div style="font-size:0.68rem;color:var(--muted);" data-de="Dann 3,33 €/Monat – jederzeit kündbar" data-en="Then €3.33/month – cancel anytime">Dann 3,33 €/Monat – jederzeit kündbar</div>
+          </div>
+        </div>
+
+        <div class="price-val">3,33 € <span data-de="/Monat" data-en="/month">/Monat</span></div>
+        <div class="price-period" data-de="39,99 € / Jahr – nach kostenloser Woche" data-en="€39.99 / year – after free trial">39,99 € / Jahr – nach kostenloser Woche</div>
+        <div class="price-save" data-de="💰 17% GÜNSTIGER als monatlich" data-en="💰 SAVE 17% vs monthly">💰 17% GÜNSTIGER als monatlich</div>
         <hr class="price-divider">
         <div class="price-feature"><span class="icon">✅</span><span data-de="Unbegrenzte Fahrten" data-en="Unlimited Trips">Unbegrenzte Fahrten</span></div>
         <div class="price-feature"><span class="icon">✅</span><span data-de="Unbegrenzte Fahrzeugprofile" data-en="Unlimited Vehicle Profiles">Unbegrenzte Fahrzeugprofile</span></div>
@@ -602,15 +791,33 @@
         <div class="price-feature"><span class="icon">✅</span><span data-de="Tempolimit-Anzeige" data-en="Speed Limit Display">Tempolimit-Anzeige</span></div>
         <div class="price-feature"><span class="icon">✅</span><span data-de="Werbefrei" data-en="No Ads">Werbefrei</span></div>
         <div class="price-feature"><span class="icon">✅</span><span data-de="Cloud-Sync (DSGVO)" data-en="Cloud Sync (GDPR)">Cloud-Sync (DSGVO)</span></div>
-        <a href="#" class="price-btn price-btn-primary" data-de="Pro Jährlich kaufen" data-en="Get Pro Yearly">Pro Jährlich kaufen</a>
-        <p style="text-align:center;font-size:0.72rem;margin-top:8px;" data-de="Jederzeit kündbar in iOS-Einstellungen" data-en="Cancel anytime in iOS Settings">Jederzeit kündbar in iOS-Einstellungen</p>
+        <a href="#" class="price-btn price-btn-primary" data-de="Kostenlos starten →" data-en="Start Free Trial →">Kostenlos starten →</a>
+        <p style="text-align:center;font-size:0.7rem;margin-top:10px;color:var(--muted);line-height:1.5;">
+          <span data-de="7 Tage gratis · danach 39,99 €/Jahr · jederzeit in iOS-Einstellungen kündbar" data-en="7 days free · then €39.99/year · cancel anytime in iOS Settings">7 Tage gratis · danach 39,99 €/Jahr · jederzeit in iOS-Einstellungen kündbar</span>
+        </p>
       </div>
 
       <!-- Pro Monatlich -->
       <div class="price-card">
         <div class="price-name" data-de="Pro Monatlich" data-en="Pro Monthly">Pro Monatlich</div>
-        <div class="price-val">4,99 € <span data-de="/Monat" data-en="/month">/Monat</span></div>
-        <div class="price-period" data-de="Monatlich kündbar" data-en="Cancel monthly">Monatlich kündbar</div>
+
+        <!-- Trial badge Apple-style -->
+        <div style="
+          display:inline-flex; align-items:center; gap:6px;
+          background: rgba(34,211,238,0.07);
+          border: 1px solid rgba(34,211,238,0.2);
+          border-radius: 10px; padding: 7px 13px;
+          margin-bottom: 14px; width: 100%;
+        ">
+          <span style="font-size:18px;">🎁</span>
+          <div>
+            <div style="font-size:0.8rem;font-weight:800;color:var(--text);" data-de="1 Woche kostenlos testen" data-en="Try free for 1 week">1 Woche kostenlos testen</div>
+            <div style="font-size:0.68rem;color:var(--muted);" data-de="Dann 3,99 €/Monat – jederzeit kündbar" data-en="Then €3.99/month – cancel anytime">Dann 3,99 €/Monat – jederzeit kündbar</div>
+          </div>
+        </div>
+
+        <div class="price-val">3,99 € <span data-de="/Monat" data-en="/month">/Monat</span></div>
+        <div class="price-period" data-de="Monatlich kündbar – nach kostenloser Woche" data-en="Cancel monthly – after free trial">Monatlich kündbar – nach kostenloser Woche</div>
         <hr class="price-divider">
         <div class="price-feature"><span class="icon">✅</span><span data-de="Unbegrenzte Fahrten" data-en="Unlimited Trips">Unbegrenzte Fahrten</span></div>
         <div class="price-feature"><span class="icon">✅</span><span data-de="Unbegrenzte Fahrzeugprofile" data-en="Unlimited Vehicle Profiles">Unbegrenzte Fahrzeugprofile</span></div>
@@ -620,8 +827,10 @@
         <div class="price-feature"><span class="icon">✅</span><span data-de="Tempolimit-Anzeige" data-en="Speed Limit Display">Tempolimit-Anzeige</span></div>
         <div class="price-feature"><span class="icon">✅</span><span data-de="Werbefrei" data-en="No Ads">Werbefrei</span></div>
         <div class="price-feature"><span class="icon">✅</span><span data-de="Cloud-Sync (DSGVO)" data-en="Cloud Sync (GDPR)">Cloud-Sync (DSGVO)</span></div>
-        <a href="#" class="price-btn price-btn-primary" style="background:var(--card2);color:var(--text);" data-de="Pro Monatlich kaufen" data-en="Get Pro Monthly">Pro Monatlich kaufen</a>
-        <p style="text-align:center;font-size:0.72rem;margin-top:8px;" data-de="Jederzeit kündbar in iOS-Einstellungen" data-en="Cancel anytime in iOS Settings">Jederzeit kündbar in iOS-Einstellungen</p>
+        <a href="#" class="price-btn price-btn-primary" style="background:var(--card2);color:var(--text);" data-de="Kostenlos starten →" data-en="Start Free Trial →">Kostenlos starten →</a>
+        <p style="text-align:center;font-size:0.7rem;margin-top:10px;color:var(--muted);line-height:1.5;">
+          <span data-de="7 Tage gratis · danach 3,99 €/Monat · jederzeit in iOS-Einstellungen kündbar" data-en="7 days free · then €3.99/month · cancel anytime in iOS Settings">7 Tage gratis · danach 3,99 €/Monat · jederzeit in iOS-Einstellungen kündbar</span>
+        </p>
       </div>
     </div>
   </div>
@@ -642,7 +851,7 @@
           <span class="faq-chevron">▾</span>
         </div>
         <div class="faq-a">
-          <span data-de="Standard ist kostenlos und beinhaltet GPS-Tracking, Basis-Statistiken und 1 Fahrzeugprofil – aber auf 250 km pro Monat begrenzt und mit Werbung. Pro (4,99 €/Monat oder 42,99 €/Jahr) hebt alle Limits auf: unbegrenzte Fahrten, alle Fahrzeugprofile, detaillierter Driving Score mit 7 Kategorien, KI-Fahrtipps, Live-Kraftstoffpreise, Tempolimit-Anzeige und keine Werbung." data-en="Standard is free and includes GPS tracking, basic statistics and 1 vehicle profile – but limited to 250 km per month and with ads. Pro (€4.99/month or €42.99/year) removes all limits: unlimited trips, all vehicle profiles, detailed Driving Score with 7 categories, AI tips, live fuel prices, speed limit display and no ads.">Standard ist kostenlos und beinhaltet GPS-Tracking, Basis-Statistiken und 1 Fahrzeugprofil – aber auf 250 km pro Monat begrenzt und mit Werbung. Pro (4,99 €/Monat oder 42,99 €/Jahr) hebt alle Limits auf: unbegrenzte Fahrten, alle Fahrzeugprofile, detaillierter Driving Score mit 7 Kategorien, KI-Fahrtipps, Live-Kraftstoffpreise, Tempolimit-Anzeige und keine Werbung.</span>
+          <span data-de="Standard ist kostenlos und beinhaltet GPS-Tracking, Basis-Statistiken und 1 Fahrzeugprofil – aber auf 250 km pro Monat begrenzt und mit Werbung. Pro (3,99 €/Monat oder 39,99 €/Jahr, je mit 1 Woche gratis) hebt alle Limits auf: unbegrenzte Fahrten, alle Fahrzeugprofile, detaillierter Driving Score mit 7 Kategorien, KI-Fahrtipps, Live-Kraftstoffpreise, Tempolimit-Anzeige und keine Werbung." data-en="Standard is free and includes GPS tracking, basic statistics and 1 vehicle profile – but limited to 250 km per month and with ads. Pro (€3.99/month or €39.99/year, each with 1 week free) removes all limits: unlimited trips, all vehicle profiles, detailed Driving Score with 7 categories, AI tips, live fuel prices, speed limit display and no ads.">Standard ist kostenlos und beinhaltet GPS-Tracking, Basis-Statistiken und 1 Fahrzeugprofil – aber auf 250 km pro Monat begrenzt und mit Werbung. Pro (3,99 €/Monat oder 39,99 €/Jahr, je mit 1 Woche gratis) hebt alle Limits auf: unbegrenzte Fahrten, alle Fahrzeugprofile, detaillierter Driving Score mit 7 Kategorien, KI-Fahrtipps, Live-Kraftstoffpreise, Tempolimit-Anzeige und keine Werbung.</span>
         </div>
       </div>
 
@@ -743,18 +952,275 @@
         <h4 data-de="Rechtliches" data-en="Legal">Rechtliches</h4>
         <a href="datenschutz.html" target="_blank" rel="noopener" data-de="Datenschutz" data-en="Privacy Policy">Datenschutz</a>
         <a href="impressum.html" data-de="Impressum" data-en="Imprint">Impressum</a>
+        <a href="#" onclick="openAGB(); return false;" data-de="AGB" data-en="Terms of Service">AGB</a>
         <a href="support.html" data-de="Support & Kontakt" data-en="Support & Contact">Support & Kontakt</a>
         <a href="#" data-de="Käufe wiederherstellen" data-en="Restore Purchases">Käufe wiederherstellen</a>
       </div>
     </div>
     <div class="footer-bottom">
-      <span>© 2026 Auto Performance Tracker. <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span> · <a href="impressum.html" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">Impressum</a> · <a href="datenschutz.html" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">Datenschutz</a></span>
+      <span>© 2026 Auto Performance Tracker. <span data-de="Alle Rechte vorbehalten." data-en="All rights reserved.">Alle Rechte vorbehalten.</span> · <a href="impressum.html" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">Impressum</a> · <a href="datenschutz.html" target="_blank" rel="noopener" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">Datenschutz</a> · <a href="#" onclick="openAGB(); return false;" style="color:var(--muted);text-decoration:none;" onmouseover="this.style.color='var(--cyan)'" onmouseout="this.style.color='var(--muted)'">AGB</a></span>
       <span data-de="Mit ❤️ gebaut für Fahrer, die es besser wissen wollen." data-en="Built with ❤️ for drivers who want to know better.">Mit ❤️ gebaut für Fahrer, die es besser wissen wollen.</span>
     </div>
   </div>
 </footer>
 
+<!-- ██ AGB MODAL ██ -->
+<div class="modal-backdrop" id="agbModal" role="dialog" aria-modal="true" aria-labelledby="agbModalTitle">
+  <div class="modal-box">
+
+    <div class="modal-header">
+      <div class="modal-header-left">
+        <div class="modal-icon">📋</div>
+        <div>
+          <div class="modal-title" id="agbModalTitle">Allgemeine Geschäftsbedingungen</div>
+          <div class="modal-subtitle">Auto Performance Tracker · Stand: März 2026 · §§ 305 ff. BGB</div>
+        </div>
+      </div>
+      <button class="modal-close" onclick="closeAGB()" aria-label="Schließen">✕</button>
+    </div>
+
+    <div class="modal-toc">
+      <a href="#agb1">§1 Geltung</a>
+      <a href="#agb2">§2 Leistung</a>
+      <a href="#agb3">§3 Konto</a>
+      <a href="#agb4">§4 Abos</a>
+      <a href="#agb5">§5 Widerruf</a>
+      <a href="#agb6">§6 Nutzungsrecht</a>
+      <a href="#agb7">§7 Verbote</a>
+      <a href="#agb8">§8 GPS</a>
+      <a href="#agb9">§9 Haftung</a>
+      <a href="#agb10">§10 Datenschutz</a>
+      <a href="#agb11">§11 Änderungen</a>
+      <a href="#agb12">§12 Schluss</a>
+    </div>
+
+    <div class="modal-body" id="agbScrollBody">
+
+      <!-- §1 -->
+      <div class="agb-para" id="agb1">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 1</span>
+          <span class="agb-para-heading">Geltungsbereich und Vertragsparteien</span>
+        </div>
+        <div class="agb-text">
+          <p>Diese Allgemeinen Geschäftsbedingungen (<strong>„AGB"</strong>) gelten für die Nutzung der App <strong>Auto Performance Tracker</strong>, bereitgestellt von:</p>
+          <div class="agb-info-box">
+            <strong style="color:var(--text)">Anton Melnychuk</strong><br>
+            Heppenheimer Straße 39, 64658 Fürth im Odenwald, Deutschland<br>
+            E-Mail: <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a>
+          </div>
+          <p style="margin-top:10px">Die App richtet sich an Privatpersonen zu <strong>nicht gewerblichen Zwecken</strong>.</p>
+          <div class="agb-warn-box">
+            <span>⚠️</span>
+            <span>Die Nutzung ist nur für Personen ab <strong>17 Jahren</strong> gestattet (App-Store-Einstufung 17+). Minderjährige dürfen die App nicht verwenden.</span>
+          </div>
+          <p style="margin-top:10px">Abweichende Bedingungen des Nutzers werden nicht Vertragsbestandteil.</p>
+        </div>
+      </div>
+
+      <!-- §2 -->
+      <div class="agb-para" id="agb2">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 2</span>
+          <span class="agb-para-heading">Leistungsumfang und Verfügbarkeit</span>
+        </div>
+        <div class="agb-text">
+          <p>Die App bietet GPS-gestützte Fahrtaufzeichnung, Geschwindigkeitsmessung, Fahrtenstatistiken, Kraftstoffkostenberechnung und weitere fahrzeugbezogene Funktionen.</p>
+          <p>Die App wird <strong>„as-is"</strong> bereitgestellt – ohne Garantie für bestimmte Funktionalität oder Fehlerfreiheit. Der Anbieter kann Funktionen jederzeit ändern, einschränken oder einstellen. Ein Anspruch auf Beibehaltung besteht nicht.</p>
+        </div>
+      </div>
+
+      <!-- §3 -->
+      <div class="agb-para" id="agb3">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 3</span>
+          <span class="agb-para-heading">Nutzerkonto und Registrierung</span>
+        </div>
+        <div class="agb-text">
+          <p>Für bestimmte Funktionen ist ein Nutzerkonto erforderlich. Bei der Registrierung sind <strong>wahrheitsgemäße Angaben</strong> zu machen. Pro Person ist nur ein Konto zulässig.</p>
+          <p>Der Nutzer ist für alle Aktivitäten unter seinem Konto verantwortlich und darf Zugangsdaten nicht an Dritte weitergeben. Bei unbefugter Nutzung ist der Anbieter unverzüglich per E-Mail zu informieren.</p>
+          <p>Der Anbieter kann Konten bei Verstoß gegen diese AGB <strong>sperren oder löschen</strong>.</p>
+        </div>
+      </div>
+
+      <!-- §4 -->
+      <div class="agb-para" id="agb4">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 4</span>
+          <span class="agb-para-heading">In-App-Käufe und Abonnements</span>
+        </div>
+        <div class="agb-text">
+          <p>Die App enthält kostenpflichtige Zusatzfunktionen. Die Abwicklung erfolgt ausschließlich über den <strong>Apple App Store</strong> (Zahlungsbedingungen von Apple Inc. gelten). Der Anbieter ist Kleinunternehmer gem. § 19 UStG – es fällt keine Umsatzsteuer an.</p>
+          <span class="agb-sub-label">📅 Abonnements</span>
+          <p>Abonnements verlängern sich <strong>automatisch</strong>, sofern nicht mindestens <strong>24 Stunden vor Ablauf</strong> des Abrechnungszeitraums in den iOS-Einstellungen gekündigt wird. Rückerstattungen sind direkt beim Apple Support zu beantragen.</p>
+        </div>
+      </div>
+
+      <!-- §5 -->
+      <div class="agb-para" id="agb5">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 5</span>
+          <span class="agb-para-heading">Widerrufsrecht (Verbraucher)</span>
+        </div>
+        <div class="agb-text">
+          <p>Verbrauchern steht bei kostenpflichtigen In-App-Käufen ein gesetzliches <strong>Widerrufsrecht von 14 Tagen</strong> zu (§§ 312g, 355 BGB).</p>
+          <p>Das Widerrufsrecht erlischt bei digitalen Inhalten vorzeitig, wenn der Nutzer der sofortigen Ausführung zugestimmt und bestätigt hat, dadurch das Widerrufsrecht zu verlieren (§ 356 Abs. 5 BGB). Die Abwicklung erfolgt durch den Apple App Store.</p>
+        </div>
+      </div>
+
+      <!-- §6 -->
+      <div class="agb-para" id="agb6">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 6</span>
+          <span class="agb-para-heading">Nutzungsrechte</span>
+        </div>
+        <div class="agb-text">
+          <p>Mit dem Download erhält der Nutzer ein <strong>einfaches, nicht übertragbares, nicht unterlizenzierbares Recht</strong> zur privaten, nicht kommerziellen Nutzung der App auf einem eigenen Apple-Gerät.</p>
+          <p>Das Recht endet automatisch bei AGB-Verstoß oder Deinstallation. Alle Urheberrechte verbleiben beim Anbieter.</p>
+        </div>
+      </div>
+
+      <!-- §7 -->
+      <div class="agb-para" id="agb7">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 7</span>
+          <span class="agb-para-heading">Verbotene Nutzung</span>
+        </div>
+        <div class="agb-text">
+          <p>Dem Nutzer ist es untersagt:</p>
+        </div>
+        <ul class="agb-items">
+          <li><span class="n">1</span><span>Die App zu dekompilieren, disassemblieren oder den Quellcode zu ermitteln (<strong>Reverse Engineering</strong>)</span></li>
+          <li><span class="n">2</span><span>Die App zu kopieren, modifizieren oder kommerziell zu verwerten</span></li>
+          <li><span class="n">3</span><span>Die App für <strong>rechtswidrige Zwecke</strong> zu nutzen</span></li>
+          <li><span class="n">4</span><span>Server durch Bots oder automatisierte Abfragen <strong>zu überlasten oder zu missbrauchen</strong></span></li>
+          <li><span class="n">5</span><span>Sicherheitsmechanismen zu umgehen oder in die App-Integrität einzugreifen</span></li>
+          <li><span class="n">6</span><span>Fremde Nutzerkonten zu nutzen oder auf Daten anderer zuzugreifen</span></li>
+          <li><span class="n">7</span><span>Die App während der <strong>aktiven Fahrzeugführung</strong> verkehrsgefährdend zu bedienen (StVO gilt)</span></li>
+        </ul>
+      </div>
+
+      <!-- §8 -->
+      <div class="agb-para" id="agb8">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 8</span>
+          <span class="agb-para-heading">GPS-Daten und Messgenauigkeit</span>
+        </div>
+        <div class="agb-text">
+          <p>Kernfunktionen erfordern GPS-Zugriff, der über die Geräteeinstellungen erteilt wird. Die Messgenauigkeit hängt vom Satellitenempfang ab (Tunnel, Bebauung etc.).</p>
+          <div class="agb-warn-box">
+            <span>📍</span>
+            <span>GPS-basierte Werte sind <strong>keine rechtsverbindlichen Messwerte</strong> im Sinne des Eichrechts. Der Anbieter haftet nicht für Messungenauigkeiten.</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- §9 -->
+      <div class="agb-para" id="agb9">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 9</span>
+          <span class="agb-para-heading">Haftungsbeschränkung</span>
+        </div>
+        <div class="agb-text">
+          <p>Der Anbieter haftet <strong>uneingeschränkt</strong> bei Vorsatz, grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit.</p>
+          <p>Bei leicht fahrlässiger Verletzung von Kardinalpflichten haftet der Anbieter begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Im Übrigen ist die Haftung für leichte Fahrlässigkeit <strong>ausgeschlossen</strong>, insbesondere für:</p>
+          <ul class="agb-items" style="margin-top:10px">
+            <li><span class="n">→</span><span>GPS-Messungenauigkeiten und fehlerhafte Anzeigen</span></li>
+            <li><span class="n">→</span><span>Datenverlust durch Geräteausfall oder OS-Updates</span></li>
+            <li><span class="n">→</span><span>Schäden durch Nutzung während des Fahrens</span></li>
+            <li><span class="n">→</span><span>Schäden durch Nichtverfügbarkeit der App</span></li>
+          </ul>
+          <p style="margin-top:10px">Diese Beschränkungen gelten nicht bei arglistigem Verschweigen, Garantieübernahme oder Ansprüchen nach dem Produkthaftungsgesetz.</p>
+        </div>
+      </div>
+
+      <!-- §10 -->
+      <div class="agb-para" id="agb10">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 10</span>
+          <span class="agb-para-heading">Datenschutz</span>
+        </div>
+        <div class="agb-text">
+          <p>Der Anbieter verarbeitet personenbezogene Daten ausschließlich gem. DSGVO und BDSG. Einzelheiten entnimmt der Nutzer der <a href="datenschutz.html" target="_blank" rel="noopener"><strong>Datenschutzerklärung</strong></a>.</p>
+        </div>
+      </div>
+
+      <!-- §11 -->
+      <div class="agb-para" id="agb11">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 11</span>
+          <span class="agb-para-heading">Änderungen der AGB</span>
+        </div>
+        <div class="agb-text">
+          <p>Der Anbieter kann diese AGB mit Wirkung für die Zukunft ändern. Über wesentliche Änderungen wird per App-Benachrichtigung informiert. Weitere Nutzung nach Inkrafttreten gilt als Zustimmung.</p>
+        </div>
+      </div>
+
+      <!-- §12 -->
+      <div class="agb-para" id="agb12">
+        <div class="agb-para-title">
+          <span class="agb-para-num">§ 12</span>
+          <span class="agb-para-heading">Schlussbestimmungen</span>
+        </div>
+        <div class="agb-text">
+          <span class="agb-sub-label">⚖️ Anwendbares Recht</span>
+          <p>Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts (CISG). Zwingende Verbraucherschutzvorschriften des EU-Aufenthaltslandes bleiben unberührt.</p>
+          <span class="agb-sub-label">🏛️ Gerichtsstand</span>
+          <p>Für Unternehmer: ausschließlicher Gerichtsstand ist der Sitz des Anbieters. Für Verbraucher gilt der gesetzliche Gerichtsstand.</p>
+          <span class="agb-sub-label">🔗 EU-Streitbeilegung</span>
+          <p>Die EU-ODR-Plattform wurde am 20.07.2025 abgeschaltet. Informationen zu Schlichtungsstellen: <a href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_de" target="_blank" rel="noopener">consumer-redress.ec.europa.eu</a>. Der Anbieter nimmt an keinem Schlichtungsverfahren teil und ist dazu nicht verpflichtet.</p>
+          <span class="agb-sub-label">🍎 Apple-Hinweis</span>
+          <p>Diese AGB bestehen zwischen Nutzer und Anbieter (Anton Melnychuk). Apple Inc. ist kein Vertragspartner, hat aber als Drittbegünstigter das Recht, diese AGB durchzusetzen.</p>
+          <span class="agb-sub-label">🔧 Salvatorische Klausel</span>
+          <p>Unwirksame Einzelbestimmungen berühren die Gültigkeit der übrigen AGB nicht. Es gilt die gesetzliche Regelung.</p>
+        </div>
+      </div>
+
+    </div><!-- end modal-body -->
+
+    <div class="modal-footer-bar">
+      <span>© 2026 Anton Melnychuk · <a href="impressum.html">Impressum</a> · <a href="datenschutz.html" target="_blank">Datenschutz</a></span>
+      <a href="agb.html" target="_blank" rel="noopener" class="modal-dl-btn">↗ Als eigene Seite öffnen</a>
+    </div>
+
+  </div>
+</div>
+
 <script>
+// ── AGB Modal ────────────────────────────────────
+function openAGB() {
+  const m = document.getElementById('agbModal');
+  m.classList.add('open');
+  document.body.style.overflow = 'hidden';
+  // Reset scroll
+  document.getElementById('agbScrollBody').scrollTop = 0;
+}
+function closeAGB() {
+  document.getElementById('agbModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+// Close on backdrop click
+document.getElementById('agbModal').addEventListener('click', function(e) {
+  if (e.target === this) closeAGB();
+});
+// Close on Escape key
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeAGB();
+});
+// TOC smooth scroll within modal
+document.querySelectorAll('.modal-toc a').forEach(a => {
+  a.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      document.getElementById('agbScrollBody').scrollTo({
+        top: target.offsetTop - 10,
+        behavior: 'smooth'
+      });
+    }
+  });
+});
+
 // ── Language Switch ──────────────────────────────
 let currentLang = 'de';
 function setLang(lang) {
