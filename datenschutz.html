@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Datenschutzerklärung – Auto Performance Tracker</title>
+  <title>Impressum – Auto Performance Tracker</title>
   <style>
     :root {
       --bg:       #080C14;
@@ -15,8 +15,6 @@
       --cyan2:    #06B6D4;
       --green:    #22C55E;
       --amber:    #F59E0B;
-      --orange:   #FB923C;
-      --red:      #EF4444;
       --text:     #F1F5F9;
       --muted:    #94A3B8;
       --radius:   18px;
@@ -26,19 +24,23 @@
     body {
       font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
                    'Helvetica Neue', 'Segoe UI', sans-serif;
-      background: var(--bg); color: var(--text);
-      line-height: 1.75; font-size: 15px;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 15px;
     }
 
     /* ── Nav ── */
     nav {
       position: fixed; top: 0; left: 0; right: 0; z-index: 999;
-      padding: 0 24px; height: 64px;
+      padding: 0 24px;
+      height: 64px;
       display: flex; align-items: center; justify-content: space-between;
       background: rgba(8,12,20,0.75);
       backdrop-filter: blur(20px) saturate(180%);
       -webkit-backdrop-filter: blur(20px) saturate(180%);
       border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
     }
     .nav-logo {
       display: flex; align-items: center; gap: 10px;
@@ -46,8 +48,7 @@
       text-decoration: none; color: var(--text);
     }
     .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
-    .nav-right { display: flex; align-items: center; gap: 16px; }
-    .nav-links { display: flex; gap: 20px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a {
       color: var(--muted); font-size: 0.85rem; font-weight: 500;
       text-decoration: none; transition: color .2s;
@@ -55,103 +56,61 @@
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--cyan); font-weight: 600; }
 
-    /* ── Lang switcher ── */
-    .lang-switcher {
-      display: flex; gap: 4px;
-      background: var(--card); border-radius: 50px; padding: 4px;
-    }
-    .lang-btn {
-      border: none; background: transparent; cursor: pointer;
-      color: var(--muted); font-size: 0.8rem; font-weight: 600;
-      letter-spacing: 0.04em; padding: 5px 12px; border-radius: 50px;
-      font-family: inherit; transition: all .2s;
-    }
-    .lang-btn.active {
-      background: var(--cyan2); color: #000;
-    }
-    .lang-btn:not(.active):hover { color: var(--text); }
-
     /* ── Layout ── */
-    .container { max-width: 820px; margin: 0 auto; padding: 100px 24px 80px; }
-
-    /* ── Header ── */
-    .header {
-      text-align: center; padding: 48px 0 40px;
-      border-bottom: 1px solid var(--border); margin-bottom: 48px;
-    }
-    .shield { font-size: 52px; margin-bottom: 16px; }
-    h1 { font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
-    .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
-    .badge {
-      display: inline-block;
-      background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25);
-      color: var(--cyan); border-radius: 50px; padding: 5px 16px;
-      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    .container {
+      max-width: 760px; margin: 0 auto;
+      padding: 112px 24px 96px;
     }
 
-    /* ── Section card ── */
-    .section {
-      background: var(--card); border: 1px solid var(--border);
-      border-radius: var(--radius); padding: 28px; margin-bottom: 18px;
+    /* ── Page header ── */
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 {
+      font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 8px;
     }
-    .section-header {
-      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    .page-header p { color: var(--muted); font-size: 14px; }
+    .law-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px;
+      background: rgba(34,211,238,0.1);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: 50px; padding: 5px 14px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan);
     }
-    .section-icon {
-      width: 42px; height: 42px; border-radius: 10px;
-      display: flex; align-items: center; justify-content: center;
-      font-size: 20px; flex-shrink: 0;
-    }
-    .section-title { font-size: 17px; font-weight: 700; color: var(--text); }
-    .section-num { color: var(--muted); font-size: 13px; margin-bottom: 2px; }
 
-    p { color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
-    p strong { color: var(--text); }
-    ul { padding-left: 0; list-style: none; margin-bottom: 12px; }
-    ul li {
-      position: relative; padding-left: 20px;
-      margin-bottom: 8px; color: var(--muted);
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 18px;
     }
-    ul li::before { content: "›"; position: absolute; left: 0; color: var(--cyan); }
-    .label { font-weight: 600; color: var(--text); }
-    a { color: var(--cyan); text-decoration: none; }
-    a:hover { text-decoration: underline; }
-
-    /* ── Tags ── */
-    .tag {
-      display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 50px;
-      font-weight: 700; letter-spacing: 0.06em; margin-right: 4px; vertical-align: middle;
+    .card-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--cyan); margin-bottom: 16px;
     }
-    .tag-green  { background: rgba(34,211,238,0.1); color: var(--cyan); border: 1px solid rgba(34,211,238,0.25); }
-    .tag-blue   { background: rgba(34,211,238,0.08); color: var(--cyan); border: 1px solid rgba(34,211,238,0.2); }
-    .tag-orange { background: rgba(245,158,11,0.1); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
-
-    /* ── Table ── */
-    .data-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
-    .data-table td, .data-table th {
-      padding: 10px 14px; border: 1px solid var(--border); text-align: left; color: var(--muted);
+    .info-row {
+      display: flex; gap: 16px; padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
     }
-    .data-table th { background: rgba(34,211,238,0.06); color: var(--cyan); font-weight: 600; }
-    .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
-
-    /* ── Contact block ── */
-    .contact-block {
-      background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.2);
-      border-radius: var(--radius); padding: 28px 24px; text-align: center; margin-top: 40px;
+    .info-row:last-child { border-bottom: none; }
+    .info-label {
+      width: 160px; flex-shrink: 0;
+      font-size: 13px; color: var(--muted); padding-top: 1px;
     }
-    .contact-block p { color: var(--muted); }
-    .contact-email { color: var(--cyan) !important; font-weight: 700; }
+    .info-value { font-size: 15px; color: var(--text); }
+    .info-value a { color: var(--cyan); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
 
-    /* ── Icon colors ── */
-    .icon-purple { background: rgba(129,140,248,0.15); }
-    .icon-green  { background: rgba(34,211,238,0.12); }
-    .icon-blue   { background: rgba(34,211,238,0.10); }
-    .icon-orange { background: rgba(249,115,22,0.15); }
-    .icon-red    { background: rgba(239,68,68,0.15); }
-
-    .icon-teal   { background: rgba(20,184,166,0.15); }
-    .icon-sky    { background: rgba(34,211,238,0.12); }
-    .icon-indigo { background: rgba(99,102,241,0.15); }
+    /* ── Prose ── */
+    .prose { font-size: 15px; color: var(--muted); }
+    .prose p { margin-bottom: 12px; line-height: 1.7; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose a { color: var(--cyan); }
+    .prose strong { color: var(--text); }
 
     /* ── Footer ── */
     .footer {
@@ -159,674 +118,191 @@
       border-top: 1px solid var(--border);
       text-align: center; color: var(--muted); font-size: 13px;
     }
-    .footer a { color: var(--cyan); }
-
-    /* ── EN hidden by default ── */
-    .en { display: none; }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
 
     @media (max-width: 600px) {
-      .container { padding: 90px 16px 80px; }
-      .section { padding: 20px; }
-      .nav-links { display: none; }
+      .container { padding: 96px 16px 80px; }
+      .card { padding: 20px; }
+      .info-row { flex-direction: column; gap: 4px; }
+      .info-label { width: auto; }
     }
   </style>
 </head>
 <body>
 
-<!-- Nav -->
-<nav aria-label="Main navigation">
+<nav aria-label="Legal navigation">
   <a class="nav-logo" href="index.html">
     <img src="AppIcon-1024.png" alt="Auto Performance Tracker Logo">
     Auto Performance Tracker
   </a>
-    <div class="nav-right">
-      <div class="nav-links">
-        <a href="impressum.html">Impressum</a>
-        <a href="#" class="active">Datenschutz</a>
-        <a href="index.html">← Zurück</a>
-      </div>
-      <div class="lang-switcher">
-        <button class="lang-btn active" id="btn-de" onclick="setLang('de')">🇩🇪 DE</button>
-        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
-      </div>
-    </div>
+  <div class="nav-links">
+    <a href="impressum.html" class="active">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+    <a href="index.html" style="font-size:0.82rem">← Zurück</a>
+  </div>
 </nav>
 
 <div class="container">
 
-  <!-- Header -->
-  <div class="header">
-    <div class="shield">🔒</div>
-    <h1>
-      <span class="de">Datenschutzerklärung</span>
-      <span class="en">Privacy Policy</span>
-    </h1>
-    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: März 2026</p>
-    <p class="subtitle en">Auto Performance Tracker · Last updated: March 2026</p>
-    <span class="badge de">✓ DSGVO konform</span>
-    <span class="badge en">✓ GDPR compliant</span>
+  <div class="page-header">
+    <h1>Impressum</h1>
+    <p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
+    <div class="law-badge">⚖️ § 5 DDG · Stand: März 2026</div>
   </div>
 
-  <!-- ① Verantwortlicher -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-purple">👤</div>
-      <div>
-        <div class="section-num de">1. Verantwortlicher</div>
-        <div class="section-num en">1. Data Controller</div>
-        <div class="section-title">Anton Melnychuk</div>
+  <!-- ① Anbieter -->
+  <div class="card">
+    <div class="card-title">① Anbieter · Verantwortlicher</div>
+    <div class="info-row">
+      <div class="info-label">Name</div>
+      <div class="info-value"><strong>Anton Melnychuk</strong></div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Straße / Nr.</div>
+      <div class="info-value">Heppenheimer Straße 39</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">PLZ / Ort</div>
+      <div class="info-value">64658 Fürth im Odenwald</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Land</div>
+      <div class="info-value">Deutschland</div>
+    </div>
+  </div>
+
+  <!-- ② Kontakt -->
+  <div class="card">
+    <div class="card-title">② Kontakt</div>
+    <div class="info-row">
+      <div class="info-label">E-Mail</div>
+      <div class="info-value">
+        <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>
       </div>
     </div>
-    <p class="de">
-      <span class="label">Anschrift:</span> Heppenheimer Straße 39, 64658 Fürth im Odenwald, Deutschland<br>
-      <span class="label">E-Mail:</span> <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a><br>
-      <span class="label">Antwortzeit:</span> innerhalb von 72 Stunden.<br>
-      <span class="label">Datenschutzbeauftragter (Art. 13 Abs. 1 lit. b DSGVO):</span> Es ist kein Datenschutzbeauftragter benannt. Die Benennung ist für dieses Angebot gesetzlich nicht erforderlich (Art. 37 DSGVO).<br>
-      <span class="label">Aufsichtsbehörde (Art. 77 DSGVO):</span> Hessischer Beauftragter für Datenschutz und Informationsfreiheit, Poststraße 22, 65189 Wiesbaden · <a href="https://datenschutz.hessen.de" target="_blank">datenschutz.hessen.de</a>
-    </p>
-    <p class="en">
-      <span class="label">Address:</span> Heppenheimer Straße 39, 64658 Fürth im Odenwald, Germany<br>
-      <span class="label">Email:</span> <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a><br>
-      <span class="label">Response time:</span> within 72 hours.<br>
-      <span class="label">Data Protection Officer (Art. 13(1)(b) GDPR):</span> No Data Protection Officer has been appointed. Appointment is not legally required for this offering (Art. 37 GDPR).<br>
-      <span class="label">Supervisory authority (Art. 77 GDPR):</span> Hessischer Beauftragter für Datenschutz und Informationsfreiheit, Poststraße 22, 65189 Wiesbaden, Germany · <a href="https://datenschutz.hessen.de" target="_blank">datenschutz.hessen.de</a>
-    </p>
-  </div>
-
-  <!-- ② GPS -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-green">📍</div>
-      <div>
-        <div class="section-num de">2. Standortdaten &amp; Bewegungssensoren</div>
-        <div class="section-num en">2. Location Data &amp; Motion Sensors</div>
-        <div class="section-title de">GPS-Tracking &amp; CoreMotion</div>
-        <div class="section-title en">GPS Tracking &amp; CoreMotion</div>
+    <div class="info-row">
+      <div class="info-label">Telefon</div>
+      <div class="info-value">
+        <a href="tel:+491753797891">+49 (0) 175 3797891</a>
       </div>
     </div>
-
-    <p class="de" style="margin-top:16px"><strong>GPS-Standortdaten</strong></p>
-    <p class="en" style="margin-top:16px"><strong>GPS Location Data</strong></p>
-    <p class="de">Die App erfasst präzise GPS-Daten (Breitengrad, Längengrad, Höhe, Geschwindigkeit, Kurs) <strong>ausschließlich</strong> während einer aktiven Fahrtaufzeichnung – auch im Hintergrund, solange die Aufzeichnung läuft (UIBackgroundModes: location). Die GPS-Hardware bleibt beim Öffnen der App inaktiv und wird erst beim Starten der Aufzeichnung aktiviert.</p>
-    <p class="en">The app collects precise GPS data (latitude, longitude, altitude, speed, heading) <strong>exclusively</strong> during an active trip recording – including in the background while recording is active (UIBackgroundModes: location). The GPS hardware remains inactive when the app is opened and is only activated when recording starts.</p>
-    <ul>
-      <li class="de"><span class="label">Berechtigung:</span> iOS-Standortberechtigung „Immer erlauben" (erforderlich für Hintergrund-Aufzeichnung)</li>
-      <li class="en"><span class="label">Permission:</span> iOS location permission "Always Allow" (required for background recording)</li>
-      <li class="de"><span class="label">Zweck:</span> Berechnung von Strecke, Geschwindigkeit, Routenverlauf</li>
-      <li class="en"><span class="label">Purpose:</span> Calculating distance, speed, and route</li>
-      <li class="de"><span class="label">Lokal:</span> Standardmäßig ausschließlich lokal auf deinem Gerät gespeichert</li>
-      <li class="en"><span class="label">Local:</span> By default stored exclusively locally on your device</li>
-      <li class="de"><span class="label">Cloud:</span> Optional bei aktiviertem Cloud-Sync (EU-Server Frankfurt, Supabase)</li>
-      <li class="en"><span class="label">Cloud:</span> Optional when Cloud Sync is enabled (EU server Frankfurt, Supabase)</li>
-      <li class="de"><span class="label">Einwilligungswiderruf:</span> iOS-Einstellungen → Datenschutz &amp; Sicherheit → Ortungsdienste → Auto Performance Tracker → „Nie" auswählen. Widerruf verhindert zukünftige Aufzeichnungen, berührt aber keine bereits gespeicherten Daten.</li>
-      <li class="en"><span class="label">Consent withdrawal:</span> iOS Settings → Privacy &amp; Security → Location Services → Auto Performance Tracker → select "Never". Withdrawal prevents future recordings but does not affect already stored data.</li>
-      <li class="de"><span class="label">Löschung:</span> Einstellungen → Datenverwaltung → Alle Fahrten löschen</li>
-      <li class="en"><span class="label">Deletion:</span> Settings → Data Management → Delete All Trips</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Standortberechtigung); Cloud-Sync: Art. 6 Abs. 1 lit. b DSGVO</p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS location permission); Cloud Sync: Art. 6(1)(b) GDPR</p>
-
-    <p class="de" style="margin-top:20px"><strong>Bewegungssensordaten (CoreMotion)</strong> <span class="tag tag-blue">Nur während Aufzeichnung</span></p>
-    <p class="en" style="margin-top:20px"><strong>Motion Sensor Data (CoreMotion)</strong> <span class="tag tag-blue">Recording only</span></p>
-    <p class="de">Während der Fahrtaufzeichnung erfasst die App zusätzlich Beschleunigungssensor- und Kreiselsensordaten (Gyroskop) über das iOS CoreMotion-Framework mit ca. 25 Hz.</p>
-    <p class="en">During trip recording the app additionally collects accelerometer and gyroscope data via the iOS CoreMotion framework at approx. 25 Hz.</p>
-    <ul>
-      <li class="de"><span class="label">Daten:</span> Linearbeschleunigung (x/y/z), Rotationsrate (x/y/z), Zeitstempel</li>
-      <li class="en"><span class="label">Data:</span> Linear acceleration (x/y/z), rotation rate (x/y/z), timestamps</li>
-      <li class="de"><span class="label">Zweck:</span> Berechnung des Fahrerscores sowie Erkennung harter Brems- und Beschleunigungsmanöver</li>
-      <li class="en"><span class="label">Purpose:</span> Calculating the driving score and detecting harsh braking or acceleration events</li>
-      <li class="de"><span class="label">Speicherung:</span> Ausschließlich lokal als Teil der Fahrtdaten (SwiftData, binär kodiert, max. ~2,6 MB pro Fahrt im RAM-Cap)</li>
-      <li class="en"><span class="label">Storage:</span> Exclusively locally as part of trip data (SwiftData, binary encoded, max. ~2.6 MB per trip in RAM cap)</li>
-      <li class="de"><span class="label">Cloud:</span> Werden bei aktiviertem Cloud-Sync zusammen mit den Fahrtdaten synchronisiert</li>
-      <li class="en"><span class="label">Cloud:</span> Synchronised together with trip data when Cloud Sync is enabled</li>
-      <li class="de"><span class="label">Drittanbieter:</span> Keine Weitergabe an Dritte</li>
-      <li class="en"><span class="label">Third parties:</span> Not shared with any third party</li>
-      <li class="de"><span class="label">Einwilligungswiderruf:</span> iOS-Einstellungen → Datenschutz &amp; Sicherheit → Bewegung &amp; Fitness → Auto Performance Tracker deaktivieren</li>
-      <li class="en"><span class="label">Consent withdrawal:</span> iOS Settings → Privacy &amp; Security → Motion &amp; Fitness → disable Auto Performance Tracker</li>
-      <li class="de"><span class="label">Löschung:</span> Gleichzeitig mit der zugehörigen Fahrt</li>
-      <li class="en"><span class="label">Deletion:</span> Together with the associated trip</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Bewegungsberechtigung – NSMotionUsageDescription)</p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS motion permission – NSMotionUsageDescription)</p>
+    <div class="info-row">
+      <div class="info-label">Antwortzeit</div>
+      <div class="info-value">In der Regel innerhalb von 72 Stunden</div>
+    </div>
   </div>
 
-  <!-- ③ Cloud-Sync -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-blue">☁️</div>
-      <div>
-        <div class="section-num de">3. Datenspeicherung &amp; Cloud-Sync</div>
-        <div class="section-num en">3. Data Storage &amp; Cloud Sync</div>
-        <div class="section-title de">Lokale &amp; Cloud-Speicherung</div>
-        <div class="section-title en">Local &amp; Cloud Storage</div>
+  <!-- ③ Umsatzsteuer -->
+  <div class="card">
+    <div class="card-title">③ Umsatzsteuer</div>
+
+    <div class="info-row">
+      <div class="info-label">Hinweis</div>
+      <div class="info-value">
+        Gemäß § 19 UStG wird keine Umsatzsteuer erhoben
+        (Kleinunternehmerregelung). Eine Umsatzsteuer-Identifikationsnummer
+        ist daher nicht vorhanden.
       </div>
     </div>
-    <p class="de"><strong>Lokal (SwiftData):</strong> Fahrtdaten, Fahrzeugprofile und Kraftstoffpreise werden standardmäßig nur auf deinem Gerät gespeichert.</p>
-    <p class="en"><strong>Local (SwiftData):</strong> Trip data, vehicle profiles, and fuel prices are stored only on your device by default.</p>
-    <p class="de"><strong>iCloud-Backup</strong> (automatisch, falls aktiviert): Unterliegt Apples Datenschutzerklärung. Kein Entwicklerzugang.</p>
-    <p class="en"><strong>iCloud Backup</strong> (automatic, if enabled): Subject to Apple's privacy policy. No developer access.</p>
-    <p class="de"><strong>Supabase Cloud-Sync</strong> <span class="tag tag-blue">Optional · Konto erforderlich</span></p>
-    <p class="en"><strong>Supabase Cloud Sync</strong> <span class="tag tag-blue">Optional · Account required</span></p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
-      <li class="en"><span class="label">Provider:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
-      <li class="de"><span class="label">Daten:</span> Fahrtdaten inkl. GPS-Punkte <strong>und Bewegungssensordaten (CoreMotion)</strong>, Fahrzeugprofile, Nutzerprofil (E-Mail, Anzeigename)</li>
-      <li class="en"><span class="label">Data:</span> Trip data incl. GPS points <strong>and motion sensor data (CoreMotion)</strong>, vehicle profiles, user profile (email, display name)</li>
-      <li class="de"><span class="label">Drittland:</span> Supabase Inc. (USA) – EU-Standardvertragsklauseln, Serverstandort EU</li>
-      <li class="en"><span class="label">Third country:</span> Supabase Inc. (USA) – EU Standard Contractual Clauses, server in EU</li>
-      <li class="de"><span class="label">AVV:</span> Auftragsverarbeitungsvertrag gem. Art. 28 DSGVO abgeschlossen</li>
-      <li class="en"><span class="label">DPA:</span> Data Processing Agreement per Art. 28 GDPR in place</li>
-      <li class="de"><span class="label">Löschung:</span> Konto → Account löschen (innerhalb 30 Tagen vollständig gelöscht)</li>
-      <li class="en"><span class="label">Deletion:</span> Account → Delete Account (fully deleted within 30 days)</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
   </div>
 
-  <!-- ④ Analytics -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-orange">📊</div>
-      <div>
-        <div class="section-num de">4. Analysedaten</div>
-        <div class="section-num en">4. Analytics</div>
-        <div class="section-title de"><span class="tag tag-green">Opt-In · Standard: AUS</span></div>
-        <div class="section-title en"><span class="tag tag-green">Opt-In · Default: OFF</span></div>
-      </div>
+  <!-- ④ EU-Streitbeilegung -->
+  <div class="card">
+    <div class="card-title">④ EU-Streitbeilegung (Pflichtangabe)</div>
+    <div class="prose">
+      <p>
+        Die Europäische Kommission stellt eine Plattform zur Online-Streitbeilegung (OS) bereit:
+        <a href="https://ec.europa.eu/consumers/odr/" target="_blank" rel="noopener noreferrer">
+          https://ec.europa.eu/consumers/odr/
+        </a>
+      </p>
+      <p>
+        Meine E-Mail-Adresse findest du oben im Abschnitt Kontakt.
+      </p>
+      <p>
+        Ich bin nicht bereit und nicht verpflichtet, an Streitbeilegungsverfahren
+        vor einer Verbraucherschlichtungsstelle teilzunehmen.
+      </p>
     </div>
-    <p class="de">Analytics ist <strong>standardmäßig deaktiviert</strong>. Freiwillige Aktivierung: Einstellungen → Datenschutz.</p>
-    <p class="en">Analytics is <strong>disabled by default</strong>. Optional activation: Settings → Privacy.</p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> PostHog Inc., 965 Mission St. Suite 200, San Francisco, CA 94103, USA · EU-Server: eu.posthog.com · EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO)</li>
-      <li class="en"><span class="label">Provider:</span> PostHog Inc., 965 Mission St. Suite 200, San Francisco, CA 94103, USA · EU server: eu.posthog.com · EU Standard Contractual Clauses (Art. 46(2)(c) GDPR)</li>
-      <li class="de"><span class="label">Daten:</span> Anonyme Geräte-ID (zufällige UUID, kein Nutzerbezug), App-Version, iOS-Version, Ereignistypen, gebucketete Messwerte. Keine GPS-Daten, kein IDFA.</li>
-      <li class="en"><span class="label">Data:</span> Anonymous device ID (random UUID, no personal link), app version, iOS version, event types, bucketed metrics. No GPS data, no IDFA.</li>
-      <li class="de"><span class="label">Widerruf:</span> Einstellungen → Datenschutz → Analytics deaktivieren (sofort wirksam)</li>
-      <li class="en"><span class="label">Withdrawal:</span> Settings → Privacy → Disable Analytics (immediate effect)</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO · Speicherdauer: max. 12 Monate · <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR · Retention: max. 12 months · <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a></p>
   </div>
 
-  <!-- ⑤ Fahrzeugprofile -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-teal">🚗</div>
-      <div>
-        <div class="section-num de">5. Fahrzeugprofile</div>
-        <div class="section-num en">5. Vehicle Profiles</div>
-      </div>
+  <!-- ⑤ Haftung Inhalte -->
+  <div class="card">
+    <div class="card-title">⑤ Haftungsausschluss – Inhalte</div>
+    <div class="prose">
+      <p>
+        Die Inhalte dieser App und der zugehörigen Website wurden mit größtmöglicher
+        Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der
+        Inhalte übernehme ich jedoch keine Gewähr. Als privater Diensteanbieter bin ich
+        gemäß § 7 Abs. 1 DDG für eigene Inhalte nach den allgemeinen Gesetzen
+        verantwortlich. Ich bin jedoch nicht verpflichtet, übermittelte oder
+        gespeicherte fremde Informationen zu überwachen (§§ 8–10 DDG).
+      </p>
+      <p>
+        Bei bekannt werden von Rechtsverletzungen werde ich derartige Inhalte
+        umgehend entfernen.
+      </p>
     </div>
-    <p class="de">Fahrzeugprofile (Name, Kraftstoffart, Verbrauchswert, Kraftstoffpreis) werden <strong>standardmäßig lokal</strong> auf deinem Gerät gespeichert und nicht weitergegeben.</p>
-    <p class="en">Vehicle profiles (name, fuel type, consumption, fuel price) are <strong>stored locally by default</strong> on your device and not shared.</p>
-    <p class="de">Bei aktiviertem <strong>Cloud-Sync</strong> werden Fahrzeugprofile ebenfalls auf den EU-Servern von Supabase synchronisiert (siehe Abschnitt 3). Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
-    <p class="en">When <strong>Cloud Sync</strong> is enabled, vehicle profiles are also synchronized to Supabase EU servers (see section 3). Legal basis: Art. 6(1)(b) GDPR.</p>
   </div>
 
-  <!-- ⑥ Tankerkönig + OpenChargeMap -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-orange">⛽</div>
-      <div>
-        <div class="section-num de">6. Kraftstoffpreise &amp; EV-Ladestationen</div>
-        <div class="section-num en">6. Fuel Prices &amp; EV Charging Stations</div>
-      </div>
+  <!-- ⑥ Haftung Links -->
+  <div class="card">
+    <div class="card-title">⑥ Haftungsausschluss – Externe Links</div>
+    <div class="prose">
+      <p>
+        Meine App und Website enthalten Links zu externen Websites Dritter,
+        auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der
+        verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
+        der Seiten verantwortlich.
+      </p>
+      <p>
+        Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
+        Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt
+        der Verlinkung nicht erkennbar. Bei Bekanntwerden von Rechtsverletzungen
+        werde ich derartige Links umgehend entfernen.
+      </p>
     </div>
-
-    <p class="de" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Nur Tankstellen-Ansicht</span></p>
-    <p class="en" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Gas station view only</span></p>
-    <p class="de">Zur Anzeige aktueller Kraftstoffpreise wird die Tankerkönig API genutzt.</p>
-    <p class="en">The Tankerkönig API is used to display current fuel prices.</p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> tankerkoenig.de (Deutschland) – privater API-Dienst auf Basis der Daten der Markttransparenzstelle für Kraftstoffe (Bundeskartellamt)</li>
-      <li class="en"><span class="label">Provider:</span> tankerkoenig.de (Germany) – private API service based on data from the Markttransparenzstelle für Kraftstoffe (Federal Cartel Office)</li>
-      <li class="de"><span class="label">Übertragene Daten:</span> Präzise GPS-Koordinaten (Breitengrad, Längengrad) und Suchradius</li>
-      <li class="en"><span class="label">Data transmitted:</span> Precise GPS coordinates (latitude, longitude) and search radius</li>
-      <li class="de"><span class="label">Zweck:</span> Kraftstoffpreisabfrage in deiner Nähe</li>
-      <li class="en"><span class="label">Purpose:</span> Querying fuel prices near your location</li>
-      <li class="de"><span class="label">Speicherung:</span> Keine – nur für die Abfrage verwendet</li>
-      <li class="en"><span class="label">Retention:</span> None – used only for the query</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://creativecommons.tankerkoenig.de" target="_blank">creativecommons.tankerkoenig.de</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://creativecommons.tankerkoenig.de" target="_blank">creativecommons.tankerkoenig.de</a></p>
-
-    <p class="de" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">Nur EV-Ladesäulen-Ansicht · Optional</span></p>
-    <p class="en" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">EV charging view only · Optional</span></p>
-    <p class="de">Zur Anzeige von EV-Ladestationen in der Nähe wird die OpenChargeMap API verwendet.</p>
-    <p class="en">The OpenChargeMap API is used to display nearby EV charging stations.</p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> Open Charge Map Ltd., UK / Community-betrieben; api.openchargemap.io</li>
-      <li class="en"><span class="label">Provider:</span> Open Charge Map Ltd., UK / community-operated; api.openchargemap.io</li>
-      <li class="de"><span class="label">Übertragene Daten:</span> Präzise GPS-Koordinaten (Breitengrad, Längengrad) und Suchradius</li>
-      <li class="en"><span class="label">Data transmitted:</span> Precise GPS coordinates (latitude, longitude) and search radius</li>
-      <li class="de"><span class="label">Zweck:</span> Anzeige von EV-Ladestationen in der Umgebung</li>
-      <li class="en"><span class="label">Purpose:</span> Displaying EV charging stations near your location</li>
-      <li class="de"><span class="label">Speicherung:</span> Keine serverseitige Speicherung der GPS-Koordinaten durch den Entwickler</li>
-      <li class="en"><span class="label">Retention:</span> No server-side storage of GPS coordinates by the developer</li>
-      <li class="de"><span class="label">Drittland:</span> UK-basierter Dienst; ggf. Übermittlung in Drittländer gemäß <a href="https://openchargemap.org/site/about/privacy" target="_blank">OCM-Datenschutzrichtlinie</a></li>
-      <li class="en"><span class="label">Third country:</span> UK-based service; possible transfers to third countries per <a href="https://openchargemap.org/site/about/privacy" target="_blank">OCM Privacy Policy</a></li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://openchargemap.org/site/about/privacy" target="_blank">openchargemap.org/site/about/privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://openchargemap.org/site/about/privacy" target="_blank">openchargemap.org/site/about/privacy</a></p>
   </div>
 
-  <!-- ⑦ OpenStreetMap -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-green">🗺️</div>
-      <div>
-        <div class="section-num de">7. Tempolimit-Erkennung &amp; LPG-Stationen (OpenStreetMap)</div>
-        <div class="section-num en">7. Speed Limit Detection &amp; LPG Stations (OpenStreetMap)</div>
-      </div>
+  <!-- ⑦ Urheberrecht -->
+  <div class="card">
+    <div class="card-title">⑦ Urheberrecht</div>
+    <div class="prose">
+      <p>
+        Die durch mich erstellten Inhalte und Werke in dieser App und auf diesen
+        Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
+        Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen
+        des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen
+        Autors bzw. Erstellers.
+      </p>
+      <p>
+        Downloads und Kopien dieser App sind nur für den privaten, nicht kommerziellen
+        Gebrauch gestattet.
+      </p>
     </div>
-    <p class="de">Die Overpass API von OpenStreetMap wird für zwei Zwecke genutzt: (1) Abruf von Tempolimits während der Fahrt und (2) Suche nach LPG-Tankstellen in der Umgebung in der Tankstellen-Ansicht.</p>
-    <p class="en">The OpenStreetMap Overpass API is used for two purposes: (1) retrieving speed limits during trips and (2) searching for nearby LPG stations in the gas station view.</p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> OpenStreetMap Foundation (OSMF), London, UK · overpass-api.de</li>
-      <li class="en"><span class="label">Provider:</span> OpenStreetMap Foundation (OSMF), London, UK · overpass-api.de</li>
-      <li class="de"><span class="label">Daten (Tempolimit):</span> Gerundete GPS-Koordinaten (~40m-Raster gebucketed) – adaptiver Schwellwert je nach Geschwindigkeit</li>
-      <li class="en"><span class="label">Data (speed limit):</span> Rounded GPS coordinates (~40m grid bucketed) – adaptive threshold based on speed</li>
-      <li class="de"><span class="label">Daten (LPG-Stationen):</span> Präzise GPS-Koordinaten mit Suchradius (Standard 15 km)</li>
-      <li class="en"><span class="label">Data (LPG stations):</span> Precise GPS coordinates with search radius (default 15 km)</li>
-      <li class="de"><span class="label">Zweck:</span> (1) Anzeige der aktuellen Geschwindigkeitsbegrenzung; (2) LPG-Tankstellen in der Nähe</li>
-      <li class="en"><span class="label">Purpose:</span> (1) Displaying the current speed limit; (2) LPG stations nearby</li>
-      <li class="de"><span class="label">Speicherung:</span> Keine Dauerspeicherung (lokaler Cache max. 600 Einträge)</li>
-      <li class="en"><span class="label">Retention:</span> No persistent storage (local cache max. 600 entries)</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Datenschutz</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Privacy Policy</a></p>
   </div>
 
-  <!-- ⑧ Export -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-sky">📤</div>
-      <div>
-        <div class="section-num de">8. Datenexport</div>
-        <div class="section-num en">8. Data Export</div>
-      </div>
+  <!-- ⑧ App Store -->
+  <div class="card">
+    <div class="card-title">⑧ App Store – Hinweis</div>
+    <div class="prose">
+      <p>
+        <strong>Auto Performance Tracker</strong> wird im Apple App Store
+        (Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA) angeboten.
+        Apple ist nicht Vertragspartner für den Kauf von Abonnements oder
+        In-App-Käufen im Sinne der deutschen Verbraucherrechte, sondern handelt
+        ausschließlich als Zahlungsabwickler im Auftrag des Entwicklers.
+      </p>
+      <p>
+        Bei Fragen zu Käufen, Rückerstattungen oder technischen Problemen
+        wende dich zunächst über den App Store-Support an Apple oder direkt
+        per E-Mail an mich.
+      </p>
     </div>
-    <p class="de">Die App bietet eine Exportfunktion (CSV, JSON). Exportierte Dateien verbleiben in deiner Kontrolle. Beim Teilen über iOS-Mechanismen (AirDrop, Mail etc.) giltst du als verantwortliche Person für die weitere Verarbeitung.</p>
-    <p class="en">The app offers an export function (CSV, JSON). Exported files remain under your control. When sharing via iOS mechanisms (AirDrop, Mail, etc.), you become the responsible party for further processing.</p>
-  </div>
-
-  <!-- ⑧b Benachrichtigungen -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-sky">🔔</div>
-      <div>
-        <div class="section-num de">8b. Lokale Benachrichtigungen</div>
-        <div class="section-num en">8b. Local Notifications</div>
-      </div>
-    </div>
-    <p class="de">Die App kann lokale Push-Benachrichtigungen senden (wöchentliche, monatliche und jährliche Fahrtenstatistiken sowie Meilenstein-Hinweise). Alle Benachrichtigungen werden <strong>ausschließlich lokal</strong> auf deinem Gerät berechnet und erzeugt. Es werden keine Daten an externe Server übertragen.</p>
-    <p class="en">The app may send local push notifications (weekly, monthly and annual trip statistics, and milestone reminders). All notifications are generated <strong>exclusively locally</strong> on your device. No data is transmitted to external servers.</p>
-    <ul>
-      <li class="de"><span class="label">Daten:</span> Lokal berechnete Zusammenfassungen (Fahrtanzahl, Durchschnittsscore) – kein Serverzugriff</li>
-      <li class="en"><span class="label">Data:</span> Locally computed summaries (trip count, average score) – no server access</li>
-      <li class="de"><span class="label">Berechtigung:</span> iOS fragt einmalig nach Erlaubnis für Benachrichtigungen (UNUserNotificationCenter)</li>
-      <li class="en"><span class="label">Permission:</span> iOS requests notification permission once (UNUserNotificationCenter)</li>
-      <li class="de"><span class="label">Deaktivierung:</span> iOS-Einstellungen → Mitteilungen → Auto Performance Tracker oder Einstellungen → Benachrichtigungen in der App</li>
-      <li class="en"><span class="label">Disable:</span> iOS Settings → Notifications → Auto Performance Tracker, or Settings → Notifications in the app</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Benachrichtigungsberechtigung). Keine Übermittlung an Dritte.</p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS notification permission). Not shared with any third party.</p>
-  </div>
-
-  <!-- ⑨ Rechte -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-purple">🤝</div>
-      <div>
-        <div class="section-num de">9. Deine Rechte (DSGVO)</div>
-        <div class="section-num en">9. Your Rights (GDPR)</div>
-      </div>
-    </div>
-    <ul class="de">
-      <li>Auskunft (Art. 15) – Welche Daten werden verarbeitet?</li>
-      <li>Berichtigung (Art. 16) – Korrektur falscher Daten</li>
-      <li>Löschung (Art. 17) – Jederzeit über die App oder per E-Mail</li>
-      <li>Einschränkung (Art. 18) – Verarbeitung einschränken lassen</li>
-      <li>Mitteilung (Art. 19) – Unterrichtung der Empfänger bei Berichtigung oder Löschung deiner Daten</li>
-      <li>Datenübertragbarkeit (Art. 20) – via Export-Funktion (CSV/JSON)</li>
-      <li>Widerspruch (Art. 21) – Gegen berechtigte Interessen</li>
-      <li>Einwilligungswiderruf (Art. 7 Abs. 3) – Jederzeit, ohne Angabe von Gründen</li>
-      <li>Beschwerde bei Aufsichtsbehörde (Art. 77)</li>
-    </ul>
-    <ul class="en">
-      <li>Access (Art. 15) – What data is processed?</li>
-      <li>Rectification (Art. 16) – Correction of incorrect data</li>
-      <li>Erasure (Art. 17) – Anytime via the app or by email</li>
-      <li>Restriction (Art. 18) – Limit processing</li>
-      <li>Notification (Art. 19) – Notification of recipients upon rectification or erasure of your data</li>
-      <li>Data portability (Art. 20) – via export function (CSV/JSON)</li>
-      <li>Objection (Art. 21) – Against legitimate interests</li>
-      <li>Withdrawal of consent (Art. 7(3)) – At any time, without giving reasons</li>
-      <li>Lodge complaint with supervisory authority (Art. 77)</li>
-    </ul>
-    <p class="de" style="margin-top:8px">Zur Ausübung deiner Rechte: <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a></p>
-    <p class="en" style="margin-top:8px">To exercise your rights: <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a></p>
-    <p class="de" style="margin-top:16px; font-size:13px"><strong>Hinweis zur Bereitstellung von Daten (Art. 13 Abs. 2 lit. e DSGVO):</strong> Die Bereitstellung personenbezogener Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne GPS-Berechtigung ist die Fahrtaufzeichnung nicht möglich. Ohne Bewegungsberechtigung entfällt der Fahrscore. Cloud-Sync und Analytics sind vollständig optional. Du kannst die App im Offline-/Gastmodus ohne Konto nutzen.</p>
-    <p class="en" style="margin-top:16px; font-size:13px"><strong>Note on providing data (Art. 13(2)(e) GDPR):</strong> Providing personal data is neither legally nor contractually required. Without location permission, trip recording is not available. Without motion permission, the driving score is unavailable. Cloud Sync and Analytics are fully optional. The app can be used in offline/guest mode without an account.</p>
-    <p class="de" style="margin-top:8px; font-size:13px"><strong>Hinweis zum Widerruf von Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Ein Widerruf wirkt nur für die Zukunft; die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
-    <p class="en" style="margin-top:8px; font-size:13px"><strong>Note on withdrawal of consent (Art. 7(3) GDPR):</strong> Withdrawal only takes effect for the future; the lawfulness of processing based on consent before its withdrawal remains unaffected.</p>
-  </div>
-
-  <!-- ⑩ Datensicherheit -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-green">🛡️</div>
-      <div>
-        <div class="section-num de">10. Datensicherheit</div>
-        <div class="section-num en">10. Data Security</div>
-      </div>
-    </div>
-    <p class="de">Lokale Daten liegen im geschützten iOS-App-Container. Bei Cloud-Sync: TLS-verschlüsselte Übertragung, Supabase ist SOC 2 Type II zertifiziert. Im Falle einer Datenschutzverletzung werden betroffene Nutzer und die Aufsichtsbehörde gemäß Art. 33/34 DSGVO informiert.</p>
-    <p class="en">Local data resides in the protected iOS app container. Cloud Sync: TLS-encrypted transfer, Supabase is SOC 2 Type II certified. In case of a data breach, affected users and the supervisory authority are notified per Art. 33/34 GDPR.</p>
-  </div>
-
-  <!-- ⑪ Minderjährige -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-red">👶</div>
-      <div>
-        <div class="section-num de">11. Minderjährige</div>
-        <div class="section-num en">11. Minors</div>
-      </div>
-    </div>
-    <p class="de">Die App richtet sich an Nutzer ab 17 Jahren. Es werden wissentlich keine Daten von Personen unter 17 Jahren erhoben. Sollte dies bekannt werden, werden entsprechende Daten unverzüglich gelöscht.</p>
-    <p class="en">The app targets users aged 17+. No data from persons under 17 is knowingly collected. If this becomes known, relevant data will be deleted immediately.</p>
-  </div>
-
-  <!-- ⑫ Werbung -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-orange">📢</div>
-      <div>
-        <div class="section-num de">12. Werbung (Google AdMob)</div>
-        <div class="section-num en">12. Advertising (Google AdMob)</div>
-      </div>
-    </div>
-    <p class="de">Die kostenlose Version zeigt Werbeanzeigen über Google AdMob. Pro-Abonnenten erhalten keine Werbung.</p>
-    <p class="en">The free version shows ads via Google AdMob. Pro subscribers see no ads.</p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) · EU-US Data Privacy Framework (DPF) zertifiziert</li>
-      <li class="en"><span class="label">Provider:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU Standard Contractual Clauses (Art. 46(2)(c) GDPR) · certified under EU-US Data Privacy Framework (DPF)</li>
-      <li class="de"><span class="label">Einwilligung:</span> Über Google User Messaging Platform (UMP) und Apple ATT-Prompt</li>
-      <li class="en"><span class="label">Consent:</span> Via Google User Messaging Platform (UMP) and Apple ATT prompt</li>
-      <li class="de"><span class="label">Mit Einwilligung:</span> Werbe-ID (IDFA), Gerätedaten – Art. 6 Abs. 1 lit. a DSGVO</li>
-      <li class="en"><span class="label">With consent:</span> Advertising ID (IDFA), device data – Art. 6(1)(a) GDPR</li>
-      <li class="de"><span class="label">Ohne Einwilligung:</span> Nur kontextbezogene Werbung – Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse: Refinanzierung und Weiterentwicklung der kostenlosen App-Version) · <strong>Widerspruchsrecht gem. Art. 21 DSGVO:</strong> Du kannst der Verarbeitung auf Basis berechtigter Interessen jederzeit per E-Mail an <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a> widersprechen.</li>
-      <li class="en"><span class="label">Without consent:</span> Context-based ads only – Art. 6(1)(f) GDPR (legitimate interest: funding and further development of the free app version) · <strong>Right to object per Art. 21 GDPR:</strong> You may object to processing based on legitimate interests at any time by emailing <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a>.</li>
-    </ul>
-    <p class="de" style="font-size:13px"><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
-    <p class="en" style="font-size:13px"><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
-  </div>
-
-  <!-- ⑬ Crashlytics & Auth -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-red">🐛</div>
-      <div>
-        <div class="section-num de">13. Absturz-Berichte, Performance &amp; Authentifizierung</div>
-        <div class="section-num en">13. Crash Reports, Performance &amp; Authentication</div>
-      </div>
-    </div>
-    <p class="de" style="margin-top:16px"><strong>Firebase Crashlytics</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Firebase Crashlytics</strong></p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> Google LLC, USA · EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert</li>
-      <li class="en"><span class="label">Provider:</span> Google LLC, USA · EU Standard Contractual Clauses · certified under EU-US Data Privacy Framework (DPF)</li>
-      <li class="de"><span class="label">Daten:</span> Stack-Traces, Gerätemodell, iOS-Version, App-Version, Zeitstempel; <strong>Nutzer-ID: die interne Supabase-User-UUID bei eingeloggten Nutzern</strong>, anonyme UUID für Gastnutzer</li>
-      <li class="en"><span class="label">Data:</span> Stack traces, device model, iOS version, app version, timestamp; <strong>user ID: the internal Supabase user UUID for logged-in users</strong>, anonymous UUID for guest users</li>
-      <li class="de"><span class="label">Speicherdauer:</span> 90 Tage</li>
-      <li class="en"><span class="label">Retention:</span> 90 days</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an App-Stabilität) · <strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Du kannst der Verarbeitung jederzeit per E-Mail widersprechen; die App wird dann ohne Crash-Reporting genutzt. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(f) GDPR (legitimate interest in app stability) · <strong>Right to object (Art. 21 GDPR):</strong> You may object to this processing at any time by email; the app will then run without crash reporting. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
-
-    <p class="de" style="margin-top:16px"><strong>Apple MetricKit (Performance-Diagnostik)</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Apple MetricKit (Performance Diagnostics)</strong></p>
-    <p class="de">Das Apple MetricKit-Framework übermittelt täglich aggregierte Performance-Metriken an den Entwickler (Launch-Zeit, UI-Hänger, Energie, RAM, Schreibvorgänge). Diese Daten werden von Apple erhoben und als anonymisierte Batches bereitgestellt. Es handelt sich nicht um personenbezogene Daten im Sinne der DSGVO.</p>
-    <p class="en">The Apple MetricKit framework delivers daily aggregated performance metrics to the developer (launch time, UI hangs, energy, RAM, disk writes). This data is collected by Apple and provided as anonymised batches. It does not constitute personal data within the meaning of the GDPR.</p>
-
-    <p class="de" style="margin-top:16px"><strong>E-Mail- &amp; Passwort-Authentifizierung</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Email &amp; Password Authentication</strong></p>
-    <p class="de">Die App ermöglicht die Registrierung und Anmeldung per E-Mail-Adresse und Passwort über Supabase Auth.</p>
-    <p class="en">The app allows registration and sign-in via email address and password through Supabase Auth.</p>
-    <ul>
-      <li class="de"><span class="label">Daten:</span> E-Mail-Adresse, Passwort (ausschließlich als Bcrypt-Hash gespeichert – das Klartextpasswort verlässt das Gerät nicht), Registrierungszeitstempel, Sitzungstoken</li>
-      <li class="en"><span class="label">Data:</span> Email address, password (stored exclusively as bcrypt hash – plaintext password never leaves the device), registration timestamp, session token</li>
-      <li class="de"><span class="label">Bestätigungs-E-Mail:</span> Supabase versendet nach der Registrierung eine Verifizierungs-E-Mail. Dabei verarbeitet Supabase die E-Mail-Adresse für den Versand über die eigene Mail-Infrastruktur.</li>
-      <li class="en"><span class="label">Confirmation email:</span> Supabase sends a verification email after registration. Supabase processes the email address for delivery via its own mail infrastructure.</li>
-      <li class="de"><span class="label">Speicherort:</span> Supabase Auth (EU-Server Frankfurt)</li>
-      <li class="en"><span class="label">Storage:</span> Supabase Auth (EU server Frankfurt)</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung / Kontoverwaltung)</p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (contract performance / account management)</p>
-
-    <p class="de" style="margin-top:16px"><strong>Anonyme Anmeldung (Gastzugang)</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Anonymous Sign-In (Guest Access)</strong></p>
-    <p class="de">Die App bietet einen Gastzugang ohne Registrierung. Dabei wird von Supabase eine anonyme Sitzung mit einer zufälligen UUID erstellt.</p>
-    <p class="en">The app offers guest access without registration. Supabase creates an anonymous session with a random UUID.</p>
-    <ul>
-      <li class="de"><span class="label">Daten:</span> Anonyme UUID (kein Personenbezug), Sitzungstoken, Erstellungszeitstempel</li>
-      <li class="en"><span class="label">Data:</span> Anonymous UUID (no personal reference), session token, creation timestamp</li>
-      <li class="de"><span class="label">Löschung:</span> Automatisch nach 180 Tagen Inaktivität oder manuell über „Account löschen"</li>
-      <li class="en"><span class="label">Deletion:</span> Automatically after 180 days of inactivity or manually via "Delete Account"</li>
-      <li class="de"><span class="label">Konto-Upgrade:</span> Anonyme Konten können durch Verknüpfung einer E-Mail-Adresse in vollständige Konten umgewandelt werden</li>
-      <li class="en"><span class="label">Account upgrade:</span> Anonymous accounts can be converted to full accounts by linking an email address</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO</p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR</p>
-
-    <p class="de" style="margin-top:16px"><strong>DSGVO-Audit-Log</strong></p>
-    <p class="en" style="margin-top:16px"><strong>GDPR Audit Log</strong></p>
-    <p class="de">Zur Erfüllung der Rechenschaftspflicht gemäß Art. 5 Abs. 2 DSGVO protokolliert die App datenschutzrelevante Aktionen in einer sicheren Datenbanktabelle bei Supabase.</p>
-    <p class="en">To fulfil the accountability obligation under Art. 5(2) GDPR, the app records privacy-relevant actions in a secure database table at Supabase.</p>
-    <ul>
-      <li class="de"><span class="label">Protokollierte Ereignisse:</span> Anmeldung (mit Anbieter-Typ: E-Mail, Apple, Google, Anonym), Abmeldung, Einwilligungserteilung</li>
-      <li class="en"><span class="label">Logged events:</span> Sign-in (with provider type: email, Apple, Google, anonymous), sign-out, consent granted</li>
-      <li class="de"><span class="label">Zweck:</span> Nachweis der Rechtmäßigkeit der Verarbeitung</li>
-      <li class="en"><span class="label">Purpose:</span> Evidence of lawful processing</li>
-      <li class="de"><span class="label">Speicherung:</span> Supabase (EU-Server Frankfurt) · Löschung: gleichzeitig mit Account-Löschung</li>
-      <li class="en"><span class="label">Storage:</span> Supabase (EU server Frankfurt) · Deletion: simultaneously with account deletion</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung / Art. 5 Abs. 2 DSGVO)</p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(c) GDPR (legal obligation / Art. 5(2) GDPR)</p>
-
-    <p class="de" style="margin-top:16px"><strong>Google Sign-In</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Google Sign-In</strong></p>
-    <p class="de">Google verarbeitet Authentifizierungsdaten (ID-Token). Die App erhält nur E-Mail und Anzeigename. <span class="label">Drittland:</span> Google LLC, USA – EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert. Art. 6 Abs. 1 lit. b DSGVO. <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
-    <p class="en">Google processes authentication data (ID token). The app only receives email and display name. <span class="label">Third country:</span> Google LLC, USA – EU Standard Contractual Clauses · EU-US Data Privacy Framework (DPF) certified. Art. 6(1)(b) GDPR. <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
-    <p class="de" style="margin-top:16px"><strong>Apple Sign-In</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Apple Sign-In</strong></p>
-    <p class="de">Apple verarbeitet Authentifizierungsdaten eigenständig. Die App erhält optional eine maskierte E-Mail-Adresse. Art. 6 Abs. 1 lit. b DSGVO. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
-    <p class="en">Apple processes authentication data independently. The app optionally receives a masked email address. Art. 6(1)(b) GDPR. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
-
-    <p class="de" style="margin-top:16px"><strong>Apple StoreKit / In-App-Käufe</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Apple StoreKit / In-App Purchases</strong></p>
-    <p class="de">Käufe und Abonnements werden ausschließlich über Apple StoreKit abgewickelt. Die App erhält von Apple lediglich den Entitlement-Status (Pro-Abonnement aktiv: ja/nein). Apple verarbeitet alle Zahlungsdaten gemäß eigener Datenschutzrichtlinie. Im Cloud-Konto wird der Pro-Status als Boolean-Wert gespeichert. Art. 6 Abs. 1 lit. b DSGVO. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
-    <p class="en">Purchases and subscriptions are processed exclusively via Apple StoreKit. The app only receives the entitlement status from Apple (Pro subscription active: yes/no). Apple processes all payment data per its own privacy policy. The Pro status is stored as a boolean value in the cloud account. Art. 6(1)(b) GDPR. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
-  </div>
-
-  <!-- ⑭ Speicherdauern -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-indigo">⏱️</div>
-      <div>
-        <div class="section-num de">14. Speicherdauern</div>
-        <div class="section-num en">14. Retention Periods</div>
-      </div>
-    </div>
-    <table class="data-table de">
-      <tr><th>Datenkategorie</th><th>Speicherdauer</th></tr>
-      <tr><td>Lokale Fahrtdaten (inkl. GPS-Punkte)</td><td>Bis manuelle Löschung / App-Deinstallation</td></tr>
-      <tr><td>Bewegungssensordaten (CoreMotion)</td><td>Teil der Fahrtdaten – gleiche Speicherdauer</td></tr>
-      <tr><td>Cloud-Fahrtdaten (Supabase)</td><td>Bis Account-Löschung; Soft-Delete → 90 Tage</td></tr>
-      <tr><td>Fahrzeugprofile (Cloud)</td><td>Bis Account-Löschung</td></tr>
-      <tr><td>Nutzerprofil (E-Mail, Name)</td><td>Bis Account-Löschung (innerhalb 30 Tagen)</td></tr>
-      <tr><td>Authentifizierungsdaten (Passwort-Hash, Sitzungstoken) – Supabase Auth</td><td>Bis Account-Löschung; Sitzungstoken: bis Ablauf / Abmeldung</td></tr>
-      <tr><td>Anonyme Konten (inaktiv)</td><td>Automatisch nach 180 Tagen Inaktivität</td></tr>
-      <tr><td>Analytics (PostHog, Opt-In)</td><td>Anonymisiert, max. 12 Monate</td></tr>
-      <tr><td>Absturz-Berichte (Crashlytics)</td><td>90 Tage (Firebase-Standard)</td></tr>
-      <tr><td>Abonnement-Status (Pro-Flag)</td><td>Bis Account-Löschung; Apple StoreKit: gem. Apple-Richtlinie</td></tr>
-      <tr><td>DSGVO-Audit-Log</td><td>Bis Account-Löschung</td></tr>
-      <tr><td>Anonyme Geräte-ID (Analytics)</td><td>Bis App-Deinstallation</td></tr>
-    </table>
-    <table class="data-table en">
-      <tr><th>Data category</th><th>Retention period</th></tr>
-      <tr><td>Local trip data (incl. GPS points)</td><td>Until manual deletion / app uninstall</td></tr>
-      <tr><td>Motion sensor data (CoreMotion)</td><td>Part of trip data – same retention period</td></tr>
-      <tr><td>Cloud trip data (Supabase)</td><td>Until account deletion; soft-deleted → 90 days</td></tr>
-      <tr><td>Vehicle profiles (cloud)</td><td>Until account deletion</td></tr>
-      <tr><td>User profile (email, name)</td><td>Until account deletion (within 30 days)</td></tr>
-      <tr><td>Authentication data (password hash, session token) – Supabase Auth</td><td>Until account deletion; session token: until expiry / sign-out</td></tr>
-      <tr><td>Anonymous accounts (inactive)</td><td>Automatically after 180 days of inactivity</td></tr>
-      <tr><td>Analytics (PostHog, opt-in)</td><td>Anonymized, max. 12 months</td></tr>
-      <tr><td>Crash reports (Crashlytics)</td><td>90 days (Firebase default)</td></tr>
-      <tr><td>Subscription status (Pro flag)</td><td>Until account deletion; Apple StoreKit: per Apple policy</td></tr>
-      <tr><td>GDPR audit log</td><td>Until account deletion</td></tr>
-      <tr><td>Anonymous device ID (analytics)</td><td>Until app uninstall</td></tr>
-    </table>
-  </div>
-
-  <!-- ⑮ Auftragsverarbeiter -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-blue">📋</div>
-      <div>
-        <div class="section-num de">15. Auftragsverarbeiter (Art. 28 DSGVO)</div>
-        <div class="section-num en">15. Data Processors (Art. 28 GDPR)</div>
-      </div>
-    </div>
-    <p class="de">Folgende Dienstleister verarbeiten personenbezogene Daten im Auftrag, jeweils mit Auftragsverarbeitungsvertrag (AVV) soweit gesetzlich erforderlich:</p>
-    <p class="en">The following service providers process personal data on behalf of the app, each with a Data Processing Agreement (DPA) where required by law:</p>
-    <ul class="de">
-      <li><a href="https://supabase.com/privacy" target="_blank">Supabase Inc.</a> – Cloud-Sync, Auth (AVV abgeschlossen · <a href="https://supabase.com/dpa" target="_blank">supabase.com/dpa</a>)</li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Crashlytics, AdMob, Sign-In (AVV: Google Cloud Data Processing Addendum)</li>
-      <li><a href="https://posthog.com/privacy" target="_blank">PostHog Inc.</a> – Analytics (bei Opt-In; AVV abgeschlossen gem. Art. 28 DSGVO)</li>
-    </ul>
-    <p class="de" style="margin-top:12px"><strong>Eigenständige Verantwortliche (keine Auftragsverarbeitung):</strong></p>
-    <p class="en" style="margin-top:12px"><strong>Independent controllers (not data processors):</strong></p>
-    <ul class="de">
-      <li><a href="https://apple.com/legal/privacy" target="_blank">Apple Inc.</a> – Sign-In mit Apple, StoreKit / In-App-Käufe, MetricKit, iCloud-Backup: Apple verarbeitet diese Daten als eigenständiger Verantwortlicher gemäß eigener Datenschutzrichtlinie; kein AVV erforderlich.</li>
-      <li><a href="https://openchargemap.org/site/about/privacy" target="_blank">Open Charge Map Ltd.</a> – EV-Ladesäulen-Abfrage: OCM empfängt GPS-Koordinaten und verarbeitet diese als eigenständiger Verantwortlicher (kein Auftragsverarbeiter); kein AVV erforderlich. Drittlandtransfer ggf. gemäß OCM-Datenschutzrichtlinie.</li>
-    </ul>
-    <ul class="en">
-      <li><a href="https://supabase.com/privacy" target="_blank">Supabase Inc.</a> – Cloud Sync, Auth (DPA in place · <a href="https://supabase.com/dpa" target="_blank">supabase.com/dpa</a>)</li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Crashlytics, AdMob, Sign-In (DPA: Google Cloud Data Processing Addendum)</li>
-      <li><a href="https://posthog.com/privacy" target="_blank">PostHog Inc.</a> – Analytics (opt-in; DPA concluded per Art. 28 GDPR)</li>
-    </ul>
-    <ul class="en" style="margin-top:0">
-      <li><a href="https://apple.com/legal/privacy" target="_blank">Apple Inc.</a> – Sign in with Apple, StoreKit / In-App Purchases, MetricKit, iCloud Backup: Apple processes this data as an independent controller under its own privacy policy; no DPA required.</li>
-      <li><a href="https://openchargemap.org/site/about/privacy" target="_blank">Open Charge Map Ltd.</a> – EV charging station queries: OCM receives GPS coordinates and processes them as an independent controller (not a data processor); no DPA required. Third-country transfers per OCM privacy policy.</li>
-    </ul>
-  </div>
-
-  <!-- ⑮b Profiling & Art. 22 -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-orange">🤖</div>
-      <div>
-        <div class="section-num de">15b. Profilbildung &amp; automatisierte Entscheidungen (Art. 13 Abs. 2 lit. f DSGVO)</div>
-        <div class="section-num en">15b. Profiling &amp; Automated Decisions (Art. 13(2)(f) GDPR)</div>
-      </div>
-    </div>
-    <p class="de">Die App erstellt auf Basis der GPS- und Bewegungssensordaten einer Fahrt automatisiert einen <strong>Fahrerscore</strong> (0–100). Dieser Score bewertet Fahrstil-Aspekte wie Beschleunigungsverhalten, Bremsmanöver, Kurvenfahrten und Geschwindigkeitskonsistenz. Dies stellt eine <strong>Profilbildung</strong> im Sinne von Art. 4 Nr. 4 DSGVO dar.</p>
-    <p class="en">The app automatically generates a <strong>driving score</strong> (0–100) based on GPS and motion sensor data from each trip. This score evaluates driving style aspects such as acceleration behaviour, braking, cornering, and speed consistency. This constitutes <strong>profiling</strong> within the meaning of Art. 4(4) GDPR.</p>
-    <ul>
-      <li class="de"><span class="label">Zweck:</span> Rückmeldung über den eigenen Fahrstil, ausschließlich zur persönlichen Information</li>
-      <li class="en"><span class="label">Purpose:</span> Feedback about your driving style, exclusively for personal information</li>
-      <li class="de"><span class="label">Logik:</span> Gewichtete Berechnung aus Sensor-Rohdaten ausschließlich lokal auf deinem Gerät. Der Score verlässt das Gerät nur im Rahmen des optionalen Cloud-Syncs als Teil der Fahrtdaten.</li>
-      <li class="en"><span class="label">Logic:</span> Weighted calculation from raw sensor data exclusively locally on your device. The score only leaves the device as part of optional Cloud Sync within trip data.</li>
-      <li class="de"><span class="label">Auswirkung:</span> Der Score hat <strong>keine rechtlichen Folgen</strong> und dient ausschließlich der persönlichen Information des Nutzers. Es werden keine Entscheidungen auf Basis des Scores getroffen, die rechtliche Wirkung entfalten oder dich in ähnlicher Weise erheblich beeinträchtigen (Art. 22 Abs. 1 DSGVO nicht anwendbar).</li>
-      <li class="en"><span class="label">Impact:</span> The score has <strong>no legal consequences</strong> and serves solely for the user's personal information. No decisions are made based on the score that produce legal effects or similarly significantly affect you (Art. 22(1) GDPR not applicable).</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Standort- und Bewegungsberechtigung)</p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS location and motion permission)</p>
-  </div>
-
-  <!-- ⑯ Änderungen -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-indigo">🔄</div>
-      <div>
-        <div class="section-num de">16. Änderungen</div>
-        <div class="section-num en">16. Changes</div>
-      </div>
-    </div>
-    <p class="de">Diese Datenschutzerklärung kann bei App-Updates angepasst werden. Das Datum der letzten Änderung ist stets oben angegeben. Bei wesentlichen Änderungen wird in der App informiert. Aktuelle Version: Einstellungen → Datenschutzerklärung.</p>
-    <p class="en">This policy may be updated with app updates. The date of the last change is always shown at the top. Users are notified in-app about material changes. Current version: Settings → Privacy Policy.</p>
-  </div>
-
-  <!-- ⑰ Website-Hinweis (TDDDG) -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-blue">🌐</div>
-      <div>
-        <div class="section-num de">17. Website-Hinweis (TDDDG §25)</div>
-        <div class="section-num en">17. Website Notice (TDDDG §25)</div>
-      </div>
-    </div>
-    <p class="de">Diese Datenschutz-Website (datenschutz.html) speichert über JavaScript <strong>ausschließlich</strong> deine Sprachauswahl (Deutsch/Englisch) im lokalen Speicher deines Browsers (<code>localStorage</code>). Dieser Speicherzugriff ist gemäß § 25 Abs. 2 Nr. 2 TDDDG unbedingt erforderlich, um die gewählte Sprache über den Seitenaufruf hinaus zu erhalten, und erfordert daher keine separate Einwilligung. Es werden keine Tracking-Cookies, Werbe-Cookies oder Analyse-Cookies auf dieser Website eingesetzt.</p>
-    <p class="en">This privacy policy website (datenschutz.html) uses JavaScript to store <strong>only</strong> your language selection (German/English) in your browser's local storage (<code>localStorage</code>). This storage access is strictly necessary under §25(2)(2) TDDDG to retain your chosen language across page loads and therefore requires no separate consent. No tracking cookies, advertising cookies or analytics cookies are used on this website.</p>
-  </div>
-
-  <!-- Contact -->
-  <div class="contact-block">
-    <p style="font-size:32px; margin-bottom:12px">🔒</p>
-    <p class="de" style="font-weight:700; color:var(--text); font-size:16px; margin-bottom:8px">Fragen zum Datenschutz?</p>
-    <p class="en" style="font-weight:700; color:var(--text); font-size:16px; margin-bottom:8px">Questions about privacy?</p>
-    <p class="de">Schreib mir direkt: <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a></p>
-    <p class="en">Write to me directly: <a href="mailto:antosic200@gmail.com">antosic200@gmail.com</a></p>
   </div>
 
   <div class="footer">
-    <p class="de">© 2026 Anton Melnychuk · Auto Performance Tracker ·
-      <a href="impressum.html">Impressum</a>
-    </p>
-    <p class="en">© 2026 Anton Melnychuk · Auto Performance Tracker ·
-      <a href="impressum.html">Imprint</a>
-    </p>
-    <p class="de" style="margin-top:6px">Datenschutzerklärung gemäß DSGVO</p>
-    <p class="en" style="margin-top:6px">Privacy Policy according to GDPR</p>
-  </div>
-
-</div>
-
-<script>
-  function setLang(lang) {
-    // Show/hide all .de and .en elements
-    // Uses getComputedStyle fallback to restore proper display type per element
-    function showEl(el) {
-      var tag = el.tagName.toLowerCase();
-      if (tag === 'li') el.style.display = 'list-item';
-      else if (tag === 'table') el.style.display = 'table';
-      else if (tag === 'tr') el.style.display = 'table-row';
-      else if (tag === 'td' || tag === 'th') el.style.display = 'table-cell';
-      else el.style.display = 'block';
-    }
-    document.querySelectorAll('.de').forEach(el => {
-      lang === 'de' ? showEl(el) : el.style.display = 'none';
-    });
-    document.querySelectorAll('.en').forEach(el => {
-      lang === 'en' ? showEl(el) : el.style.display = 'none';
-    });
-    // Update active button state
-    document.getElementById('btn-de').classList.toggle('active', lang === 'de');
-    document.getElementById('btn-en').classList.toggle('active', lang === 'en');
-    // Persist choice
-    try { localStorage.setItem('apt-lang', lang); } catch(e) {}
-  }
-
-  // Restore saved language on load
-  (function() {
-    try {
-      var saved = localStorage.getItem('apt-lang');
-      if (saved === 'en') setLang('en');
-    } catch(e) {}
-  })();
-</script>
-</body>
-</html>
+    <p>
+      © 2026 Anton Melnychuk · Auto Performance Tracker ·
+      <a href="datenschutz.html">Datensc
