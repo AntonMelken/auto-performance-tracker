@@ -225,6 +225,95 @@
       .info-grid { grid-template-columns: 1fr; }
       .nav-links { display: none; }
       .hero h1 { font-size: 24px; }
+      nav { padding: 0 16px; }
+    }
+
+    /* ── Contact Form Modal ── */
+    .cf-backdrop {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(4,7,16,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cf-backdrop.open { opacity: 1; pointer-events: all; }
+    .cf-box {
+      background: #0D1420;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      width: 100%; max-width: 540px;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(34,211,238,0.08);
+      transform: translateY(24px) scale(0.98);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+      opacity: 0;
+    }
+    .cf-backdrop.open .cf-box { transform: none; opacity: 1; }
+    .cf-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 28px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .cf-header-left { display: flex; align-items: center; gap: 14px; }
+    .cf-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(34,211,238,0.12);
+      border: 1px solid rgba(34,211,238,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .cf-title { font-size: 1.05rem; font-weight: 800; color: var(--text); }
+    .cf-subtitle { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .cf-close {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .cf-close:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+    .cf-body { padding: 24px 28px 28px; }
+    .cf-field { margin-bottom: 16px; }
+    .cf-label {
+      display: block; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .cf-input, .cf-select, .cf-textarea {
+      width: 100%; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 12px 16px;
+      color: var(--text); font-size: 15px; font-family: inherit;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none; resize: none;
+    }
+    .cf-input:focus, .cf-select:focus, .cf-textarea:focus {
+      border-color: rgba(34,211,238,0.4);
+      background: rgba(34,211,238,0.04);
+    }
+    .cf-select { -webkit-appearance: none; cursor: pointer; }
+    .cf-textarea { min-height: 120px; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cf-submit {
+      width: 100%; padding: 14px; border-radius: 12px;
+      background: var(--cyan2); color: #000;
+      font-weight: 700; font-size: 0.95rem; font-family: inherit;
+      border: none; cursor: pointer; transition: all 0.2s;
+      margin-top: 4px;
+    }
+    .cf-submit:hover { background: var(--cyan); transform: translateY(-1px); }
+    .cf-success {
+      display: none; text-align: center; padding: 20px 0 4px;
+    }
+    .cf-success-icon { font-size: 48px; margin-bottom: 12px; }
+    .cf-success h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .cf-success p { font-size: 14px; color: var(--muted); }
+    @media (max-width: 500px) {
+      .cf-body { padding: 16px; }
+      .cf-header { padding: 16px; }
+      .cf-row { grid-template-columns: 1fr; }
     }
   </style>
 </head>
@@ -237,14 +326,10 @@
     Auto Performance Tracker
   </a>
     <div class="nav-links">
-      <a href="index.html">Home</a>
-      <a href="agb.html" class="de">AGB</a>
-      <a href="agb.html" class="en">Terms</a>
+      <a href="support.html" class="active">Support & Kontakt</a>
+      <a href="agb.html">AGB</a>
       <a href="impressum.html">Impressum</a>
-      <a href="datenschutz.html" class="de">Datenschutz</a>
-      <a href="datenschutz.html" class="en">Privacy</a>
-      <a href="support.html" class="active de">Support</a>
-      <a href="support.html" class="active en">Support</a>
+      <a href="datenschutz.html">Datenschutz</a>
     </div>
     <div class="lang-switcher">
       <button class="lang-btn active" id="btn-de" onclick="setLang('de')">🇩🇪 DE</button>
@@ -278,18 +363,19 @@
   <div class="contact-grid">
 
     <!-- Email – primär, Apple-Pflicht -->
-    <a class="contact-card primary" href="/cdn-cgi/l/email-protection#4c3f393c3c233e380c21292022352f243927612d22382322622829">
+    <!-- E-Mail – Kontaktformular -->
+    <div class="contact-card primary" onclick="openContactForm()" style="cursor:pointer;">
       <div class="card-icon icon-cyan">✉️</div>
       <div>
         <div class="card-label de">Empfohlen</div>
         <div class="card-label en">Recommended</div>
         <div class="card-title de">E-Mail Support</div>
         <div class="card-title en">Email Support</div>
-        <div class="card-sub"><span class="__cf_email__" data-cfemail="1a696f6a6a75686e5a777f76746379726f71377b746e7574347e7f">[email&#160;protected]</span></div>
+        <div class="card-sub">contact@melnychuk-anton.de</div>
       </div>
-      <div class="card-action de">E-Mail schreiben →</div>
-      <div class="card-action en">Send email →</div>
-    </a>
+      <div class="card-action de">Nachricht senden →</div>
+      <div class="card-action en">Send a message →</div>
+    </div>
 
     <!-- Kauf-Probleme -->
     <a class="contact-card" href="https://reportaproblem.apple.com" target="_blank" rel="noopener">
@@ -330,8 +416,8 @@
         <span class="faq-chevron">▼</span>
       </button>
       <div class="faq-answer">
-        <span class="de">Stelle sicher, dass du angemeldet bist (Einstellungen → Konto) und eine aktive Internetverbindung hast. Bei Problemen: ausloggen, App schließen, erneut einloggen. Besteht das Problem weiter, schreib uns unter <a href="/cdn-cgi/l/email-protection#6b181e1b1b04191f2b060e07051208031e00460a051f0405450f0e"><span class="__cf_email__" data-cfemail="99eaece9e9f6ebedd9f4fcf5f7e0faf1ecf2b4f8f7edf6f7b7fdfc">[email&#160;protected]</span></a>.</span>
-        <span class="en">Make sure you're signed in (Settings → Account) and have an active internet connection. If issues persist: sign out, close the app, sign back in. Still not working? Email us at <a href="/cdn-cgi/l/email-protection#b6c5c3c6c6d9c4c2f6dbd3dad8cfd5dec3dd9bd7d8c2d9d898d2d3"><span class="__cf_email__" data-cfemail="f4878184849b8680b49991989a8d979c819fd9959a809b9ada9091">[email&#160;protected]</span></a>.</span>
+        <span class="de">Stelle sicher, dass du angemeldet bist (Einstellungen → Konto) und eine aktive Internetverbindung hast. Bei Problemen: ausloggen, App schließen, erneut einloggen. Besteht das Problem weiter, schreib uns unter <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>.</span>
+        <span class="en">Make sure you're signed in (Settings → Account) and have an active internet connection. If issues persist: sign out, close the app, sign back in. Still not working? Email us at <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>.</span>
       </div>
     </div>
 
@@ -440,8 +526,136 @@
       <a href="datenschutz.html" class="en">Privacy Policy</a>
       <a href="agb.html" class="de">AGB</a>
       <a href="agb.html" class="en">Terms</a>
-      <a href="/cdn-cgi/l/email-protection#98ebede8e8f7eaecd8f5fdf4f6e1fbf0edf3b5f9f6ecf7f6b6fcfd"><span class="__cf_email__" data-cfemail="82f1f7f2f2edf0f6c2efe7eeecfbe1eaf7e9afe3ecf6edecace6e7">[email&#160;protected]</span></a>
+      <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>
     </div>
     <p>© 2026 Anton Melnychuk · Auto Performance Tracker</p>
     <p style="margin-top:6px; font-size:12px" class="de">Diese Seite dient als offizielle Support-URL gemäß Apple App Store Connect Richtlinien</p>
     <p s
+tyle="margin-top:6px; font-size:12px" class="en">This page serves as the official support URL per Apple App Store Connect guidelines</p>
+  </div>
+
+</div><!-- end container -->
+
+<!-- ── Contact Form Modal ── -->
+<div class="cf-backdrop" id="cfModal" role="dialog" aria-modal="true" aria-labelledby="cfTitle">
+  <div class="cf-box">
+    <div class="cf-header">
+      <div class="cf-header-left">
+        <div class="cf-icon">✉️</div>
+        <div>
+          <div class="cf-title" id="cfTitle">Nachricht senden</div>
+          <div class="cf-subtitle">contact@melnychuk-anton.de · Antwort in 24–72h</div>
+        </div>
+      </div>
+      <button class="cf-close" onclick="closeContactForm()" aria-label="Schließen">✕</button>
+    </div>
+    <div class="cf-body">
+      <div id="cfForm">
+        <div class="cf-row">
+          <div class="cf-field">
+            <label class="cf-label" for="cfName">Dein Name</label>
+            <input class="cf-input" id="cfName" type="text" placeholder="Max Mustermann">
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cfEmail">Deine E-Mail</label>
+            <input class="cf-input" id="cfEmail" type="email" placeholder="max@beispiel.de">
+          </div>
+        </div>
+        <div class="cf-field">
+          <label class="cf-label" for="cfTopic">Thema</label>
+          <select class="cf-select" id="cfTopic">
+            <option value="allgemein">Allgemeine Frage</option>
+            <option value="bug">Bug / Fehler melden</option>
+            <option value="abo">Abo / Zahlung</option>
+            <option value="datenschutz">Datenschutz / Datenlöschung</option>
+            <option value="feedback">Feedback / Feature-Wunsch</option>
+            <option value="sonstiges">Sonstiges</option>
+          </select>
+        </div>
+        <div class="cf-field">
+          <label class="cf-label" for="cfMsg">Nachricht</label>
+          <textarea class="cf-textarea" id="cfMsg" placeholder="Beschreibe dein Anliegen so detailliert wie möglich …"></textarea>
+        </div>
+        <button class="cf-submit" onclick="submitContactForm()">Nachricht senden →</button>
+        <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5;">
+          Es öffnet sich deine Mail-App mit der vorausgefüllten E-Mail.<br>
+          Alternativ: <a href="mailto:contact@melnychuk-anton.de" style="color:var(--cyan)">contact@melnychuk-anton.de</a>
+        </p>
+      </div>
+      <div class="cf-success" id="cfSuccess">
+        <div class="cf-success-icon">✅</div>
+        <h3>E-Mail-App geöffnet!</h3>
+        <p>Deine vorausgefüllte Nachricht wartet in deiner Mail-App. Sende sie von dort ab – wir antworten in der Regel innerhalb von 24–72 Stunden.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Contact Form ────────────────────────────────
+function openContactForm() {
+  document.getElementById('cfModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('cfForm').style.display = '';
+  document.getElementById('cfSuccess').style.display = 'none';
+}
+function closeContactForm() {
+  document.getElementById('cfModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('cfModal').addEventListener('click', function(e) {
+  if (e.target === this) closeContactForm();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeContactForm();
+});
+function submitContactForm() {
+  const name    = document.getElementById('cfName').value.trim();
+  const email   = document.getElementById('cfEmail').value.trim();
+  const topic   = document.getElementById('cfTopic').options[document.getElementById('cfTopic').selectedIndex].text;
+  const message = document.getElementById('cfMsg').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Bitte fülle alle Felder aus.');
+    return;
+  }
+
+  const subject = encodeURIComponent('Support: ' + topic + ' – Auto Performance Tracker');
+  const body = encodeURIComponent(
+    'Hallo Anton,\n\n' + message +
+    '\n\n---\nAbsender: ' + name +
+    '\nAntwort-E-Mail: ' + email +
+    '\nThema: ' + topic +
+    '\nApp: Auto Performance Tracker'
+  );
+
+  window.location.href = 'mailto:contact@melnychuk-anton.de?subject=' + subject + '&body=' + body;
+  document.getElementById('cfForm').style.display = 'none';
+  document.getElementById('cfSuccess').style.display = 'block';
+}
+
+// ── Language Switch ──────────────────────────────
+let currentLang = localStorage.getItem('lang') || 'de';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.de, .en').forEach(el => {
+    el.style.display = el.classList.contains(lang) ? '' : 'none';
+  });
+  document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
+    b.classList.toggle('active', b.id === 'btn-' + lang);
+  });
+}
+setLang(currentLang);
+
+// ── FAQ Accordion ─────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
