@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Impressum – Auto Performance Tracker</title>
+  <style>
+    :root {
+      --bg:       #080C14;
+      --bg2:      #0D1420;
+      --card:     #111827;
+      --card2:    #1A2336;
+      --border:   rgba(255,255,255,0.07);
+      --cyan:     #22D3EE;
+      --cyan2:    #06B6D4;
+      --green:    #22C55E;
+      --amber:    #F59E0B;
+      --text:     #F1F5F9;
+      --muted:    #94A3B8;
+      --radius:   18px;
+      --radius-sm:12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Helvetica Neue', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 0 24px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,12,20,0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-links { display: flex; gap: 24px; align-items: center; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.85rem; font-weight: 500;
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 760px; margin: 0 auto;
+      padding: 112px 24px 96px;
+    }
+
+    /* ── Page header ── */
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 {
+      font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 8px;
+    }
+    .page-header p { color: var(--muted); font-size: 14px; }
+    .law-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px;
+      background: rgba(34,211,238,0.1);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: 50px; padding: 5px 14px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    /* ── Card ── */
+    .card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 32px;
+      margin-bottom: 18px;
+    }
+    .card-title {
+      font-size: 0.72rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em;
+      color: var(--cyan); margin-bottom: 16px;
+    }
+    .info-row {
+      display: flex; gap: 16px; padding: 10px 0;
+      border-bottom: 1px solid rgba(255,255,255,0.05);
+    }
+    .info-row:last-child { border-bottom: none; }
+    .info-label {
+      width: 160px; flex-shrink: 0;
+      font-size: 13px; color: var(--muted); padding-top: 1px;
+    }
+    .info-value { font-size: 15px; color: var(--text); }
+    .info-value a { color: var(--cyan); text-decoration: none; }
+    .info-value a:hover { text-decoration: underline; }
+
+    /* ── Prose ── */
+    .prose { font-size: 15px; color: var(--muted); }
+    .prose p { margin-bottom: 12px; line-height: 1.7; }
+    .prose p:last-child { margin-bottom: 0; }
+    .prose a { color: var(--cyan); }
+    .prose strong { color: var(--text); }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 64px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center; color: var(--muted); font-size: 13px;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    @media (max-width: 600px) {
+      .container { padding: 96px 16px 80px; }
+      .card { padding: 20px; }
+      .info-row { flex-direction: column; gap: 4px; }
+      .info-label { width: auto; }
+      .nav-links { display: none; }
+      nav { padding: 0 16px; }
+    }
+  </style>
+</head>
+<body>
+
+<nav aria-label="Legal navigation">
+  <a class="nav-logo" href="index.html">
+    <img src="AppIcon-1024.png" alt="Auto Performance Tracker Logo">
+    Auto Performance Tracker
+  </a>
+  <div class="nav-links">
+    <a href="support.html">Support & Kontakt</a>
+    <a href="agb.html">AGB</a>
+    <a href="impressum.html" class="active">Impressum</a>
+    <a href="datenschutz.html">Datenschutz</a>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1>Impressum</h1>
+    <p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
+    <div class="law-badge">⚖️ § 5 DDG · Stand: März 2026</div>
+  </div>
+
+  <!-- ① Anbieter -->
+  <div class="card">
+    <div class="card-title">① Anbieter · Verantwortlicher</div>
+    <div class="info-row">
+      <div class="info-label">Name</div>
+      <div class="info-value"><strong>Anton Melnychuk</strong></div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Straße / Nr.</div>
+      <div class="info-value">Heppenheimer Straße 39</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">PLZ / Ort</div>
+      <div class="info-value">64658 Fürth im Odenwald</div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Land</div>
+      <div class="info-value">Deutschland</div>
+    </div>
+  </div>
+
+  <!-- ② Kontakt -->
+  <div class="card">
+    <div class="card-title">② Kontakt</div>
+    <div class="info-row">
+      <div class="info-label">E-Mail</div>
+      <div class="info-value">
+        <a href="/cdn-cgi/l/email-protection#31525e5f45505245715c545d5f485259445a1c505f455e5f1f5554"><span class="__cf_email__" data-cfemail="14777b7a60757760547971787a6d777c617f39757a607b7a3a7071">[email&#160;protected]</span></a>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Telefon</div>
+      <div class="info-value">
+        <a href="tel:+491753797891">+49 (0) 175 3797891</a>
+      </div>
+    </div>
+    <div class="info-row">
+      <div class="info-label">Antwortzeit</div>
+      <div class="info-value">In der Regel innerhalb von 72 Stunden (keine Rechtspflicht; Reaktionszeit kann in Ausnahmefällen abweichen)</div>
+    </div>
+  </div>
+
+  <!-- ③ Umsatzsteuer -->
+  <div class="card">
+    <div class="card-title">③ Umsatzsteuer</div>
+
+    <div class="info-row">
+      <div class="info-label">Hinweis</div>
+      <div class="info-value">
+        Gemäß § 19 UStG wird keine Umsatzsteuer erhoben
+        (Kleinunternehmerregelung). Eine Umsatzsteuer-Identifikationsnummer
+        ist daher nicht vorhanden.
+      </div>
+    </div>
+  </div>
+
+  <!-- ④ Streitbeilegung -->
+  <div class="card">
+    <div class="card-title">④ Streitbeilegung (§ 36 VSBG · Pflichtangabe)</div>
+    <div class="prose">
+      <p>
+        <strong>Hinweis gemäß § 36 Abs. 1 Verbraucherstreitbeilegungsgesetz (VSBG):</strong><br>
+        Der Anbieter ist nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren
+        vor einer Verbraucherschlichtungsstelle im Sinne des VSBG teilzunehmen.
+      </p>
+      <p>
+        <strong>EU-Streitbeilegung:</strong> Die EU-ODR-Plattform wurde am 20.07.2025 abgeschaltet.
+        Informationen zu alternativen Streitbeilegungsstellen stellt die Europäische Kommission bereit unter:
+        <a href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_de" target="_blank" rel="noopener noreferrer">
+          consumer-redress.ec.europa.eu
+        </a>
+      </p>
+      <p>
+        Meine E-Mail-Adresse findest du oben im Abschnitt Kontakt.
+      </p>
+    </div>
+  </div>
+
+  <!-- ⑤ Haftung Inhalte -->
+  <div class="card">
+    <div class="card-title">⑤ Haftungsausschluss – Inhalte</div>
+    <div class="prose">
+      <p>
+        Die Inhalte dieser App und der zugehörigen Website wurden mit größtmöglicher
+        Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der
+        Inhalte übernehme ich jedoch keine Gewähr. Als privater Diensteanbieter bin ich
+        gemäß § 7 Abs. 1 DDG für eigene Inhalte nach den allgemeinen Gesetzen
+        verantwortlich. Ich bin jedoch nicht verpflichtet, übermittelte oder
+        gespeicherte fremde Informationen zu überwachen (§§ 8–10 DDG).
+      </p>
+      <p>
+        Bei bekannt werden von Rechtsverletzungen werde ich derartige Inhalte
+        umgehend entfernen.
+      </p>
+    </div>
+  </div>
+
+  <!-- ⑥ Haftung Links -->
+  <div class="card">
+    <div class="card-title">⑥ Haftungsausschluss – Externe Links</div>
+    <div class="prose">
+      <p>
+        Meine App und Website enthalten Links zu externen Websites Dritter,
+        auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der
+        verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
+        der Seiten verantwortlich.
+      </p>
+      <p>
+        Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
+        Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt
+        der Verlinkung nicht erkennbar. Bei Bekanntwerden von Rechtsverletzungen
+        werde ich derartige Links umgehend entfernen.
+      </p>
+    </div>
+  </div>
+
+  <!-- ⑦ Urheberrecht -->
+  <div class="card">
+    <div class="card-title">⑦ Urheberrecht</div>
+    <div class="prose">
+      <p>
+        Die durch mich erstellten Inhalte und Werke in dieser App und auf diesen
+        Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
+        Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen
+        des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen
+        Autors bzw. Erstellers.
+      </p>
+      <p>
+        Downloads und Kopien dieser App sind nur für den privaten, nicht kommerziellen
+        Gebrauch gestattet.
+      </p>
+    </div>
+  </div>
+
+  <!-- ⑧ App Store -->
+  <div class="card">
+    <div class="card-title">⑧ App Store – Hinweis</div>
+    <div class="prose">
+      <p>
+        <strong>Auto Performance Tracker</strong> wird im Apple App Store
+        (Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA) angeboten.
+        Apple ist nicht Vertragspartner für den Kauf von Abonnements oder
+        In-App-Käufen im Sinne der deutschen Verbraucherrechte, sondern handelt
+        ausschließlich als Zahlungsabwickler im Auftrag des Entwicklers.
+      </p>
+      <p>
+        Bei Fragen zu Käufen, Rückerstattungen oder technischen Problemen
+        wende dich zunächst über den App Store-Support an Apple oder direkt
+        per E-Mail an mich.
+      </p>
+    <

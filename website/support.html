@@ -1,0 +1,661 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Support – Auto Performance Tracker</title>
+  <meta name="description" content="Support und Kontakt für Auto Performance Tracker. Hier findest du Hilfe, FAQ und Kontaktmöglichkeiten.">
+  <style>
+    :root {
+      --bg:      #080C14;
+      --card:    #111827;
+      --card2:   #1A2336;
+      --border:  rgba(255,255,255,0.07);
+      --cyan:    #22D3EE;
+      --cyan2:   #06B6D4;
+      --green:   #22C55E;
+      --amber:   #F59E0B;
+      --red:     #EF4444;
+      --text:    #F1F5F9;
+      --muted:   #94A3B8;
+      --radius:  18px;
+      --radius-sm: 12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Helvetica Neue', 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.75; font-size: 15px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,12,20,0.80);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.85rem; font-weight: 500;
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+
+    /* ── Lang switcher ── */
+    .lang-switcher {
+      display: flex; gap: 4px;
+      background: var(--card); border-radius: 50px; padding: 4px;
+    }
+    .lang-btn {
+      border: none; background: transparent; cursor: pointer;
+      color: var(--muted); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.04em; padding: 5px 12px; border-radius: 50px;
+      font-family: inherit; transition: all .2s;
+    }
+    .lang-btn.active { background: var(--cyan2); color: #000; }
+    .lang-btn:not(.active):hover { color: var(--text); }
+
+    /* ── Layout ── */
+    .container { max-width: 800px; margin: 0 auto; padding: 104px 24px 96px; }
+
+    /* ── Hero ── */
+    .hero {
+      text-align: center; padding: 56px 0 48px;
+      border-bottom: 1px solid var(--border); margin-bottom: 48px;
+    }
+    .hero-icon {
+      width: 80px; height: 80px; border-radius: 20px;
+      margin: 0 auto 20px;
+      box-shadow: 0 0 0 1px rgba(255,255,255,0.08),
+                  0 20px 60px rgba(34,211,238,0.15);
+    }
+    .hero h1 {
+      font-size: 30px; font-weight: 800; color: var(--text); margin-bottom: 10px;
+    }
+    .hero p { color: var(--muted); font-size: 15px; max-width: 480px; margin: 0 auto 20px; }
+    .tag {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25);
+      color: var(--cyan); border-radius: 50px; padding: 5px 16px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* ── Section title ── */
+    .section-label {
+      font-size: 0.72rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.12em; color: var(--cyan); margin-bottom: 16px;
+    }
+
+    /* ── Contact cards ── */
+    .contact-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin-bottom: 48px;
+    }
+    .contact-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px 24px;
+      text-decoration: none; color: var(--text);
+      transition: border-color .2s, transform .2s;
+      display: flex; flex-direction: column; align-items: flex-start; gap: 12px;
+    }
+    .contact-card:hover {
+      border-color: rgba(34,211,238,0.4);
+      transform: translateY(-2px);
+    }
+    .contact-card.primary {
+      border-color: rgba(34,211,238,0.3);
+      background: linear-gradient(135deg, rgba(34,211,238,0.06) 0%, var(--card) 100%);
+    }
+    .card-icon {
+      width: 44px; height: 44px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px;
+    }
+    .icon-cyan   { background: rgba(34,211,238,0.12); }
+    .icon-green  { background: rgba(34,197,94,0.12); }
+    .icon-amber  { background: rgba(245,158,11,0.12); }
+    .icon-purple { background: rgba(129,140,248,0.12); }
+    .card-label {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.1em; color: var(--cyan); margin-bottom: 2px;
+    }
+    .card-title { font-size: 16px; font-weight: 700; color: var(--text); }
+    .card-sub { font-size: 13px; color: var(--muted); margin-top: 2px; }
+    .card-action {
+      margin-top: auto; padding-top: 12px;
+      font-size: 13px; font-weight: 600; color: var(--cyan);
+    }
+
+    /* ── Response time banner ── */
+    .response-banner {
+      background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.15);
+      border-radius: var(--radius-sm); padding: 14px 20px;
+      display: flex; align-items: center; gap: 12px;
+      margin-bottom: 48px; color: var(--muted); font-size: 14px;
+    }
+    .response-dot {
+      width: 8px; height: 8px; border-radius: 50%;
+      background: var(--green); flex-shrink: 0;
+      box-shadow: 0 0 8px rgba(34,197,94,0.6);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0%, 100% { opacity: 1; } 50% { opacity: 0.4; }
+    }
+
+    /* ── FAQ ── */
+    .faq-list { margin-bottom: 48px; }
+    .faq-item {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); margin-bottom: 10px;
+      overflow: hidden;
+    }
+    .faq-question {
+      width: 100%; background: none; border: none; cursor: pointer;
+      padding: 18px 22px; text-align: left; font-family: inherit;
+      font-size: 15px; font-weight: 600; color: var(--text);
+      display: flex; justify-content: space-between; align-items: center; gap: 12px;
+    }
+    .faq-question:hover { color: var(--cyan); }
+    .faq-chevron {
+      font-size: 12px; color: var(--muted); transition: transform .25s;
+      flex-shrink: 0;
+    }
+    .faq-answer {
+      max-height: 0; overflow: hidden;
+      transition: max-height .3s ease, padding .3s ease;
+      font-size: 14px; color: var(--muted); line-height: 1.7;
+      padding: 0 22px;
+    }
+    .faq-item.open .faq-answer {
+      max-height: 300px; padding: 0 22px 18px;
+    }
+    .faq-item.open .faq-chevron { transform: rotate(180deg); color: var(--cyan); }
+    .faq-item.open .faq-question { color: var(--cyan); }
+    .faq-answer a { color: var(--cyan); }
+
+    /* ── Info grid ── */
+    .info-grid {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 16px;
+      margin-bottom: 48px;
+    }
+    .info-card {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 20px 22px;
+    }
+    .info-card-title {
+      font-size: 13px; font-weight: 700; color: var(--text); margin-bottom: 8px;
+      display: flex; align-items: center; gap: 8px;
+    }
+    .info-card p { font-size: 13px; color: var(--muted); line-height: 1.6; margin: 0; }
+    .info-card a { color: var(--cyan); }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 64px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center; color: var(--muted); font-size: 13px;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+    .footer-links {
+      display: flex; justify-content: center; gap: 20px;
+      margin-bottom: 12px; flex-wrap: wrap;
+    }
+
+    /* ── EN hidden by default ── */
+    .en { display: none; }
+
+    @media (max-width: 600px) {
+      .container { padding: 90px 16px 80px; }
+      .contact-grid { grid-template-columns: 1fr; }
+      .info-grid { grid-template-columns: 1fr; }
+      .nav-links { display: none; }
+      .hero h1 { font-size: 24px; }
+      nav { padding: 0 16px; }
+    }
+
+    /* ── Contact Form Modal ── */
+    .cf-backdrop {
+      position: fixed; inset: 0; z-index: 9000;
+      background: rgba(4,7,16,0.85);
+      backdrop-filter: blur(12px);
+      -webkit-backdrop-filter: blur(12px);
+      display: flex; align-items: center; justify-content: center;
+      padding: 20px;
+      opacity: 0; pointer-events: none;
+      transition: opacity 0.3s ease;
+    }
+    .cf-backdrop.open { opacity: 1; pointer-events: all; }
+    .cf-box {
+      background: #0D1420;
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 24px;
+      width: 100%; max-width: 540px;
+      box-shadow: 0 40px 120px rgba(0,0,0,0.7), 0 0 0 1px rgba(34,211,238,0.08);
+      transform: translateY(24px) scale(0.98);
+      transition: transform 0.35s cubic-bezier(0.34,1.56,0.64,1), opacity 0.3s;
+      opacity: 0;
+    }
+    .cf-backdrop.open .cf-box { transform: none; opacity: 1; }
+    .cf-header {
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 22px 28px 18px;
+      border-bottom: 1px solid rgba(255,255,255,0.07);
+    }
+    .cf-header-left { display: flex; align-items: center; gap: 14px; }
+    .cf-icon {
+      width: 40px; height: 40px; border-radius: 12px;
+      background: rgba(34,211,238,0.12);
+      border: 1px solid rgba(34,211,238,0.2);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 18px;
+    }
+    .cf-title { font-size: 1.05rem; font-weight: 800; color: var(--text); }
+    .cf-subtitle { font-size: 0.75rem; color: var(--muted); margin-top: 2px; }
+    .cf-close {
+      width: 36px; height: 36px; border-radius: 50%;
+      background: rgba(255,255,255,0.06); border: 1px solid rgba(255,255,255,0.1);
+      color: var(--muted); font-size: 18px; cursor: pointer;
+      display: flex; align-items: center; justify-content: center;
+      transition: all 0.2s; font-family: inherit;
+    }
+    .cf-close:hover { background: rgba(255,255,255,0.12); color: var(--text); }
+    .cf-body { padding: 24px 28px 28px; }
+    .cf-field { margin-bottom: 16px; }
+    .cf-label {
+      display: block; font-size: 12px; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--muted); margin-bottom: 8px;
+    }
+    .cf-input, .cf-select, .cf-textarea {
+      width: 100%; background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.1);
+      border-radius: 12px; padding: 12px 16px;
+      color: var(--text); font-size: 15px; font-family: inherit;
+      transition: border-color 0.2s, background 0.2s;
+      outline: none; resize: none;
+    }
+    .cf-input:focus, .cf-select:focus, .cf-textarea:focus {
+      border-color: rgba(34,211,238,0.4);
+      background: rgba(34,211,238,0.04);
+    }
+    .cf-select { -webkit-appearance: none; cursor: pointer; }
+    .cf-textarea { min-height: 120px; }
+    .cf-row { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    .cf-submit {
+      width: 100%; padding: 14px; border-radius: 12px;
+      background: var(--cyan2); color: #000;
+      font-weight: 700; font-size: 0.95rem; font-family: inherit;
+      border: none; cursor: pointer; transition: all 0.2s;
+      margin-top: 4px;
+    }
+    .cf-submit:hover { background: var(--cyan); transform: translateY(-1px); }
+    .cf-success {
+      display: none; text-align: center; padding: 20px 0 4px;
+    }
+    .cf-success-icon { font-size: 48px; margin-bottom: 12px; }
+    .cf-success h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .cf-success p { font-size: 14px; color: var(--muted); }
+    @media (max-width: 500px) {
+      .cf-body { padding: 16px; }
+      .cf-header { padding: 16px; }
+      .cf-row { grid-template-columns: 1fr; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- Nav -->
+<nav aria-label="Main navigation">
+  <a class="nav-logo" href="index.html">
+    <img src="AppIcon-1024.png" alt="Auto Performance Tracker Logo">
+    Auto Performance Tracker
+  </a>
+    <div class="nav-links">
+      <a href="support.html" class="active">Support & Kontakt</a>
+      <a href="agb.html">AGB</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html">Datenschutz</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-de" onclick="setLang('de')">🇩🇪 DE</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <!-- Hero -->
+  <div class="hero">
+    <img src="AppIcon-1024.png" alt="Auto Performance Tracker" class="hero-icon">
+    <h1 class="de">Support & Kontakt</h1>
+    <h1 class="en">Support & Contact</h1>
+    <p class="de">Wir helfen dir gerne weiter. Schreib uns einfach eine E-Mail – wir antworten in der Regel innerhalb von 72 Stunden.</p>
+    <p class="en">We're happy to help. Just send us an email – we usually respond within 72 hours.</p>
+    <div class="tag">✓ <span class="de">Apple App Store Support</span><span class="en">Apple App Store Support</span></div>
+  </div>
+
+  <!-- Response time -->
+  <div class="response-banner">
+    <div class="response-dot"></div>
+    <span class="de"><strong style="color:var(--text)">Durchschnittliche Antwortzeit: 24–72 Stunden</strong> &nbsp;·&nbsp; Mo–Fr, Deutsch &amp; Englisch</span>
+    <span class="en"><strong style="color:var(--text)">Average response time: 24–72 hours</strong> &nbsp;·&nbsp; Mon–Fri, German &amp; English</span>
+  </div>
+
+  <!-- Contact cards -->
+  <div class="section-label de">Kontakt aufnehmen</div>
+  <div class="section-label en">Get in touch</div>
+  <div class="contact-grid">
+
+    <!-- Email – primär, Apple-Pflicht -->
+    <!-- E-Mail – Kontaktformular -->
+    <div class="contact-card primary" onclick="openContactForm()" style="cursor:pointer;">
+      <div class="card-icon icon-cyan">✉️</div>
+      <div>
+        <div class="card-label de">Empfohlen</div>
+        <div class="card-label en">Recommended</div>
+        <div class="card-title de">E-Mail Support</div>
+        <div class="card-title en">Email Support</div>
+        <div class="card-sub">contact@melnychuk-anton.de</div>
+      </div>
+      <div class="card-action de">Nachricht senden →</div>
+      <div class="card-action en">Send a message →</div>
+    </div>
+
+    <!-- Kauf-Probleme -->
+    <a class="contact-card" href="https://reportaproblem.apple.com" target="_blank" rel="noopener">
+      <div class="card-icon icon-amber">🛒</div>
+      <div>
+        <div class="card-label">Apple</div>
+        <div class="card-title de">Kauf & Abonnement</div>
+        <div class="card-title en">Purchase & Subscription</div>
+        <div class="card-sub de">Rückerstattungen über Apple</div>
+        <div class="card-sub en">Refunds via Apple</div>
+      </div>
+      <div class="card-action">reportaproblem.apple.com →</div>
+    </a>
+
+  </div>
+
+  <!-- FAQ -->
+  <div class="section-label de">Häufige Fragen</div>
+  <div class="section-label en">Frequently Asked Questions</div>
+  <div class="faq-list">
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="de">Die App zeigt keine GPS-Daten an – was tun?</span>
+        <span class="en">The app shows no GPS data – what should I do?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-answer">
+        <span class="de">Prüfe unter <strong>Einstellungen → Datenschutz → Ortungsdienste → Auto Performance Tracker</strong>, ob die Berechtigung auf <em>„Beim Verwenden der App"</em> oder <em>„Immer"</em> gesetzt ist. Starte die App danach neu.</span>
+        <span class="en">Check <strong>Settings → Privacy → Location Services → Auto Performance Tracker</strong> and make sure permission is set to <em>"While Using the App"</em> or <em>"Always"</em>. Then restart the app.</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="de">Cloud-Sync funktioniert nicht</span>
+        <span class="en">Cloud Sync is not working</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-answer">
+        <span class="de">Stelle sicher, dass du angemeldet bist (Einstellungen → Konto) und eine aktive Internetverbindung hast. Bei Problemen: ausloggen, App schließen, erneut einloggen. Besteht das Problem weiter, schreib uns unter <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>.</span>
+        <span class="en">Make sure you're signed in (Settings → Account) and have an active internet connection. If issues persist: sign out, close the app, sign back in. Still not working? Email us at <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>.</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="de">Wie kann ich eine Rückerstattung beantragen?</span>
+        <span class="en">How do I request a refund?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-answer">
+        <span class="de">Rückerstattungen werden ausschließlich über Apple abgewickelt. Besuche <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>, melde dich mit deiner Apple-ID an und wähle den Kauf aus.</span>
+        <span class="en">Refunds are handled exclusively by Apple. Visit <a href="https://reportaproblem.apple.com" target="_blank">reportaproblem.apple.com</a>, sign in with your Apple ID and select the purchase.</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="de">Wie lösche ich meinen Account und alle Daten?</span>
+        <span class="en">How do I delete my account and all data?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-answer">
+        <span class="de">Gehe in der App zu <strong>Einstellungen → Account → Account löschen</strong>. Alle Daten werden innerhalb von 30 Tagen vollständig gelöscht. Alternativ schreib uns und wir löschen deine Daten manuell.</span>
+        <span class="en">In the app, go to <strong>Settings → Account → Delete Account</strong>. All data will be fully deleted within 30 days. Alternatively, email us and we'll delete your data manually.</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="de">Pro-Abo ist nach Neuinstallation weg</span>
+        <span class="en">Pro subscription gone after reinstall</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-answer">
+        <span class="de">Tippe in der App auf <strong>Einstellungen → Pro → Käufe wiederherstellen</strong>. Dein Abo ist mit deiner Apple-ID verknüpft und wird automatisch wiederhergestellt – ohne erneute Zahlung.</span>
+        <span class="en">In the app, tap <strong>Settings → Pro → Restore Purchases</strong>. Your subscription is linked to your Apple ID and will be restored automatically – no additional charge.</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="de">Die App verbraucht zu viel Akku</span>
+        <span class="en">The app uses too much battery</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-answer">
+        <span class="de">GPS-Tracking ist rechenintensiv. Beende eine Fahrtaufzeichnung immer über den <strong>Stop-Button</strong>, damit GPS abgeschaltet wird. Hintergrundtracking läuft nur während aktiver Aufzeichnungen.</span>
+        <span class="en">GPS tracking is resource-intensive. Always stop a trip recording via the <strong>Stop button</strong> to turn off GPS. Background tracking only runs during active recordings.</span>
+      </div>
+    </div>
+
+    <div class="faq-item">
+      <button class="faq-question" onclick="toggleFaq(this)">
+        <span class="de">Wo finde ich die Datenschutzerklärung?</span>
+        <span class="en">Where is the Privacy Policy?</span>
+        <span class="faq-chevron">▼</span>
+      </button>
+      <div class="faq-answer">
+        <span class="de">Die vollständige Datenschutzerklärung findest du <a href="datenschutz.html">hier</a> oder in der App unter <strong>Einstellungen → Datenschutzerklärung</strong>.</span>
+        <span class="en">The full Privacy Policy is available <a href="datenschutz.html">here</a> or in the app under <strong>Settings → Privacy Policy</strong>.</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Info grid -->
+  <div class="section-label de">Weitere Infos</div>
+  <div class="section-label en">More Information</div>
+  <div class="info-grid">
+
+    <div class="info-card">
+      <div class="info-card-title">📱 <span class="de">Kompatibilität</span><span class="en">Compatibility</span></div>
+      <p class="de">iOS 17.0 oder neuer · iPhone · Deutsch &amp; Englisch</p>
+      <p class="en">iOS 17.0 or later · iPhone · German &amp; English</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🔄 <span class="de">App-Version</span><span class="en">App Version</span></div>
+      <p class="de">Neueste Version im <a href="https://apps.apple.com" target="_blank">App Store</a> verfügbar. Bei Bugs bitte Version angeben (Einstellungen → Info).</p>
+      <p class="en">Latest version available on the <a href="https://apps.apple.com" target="_blank">App Store</a>. When reporting bugs, please include your version (Settings → About).</p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">🛡️ <span class="de">Datenschutz</span><span class="en">Privacy</span></div>
+      <p><a href="datenschutz.html" class="de">Datenschutzerklärung lesen</a><a href="datenschutz.html" class="en">Read Privacy Policy</a></p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">⚖️ Impressum</div>
+      <p><a href="impressum.html">Anton Melnychuk · Fürth im Odenwald</a></p>
+    </div>
+
+    <div class="info-card">
+      <div class="info-card-title">📋 <span class="de">AGB</span><span class="en">Terms of Service</span></div>
+      <p><a href="agb.html" class="de">Allgemeine Geschäftsbedingungen lesen</a><a href="agb.html" class="en">Read Terms of Service</a></p>
+    </div>
+
+  </div>
+
+  <!-- Footer -->
+  <div class="footer">
+    <div class="footer-links">
+      <a href="index.html">Home</a>
+      <a href="impressum.html">Impressum</a>
+      <a href="datenschutz.html" class="de">Datenschutzerklärung</a>
+      <a href="datenschutz.html" class="en">Privacy Policy</a>
+      <a href="agb.html" class="de">AGB</a>
+      <a href="agb.html" class="en">Terms</a>
+      <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>
+    </div>
+    <p>© 2026 Anton Melnychuk · Auto Performance Tracker</p>
+    <p style="margin-top:6px; font-size:12px" class="de">Diese Seite dient als offizielle Support-URL gemäß Apple App Store Connect Richtlinien</p>
+    <p s
+tyle="margin-top:6px; font-size:12px" class="en">This page serves as the official support URL per Apple App Store Connect guidelines</p>
+  </div>
+
+</div><!-- end container -->
+
+<!-- ── Contact Form Modal ── -->
+<div class="cf-backdrop" id="cfModal" role="dialog" aria-modal="true" aria-labelledby="cfTitle">
+  <div class="cf-box">
+    <div class="cf-header">
+      <div class="cf-header-left">
+        <div class="cf-icon">✉️</div>
+        <div>
+          <div class="cf-title" id="cfTitle">Nachricht senden</div>
+          <div class="cf-subtitle">contact@melnychuk-anton.de · Antwort in 24–72h</div>
+        </div>
+      </div>
+      <button class="cf-close" onclick="closeContactForm()" aria-label="Schließen">✕</button>
+    </div>
+    <div class="cf-body">
+      <div id="cfForm">
+        <div class="cf-row">
+          <div class="cf-field">
+            <label class="cf-label" for="cfName">Dein Name</label>
+            <input class="cf-input" id="cfName" type="text" placeholder="Max Mustermann">
+          </div>
+          <div class="cf-field">
+            <label class="cf-label" for="cfEmail">Deine E-Mail</label>
+            <input class="cf-input" id="cfEmail" type="email" placeholder="max@beispiel.de">
+          </div>
+        </div>
+        <div class="cf-field">
+          <label class="cf-label" for="cfTopic">Thema</label>
+          <select class="cf-select" id="cfTopic">
+            <option value="allgemein">Allgemeine Frage</option>
+            <option value="bug">Bug / Fehler melden</option>
+            <option value="abo">Abo / Zahlung</option>
+            <option value="datenschutz">Datenschutz / Datenlöschung</option>
+            <option value="feedback">Feedback / Feature-Wunsch</option>
+            <option value="sonstiges">Sonstiges</option>
+          </select>
+        </div>
+        <div class="cf-field">
+          <label class="cf-label" for="cfMsg">Nachricht</label>
+          <textarea class="cf-textarea" id="cfMsg" placeholder="Beschreibe dein Anliegen so detailliert wie möglich …"></textarea>
+        </div>
+        <button class="cf-submit" onclick="submitContactForm()">Nachricht senden →</button>
+        <p style="font-size:12px;color:var(--muted);text-align:center;margin-top:12px;line-height:1.5;">
+          Es öffnet sich deine Mail-App mit der vorausgefüllten E-Mail.<br>
+          Alternativ: <a href="mailto:contact@melnychuk-anton.de" style="color:var(--cyan)">contact@melnychuk-anton.de</a>
+        </p>
+      </div>
+      <div class="cf-success" id="cfSuccess">
+        <div class="cf-success-icon">✅</div>
+        <h3>E-Mail-App geöffnet!</h3>
+        <p>Deine vorausgefüllte Nachricht wartet in deiner Mail-App. Sende sie von dort ab – wir antworten in der Regel innerhalb von 24–72 Stunden.</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script>
+// ── Contact Form ────────────────────────────────
+function openContactForm() {
+  document.getElementById('cfModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+  document.getElementById('cfForm').style.display = '';
+  document.getElementById('cfSuccess').style.display = 'none';
+}
+function closeContactForm() {
+  document.getElementById('cfModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+document.getElementById('cfModal').addEventListener('click', function(e) {
+  if (e.target === this) closeContactForm();
+});
+document.addEventListener('keydown', function(e) {
+  if (e.key === 'Escape') closeContactForm();
+});
+function submitContactForm() {
+  const name    = document.getElementById('cfName').value.trim();
+  const email   = document.getElementById('cfEmail').value.trim();
+  const topic   = document.getElementById('cfTopic').options[document.getElementById('cfTopic').selectedIndex].text;
+  const message = document.getElementById('cfMsg').value.trim();
+
+  if (!name || !email || !message) {
+    alert('Bitte fülle alle Felder aus.');
+    return;
+  }
+
+  const subject = encodeURIComponent('Support: ' + topic + ' – Auto Performance Tracker');
+  const body = encodeURIComponent(
+    'Hallo Anton,\n\n' + message +
+    '\n\n---\nAbsender: ' + name +
+    '\nAntwort-E-Mail: ' + email +
+    '\nThema: ' + topic +
+    '\nApp: Auto Performance Tracker'
+  );
+
+  window.location.href = 'mailto:contact@melnychuk-anton.de?subject=' + subject + '&body=' + body;
+  document.getElementById('cfForm').style.display = 'none';
+  document.getElementById('cfSuccess').style.display = 'block';
+}
+
+// ── Language Switch ──────────────────────────────
+let currentLang = localStorage.getItem('lang') || 'de';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.de, .en').forEach(el => {
+    el.style.display = el.classList.contains(lang) ? '' : 'none';
+  });
+  document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
+    b.classList.toggle('active', b.id === 'btn-' + lang);
+  });
+}
+setLang(currentLang);
+
+// ── FAQ Accordion ─────────────────────────────────
+function toggleFaq(btn) {
+  const item = btn.parentElement;
+  const isOpen = item.classList.contains('open');
+  document.querySelectorAll('.faq-item.open').forEach(i => i.classList.remove('open'));
+  if (!isOpen) item.classList.add('open');
+}
+</script>
+</body>
+</html>
