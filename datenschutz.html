@@ -269,8 +269,8 @@
 
     <p class="de" style="margin-top:20px"><strong>Bewegungssensordaten (CoreMotion)</strong> <span class="tag tag-blue">Nur während Aufzeichnung</span></p>
     <p class="en" style="margin-top:20px"><strong>Motion Sensor Data (CoreMotion)</strong> <span class="tag tag-blue">Recording only</span></p>
-    <p class="de">Während der Fahrtaufzeichnung erfasst die App zusätzlich Beschleunigungssensor- und Kreiselsensordaten (Gyroskop) über das iOS CoreMotion-Framework mit ca. 25 Hz.</p>
-    <p class="en">During trip recording the app additionally collects accelerometer and gyroscope data via the iOS CoreMotion framework at approx. 25 Hz.</p>
+    <p class="de">Während der Fahrtaufzeichnung erfasst die App zusätzlich Beschleunigungssensor- und Kreiselsensordaten (Gyroskop) über das iOS CoreMotion-Framework mit ca. 50 Hz.</p>
+    <p class="en">During trip recording the app additionally collects accelerometer and gyroscope data via the iOS CoreMotion framework at approx. 50 Hz.</p>
     <ul>
       <li class="de"><span class="label">Daten:</span> Linearbeschleunigung (x/y/z), Rotationsrate (x/y/z), Zeitstempel</li>
       <li class="en"><span class="label">Data:</span> Linear acceleration (x/y/z), rotation rate (x/y/z), timestamps</li>
@@ -325,6 +325,31 @@
   </div>
 
   <!-- ④ Analytics -->
+    <!-- ③b Firebase Analytics -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">📊</div>
+      <div>
+        <div class="section-num de">3b. Firebase Analytics</div>
+        <div class="section-num en">3b. Firebase Analytics</div>
+      </div>
+    </div>
+    <p class="de">Die App verwendet <strong>Firebase Analytics</strong> (Google LLC) zur anonymen Nutzungsanalyse. Firebase Analytics ist standardmäßig aktiv und kann unter Einstellungen → Datenschutz → Analytics deaktiviert werden.</p>
+    <p class="en">The app uses <strong>Firebase Analytics</strong> (Google LLC) for anonymous usage analysis. Firebase Analytics is active by default and can be disabled under Settings → Privacy → Analytics.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert</li>
+      <li class="en"><span class="label">Provider:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU Standard Contractual Clauses · EU-US Data Privacy Framework (DPF) certified</li>
+      <li class="de"><span class="label">Daten:</span> Anonymisierte Ereignisse (Screen-Aufrufe, Feature-Nutzung, Fahrtanzahl), App-Version, iOS-Version, Gerätemodell. <strong>Keine GPS-Daten, keine Namen, kein IDFA.</strong></li>
+      <li class="en"><span class="label">Data:</span> Anonymised events (screen views, feature usage, trip counts), app version, iOS version, device model. <strong>No GPS data, no names, no IDFA.</strong></li>
+      <li class="de"><span class="label">Speicherdauer:</span> Bis zu 14 Monate (Google-Standard)</li>
+      <li class="en"><span class="label">Retention:</span> Up to 14 months (Google standard)</li>
+      <li class="de"><span class="label">Deaktivierung:</span> Einstellungen → Datenschutz → Analytics deaktivieren (sofort wirksam)</li>
+      <li class="en"><span class="label">Disable:</span> Settings → Privacy → Disable Analytics (immediate effect)</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an App-Verbesserung) · <strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Jederzeit in den App-Einstellungen oder per E-Mail. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(f) GDPR (legitimate interest in app improvement) · <strong>Right to object (Art. 21 GDPR):</strong> At any time in app settings or by email. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
+  </div>
+
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-orange">📊</div>
@@ -679,11 +704,12 @@
       <tr><th>Datenkategorie</th><th>Speicherdauer</th></tr>
       <tr><td>Lokale Fahrtdaten (inkl. GPS-Punkte)</td><td>Bis manuelle Löschung / App-Deinstallation</td></tr>
       <tr><td>Bewegungssensordaten (CoreMotion)</td><td>Teil der Fahrtdaten – gleiche Speicherdauer</td></tr>
-      <tr><td>Cloud-Fahrtdaten (Supabase)</td><td>Bis Account-Löschung; Soft-Delete → 90 Tage</td></tr>
+      <tr><td>Cloud-Fahrtdaten (Supabase)</td><td>Bis Account-Löschung; Soft-Delete → 30 Tage</td></tr>
       <tr><td>Fahrzeugprofile (Cloud)</td><td>Bis Account-Löschung</td></tr>
       <tr><td>Nutzerprofil (E-Mail, Name)</td><td>Bis Account-Löschung (innerhalb 30 Tagen)</td></tr>
       <tr><td>Authentifizierungsdaten (Passwort-Hash, Sitzungstoken) – Supabase Auth</td><td>Bis Account-Löschung; Sitzungstoken: bis Ablauf / Abmeldung</td></tr>
       <tr><td>Anonyme Konten (inaktiv)</td><td>Automatisch nach 180 Tagen Inaktivität</td></tr>
+      <tr><td>Firebase Analytics (Standard: aktiv)</td><td>Bis zu 14 Monate (Google-Standard)</td></tr>
       <tr><td>Analytics (PostHog, Opt-In)</td><td>Anonymisiert, max. 12 Monate</td></tr>
       <tr><td>Absturz-Berichte (Crashlytics)</td><td>90 Tage (Firebase-Standard)</td></tr>
       <tr><td>Abonnement-Status (Pro-Flag)</td><td>Bis Account-Löschung; Apple StoreKit: gem. Apple-Richtlinie</td></tr>
@@ -694,11 +720,12 @@
       <tr><th>Data category</th><th>Retention period</th></tr>
       <tr><td>Local trip data (incl. GPS points)</td><td>Until manual deletion / app uninstall</td></tr>
       <tr><td>Motion sensor data (CoreMotion)</td><td>Part of trip data – same retention period</td></tr>
-      <tr><td>Cloud trip data (Supabase)</td><td>Until account deletion; soft-deleted → 90 days</td></tr>
+      <tr><td>Cloud trip data (Supabase)</td><td>Until account deletion; soft-deleted → 30 days</td></tr>
       <tr><td>Vehicle profiles (cloud)</td><td>Until account deletion</td></tr>
       <tr><td>User profile (email, name)</td><td>Until account deletion (within 30 days)</td></tr>
       <tr><td>Authentication data (password hash, session token) – Supabase Auth</td><td>Until account deletion; session token: until expiry / sign-out</td></tr>
       <tr><td>Anonymous accounts (inactive)</td><td>Automatically after 180 days of inactivity</td></tr>
+      <tr><td>Firebase Analytics (default: active)</td><td>Up to 14 months (Google standard)</td></tr>
       <tr><td>Analytics (PostHog, opt-in)</td><td>Anonymized, max. 12 months</td></tr>
       <tr><td>Crash reports (Crashlytics)</td><td>90 days (Firebase default)</td></tr>
       <tr><td>Subscription status (Pro flag)</td><td>Until account deletion; Apple StoreKit: per Apple policy</td></tr>
@@ -720,7 +747,7 @@
     <p class="en">The following service providers process personal data on behalf of the app, each with a Data Processing Agreement (DPA) where required by law:</p>
     <ul class="de">
       <li><a href="https://supabase.com/privacy" target="_blank">Supabase Inc.</a> – Cloud-Sync, Auth (AVV abgeschlossen · <a href="https://supabase.com/dpa" target="_blank">supabase.com/dpa</a>)</li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Crashlytics, AdMob, Sign-In (AVV: Google Cloud Data Processing Addendum)</li>
+      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Analytics, Crashlytics, AdMob, Sign-In (AVV: Google Cloud Data Processing Addendum)</li>
       <li><a href="https://posthog.com/privacy" target="_blank">PostHog Inc.</a> – Analytics (bei Opt-In; AVV abgeschlossen gem. Art. 28 DSGVO)</li>
     </ul>
     <p class="de" style="margin-top:12px"><strong>Eigenständige Verantwortliche (keine Auftragsverarbeitung):</strong></p>
@@ -731,7 +758,7 @@
     </ul>
     <ul class="en">
       <li><a href="https://supabase.com/privacy" target="_blank">Supabase Inc.</a> – Cloud Sync, Auth (DPA in place · <a href="https://supabase.com/dpa" target="_blank">supabase.com/dpa</a>)</li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Crashlytics, AdMob, Sign-In (DPA: Google Cloud Data Processing Addendum)</li>
+      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Analytics, Crashlytics, AdMob, Sign-In (DPA: Google Cloud Data Processing Addendum)</li>
       <li><a href="https://posthog.com/privacy" target="_blank">PostHog Inc.</a> – Analytics (opt-in; DPA concluded per Art. 28 GDPR)</li>
     </ul>
     <ul class="en" style="margin-top:0">
