@@ -6,6 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		AB02AABE2F4E468800CA8E6B /* GoogleMobileAds in Frameworks */ = {isa = PBXBuildFile; productRef = AB02AABD2F4E468800CA8E6B /* GoogleMobileAds */; };
+		AB02AAC22F4E472600CA8E6B /* GoogleSignIn in Frameworks */ = {isa = PBXBuildFile; productRef = AB02AAC12F4E472600CA8E6B /* GoogleSignIn */; };
+		AB02AAC52F4E47C900CA8E6B /* Supabase in Frameworks */ = {isa = PBXBuildFile; productRef = AB02AAC42F4E47C900CA8E6B /* Supabase */; };
+		AB02AAC72F4E480B00CA8E6B /* FirebaseCore in Frameworks */ = {isa = PBXBuildFile; productRef = AB02AAC62F4E480B00CA8E6B /* FirebaseCore */; };
+		AB02AAC92F4E480B00CA8E6B /* FirebaseCrashlytics in Frameworks */ = {isa = PBXBuildFile; productRef = AB02AAC82F4E480B00CA8E6B /* FirebaseCrashlytics */; };
+		AB7D3A8D2F5F6946005801F5 /* StoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AB4262EC2F4FB01B005323AC /* StoreKit.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		ABF6EE842F4B944D00FD661C /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,25 +33,31 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		AB4262EC2F4FB01B005323AC /* StoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = StoreKit.framework; path = System/Library/Frameworks/StoreKit.framework; sourceTree = SDKROOT; };
+		AB4262F22F4FB4B5005323AC /* Debug.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Debug.xcconfig; sourceTree = "<group>"; };
+		AB4262F42F4FB4BC005323AC /* Release.xcconfig */ = {isa = PBXFileReference; lastKnownFileType = text.xcconfig; path = Release.xcconfig; sourceTree = "<group>"; };
 		ABF6EE742F4B944C00FD661C /* Auto Performance Tracker.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Auto Performance Tracker.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF6EE832F4B944D00FD661C /* Auto Performance TrackerTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Auto Performance TrackerTests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		ABF6EE8D2F4B944D00FD661C /* Auto Performance TrackerUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Auto Performance TrackerUITests.xctest"; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
+/* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
+		AB1EC2FD2F523281004292B5 /* Exceptions for "Auto Performance Tracker" folder in "Auto Performance Tracker" target */ = {
+			isa = PBXFileSystemSynchronizedBuildFileExceptionSet;
+			membershipExceptions = (
+				"Config/Auto-Performance-Tracker-Info.plist",
+			);
+			target = ABF6EE732F4B944C00FD661C /* Auto Performance Tracker */;
+		};
+/* End PBXFileSystemSynchronizedBuildFileExceptionSet section */
+
 /* Begin PBXFileSystemSynchronizedRootGroup section */
 		ABF6EE762F4B944C00FD661C /* Auto Performance Tracker */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
+			exceptions = (
+				AB1EC2FD2F523281004292B5 /* Exceptions for "Auto Performance Tracker" folder in "Auto Performance Tracker" target */,
+			);
 			path = "Auto Performance Tracker";
-			sourceTree = "<group>";
-		};
-		ABF6EE862F4B944D00FD661C /* Auto Performance TrackerTests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Auto Performance TrackerTests";
-			sourceTree = "<group>";
-		};
-		ABF6EE902F4B944D00FD661C /* Auto Performance TrackerUITests */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = "Auto Performance TrackerUITests";
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -52,6 +67,12 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				AB02AABE2F4E468800CA8E6B /* GoogleMobileAds in Frameworks */,
+				AB02AAC22F4E472600CA8E6B /* GoogleSignIn in Frameworks */,
+				AB02AAC92F4E480B00CA8E6B /* FirebaseCrashlytics in Frameworks */,
+				AB7D3A8D2F5F6946005801F5 /* StoreKit.framework in Frameworks */,
+				AB02AAC72F4E480B00CA8E6B /* FirebaseCore in Frameworks */,
+				AB02AAC52F4E47C900CA8E6B /* Supabase in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,13 +93,22 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		ABD3CF912F4B950F009200EB /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				AB4262EC2F4FB01B005323AC /* StoreKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		ABF6EE6B2F4B944C00FD661C = {
 			isa = PBXGroup;
 			children = (
 				ABF6EE762F4B944C00FD661C /* Auto Performance Tracker */,
-				ABF6EE862F4B944D00FD661C /* Auto Performance TrackerTests */,
-				ABF6EE902F4B944D00FD661C /* Auto Performance TrackerUITests */,
+				ABD3CF912F4B950F009200EB /* Frameworks */,
 				ABF6EE752F4B944C00FD661C /* Products */,
+				AB4262F22F4FB4B5005323AC /* Debug.xcconfig */,
+				AB4262F42F4FB4BC005323AC /* Release.xcconfig */,
 			);
 			sourceTree = "<group>";
 		};
@@ -102,6 +132,8 @@
 				ABF6EE702F4B944C00FD661C /* Sources */,
 				ABF6EE712F4B944C00FD661C /* Frameworks */,
 				ABF6EE722F4B944C00FD661C /* Resources */,
+				AB02AACB2F4E49EF00CA8E6B /* ShellScript */,
+				AB02AACC2F4E49EF00CA8E6C /* Copy Google dSYMs */,
 			);
 			buildRules = (
 			);
@@ -112,6 +144,11 @@
 			);
 			name = "Auto Performance Tracker";
 			packageProductDependencies = (
+				AB02AABD2F4E468800CA8E6B /* GoogleMobileAds */,
+				AB02AAC12F4E472600CA8E6B /* GoogleSignIn */,
+				AB02AAC42F4E47C900CA8E6B /* Supabase */,
+				AB02AAC62F4E480B00CA8E6B /* FirebaseCore */,
+				AB02AAC82F4E480B00CA8E6B /* FirebaseCrashlytics */,
 			);
 			productName = "Auto Performance Tracker";
 			productReference = ABF6EE742F4B944C00FD661C /* Auto Performance Tracker.app */;
@@ -129,9 +166,6 @@
 			);
 			dependencies = (
 				ABF6EE852F4B944D00FD661C /* PBXTargetDependency */,
-			);
-			fileSystemSynchronizedGroups = (
-				ABF6EE862F4B944D00FD661C /* Auto Performance TrackerTests */,
 			);
 			name = "Auto Performance TrackerTests";
 			packageProductDependencies = (
@@ -153,9 +187,6 @@
 			dependencies = (
 				ABF6EE8F2F4B944D00FD661C /* PBXTargetDependency */,
 			);
-			fileSystemSynchronizedGroups = (
-				ABF6EE902F4B944D00FD661C /* Auto Performance TrackerUITests */,
-			);
 			name = "Auto Performance TrackerUITests";
 			packageProductDependencies = (
 			);
@@ -171,10 +202,11 @@
 			attributes = {
 				BuildIndependentTargetsInParallel = 1;
 				LastSwiftUpdateCheck = 2620;
-				LastUpgradeCheck = 2620;
+				LastUpgradeCheck = 2630;
 				TargetAttributes = {
 					ABF6EE732F4B944C00FD661C = {
 						CreatedOnToolsVersion = 26.2;
+						LastSwiftMigration = 2620;
 					};
 					ABF6EE822F4B944D00FD661C = {
 						CreatedOnToolsVersion = 26.2;
@@ -187,14 +219,20 @@
 				};
 			};
 			buildConfigurationList = ABF6EE6F2F4B944C00FD661C /* Build configuration list for PBXProject "Auto Performance Tracker" */;
-			developmentRegion = en;
+			developmentRegion = de;
 			hasScannedForEncodings = 0;
 			knownRegions = (
-				en,
 				Base,
+				de,
 			);
 			mainGroup = ABF6EE6B2F4B944C00FD661C;
 			minimizedProjectReferenceProxies = 1;
+			packageReferences = (
+				AB02AABC2F4E468800CA8E6B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */,
+				AB02AABF2F4E46BE00CA8E6B /* XCRemoteSwiftPackageReference "supabase-swift" */,
+				AB02AAC02F4E472600CA8E6B /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */,
+				AB02AAC32F4E47C400CA8E6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */,
+			);
 			preferredProjectObjectVersion = 77;
 			productRefGroup = ABF6EE752F4B944C00FD661C /* Products */;
 			projectDirPath = "";
@@ -230,6 +268,49 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		AB02AACB2F4E49EF00CA8E6B /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"$(SRCROOT)/Auto Performance Tracker/Config/GoogleService-Info.plist",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}",
+				"${DWARF_DSYM_FOLDER_PATH}/${DWARF_DSYM_FILE_NAME}/Contents/Resources/DWARF/${TARGET_NAME}",
+			);
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${BUILD_DIR%Build/*}SourcePackages/checkouts/firebase-ios-sdk/Crashlytics/run\"\n";
+		};
+		AB02AACC2F4E49EF00CA8E6C /* Copy Google dSYMs */ = {
+			isa = PBXShellScriptBuildPhase;
+			alwaysOutOfDate = 1;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Copy Google dSYMs";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Copy Google dSYMs (SPM) into dSYM output folder for Crashlytics upload\nSPM_ARTIFACTS=\"${BUILD_DIR%/Build/*}/SourcePackages/artifacts\"\nDSYM_OUT=\"${DWARF_DSYM_FOLDER_PATH}\"\nif [ -z \"${DSYM_OUT}\" ]; then\n  echo \"DWARF_DSYM_FOLDER_PATH not set – skipping\"\n  exit 0\nfi\nfor DSYM in \\\n  \"${SPM_ARTIFACTS}/swift-package-manager-google-mobile-ads/GoogleMobileAdsSdkiOS.xcframework/ios-arm64/dSYMs/GoogleMobileAds.framework.dSYM\" \\\n  \"${SPM_ARTIFACTS}/swift-package-manager-google-user-messaging-platform/UserMessagingPlatformSdkiOS.xcframework/ios-arm64/dSYMs/UserMessagingPlatform.framework.dSYM\"\ndo\n  if [ -d \"${DSYM}\" ]; then\n    echo \"Copying: ${DSYM}\"\n    cp -Rf \"${DSYM}\" \"${DSYM_OUT}/\"\n  else\n    echo \"dSYM not found (skipped): ${DSYM}\"\n  fi\ndone\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		ABF6EE702F4B944C00FD661C /* Sources */ = {
@@ -271,6 +352,7 @@
 /* Begin XCBuildConfiguration section */
 		ABF6EE952F4B944D00FD661C /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB4262F22F4FB4B5005323AC /* Debug.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -307,7 +389,7 @@
 				DEVELOPMENT_TEAM = 2Z4MDY4UPU;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -322,19 +404,23 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
+				POSTHOG_API_KEY = phc_5gCRDoSMFaixsWWM8p3h2tlt9GwGEksjEC4JKPzI0c6;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = "DEBUG $(inherited)";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+				TANKERKOENIG_API_KEY = "88a490b1-c57e-4bcc-ac85-49dae011c6bd";
 			};
 			name = Debug;
 		};
 		ABF6EE962F4B944D00FD661C /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = AB4262F42F4FB4BC005323AC /* Release.xcconfig */;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
@@ -371,7 +457,7 @@
 				DEVELOPMENT_TEAM = 2Z4MDY4UPU;
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
-				ENABLE_USER_SCRIPT_SANDBOXING = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GCC_C_LANGUAGE_STANDARD = gnu17;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -380,12 +466,15 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
+				POSTHOG_API_KEY = phc_5gCRDoSMFaixsWWM8p3h2tlt9GwGEksjEC4JKPzI0c6;
 				SDKROOT = iphoneos;
+				STRING_CATALOG_GENERATE_SYMBOLS = YES;
 				SWIFT_COMPILATION_MODE = wholemodule;
+				TANKERKOENIG_API_KEY = "88a490b1-c57e-4bcc-ac85-49dae011c6bd";
 				VALIDATE_PRODUCT = YES;
 			};
 			name = Release;
@@ -395,30 +484,50 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Auto Performance Tracker/Config/Auto Performance Tracker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				DEVELOPMENT_TEAM = 2Z4MDY4UPU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Auto Performance Tracker/Config/Auto-Performance-Tracker-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auto Tracker";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Auto Performance Tracker records trips in the background so no distance is lost even when your iPhone is locked. / Auto Performance Tracker zeichnet Fahrten auch im Hintergrund auf, damit keine Strecke verloren geht – selbst wenn du das iPhone zwischendurch sperrst.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Auto Performance Tracker needs continuous location access to record complete trips in the background. / Auto Performance Tracker benötigt kontinuierlichen Standortzugriff, um Fahrten vollständig im Hintergrund aufzuzeichnen.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Auto Performance Tracker needs your location to record trips and analyse routes. / Auto Performance Tracker benötigt deinen Standort, um Fahrten aufzuzeichnen und Routen zu analysieren.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Motion data (acceleration and gyroscope) is used to calculate your driving score and detect harsh acceleration or braking. / Bewegungsdaten (Beschleunigung und Gyroskop) werden zur Berechnung deines Fahrerscores und zur Erkennung von hartem Beschleunigen oder Bremsen verwendet.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We use your device data to show you personalised ads. You can disable this at any time in Settings under Privacy. / Wir verwenden deine Gerätedaten, um dir personalisierte Werbung anzuzeigen. Du kannst dies jederzeit in den Einstellungen unter Datenschutz deaktivieren.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anton.melnychuk.Auto-Performance-Tracker";
+				MARKETING_VERSION = 1.0.0;
+				PODS_ROOT = /FirebaseCrashlytics/run;
+				POSTHOG_HOST = "https://eu.posthog.com";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anton.melnychuk.AutoPerformanceTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
@@ -427,30 +536,48 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CLANG_ENABLE_MODULES = YES;
+				CODE_SIGN_ENTITLEMENTS = "Auto Performance Tracker/Config/Auto Performance Tracker.entitlements";
+				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Z4MDY4UPU;
 				ENABLE_PREVIEWS = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_FILE = "Auto Performance Tracker/Config/Auto-Performance-Tracker-Info.plist";
+				INFOPLIST_KEY_CFBundleDisplayName = "Auto Tracker";
+				INFOPLIST_KEY_ITSAppUsesNonExemptEncryption = NO;
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.navigation";
+				INFOPLIST_KEY_NSLocationAlwaysAndWhenInUseUsageDescription = "Auto Performance Tracker records trips in the background so no distance is lost even when your iPhone is locked. / Auto Performance Tracker zeichnet Fahrten auch im Hintergrund auf, damit keine Strecke verloren geht – selbst wenn du das iPhone zwischendurch sperrst.";
+				INFOPLIST_KEY_NSLocationAlwaysUsageDescription = "Auto Performance Tracker needs continuous location access to record complete trips in the background. / Auto Performance Tracker benötigt kontinuierlichen Standortzugriff, um Fahrten vollständig im Hintergrund aufzuzeichnen.";
+				INFOPLIST_KEY_NSLocationWhenInUseUsageDescription = "Auto Performance Tracker needs your location to record trips and analyse routes. / Auto Performance Tracker benötigt deinen Standort, um Fahrten aufzuzeichnen und Routen zu analysieren.";
+				INFOPLIST_KEY_NSMotionUsageDescription = "Motion data (acceleration and gyroscope) is used to calculate your driving score and detect harsh acceleration or braking. / Bewegungsdaten (Beschleunigung und Gyroskop) werden zur Berechnung deines Fahrerscores und zur Erkennung von hartem Beschleunigen oder Bremsen verwendet.";
+				INFOPLIST_KEY_NSUserTrackingUsageDescription = "We use your device data to show you personalised ads. You can disable this at any time in Settings under Privacy. / Wir verwenden deine Gerätedaten, um dir personalisierte Werbung anzuzeigen. Du kannst dies jederzeit in den Einstellungen unter Datenschutz deaktivieren.";
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
+				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
-				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPhone = "UIInterfaceOrientationPortrait UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight";
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = "com.anton.melnychuk.Auto-Performance-Tracker";
+				MARKETING_VERSION = 1.0.0;
+				PODS_ROOT = /FirebaseCrashlytics/run;
+				POSTHOG_HOST = "https://eu.posthog.com";
+				PRODUCT_BUNDLE_IDENTIFIER = com.anton.melnychuk.AutoPerformanceTracker;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				STRING_CATALOG_GENERATE_SYMBOLS = YES;
+				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
+				SUPPORTS_MACCATALYST = NO;
+				SUPPORTS_MAC_DESIGNED_FOR_IPHONE_IPAD = NO;
+				SUPPORTS_XR_DESIGNED_FOR_IPHONE_IPAD = NO;
 				SWIFT_APPROACHABLE_CONCURRENCY = YES;
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
 				SWIFT_UPCOMING_FEATURE_MEMBER_IMPORT_VISIBILITY = YES;
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};
@@ -462,7 +589,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Z4MDY4UPU;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anton.melnychuk.Auto-Performance-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -484,7 +611,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = 2Z4MDY4UPU;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 17.0;
 				MARKETING_VERSION = 1.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.anton.melnychuk.Auto-Performance-TrackerTests";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -578,6 +705,69 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		AB02AABC2F4E468800CA8E6B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/googleads/swift-package-manager-google-mobile-ads";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 13.1.0;
+			};
+		};
+		AB02AABF2F4E46BE00CA8E6B /* XCRemoteSwiftPackageReference "supabase-swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/supabase/supabase-swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.5.1;
+			};
+		};
+		AB02AAC02F4E472600CA8E6B /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/google/GoogleSignIn-iOS";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 9.1.0;
+			};
+		};
+		AB02AAC32F4E47C400CA8E6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/firebase/firebase-ios-sdk";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 12.9.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		AB02AABD2F4E468800CA8E6B /* GoogleMobileAds */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB02AABC2F4E468800CA8E6B /* XCRemoteSwiftPackageReference "swift-package-manager-google-mobile-ads" */;
+			productName = GoogleMobileAds;
+		};
+		AB02AAC12F4E472600CA8E6B /* GoogleSignIn */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB02AAC02F4E472600CA8E6B /* XCRemoteSwiftPackageReference "GoogleSignIn-iOS" */;
+			productName = GoogleSignIn;
+		};
+		AB02AAC42F4E47C900CA8E6B /* Supabase */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB02AABF2F4E46BE00CA8E6B /* XCRemoteSwiftPackageReference "supabase-swift" */;
+			productName = Supabase;
+		};
+		AB02AAC62F4E480B00CA8E6B /* FirebaseCore */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB02AAC32F4E47C400CA8E6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCore;
+		};
+		AB02AAC82F4E480B00CA8E6B /* FirebaseCrashlytics */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = AB02AAC32F4E47C400CA8E6B /* XCRemoteSwiftPackageReference "firebase-ios-sdk" */;
+			productName = FirebaseCrashlytics;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = ABF6EE6C2F4B944C00FD661C /* Project object */;
 }

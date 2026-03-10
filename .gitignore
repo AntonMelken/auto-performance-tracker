@@ -1,0 +1,44 @@
+# ─── API Keys / Secrets ───────────────────────────────────────────
+# These files contain real API keys and must NEVER be committed.
+Debug.xcconfig
+Release.xcconfig
+Configs/
+
+# ─── Xcode ────────────────────────────────────────────────────────
+*.xcuserstate
+*.xccheckout
+*.moved-aside
+xcuserdata/
+*.xcscmblueprint
+*.hmap
+*.ipa
+*.dSYM.zip
+*.dSYM
+
+# ─── Build output ─────────────────────────────────────────────────
+build/
+DerivedData/
+
+# ─── Swift Package Manager ────────────────────────────────────────
+.build/
+.swiftpm/
+Packages/
+
+# ─── macOS ────────────────────────────────────────────────────────
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# ─── CocoaPods (if used) ──────────────────────────────────────────
+Pods/
+Podfile.lock
+
+# ─── Firebase / Google Services ──────────────────────────────────
+# Uncomment only if you store the real file outside version control:
+# Auto Performance Tracker/Config/GoogleService-Info.plist
+
+# ─── Environment / secrets ────────────────────────────────────────
+*.env
+.env
+secrets.json
