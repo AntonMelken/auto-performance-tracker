@@ -334,8 +334,8 @@
         <div class="section-num en">3b. Firebase Analytics</div>
       </div>
     </div>
-    <p class="de">Die App verwendet <strong>Firebase Analytics</strong> (Google LLC) zur anonymen Nutzungsanalyse. Firebase Analytics ist standardmäßig aktiv und kann unter Einstellungen → Datenschutz → Analytics deaktiviert werden.</p>
-    <p class="en">The app uses <strong>Firebase Analytics</strong> (Google LLC) for anonymous usage analysis. Firebase Analytics is active by default and can be disabled under Settings → Privacy → Analytics.</p>
+    <p class="de">Die App verwendet <strong>Firebase Analytics</strong> (Google LLC) zur anonymen Nutzungsanalyse. Firebase Analytics ist standardmäßig <strong>deaktiviert</strong> und wird erst nach expliziter Einwilligung aktiviert. Die Einwilligung kann jederzeit unter Einstellungen → Datenschutz → Analytics widerrufen werden.</p>
+    <p class="en">The app uses <strong>Firebase Analytics</strong> (Google LLC) for anonymous usage analysis. Firebase Analytics is <strong>disabled by default</strong> and is only activated after explicit consent. Consent can be withdrawn at any time under Settings → Privacy → Analytics.</p>
     <ul>
       <li class="de"><span class="label">Anbieter:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert</li>
       <li class="en"><span class="label">Provider:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU Standard Contractual Clauses · EU-US Data Privacy Framework (DPF) certified</li>
@@ -346,8 +346,8 @@
       <li class="de"><span class="label">Deaktivierung:</span> Einstellungen → Datenschutz → Analytics deaktivieren (sofort wirksam)</li>
       <li class="en"><span class="label">Disable:</span> Settings → Privacy → Disable Analytics (immediate effect)</li>
     </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an App-Verbesserung) · <strong>Widerspruchsrecht (Art. 21 DSGVO):</strong> Jederzeit in den App-Einstellungen oder per E-Mail. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(f) GDPR (legitimate interest in app improvement) · <strong>Right to object (Art. 21 GDPR):</strong> At any time in app settings or by email. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) · <strong>Widerrufsrecht (Art. 7 Abs. 3 DSGVO):</strong> Jederzeit in den App-Einstellungen (Einstellungen → Datenschutz → Analytics) oder per E-Mail; der Widerruf berührt nicht die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent) · <strong>Right to withdraw (Art. 7(3) GDPR):</strong> At any time in app settings (Settings → Privacy → Analytics) or by email; withdrawal does not affect the lawfulness of processing carried out prior to withdrawal. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
   </div>
 
   <div class="section">
@@ -429,7 +429,7 @@
       <li class="en"><span class="label">Purpose:</span> Displaying EV charging stations near your location</li>
       <li class="de"><span class="label">Speicherung:</span> Keine serverseitige Speicherung der GPS-Koordinaten durch den Entwickler</li>
       <li class="en"><span class="label">Retention:</span> No server-side storage of GPS coordinates by the developer</li>
-      <li class="de"><span class="label">Drittland:</span> UK-basierter Dienst. Das Vereinigte Königreich verfügt seit dem Brexit über einen Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO, gültig bis 2025 verlängert). Darüber hinaus ggf. Übermittlung in weitere Drittländer gemäß <a href="https://openchargemap.org/site/about/privacy" target="_blank">OCM-Datenschutzrichtlinie</a>.</li>
+      <li class="de"><span class="label">Drittland:</span> UK-basierter Dienst. Das Vereinigte Königreich verfügt seit dem Brexit über einen Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO, gültig bis 2027 verlängert). Darüber hinaus ggf. Übermittlung in weitere Drittländer gemäß <a href="https://openchargemap.org/site/about/privacy" target="_blank">OCM-Datenschutzrichtlinie</a>.</li>
       <li class="en"><span class="label">Third country:</span> UK-based service. The United Kingdom holds an EU Commission adequacy decision post-Brexit (Art. 45 GDPR). Additional transfers to third countries are possible per <a href="https://openchargemap.org/site/about/privacy" target="_blank">OCM Privacy Policy</a>.</li>
     </ul>
     <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://openchargemap.org/site/about/privacy" target="_blank">openchargemap.org/site/about/privacy</a></p>
@@ -709,7 +709,7 @@
       <tr><td>Nutzerprofil (E-Mail, Name)</td><td>Bis Account-Löschung (innerhalb 30 Tagen)</td></tr>
       <tr><td>Authentifizierungsdaten (Passwort-Hash, Sitzungstoken) – Supabase Auth</td><td>Bis Account-Löschung; Sitzungstoken: bis Ablauf / Abmeldung</td></tr>
       <tr><td>Anonyme Konten (inaktiv)</td><td>Automatisch nach 180 Tagen Inaktivität</td></tr>
-      <tr><td>Firebase Analytics (Standard: aktiv)</td><td>Bis zu 14 Monate (Google-Standard)</td></tr>
+      <tr><td>Firebase Analytics (Opt-In, nach Einwilligung)</td><td>Bis zu 14 Monate (Google-Standard)</td></tr>
       <tr><td>Analytics (PostHog, Opt-In)</td><td>Anonymisiert, max. 12 Monate</td></tr>
       <tr><td>Absturz-Berichte (Crashlytics)</td><td>90 Tage (Firebase-Standard)</td></tr>
       <tr><td>Abonnement-Status (Pro-Flag)</td><td>Bis Account-Löschung; Apple StoreKit: gem. Apple-Richtlinie</td></tr>
@@ -725,7 +725,7 @@
       <tr><td>User profile (email, name)</td><td>Until account deletion (within 30 days)</td></tr>
       <tr><td>Authentication data (password hash, session token) – Supabase Auth</td><td>Until account deletion; session token: until expiry / sign-out</td></tr>
       <tr><td>Anonymous accounts (inactive)</td><td>Automatically after 180 days of inactivity</td></tr>
-      <tr><td>Firebase Analytics (default: active)</td><td>Up to 14 months (Google standard)</td></tr>
+      <tr><td>Firebase Analytics (opt-in, after consent)</td><td>Up to 14 months (Google standard)</td></tr>
       <tr><td>Analytics (PostHog, opt-in)</td><td>Anonymized, max. 12 months</td></tr>
       <tr><td>Crash reports (Crashlytics)</td><td>90 days (Firebase default)</td></tr>
       <tr><td>Subscription status (Pro flag)</td><td>Until account deletion; Apple StoreKit: per Apple policy</td></tr>
