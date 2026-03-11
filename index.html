@@ -1222,9 +1222,10 @@ document.querySelectorAll('.modal-toc a').forEach(a => {
 });
 
 // ── Language Switch ──────────────────────────────
-let currentLang = 'de';
+let currentLang = localStorage.getItem('apt_lang') || 'de';
 function setLang(lang) {
   currentLang = lang;
+  localStorage.setItem('apt_lang', lang);
   document.documentElement.lang = lang;
   document.querySelectorAll('.lang-btn').forEach(b => b.classList.toggle('active', b.dataset.lang === lang));
   document.querySelectorAll('[data-' + lang + ']').forEach(el => {
@@ -1237,6 +1238,7 @@ function setLang(lang) {
     featured.setAttribute('data-badge', lang === 'de' ? 'BELIEBTESTE WAHL' : 'MOST POPULAR');
   }
 }
+if (currentLang === 'en') setLang('en');
 
 // ── Scroll Reveal ─────────────────────────────────
 const observer = new IntersectionObserver((entries) => {

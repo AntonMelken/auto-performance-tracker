@@ -2,7 +2,6 @@
 <html lang="de">
 <head>
   <meta charset="UTF-8">
-<<<<<<<< HEAD:privacy-policy.html
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Privacy Policy / Datenschutzerklärung – Auto Performance Tracker</title>
   <meta name="description" content="Privacy Policy for Auto Performance Tracker – GDPR/DSGVO compliant. Learn how we handle your data, what we collect, and your rights as a user.">
@@ -828,15 +827,44 @@
   <!-- Contact -->
   <div class="contact-block">
     <p style="font-size:32px; margin-bottom:12px">🔒</p>
-    <p class="de" style="font-weight:700; color:var(--text); font-size:16px; margin-bottom:8px">Fragen zum Datenschut
-========
-  <meta http-equiv="refresh" content="0;url=privacy-policy.html">
-  <title>Weiterleitung / Redirect – Auto Performance Tracker</title>
-  <link rel="canonical" href="https://antonmelken.github.io/auto-performance-tracker/privacy-policy.html">
-</head>
-<body>
-  <p>Diese Seite wurde verschoben. / This page has moved.<br>
-  <a href="privacy-policy.html">→ privacy-policy.html</a></p>
+    <p class="de" style="font-weight:700; color:var(--text); font-size:16px; margin-bottom:8px">Fragen zum Datenschutz?</p>
+    <p class="en" style="font-weight:700; color:var(--text); font-size:16px; margin-bottom:8px">Questions about Privacy?</p>
+    <p class="de" style="color:var(--muted); margin-bottom:16px">Wende dich jederzeit an:</p>
+    <p class="en" style="color:var(--muted); margin-bottom:16px">Feel free to contact me anytime:</p>
+    <a href="mailto:support@antonmelken.dev" class="contact-link">support@antonmelken.dev</a>
+    <p class="de" style="color:var(--muted); font-size:13px; margin-top:12px">Antwortzeit in der Regel innerhalb von 72 Stunden</p>
+    <p class="en" style="color:var(--muted); font-size:13px; margin-top:12px">Response time is usually within 72 hours</p>
+  </div>
+
+</div><!-- /.container -->
+
+<footer class="footer">
+  <p>
+    <a href="index.html">Home</a> ·
+    <a href="support.html" class="de">Support & Kontakt</a>
+    <a href="support.html" class="en">Support & Contact</a> ·
+    <a href="agb.html">AGB / Terms</a> ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="privacy-policy.html">Datenschutz / Privacy</a>
+  </p>
+  <p style="margin-top:8px">© 2026 Anton Melnychuk · Auto Performance Tracker</p>
+</footer>
+
+<script>
+// ── Language Switch ──────────────────────────────
+let currentLang = localStorage.getItem('apt_lang') || 'de';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('apt_lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.de, .en').forEach(el => {
+    el.style.display = el.classList.contains(lang) ? '' : 'none';
+  });
+  document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
+    b.classList.toggle('active', b.id === 'btn-' + lang);
+  });
+}
+setLang(currentLang);
+</script>
 </body>
 </html>
->>>>>>>> ba702f1 (feat: rename datenschutz.html → privacy-policy.html + SEO optimization):datenschutz.html

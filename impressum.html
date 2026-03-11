@@ -3,7 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Impressum – Auto Performance Tracker</title>
+  <title>Impressum / Legal Notice – Auto Performance Tracker</title>
+  <meta name="description" content="Legal Notice / Impressum for Auto Performance Tracker by Anton Melnychuk – required information under § 5 DDG.">
   <style>
     :root {
       --bg:       #080C14;
@@ -48,6 +49,7 @@
       text-decoration: none; color: var(--text);
     }
     .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
     .nav-links { display: flex; gap: 24px; align-items: center; }
     .nav-links a {
       color: var(--muted); font-size: 0.85rem; font-weight: 500;
@@ -55,6 +57,20 @@
     }
     .nav-links a:hover { color: var(--text); }
     .nav-links a.active { color: var(--cyan); font-weight: 600; }
+    .lang-switcher { display: flex; gap: 6px; }
+    .lang-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px; padding: 4px 10px;
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--muted); cursor: pointer; transition: all .2s;
+    }
+    .lang-btn.active {
+      background: rgba(34,211,238,0.15);
+      border-color: rgba(34,211,238,0.4);
+      color: var(--cyan);
+    }
+    .lang-btn:not(.active):hover { color: var(--text); }
 
     /* ── Layout ── */
     .container {
@@ -138,105 +154,146 @@
     <img src="AppIcon-1024.png" alt="Auto Performance Tracker Logo">
     Auto Performance Tracker
   </a>
-  <div class="nav-links">
-    <a href="support.html">Support & Kontakt</a>
-    <a href="agb.html">AGB</a>
-    <a href="impressum.html" class="active">Impressum</a>
-    <a href="privacy-policy.html">Datenschutz</a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="support.html" class="de">Support & Kontakt</a>
+      <a href="support.html" class="en">Support & Contact</a>
+      <a href="agb.html" class="de">AGB</a>
+      <a href="agb.html" class="en">Terms</a>
+      <a href="impressum.html" class="active de">Impressum</a>
+      <a href="impressum.html" class="active en">Legal Notice</a>
+      <a href="privacy-policy.html" class="de">Datenschutz</a>
+      <a href="privacy-policy.html" class="en">Privacy</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-de" onclick="setLang('de')">🇩🇪 DE</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
   </div>
 </nav>
 
 <div class="container">
 
   <div class="page-header">
-    <h1>Impressum</h1>
-    <p>Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
-    <div class="law-badge">⚖️ § 5 DDG · Stand: März 2026</div>
+    <h1 class="de">Impressum</h1>
+    <h1 class="en">Legal Notice</h1>
+    <p class="de">Angaben gemäß § 5 Digitale-Dienste-Gesetz (DDG)</p>
+    <p class="en">Required information under § 5 Digital Services Act (DDG)</p>
+    <div class="law-badge de">⚖️ § 5 DDG · Stand: März 2026</div>
+    <div class="law-badge en">⚖️ § 5 DDG · As of March 2026</div>
   </div>
 
   <!-- ① Anbieter -->
   <div class="card">
-    <div class="card-title">① Anbieter · Verantwortlicher</div>
+    <div class="card-title de">① Anbieter · Verantwortlicher</div>
+    <div class="card-title en">① Provider · Responsible Party</div>
     <div class="info-row">
-      <div class="info-label">Name</div>
+      <div class="info-label de">Name</div>
+      <div class="info-label en">Name</div>
       <div class="info-value"><strong>Anton Melnychuk</strong></div>
     </div>
     <div class="info-row">
-      <div class="info-label">Straße / Nr.</div>
+      <div class="info-label de">Straße / Nr.</div>
+      <div class="info-label en">Street / No.</div>
       <div class="info-value">Heppenheimer Straße 39</div>
     </div>
     <div class="info-row">
-      <div class="info-label">PLZ / Ort</div>
+      <div class="info-label de">PLZ / Ort</div>
+      <div class="info-label en">Postcode / City</div>
       <div class="info-value">64658 Fürth im Odenwald</div>
     </div>
     <div class="info-row">
-      <div class="info-label">Land</div>
-      <div class="info-value">Deutschland</div>
+      <div class="info-label de">Land</div>
+      <div class="info-label en">Country</div>
+      <div class="info-value de">Deutschland</div>
+      <div class="info-value en">Germany</div>
     </div>
   </div>
 
   <!-- ② Kontakt -->
   <div class="card">
-    <div class="card-title">② Kontakt</div>
+    <div class="card-title de">② Kontakt</div>
+    <div class="card-title en">② Contact</div>
     <div class="info-row">
       <div class="info-label">E-Mail</div>
       <div class="info-value">
-        <a href="/cdn-cgi/l/email-protection#31525e5f45505245715c545d5f485259445a1c505f455e5f1f5554"><span class="__cf_email__" data-cfemail="14777b7a60757760547971787a6d777c617f39757a607b7a3a7071">[email&#160;protected]</span></a>
+        <a href="mailto:support@antonmelken.dev">support@antonmelken.dev</a>
       </div>
     </div>
     <div class="info-row">
-      <div class="info-label">Telefon</div>
+      <div class="info-label de">Telefon</div>
+      <div class="info-label en">Phone</div>
       <div class="info-value">
         <a href="tel:+491753797891">+49 (0) 175 3797891</a>
       </div>
     </div>
     <div class="info-row">
-      <div class="info-label">Antwortzeit</div>
-      <div class="info-value">In der Regel innerhalb von 72 Stunden (keine Rechtspflicht; Reaktionszeit kann in Ausnahmefällen abweichen)</div>
+      <div class="info-label de">Antwortzeit</div>
+      <div class="info-label en">Response time</div>
+      <div class="info-value de">In der Regel innerhalb von 72 Stunden (keine Rechtspflicht; Reaktionszeit kann in Ausnahmefällen abweichen)</div>
+      <div class="info-value en">Usually within 72 hours (no legal obligation; response time may vary in exceptional cases)</div>
     </div>
   </div>
 
   <!-- ③ Umsatzsteuer -->
   <div class="card">
-    <div class="card-title">③ Umsatzsteuer</div>
-
+    <div class="card-title de">③ Umsatzsteuer</div>
+    <div class="card-title en">③ VAT</div>
     <div class="info-row">
-      <div class="info-label">Hinweis</div>
-      <div class="info-value">
+      <div class="info-label de">Hinweis</div>
+      <div class="info-label en">Note</div>
+      <div class="info-value de">
         Gemäß § 19 UStG wird keine Umsatzsteuer erhoben
         (Kleinunternehmerregelung). Eine Umsatzsteuer-Identifikationsnummer
         ist daher nicht vorhanden.
+      </div>
+      <div class="info-value en">
+        No VAT is charged pursuant to § 19 UStG (small business regulation).
+        Accordingly, no VAT identification number exists.
       </div>
     </div>
   </div>
 
   <!-- ④ Streitbeilegung -->
   <div class="card">
-    <div class="card-title">④ Streitbeilegung (§ 36 VSBG · Pflichtangabe)</div>
+    <div class="card-title de">④ Streitbeilegung (§ 36 VSBG · Pflichtangabe)</div>
+    <div class="card-title en">④ Dispute Resolution (§ 36 VSBG – mandatory information)</div>
     <div class="prose">
-      <p>
+      <p class="de">
         <strong>Hinweis gemäß § 36 Abs. 1 Verbraucherstreitbeilegungsgesetz (VSBG):</strong><br>
         Der Anbieter ist nicht bereit und nicht verpflichtet, an einem Streitbeilegungsverfahren
         vor einer Verbraucherschlichtungsstelle im Sinne des VSBG teilzunehmen.
       </p>
-      <p>
+      <p class="en">
+        <strong>Notice pursuant to § 36(1) of the Consumer Dispute Resolution Act (VSBG):</strong><br>
+        The provider is neither willing nor obligated to participate in dispute resolution
+        proceedings before a consumer arbitration board within the meaning of the VSBG.
+      </p>
+      <p class="de">
         <strong>EU-Streitbeilegung:</strong> Die EU-ODR-Plattform wurde am 20.07.2025 abgeschaltet.
         Informationen zu alternativen Streitbeilegungsstellen stellt die Europäische Kommission bereit unter:
         <a href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_de" target="_blank" rel="noopener noreferrer">
           consumer-redress.ec.europa.eu
         </a>
       </p>
-      <p>
-        Meine E-Mail-Adresse findest du oben im Abschnitt Kontakt.
+      <p class="en">
+        <strong>EU Dispute Resolution:</strong> The EU ODR platform was shut down on 20 July 2025.
+        Information on alternative dispute resolution bodies is provided by the European Commission at:
+        <a href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_de" target="_blank" rel="noopener noreferrer">
+          consumer-redress.ec.europa.eu
+        </a>
       </p>
+      <p class="de">Meine E-Mail-Adresse findest du oben im Abschnitt Kontakt.</p>
+      <p class="en">My email address can be found above in the Contact section.</p>
     </div>
   </div>
 
   <!-- ⑤ Haftung Inhalte -->
   <div class="card">
-    <div class="card-title">⑤ Haftungsausschluss – Inhalte</div>
+    <div class="card-title de">⑤ Haftungsausschluss – Inhalte</div>
+    <div class="card-title en">⑤ Disclaimer – Content</div>
     <div class="prose">
-      <p>
+      <p class="de">
         Die Inhalte dieser App und der zugehörigen Website wurden mit größtmöglicher
         Sorgfalt erstellt. Für die Richtigkeit, Vollständigkeit und Aktualität der
         Inhalte übernehme ich jedoch keine Gewähr. Als privater Diensteanbieter bin ich
@@ -244,64 +301,146 @@
         verantwortlich. Ich bin jedoch nicht verpflichtet, übermittelte oder
         gespeicherte fremde Informationen zu überwachen (§§ 8–10 DDG).
       </p>
-      <p>
+      <p class="en">
+        The contents of this app and the associated website have been created with the
+        utmost care. However, I cannot guarantee the accuracy, completeness, or
+        currency of the content. As a private service provider, I am responsible for my
+        own content under general law pursuant to § 7(1) DDG. However, I am not
+        obligated to monitor transmitted or stored third-party information (§§ 8–10 DDG).
+      </p>
+      <p class="de">
         Bei bekannt werden von Rechtsverletzungen werde ich derartige Inhalte
         umgehend entfernen.
+      </p>
+      <p class="en">
+        Upon becoming aware of any legal violations, I will remove such content
+        without delay.
       </p>
     </div>
   </div>
 
   <!-- ⑥ Haftung Links -->
   <div class="card">
-    <div class="card-title">⑥ Haftungsausschluss – Externe Links</div>
+    <div class="card-title de">⑥ Haftungsausschluss – Externe Links</div>
+    <div class="card-title en">⑥ Disclaimer – External Links</div>
     <div class="prose">
-      <p>
+      <p class="de">
         Meine App und Website enthalten Links zu externen Websites Dritter,
         auf deren Inhalte ich keinen Einfluss habe. Für die Inhalte der
         verlinkten Seiten ist stets der jeweilige Anbieter oder Betreiber
         der Seiten verantwortlich.
       </p>
-      <p>
+      <p class="en">
+        My app and website contain links to external third-party websites whose
+        content I have no control over. The respective provider or operator of
+        those pages is always responsible for their content.
+      </p>
+      <p class="de">
         Die verlinkten Seiten wurden zum Zeitpunkt der Verlinkung auf mögliche
         Rechtsverstöße überprüft. Rechtswidrige Inhalte waren zum Zeitpunkt
         der Verlinkung nicht erkennbar. Bei Bekanntwerden von Rechtsverletzungen
         werde ich derartige Links umgehend entfernen.
+      </p>
+      <p class="en">
+        The linked pages were checked for possible legal violations at the time
+        of linking. No illegal content was apparent at the time of linking. Upon
+        becoming aware of legal violations, I will remove such links without delay.
       </p>
     </div>
   </div>
 
   <!-- ⑦ Urheberrecht -->
   <div class="card">
-    <div class="card-title">⑦ Urheberrecht</div>
+    <div class="card-title de">⑦ Urheberrecht</div>
+    <div class="card-title en">⑦ Copyright</div>
     <div class="prose">
-      <p>
+      <p class="de">
         Die durch mich erstellten Inhalte und Werke in dieser App und auf diesen
         Seiten unterliegen dem deutschen Urheberrecht. Die Vervielfältigung,
         Bearbeitung, Verbreitung und jede Art der Verwertung außerhalb der Grenzen
         des Urheberrechts bedürfen der schriftlichen Zustimmung des jeweiligen
         Autors bzw. Erstellers.
       </p>
-      <p>
+      <p class="en">
+        The content and works created by me in this app and on these pages are
+        subject to German copyright law. Reproduction, editing, distribution, and
+        any form of commercial use beyond the limits of copyright law require the
+        written consent of the respective author or creator.
+      </p>
+      <p class="de">
         Downloads und Kopien dieser App sind nur für den privaten, nicht kommerziellen
         Gebrauch gestattet.
+      </p>
+      <p class="en">
+        Downloads and copies of this app are permitted for private, non-commercial
+        use only.
       </p>
     </div>
   </div>
 
   <!-- ⑧ App Store -->
   <div class="card">
-    <div class="card-title">⑧ App Store – Hinweis</div>
+    <div class="card-title de">⑧ App Store – Hinweis</div>
+    <div class="card-title en">⑧ App Store – Notice</div>
     <div class="prose">
-      <p>
+      <p class="de">
         <strong>Auto Performance Tracker</strong> wird im Apple App Store
         (Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA) angeboten.
         Apple ist nicht Vertragspartner für den Kauf von Abonnements oder
         In-App-Käufen im Sinne der deutschen Verbraucherrechte, sondern handelt
         ausschließlich als Zahlungsabwickler im Auftrag des Entwicklers.
       </p>
-      <p>
+      <p class="en">
+        <strong>Auto Performance Tracker</strong> is offered on the Apple App Store
+        (Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA).
+        Apple is not a contracting party for the purchase of subscriptions or
+        in-app purchases within the meaning of German consumer law, but acts
+        solely as a payment processor on behalf of the developer.
+      </p>
+      <p class="de">
         Bei Fragen zu Käufen, Rückerstattungen oder technischen Problemen
         wende dich zunächst über den App Store-Support an Apple oder direkt
         per E-Mail an mich.
       </p>
-    <
+      <p class="en">
+        For questions about purchases, refunds, or technical issues, please first
+        contact Apple via App Store Support or reach me directly by email.
+      </p>
+    </div>
+  </div>
+
+</div><!-- /.container -->
+
+<footer class="footer">
+  <p>
+    <a href="index.html">Home</a> ·
+    <a href="support.html" class="de">Support & Kontakt</a>
+    <a href="support.html" class="en">Support & Contact</a> ·
+    <a href="agb.html" class="de">AGB</a>
+    <a href="agb.html" class="en">Terms</a> ·
+    <a href="impressum.html" class="de">Impressum</a>
+    <a href="impressum.html" class="en">Legal Notice</a> ·
+    <a href="privacy-policy.html" class="de">Datenschutz</a>
+    <a href="privacy-policy.html" class="en">Privacy</a>
+  </p>
+  <p style="margin-top:8px">© 2026 Anton Melnychuk · Auto Performance Tracker</p>
+</footer>
+
+<script>
+// ── Language Switch ──────────────────────────────
+let currentLang = localStorage.getItem('apt_lang') || 'de';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('apt_lang', lang);
+  document.documentElement.lang = lang;
+  document.querySelectorAll('.de, .en').forEach(el => {
+    el.style.display = el.classList.contains(lang) ? '' : 'none';
+  });
+  document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
+    b.classList.toggle('active', b.id === 'btn-' + lang);
+  });
+}
+setLang(currentLang);
+</script>
+</body>
+</html>
