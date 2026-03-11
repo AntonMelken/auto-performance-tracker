@@ -310,12 +310,17 @@
     .cf-success-icon { font-size: 48px; margin-bottom: 12px; }
     .cf-success h3 { font-size: 1.1rem; margin-bottom: 8px; }
     .cf-success p { font-size: 14px; color: var(--muted); }
+    /* ── Language visibility ── */
+    html:not([data-lang="en"]) .en { display: none; }
+    html[data-lang="en"] .de { display: none; }
+
     @media (max-width: 500px) {
       .cf-body { padding: 16px; }
       .cf-header { padding: 16px; }
       .cf-row { grid-template-columns: 1fr; }
     }
   </style>
+  <script>document.documentElement.dataset.lang = localStorage.getItem('apt_lang') || 'de';</script>
 </head>
 <body>
 
@@ -635,14 +640,13 @@ function submitContactForm() {
 }
 
 // ── Language Switch ──────────────────────────────
+// CSS handles visibility via html[data-lang] selector — no inline styles needed
 let currentLang = localStorage.getItem('apt_lang') || 'de';
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('apt_lang', lang);
   document.documentElement.lang = lang;
-  document.querySelectorAll('.de, .en').forEach(el => {
-    el.style.display = el.classList.contains(lang) ? '' : 'none';
-  });
+  document.documentElement.dataset.lang = lang;
   document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
     b.classList.toggle('active', b.id === 'btn-' + lang);
   });

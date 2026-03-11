@@ -195,6 +195,10 @@
     .footer a { color: var(--cyan); text-decoration: none; }
     .footer a:hover { text-decoration: underline; }
 
+    /* ── Language visibility ── */
+    html:not([data-lang="en"]) .en { display: none; }
+    html[data-lang="en"] .de { display: none; }
+
     @media (max-width: 600px) {
       .container { padding: 96px 16px 80px; }
       .agb-para { padding: 16px; }
@@ -202,6 +206,7 @@
       nav { padding: 0 16px; }
     }
   </style>
+  <script>document.documentElement.dataset.lang = localStorage.getItem('apt_lang') || 'de';</script>
 </head>
 <body>
 
@@ -502,14 +507,13 @@
 
 <script>
 // ── Language Switch ──────────────────────────────
+// CSS handles visibility via html[data-lang] selector — no inline styles needed
 let currentLang = localStorage.getItem('apt_lang') || 'de';
 function setLang(lang) {
   currentLang = lang;
   localStorage.setItem('apt_lang', lang);
   document.documentElement.lang = lang;
-  document.querySelectorAll('.de, .en').forEach(el => {
-    el.style.display = el.classList.contains(lang) ? '' : 'none';
-  });
+  document.documentElement.dataset.lang = lang;
   document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
     b.classList.toggle('active', b.id === 'btn-' + lang);
   });
