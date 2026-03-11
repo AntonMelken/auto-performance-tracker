@@ -217,7 +217,7 @@
         Tracking-, Werbe- oder Analyse-Cookies werden auf dieser Website <em>nicht</em> eingesetzt.<br><br>
         Durch Klick auf <strong style="color:#F1F5F9">„Verstanden"</strong> bestätigst du die Kenntnisnahme.
         Mehr Informationen findest du in unserer
-        <a href="privacy-policy.html" target="_blank" rel="noopener">Datenschutzerklärung (Abschnitt&nbsp;17)</a>.
+        <a href="datenschutz-website.html" target="_blank" rel="noopener">Datenschutzerklärung Website</a>.
       </p>
 
       <div class="apt-actions">

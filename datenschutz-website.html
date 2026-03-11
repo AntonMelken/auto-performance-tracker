@@ -1,0 +1,830 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Datenschutzerklärung Website – Auto Performance Tracker</title>
+  <meta name="description" content="Datenschutzerklärung für die Website auto-performance-tracker.antonmelken.dev – Informationen zur Datenverarbeitung gem. Art. 13 DSGVO.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://antonmelken.github.io/auto-performance-tracker/datenschutz-website.html">
+
+  <!-- Spracheinstellung sofort setzen (verhindert FOUC) -->
+  <script>document.documentElement.dataset.lang = localStorage.getItem('apt_lang') || 'de';</script>
+
+  <style>
+    :root {
+      --bg: #0a0e1a;
+      --surface: #111827;
+      --surface2: #1a2235;
+      --border: rgba(255,255,255,0.07);
+      --text: #f1f5f9;
+      --muted: #64748b;
+      --cyan: #22d3ee;
+      --cyan2: #06b6d4;
+      --green: #22c55e;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --indigo: #818cf8;
+      --radius: 16px;
+      --radius-sm: 10px;
+    }
+
+    /* ── Sprach-Sichtbarkeit ── */
+    html:not([data-lang="en"]) .en { display: none; }
+    html[data-lang="en"] .de      { display: none; }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      background: var(--bg);
+      color: var(--text);
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Text', 'Helvetica Neue', 'Segoe UI', sans-serif;
+      font-size: 16px;
+      line-height: 1.7;
+    }
+
+    /* ── Navigation ── */
+    nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(10,14,26,0.92);
+      backdrop-filter: blur(12px);
+      border-bottom: 1px solid var(--border);
+      padding: 14px 24px;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 16px;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1rem;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 8px; }
+    .lang-btn {
+      background: transparent; border: 1px solid var(--border);
+      color: var(--muted); font-size: 0.78rem; font-weight: 600;
+      padding: 5px 12px; border-radius: 50px; cursor: pointer;
+      font-family: inherit; transition: all .18s;
+    }
+    .lang-btn.active,
+    .lang-btn:hover {
+      border-color: var(--cyan); color: var(--cyan);
+      background: rgba(34,211,238,0.07);
+    }
+    .nav-back {
+      color: var(--muted); font-size: 0.82rem; text-decoration: none;
+      display: flex; align-items: center; gap: 4px;
+      padding: 5px 12px; border-radius: 50px;
+      border: 1px solid var(--border); transition: all .18s;
+    }
+    .nav-back:hover { color: var(--text); border-color: rgba(255,255,255,0.2); }
+
+    /* ── Hero ── */
+    .hero {
+      padding: 48px 24px 32px;
+      text-align: center;
+      border-bottom: 1px solid var(--border);
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      background: rgba(34,211,238,0.08); border: 1px solid rgba(34,211,238,0.2);
+      border-radius: 50px; padding: 6px 16px;
+      font-size: 0.75rem; font-weight: 700; letter-spacing: 0.08em;
+      text-transform: uppercase; color: var(--cyan); margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(1.6rem, 4vw, 2.4rem);
+      font-weight: 800; letter-spacing: -0.02em; margin-bottom: 12px;
+    }
+    .hero-sub {
+      color: var(--muted); font-size: 0.95rem; max-width: 560px; margin: 0 auto 20px;
+    }
+    .hero-meta {
+      display: flex; align-items: center; justify-content: center; gap: 20px;
+      flex-wrap: wrap; font-size: 0.8rem; color: var(--muted);
+    }
+    .hero-meta span { display: flex; align-items: center; gap: 6px; }
+
+    /* ── App-Policy-Hinweis ── */
+    .notice-box {
+      max-width: 800px; margin: 24px auto;
+      background: rgba(248,196,69,0.07); border: 1px solid rgba(248,196,69,0.25);
+      border-radius: var(--radius-sm); padding: 16px 20px;
+      font-size: 0.88rem; color: #fbbf24;
+    }
+    .notice-box a { color: var(--cyan); }
+
+    /* ── Main content ── */
+    .content {
+      max-width: 800px; margin: 0 auto; padding: 32px 24px 64px;
+    }
+
+    /* ── Sections ── */
+    .section {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 28px 28px 24px;
+      margin-bottom: 20px;
+    }
+    .section-header {
+      display: flex; align-items: flex-start; gap: 16px; margin-bottom: 18px;
+    }
+    .section-icon {
+      width: 48px; height: 48px; border-radius: 12px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 22px; flex-shrink: 0;
+    }
+    .icon-cyan   { background: rgba(34,211,238,0.1); }
+    .icon-green  { background: rgba(34,197,94,0.1); }
+    .icon-amber  { background: rgba(245,158,11,0.1); }
+    .icon-indigo { background: rgba(129,140,248,0.1); }
+    .icon-red    { background: rgba(239,68,68,0.1); }
+    .icon-blue   { background: rgba(96,165,250,0.1); }
+    .icon-purple { background: rgba(192,132,252,0.1); }
+    .icon-teal   { background: rgba(20,184,166,0.1); }
+    .icon-gray   { background: rgba(148,163,184,0.1); }
+
+    .section-num {
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--muted); margin-bottom: 4px;
+    }
+    .section-title {
+      font-size: 1.1rem; font-weight: 700; color: var(--text); line-height: 1.3;
+    }
+
+    .section p { margin-bottom: 12px; font-size: 0.93rem; color: #cbd5e1; }
+    .section p:last-child { margin-bottom: 0; }
+    .section ul, .section ol {
+      margin: 10px 0 12px 20px; font-size: 0.93rem; color: #cbd5e1;
+    }
+    .section li { margin-bottom: 6px; }
+    .section strong { color: var(--text); }
+    .section a { color: var(--cyan); text-decoration: none; }
+    .section a:hover { text-decoration: underline; }
+
+    /* ── Data table ── */
+    .data-table {
+      width: 100%; border-collapse: collapse; font-size: 0.88rem;
+      margin: 14px 0 8px;
+    }
+    .data-table th {
+      text-align: left; padding: 8px 12px;
+      background: rgba(255,255,255,0.03);
+      border-bottom: 1px solid var(--border);
+      color: var(--muted); font-weight: 600; font-size: 0.78rem;
+      text-transform: uppercase; letter-spacing: 0.06em;
+    }
+    .data-table td {
+      padding: 10px 12px; border-bottom: 1px solid rgba(255,255,255,0.04);
+      vertical-align: top; color: #cbd5e1;
+    }
+    .data-table tr:last-child td { border-bottom: none; }
+    .data-table code {
+      font-family: 'SF Mono', 'Fira Code', Consolas, monospace;
+      font-size: 0.82rem; background: rgba(255,255,255,0.06);
+      padding: 1px 6px; border-radius: 4px; color: var(--cyan);
+    }
+
+    /* ── Rights grid ── */
+    .rights-grid {
+      display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+      gap: 12px; margin-top: 16px;
+    }
+    .right-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 14px 16px;
+    }
+    .right-art {
+      font-size: 0.7rem; color: var(--muted); font-weight: 600;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 4px;
+    }
+    .right-name { font-size: 0.9rem; font-weight: 700; color: var(--text); margin-bottom: 4px; }
+    .right-desc { font-size: 0.8rem; color: var(--muted); }
+
+    /* ── Info box / highlight ── */
+    .info-highlight {
+      background: rgba(34,197,94,0.06); border: 1px solid rgba(34,197,94,0.2);
+      border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0;
+      font-size: 0.88rem; color: #86efac;
+    }
+    .info-highlight strong { color: #4ade80; }
+
+    .warn-highlight {
+      background: rgba(245,158,11,0.06); border: 1px solid rgba(245,158,11,0.2);
+      border-radius: var(--radius-sm); padding: 14px 18px; margin: 14px 0;
+      font-size: 0.88rem; color: #fde68a;
+    }
+
+    /* ── Contact card ── */
+    .contact-card {
+      background: var(--surface2); border: 1px solid var(--border);
+      border-radius: var(--radius-sm); padding: 18px 20px; margin-top: 14px;
+    }
+    .contact-card .name { font-size: 1rem; font-weight: 700; color: var(--text); margin-bottom: 6px; }
+    .contact-card .line { font-size: 0.9rem; color: #cbd5e1; margin-bottom: 4px; }
+    .contact-card a { color: var(--cyan); text-decoration: none; }
+
+    /* ── TOC ── */
+    .toc {
+      background: var(--surface); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 22px 24px; margin-bottom: 24px;
+    }
+    .toc-title { font-size: 0.78rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.08em; color: var(--muted); margin-bottom: 12px; }
+    .toc ol { margin-left: 18px; }
+    .toc li { margin-bottom: 5px; }
+    .toc a { color: var(--muted); font-size: 0.88rem; text-decoration: none; transition: color .15s; }
+    .toc a:hover { color: var(--cyan); }
+
+    /* ── Footer ── */
+    footer {
+      text-align: center; padding: 28px 24px;
+      border-top: 1px solid var(--border);
+      color: var(--muted); font-size: 0.82rem;
+    }
+    footer a { color: var(--muted); text-decoration: none; }
+    footer a:hover { color: var(--cyan); }
+    footer .sep { margin: 0 8px; }
+
+    @media (max-width: 600px) {
+      .section { padding: 20px 18px; }
+      .hero { padding: 32px 16px 24px; }
+      .content { padding: 20px 16px 48px; }
+      .rights-grid { grid-template-columns: 1fr; }
+      .data-table { font-size: 0.8rem; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- ── Navigation ──────────────────────────────────────────────────── -->
+<nav>
+  <a href="index.html" class="nav-logo">
+    <img src="AppIcon-1024.png" alt="Auto Performance Tracker Logo">
+    <span>Auto Performance Tracker</span>
+  </a>
+  <div class="nav-right">
+    <a href="index.html" class="nav-back">← <span class="de">Startseite</span><span class="en">Home</span></a>
+    <button class="lang-btn" id="btn-de" onclick="setLang('de')">DE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">EN</button>
+  </div>
+</nav>
+
+<!-- ── Hero ────────────────────────────────────────────────────────── -->
+<header class="hero">
+  <div class="hero-badge">🔒 <span class="de">Datenschutzerklärung – Website</span><span class="en">Privacy Policy – Website</span></div>
+  <h1>
+    <span class="de">Datenschutzerklärung der Website</span>
+    <span class="en">Website Privacy Policy</span>
+  </h1>
+  <p class="hero-sub">
+    <span class="de">Informationspflichten gem. Art. 13 DSGVO · Stand: März 2026</span>
+    <span class="en">Information obligations pursuant to Art. 13 GDPR · As of March 2026</span>
+  </p>
+  <div class="hero-meta">
+    <span>📅 <span class="de">Stand: März 2026</span><span class="en">Last updated: March 2026</span></span>
+    <span>🏛️ DSGVO · TDDDG · DDG</span>
+    <span>🇩🇪 <span class="de">Recht: Bundesrepublik Deutschland</span><span class="en">Law: Federal Republic of Germany</span></span>
+  </div>
+</header>
+
+<!-- ── Main ─────────────────────────────────────────────────────────── -->
+<main class="content">
+
+  <!-- Hinweis: App-Datenschutz ist separat -->
+  <div class="notice-box">
+    <strong>ℹ️ <span class="de">Hinweis:</span><span class="en">Note:</span></strong>
+    <span class="de"> Diese Datenschutzerklärung gilt <strong>ausschließlich für diese Website</strong>. Die separate Datenschutzerklärung für die <strong>Auto Performance Tracker App</strong> findest du <a href="privacy-policy.html">hier</a>.</span>
+    <span class="en"> This privacy policy applies <strong>exclusively to this website</strong>. The separate privacy policy for the <strong>Auto Performance Tracker App</strong> can be found <a href="privacy-policy.html">here</a>.</span>
+  </div>
+
+  <!-- ── Inhaltsverzeichnis ──────────────────────────────────────── -->
+  <div class="toc">
+    <div class="toc-title de">Inhaltsverzeichnis</div>
+    <div class="toc-title en">Table of Contents</div>
+    <ol class="de">
+      <li><a href="#s1">Verantwortlicher</a></li>
+      <li><a href="#s2">Welche Daten werden verarbeitet?</a></li>
+      <li><a href="#s3">Hosting – GitHub Pages</a></li>
+      <li><a href="#s4">Server-Logdateien</a></li>
+      <li><a href="#s5">Lokaler Browserspeicher (localStorage)</a></li>
+      <li><a href="#s6">Keine Cookies · Kein Tracking · Keine Werbung</a></li>
+      <li><a href="#s7">Kontaktaufnahme per E-Mail</a></li>
+      <li><a href="#s8">Keine weiteren Drittanbieter</a></li>
+      <li><a href="#s9">Internationale Datentransfers</a></li>
+      <li><a href="#s10">Deine Rechte als betroffene Person</a></li>
+      <li><a href="#s11">Beschwerderecht bei der Aufsichtsbehörde</a></li>
+      <li><a href="#s12">Aktualität und Änderungen</a></li>
+    </ol>
+    <ol class="en">
+      <li><a href="#s1">Controller</a></li>
+      <li><a href="#s2">What data is processed?</a></li>
+      <li><a href="#s3">Hosting – GitHub Pages</a></li>
+      <li><a href="#s4">Server log files</a></li>
+      <li><a href="#s5">Local browser storage (localStorage)</a></li>
+      <li><a href="#s6">No cookies · No tracking · No advertising</a></li>
+      <li><a href="#s7">Contact by email</a></li>
+      <li><a href="#s8">No other third-party providers</a></li>
+      <li><a href="#s9">International data transfers</a></li>
+      <li><a href="#s10">Your rights as a data subject</a></li>
+      <li><a href="#s11">Right to lodge a complaint with a supervisory authority</a></li>
+      <li><a href="#s12">Up-to-dateness and amendments</a></li>
+    </ol>
+  </div>
+
+  <!-- ① Verantwortlicher ──────────────────────────────────────────── -->
+  <div class="section" id="s1">
+    <div class="section-header">
+      <div class="section-icon icon-cyan">👤</div>
+      <div>
+        <div class="section-num de">1. Verantwortlicher</div>
+        <div class="section-num en">1. Controller</div>
+        <div class="section-title de">Wer ist für die Datenverarbeitung verantwortlich?</div>
+        <div class="section-title en">Who is responsible for data processing?</div>
+      </div>
+    </div>
+    <p class="de">Verantwortlicher im Sinne der Datenschutz-Grundverordnung (DSGVO) und des Telekommunikation-Digitale-Dienste-Datenschutz-Gesetzes (TDDDG) für diese Website ist:</p>
+    <p class="en">The controller within the meaning of the General Data Protection Regulation (GDPR) and the German Telecommunications-Digital-Services-Data-Protection-Act (TDDDG) for this website is:</p>
+    <div class="contact-card">
+      <div class="name">Anton Melnychuk</div>
+      <div class="line">Heppenheimer Straße 39</div>
+      <div class="line">64658 Fürth im Odenwald</div>
+      <div class="line de">Deutschland</div>
+      <div class="line en">Germany</div>
+      <div class="line" style="margin-top:8px">E-Mail: <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a></div>
+    </div>
+    <p class="de" style="margin-top:14px">Ein <strong>Datenschutzbeauftragter</strong> ist nicht bestellt. Die Bestellung ist nach Art. 37 DSGVO i. V. m. § 38 BDSG bei der vorliegenden Anzahl von Beschäftigten und Art der Verarbeitung nicht erforderlich. Für datenschutzbezogene Anfragen wende dich direkt an die oben genannte E-Mail-Adresse.</p>
+    <p class="en" style="margin-top:14px">A <strong>data protection officer</strong> has not been appointed. Appointment is not required under Art. 37 GDPR in conjunction with § 38 BDSG given the number of employees and the nature of processing. For data protection enquiries, contact the email address above directly.</p>
+  </div>
+
+  <!-- ② Übersicht Datenverarbeitung ──────────────────────────────── -->
+  <div class="section" id="s2">
+    <div class="section-header">
+      <div class="section-icon icon-teal">📋</div>
+      <div>
+        <div class="section-num de">2. Übersicht</div>
+        <div class="section-num en">2. Overview</div>
+        <div class="section-title de">Welche Daten werden verarbeitet?</div>
+        <div class="section-title en">What data is processed?</div>
+      </div>
+    </div>
+    <p class="de">Diese Website verarbeitet <strong>nur das technisch unbedingt Notwendige</strong>. Es gibt keine Analyse-Tools, keine Werbenetzwerke, keine Social-Media-Einbindungen und kein Nutzer-Tracking. Die folgende Tabelle zeigt alle Verarbeitungsvorgänge im Überblick:</p>
+    <p class="en">This website processes <strong>only what is technically essential</strong>. There are no analytics tools, advertising networks, social media integrations, or user tracking. The table below shows all processing activities at a glance:</p>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="de">Vorgang</th>
+          <th class="en">Activity</th>
+          <th class="de">Daten</th>
+          <th class="en">Data</th>
+          <th class="de">Rechtsgrundlage</th>
+          <th class="en">Legal basis</th>
+          <th class="de">Speicherort</th>
+          <th class="en">Storage</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td class="de">Hosting / Seitenaufruf</td>
+          <td class="en">Hosting / page request</td>
+          <td class="de">IP, Datum, URL, Browser</td>
+          <td class="en">IP, date, URL, browser</td>
+          <td>Art. 6 (1)(f) DSGVO</td>
+          <td class="de">Server GitHub (USA)</td>
+          <td class="en">GitHub server (USA)</td>
+        </tr>
+        <tr>
+          <td class="de">Sprachauswahl</td>
+          <td class="en">Language selection</td>
+          <td><code>apt_lang</code></td>
+          <td class="de">„de" oder „en"</td>
+          <td class="en">"de" or "en"</td>
+          <td>§ 25 Abs. 2 Nr. 2 TDDDG</td>
+          <td class="de">Browser (localStorage)</td>
+          <td class="en">Browser (localStorage)</td>
+        </tr>
+        <tr>
+          <td class="de">Datenschutz-Einstellungen</td>
+          <td class="en">Privacy preferences</td>
+          <td><code>apt_cookie_consent</code></td>
+          <td class="de">JSON (Entscheidung + Zeitstempel)</td>
+          <td class="en">JSON (decision + timestamp)</td>
+          <td>§ 25 Abs. 2 Nr. 2 TDDDG</td>
+          <td class="de">Browser (localStorage)</td>
+          <td class="en">Browser (localStorage)</td>
+        </tr>
+        <tr>
+          <td class="de">E-Mail-Kontakt</td>
+          <td class="en">Email contact</td>
+          <td class="de">E-Mail-Adresse, Nachrichteninhalt</td>
+          <td class="en">Email address, message content</td>
+          <td>Art. 6 (1)(b)/(f) DSGVO</td>
+          <td class="de">E-Mail-Postfach (DE)</td>
+          <td class="en">Email inbox (DE)</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ③ Hosting GitHub Pages ─────────────────────────────────────── -->
+  <div class="section" id="s3">
+    <div class="section-header">
+      <div class="section-icon icon-indigo">🖥️</div>
+      <div>
+        <div class="section-num de">3. Hosting</div>
+        <div class="section-num en">3. Hosting</div>
+        <div class="section-title de">GitHub Pages (GitHub, Inc.)</div>
+        <div class="section-title en">GitHub Pages (GitHub, Inc.)</div>
+      </div>
+    </div>
+    <p class="de">Diese Website wird über den Dienst <strong>GitHub Pages</strong> bereitgestellt. Anbieter ist:</p>
+    <p class="en">This website is hosted via <strong>GitHub Pages</strong>. The provider is:</p>
+    <div class="contact-card">
+      <div class="name">GitHub, Inc.</div>
+      <div class="line">88 Colin P. Kelly Jr. St., San Francisco, CA 94107, USA</div>
+      <div class="line de">Muttergesellschaft: Microsoft Corporation, Redmond, WA, USA</div>
+      <div class="line en">Parent company: Microsoft Corporation, Redmond, WA, USA</div>
+      <div class="line" style="margin-top:8px">
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer" class="de">GitHub Datenschutzerklärung</a>
+        <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer" class="en">GitHub Privacy Statement</a>
+      </div>
+    </div>
+    <p class="de" style="margin-top:14px">GitHub Pages ist ein <strong>statischer Hosting-Dienst</strong>. Es werden keine Server-seitigen Skripte ausgeführt. Beim Abruf von Seiten verarbeitet GitHub technische Zugriffsdaten (sog. Server-Logs). Details dazu sind in <a href="#s4">Abschnitt 4</a> beschrieben.</p>
+    <p class="en" style="margin-top:14px">GitHub Pages is a <strong>static hosting service</strong>. No server-side scripts are executed. When pages are accessed, GitHub processes technical access data (server logs). Details are described in <a href="#s4">Section 4</a>.</p>
+    <p class="de"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse an einem zuverlässigen, sicheren und kosteneffizienten Betrieb der Website.</p>
+    <p class="en"><strong>Legal basis:</strong> Art. 6(1)(f) GDPR – legitimate interest in reliable, secure, and cost-efficient operation of the website.</p>
+    <p class="de"><strong>Auftragsverarbeitung:</strong> Mit GitHub, Inc. wurde ein Datenverarbeitungsvertrag (Data Processing Agreement, DPA) im Sinne von Art. 28 DSGVO abgeschlossen (<a href="https://github.com/customer-terms/github-data-protection-agreement" target="_blank" rel="noopener noreferrer">GitHub DPA</a>).</p>
+    <p class="en"><strong>Data processing agreement:</strong> A Data Processing Agreement (DPA) pursuant to Art. 28 GDPR has been concluded with GitHub, Inc. (<a href="https://github.com/customer-terms/github-data-protection-agreement" target="_blank" rel="noopener noreferrer">GitHub DPA</a>).</p>
+  </div>
+
+  <!-- ④ Server-Logdateien ────────────────────────────────────────── -->
+  <div class="section" id="s4">
+    <div class="section-header">
+      <div class="section-icon icon-blue">📄</div>
+      <div>
+        <div class="section-num de">4. Server-Logdateien</div>
+        <div class="section-num en">4. Server log files</div>
+        <div class="section-title de">Automatisch erfasste Zugriffsdaten</div>
+        <div class="section-title en">Automatically collected access data</div>
+      </div>
+    </div>
+    <p class="de">Bei jedem Seitenaufruf verarbeitet GitHub Pages automatisch folgende technische Daten in sogenannten Server-Logs:</p>
+    <p class="en">With every page request, GitHub Pages automatically processes the following technical data in server logs:</p>
+    <ul class="de">
+      <li><strong>IP-Adresse</strong> des abrufenden Geräts (IPv4 oder IPv6)</li>
+      <li><strong>Datum und Uhrzeit</strong> des Zugriffs</li>
+      <li><strong>Aufgerufene URL</strong> (Seitenadresse)</li>
+      <li><strong>HTTP-Methode</strong> (GET, POST etc.) und <strong>HTTP-Statuscode</strong></li>
+      <li><strong>Übertragene Datenmenge</strong> in Byte</li>
+      <li><strong>Referrer-URL</strong> (von welcher Seite du kommst – sofern übermittelt)</li>
+      <li><strong>User-Agent-String</strong> (Browser-Typ, Betriebssystem, Gerätetyp)</li>
+    </ul>
+    <ul class="en">
+      <li><strong>IP address</strong> of the accessing device (IPv4 or IPv6)</li>
+      <li><strong>Date and time</strong> of access</li>
+      <li><strong>Requested URL</strong> (page address)</li>
+      <li><strong>HTTP method</strong> (GET, POST, etc.) and <strong>HTTP status code</strong></li>
+      <li><strong>Amount of data transferred</strong> in bytes</li>
+      <li><strong>Referrer URL</strong> (the page you came from – if transmitted)</li>
+      <li><strong>User-agent string</strong> (browser type, operating system, device type)</li>
+    </ul>
+    <p class="de"><strong>Zweck:</strong> Auslieferung der Website, Erkennung und Abwehr von Angriffen (Sicherheit), Fehlerdiagnose und Sicherstellung der Systemstabilität.</p>
+    <p class="en"><strong>Purpose:</strong> Delivery of the website, detection and defence against attacks (security), error diagnosis, and ensuring system stability.</p>
+    <p class="de"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. f DSGVO – berechtigte Interessen des Verantwortlichen (technischer Betrieb, Sicherheit). Diese Verarbeitung ist für den Betrieb einer jeden Website technisch zwingend erforderlich.</p>
+    <p class="en"><strong>Legal basis:</strong> Art. 6(1)(f) GDPR – legitimate interests of the controller (technical operation, security). This processing is technically mandatory for operating any website.</p>
+    <p class="de"><strong>Speicherdauer:</strong> Gemäß den Angaben von GitHub werden Server-Logs für einen Zeitraum von ca. <strong>90 Tagen</strong> aufbewahrt und anschließend automatisch gelöscht. Auf diese Logs haben wir keinen direkten Zugriff; sie werden ausschließlich von GitHub verwaltet.</p>
+    <p class="en"><strong>Retention period:</strong> According to GitHub's documentation, server logs are retained for approximately <strong>90 days</strong> and then automatically deleted. We have no direct access to these logs; they are managed exclusively by GitHub.</p>
+    <div class="info-highlight">
+      <strong class="de">Hinweis:</strong>
+      <strong class="en">Note:</strong>
+      <span class="de"> Die IP-Adresse wird dabei ausschließlich für die technische Kommunikation (Antwort an deinen Browser) und die Sicherheitsprotokollierung durch GitHub genutzt. Wir selbst führen keinerlei IP-basierte Analyse oder Profilbildung durch.</span>
+      <span class="en"> The IP address is used solely for technical communication (responding to your browser) and GitHub's security logging. We ourselves carry out no IP-based analysis or profiling whatsoever.</span>
+    </div>
+  </div>
+
+  <!-- ⑤ localStorage ─────────────────────────────────────────────── -->
+  <div class="section" id="s5">
+    <div class="section-header">
+      <div class="section-icon icon-amber">💾</div>
+      <div>
+        <div class="section-num de">5. Lokaler Browserspeicher (localStorage)</div>
+        <div class="section-num en">5. Local browser storage (localStorage)</div>
+        <div class="section-title de">Technisch notwendige Speicherung im Browser</div>
+        <div class="section-title en">Technically necessary data stored in your browser</div>
+      </div>
+    </div>
+    <p class="de">Diese Website nutzt den <strong>localStorage</strong>-Mechanismus deines Browsers für zwei technisch notwendige Funktionen. Es werden dabei <strong>keine Cookies</strong> gesetzt. Der localStorage ist ein rein lokaler Speicher in deinem Browser – die Daten verlassen dein Gerät nicht und werden <strong>nicht an uns oder Dritte übertragen</strong>.</p>
+    <p class="en">This website uses your browser's <strong>localStorage</strong> mechanism for two technically necessary functions. <strong>No cookies</strong> are set. localStorage is purely local storage in your browser – the data never leaves your device and is <strong>not transmitted to us or third parties</strong>.</p>
+
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th class="de">Schlüssel</th><th class="en">Key</th>
+          <th class="de">Inhalt</th><th class="en">Content</th>
+          <th class="de">Zweck</th><th class="en">Purpose</th>
+          <th class="de">Speicherdauer</th><th class="en">Retention</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><code>apt_lang</code></td>
+          <td class="de">„<code>de</code>" oder „<code>en</code>"</td>
+          <td class="en">"<code>de</code>" or "<code>en</code>"</td>
+          <td class="de">Speichert deine Sprachauswahl (Deutsch/Englisch), damit sie beim nächsten Besuch erhalten bleibt.</td>
+          <td class="en">Stores your language preference (German/English) so it is preserved on your next visit.</td>
+          <td class="de">Bis zur manuellen Löschung durch den Nutzer oder Browser-Reset</td>
+          <td class="en">Until manually deleted by the user or browser reset</td>
+        </tr>
+        <tr>
+          <td><code>apt_cookie_consent</code></td>
+          <td class="de">JSON-Objekt (Kategorien + Zeitstempel)</td>
+          <td class="en">JSON object (categories + timestamp)</td>
+          <td class="de">Speichert deine Datenschutz-Einstellungsentscheidung, damit der Hinweisbanner nicht bei jedem Besuch erneut erscheint. Enthält keine personenbezogenen Daten.</td>
+          <td class="en">Stores your privacy settings decision so the notice banner does not reappear on every visit. Contains no personal data.</td>
+          <td class="de">365 Tage, danach automatische Erneuerung der Abfrage</td>
+          <td class="en">365 days, after which the prompt is automatically renewed</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <p class="de"><strong>Rechtsgrundlage:</strong> § 25 Abs. 2 Nr. 2 TDDDG – der Zugriff auf den Endgerätespeicher ist für die Bereitstellung eines vom Nutzer ausdrücklich gewünschten Dienstes (Sprachdarstellung der Website; Speicherung der Einwilligungsentscheidung) unbedingt erforderlich. Eine vorherige Einwilligung ist nicht notwendig.</p>
+    <p class="en"><strong>Legal basis:</strong> § 25(2) No. 2 TDDDG – access to end-device storage is strictly necessary to provide a service expressly requested by the user (language display; storage of consent decision). Prior consent is not required.</p>
+    <p class="de"><strong>Löschung:</strong> Du kannst den localStorage jederzeit über die Einstellungen deines Browsers löschen (<em>Einstellungen → Datenschutz → Browserdaten löschen → Cache und Websitedaten</em> oder gleichwertig). Weitere Informationen dazu bietet die Hilfefunktion deines Browsers.</p>
+    <p class="en"><strong>Deletion:</strong> You can delete localStorage at any time via your browser settings (<em>Settings → Privacy → Clear browsing data → Cache and site data</em> or equivalent). See your browser's help function for details.</p>
+  </div>
+
+  <!-- ⑥ Keine Cookies / Kein Tracking ────────────────────────────── -->
+  <div class="section" id="s6">
+    <div class="section-header">
+      <div class="section-icon icon-green">🚫</div>
+      <div>
+        <div class="section-num de">6. Keine Cookies · Kein Tracking · Keine Werbung</div>
+        <div class="section-num en">6. No cookies · No tracking · No advertising</div>
+        <div class="section-title de">Positive Erklärung: Was wir ausdrücklich nicht tun</div>
+        <div class="section-title en">Positive declaration: What we expressly do not do</div>
+      </div>
+    </div>
+    <div class="info-highlight">
+      <strong>✅ <span class="de">Diese Website setzt keine Cookies.</span><span class="en">This website sets no cookies.</span></strong>
+    </div>
+    <p class="de">Wir möchten ausdrücklich klarstellen, dass auf dieser Website <strong>keine</strong> der folgenden Technologien eingesetzt werden:</p>
+    <p class="en">We expressly state that this website uses <strong>none</strong> of the following technologies:</p>
+    <ul class="de">
+      <li><strong>Keine Analyse-Tools</strong> (kein Google Analytics, kein Matomo, kein PostHog, keine ähnlichen Dienste)</li>
+      <li><strong>Keine Tracking-Pixel</strong> oder Zählpixel</li>
+      <li><strong>Keine Werbenetzwerke</strong> (kein Google Ads, kein Meta Pixel, keine programmatische Werbung)</li>
+      <li><strong>Keine Social-Media-Buttons oder -Einbindungen</strong> (kein „Gefällt mir"-Button, kein Twitter/X-Widget, kein Instagram-Embed)</li>
+      <li><strong>Keine eingebetteten Karten</strong> (kein Google Maps, kein OpenStreetMap-Embed mit externer Verbindung)</li>
+      <li><strong>Keine externen Schriftarten von CDN</strong> (kein Google Fonts, kein Adobe Fonts; alle Schriften werden über das Betriebssystem geladen)</li>
+      <li><strong>Keine eingebetteten Videos</strong> (kein YouTube, kein Vimeo)</li>
+      <li><strong>Kein Cross-Site-Tracking</strong> oder Browser-Fingerprinting</li>
+      <li><strong>Keine Profilerstellung</strong> über Website-Besucher</li>
+    </ul>
+    <ul class="en">
+      <li><strong>No analytics tools</strong> (no Google Analytics, no Matomo, no PostHog, no similar services)</li>
+      <li><strong>No tracking pixels</strong> or counting pixels</li>
+      <li><strong>No advertising networks</strong> (no Google Ads, no Meta Pixel, no programmatic advertising)</li>
+      <li><strong>No social media buttons or embeds</strong> (no "Like" button, no Twitter/X widget, no Instagram embed)</li>
+      <li><strong>No embedded maps</strong> (no Google Maps, no OpenStreetMap embed with external connection)</li>
+      <li><strong>No external fonts from CDN</strong> (no Google Fonts, no Adobe Fonts; all fonts are loaded from the operating system)</li>
+      <li><strong>No embedded videos</strong> (no YouTube, no Vimeo)</li>
+      <li><strong>No cross-site tracking</strong> or browser fingerprinting</li>
+      <li><strong>No profiling</strong> of website visitors</li>
+    </ul>
+  </div>
+
+  <!-- ⑦ Kontaktaufnahme per E-Mail ──────────────────────────────── -->
+  <div class="section" id="s7">
+    <div class="section-header">
+      <div class="section-icon icon-cyan">✉️</div>
+      <div>
+        <div class="section-num de">7. Kontaktaufnahme per E-Mail</div>
+        <div class="section-num en">7. Contact by email</div>
+        <div class="section-title de">Verarbeitung eingehender Nachrichten</div>
+        <div class="section-title en">Processing of incoming messages</div>
+      </div>
+    </div>
+    <p class="de">Wenn du über die auf dieser Website angegebene E-Mail-Adresse <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a> Kontakt aufnimmst, werden die von dir übermittelten Daten verarbeitet:</p>
+    <p class="en">When you contact us via the email address <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a> provided on this website, the data you submit will be processed:</p>
+    <ul class="de">
+      <li>Deine <strong>E-Mail-Adresse</strong> (erforderlich, da sonst keine Antwort möglich)</li>
+      <li>Ggf. dein <strong>Name</strong> (sofern angegeben)</li>
+      <li>Der <strong>Inhalt deiner Nachricht</strong></li>
+      <li>Technische <strong>E-Mail-Header-Daten</strong> (Datum, Uhrzeit, Mail-Server)</li>
+    </ul>
+    <ul class="en">
+      <li>Your <strong>email address</strong> (required, otherwise no reply is possible)</li>
+      <li>Your <strong>name</strong> if provided</li>
+      <li>The <strong>content of your message</strong></li>
+      <li>Technical <strong>email header data</strong> (date, time, mail server)</li>
+    </ul>
+    <p class="de"><strong>Zweck:</strong> Bearbeitung und Beantwortung deiner Anfrage.</p>
+    <p class="en"><strong>Purpose:</strong> Processing and responding to your enquiry.</p>
+    <p class="de"><strong>Rechtsgrundlage:</strong> Art. 6 Abs. 1 lit. b DSGVO (Durchführung vorvertraglicher Maßnahmen / Erfüllung eines Vertrags), soweit deine Anfrage einen Vertrag betrifft. In allen anderen Fällen gilt Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an der Bearbeitung eingehender Anfragen).</p>
+    <p class="en"><strong>Legal basis:</strong> Art. 6(1)(b) GDPR (pre-contractual measures / performance of a contract) where your enquiry relates to a contract. In all other cases, Art. 6(1)(f) GDPR applies (legitimate interest in processing incoming enquiries).</p>
+    <p class="de"><strong>Speicherdauer:</strong> Deine Nachricht wird so lange gespeichert, bis die Anfrage abschließend bearbeitet ist. Anschließend werden die Daten gelöscht, es sei denn, eine gesetzliche Aufbewahrungspflicht besteht (z. B. steuerliche Korrespondenz gem. § 147 AO: 6–10 Jahre; allgemeine Korrespondenz: 3 Jahre gem. § 195 BGB Regelverjährung).</p>
+    <p class="en"><strong>Retention period:</strong> Your message is retained until the enquiry has been fully resolved. The data is then deleted unless a statutory retention obligation applies (e.g. tax-related correspondence pursuant to § 147 AO: 6–10 years; general correspondence: 3 years pursuant to § 195 BGB standard limitation period).</p>
+    <p class="de"><strong>Weitergabe:</strong> Deine E-Mail-Daten werden nicht an Dritte weitergegeben, verkauft oder für Marketingzwecke genutzt.</p>
+    <p class="en"><strong>Disclosure:</strong> Your email data will not be shared with third parties, sold, or used for marketing purposes.</p>
+  </div>
+
+  <!-- ⑧ Keine weiteren Drittanbieter ─────────────────────────────── -->
+  <div class="section" id="s8">
+    <div class="section-header">
+      <div class="section-icon icon-green">✅</div>
+      <div>
+        <div class="section-num de">8. Keine weiteren Drittanbieter</div>
+        <div class="section-num en">8. No other third-party providers</div>
+        <div class="section-title de">Bestätigung der Drittanbieter-Freiheit</div>
+        <div class="section-title en">Confirmation of absence of third-party providers</div>
+      </div>
+    </div>
+    <p class="de">Außer dem in Abschnitt 3 genannten Hosting-Dienst <strong>GitHub Pages</strong> werden auf dieser Website <strong>keine weiteren Drittanbieter-Dienste</strong> eingebunden. Insbesondere werden keine externen JavaScript-Bibliotheken, keine Font-CDNs, keine Zahlungsdienstleister, keine Analyse-Dienste und keine Werbetechnologien von Dritten geladen.</p>
+    <p class="en">Apart from the hosting service <strong>GitHub Pages</strong> mentioned in Section 3, <strong>no other third-party services</strong> are integrated on this website. In particular, no external JavaScript libraries, font CDNs, payment service providers, analytics services, or third-party advertising technologies are loaded.</p>
+    <p class="de">Sämtlicher auf dieser Website eingebundener Code (JavaScript, CSS, Bilder) wird direkt über den GitHub-Pages-Server ausgeliefert und von keinem weiteren Anbieter bezogen.</p>
+    <p class="en">All code embedded on this website (JavaScript, CSS, images) is delivered directly from the GitHub Pages server and is not sourced from any other provider.</p>
+  </div>
+
+  <!-- ⑨ Internationale Datentransfers ────────────────────────────── -->
+  <div class="section" id="s9">
+    <div class="section-header">
+      <div class="section-icon icon-amber">🌍</div>
+      <div>
+        <div class="section-num de">9. Internationale Datentransfers</div>
+        <div class="section-num en">9. International data transfers</div>
+        <div class="section-title de">Übermittlung in Drittländer (USA)</div>
+        <div class="section-title en">Transfer to third countries (USA)</div>
+      </div>
+    </div>
+    <p class="de">Durch die Nutzung von GitHub Pages werden technische Zugriffsdaten (insbesondere IP-Adressen, vgl. Abschnitt 4) auf Servern von GitHub, Inc. in den <strong>USA</strong> verarbeitet. Die USA gelten gemäß Beschluss der EU-Kommission vom 10. Juli 2023 (<strong>EU-US Data Privacy Framework, DPF</strong>) als Drittland mit einem angemessenen Schutzniveau, sofern der Empfänger dem DPF beigetreten ist.</p>
+    <p class="en">By using GitHub Pages, technical access data (in particular IP addresses, see Section 4) is processed on servers of GitHub, Inc. in the <strong>USA</strong>. The USA is considered a third country with an adequate level of protection pursuant to the European Commission's decision of 10 July 2023 (<strong>EU–US Data Privacy Framework, DPF</strong>), provided the recipient has joined the DPF.</p>
+    <p class="de"><strong>GitHub, Inc. ist unter dem EU-US Data Privacy Framework zertifiziert.</strong> Darüber hinaus hat GitHub EU-Standardvertragsklauseln (SCCs, Durchführungsbeschluss (EU) 2021/914) und ein <a href="https://github.com/customer-terms/github-data-protection-agreement" target="_blank" rel="noopener noreferrer">Datenverarbeitungsvertrag (DPA)</a> als zusätzliche Absicherung implementiert.</p>
+    <p class="en"><strong>GitHub, Inc. is certified under the EU–US Data Privacy Framework.</strong> In addition, GitHub has implemented EU Standard Contractual Clauses (SCCs, Commission Implementing Decision (EU) 2021/914) and a <a href="https://github.com/customer-terms/github-data-protection-agreement" target="_blank" rel="noopener noreferrer">Data Processing Agreement (DPA)</a> as an additional safeguard.</p>
+    <p class="de">Weitere Einzelheiten zu Githubs Datenschutzpraktiken findest du in der <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.</p>
+    <p class="en">Further details about GitHub's privacy practices can be found in the <a href="https://docs.github.com/en/site-policy/privacy-policies/github-privacy-statement" target="_blank" rel="noopener noreferrer">GitHub Privacy Statement</a>.</p>
+    <div class="warn-highlight">
+      <span class="de">⚠️ <strong>Hinweis zum Angemessenheitsbeschluss:</strong> Der EU-US DPF kann durch Gerichtsentscheidungen oder politische Entwicklungen beeinflusst werden. GitHub hat jedoch unabhängig davon SCCs implementiert, die gemäß Schrems-II-Urteil (EuGH C‑311/18) als gültige Übermittlungsgrundlage anerkannt sind.</span>
+      <span class="en">⚠️ <strong>Note on the adequacy decision:</strong> The EU–US DPF may be affected by court decisions or political developments. However, GitHub has independently implemented SCCs, which are recognised as a valid transfer mechanism under the Schrems II judgment (CJEU C‑311/18).</span>
+    </div>
+  </div>
+
+  <!-- ⑩ Betroffenenrechte ─────────────────────────────────────────── -->
+  <div class="section" id="s10">
+    <div class="section-header">
+      <div class="section-icon icon-purple">⚖️</div>
+      <div>
+        <div class="section-num de">10. Deine Rechte als betroffene Person</div>
+        <div class="section-num en">10. Your rights as a data subject</div>
+        <div class="section-title de">Rechte nach Art. 15–22 DSGVO</div>
+        <div class="section-title en">Rights under Art. 15–22 GDPR</div>
+      </div>
+    </div>
+    <p class="de">Du hast gegenüber uns als Verantwortlichem folgende Rechte hinsichtlich deiner personenbezogenen Daten:</p>
+    <p class="en">You have the following rights against us as the controller regarding your personal data:</p>
+
+    <div class="rights-grid">
+      <div class="right-card">
+        <div class="right-art">Art. 15 DSGVO / GDPR</div>
+        <div class="right-name de">Auskunftsrecht</div>
+        <div class="right-name en">Right of access</div>
+        <div class="right-desc de">Du kannst Auskunft über die von uns verarbeiteten Daten verlangen.</div>
+        <div class="right-desc en">You can request information about the data we process.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-art">Art. 16 DSGVO / GDPR</div>
+        <div class="right-name de">Recht auf Berichtigung</div>
+        <div class="right-name en">Right to rectification</div>
+        <div class="right-desc de">Du kannst die Berichtigung unrichtiger Daten verlangen.</div>
+        <div class="right-desc en">You can request correction of inaccurate data.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-art">Art. 17 DSGVO / GDPR</div>
+        <div class="right-name de">Recht auf Löschung</div>
+        <div class="right-name en">Right to erasure</div>
+        <div class="right-desc de">Du kannst die Löschung deiner Daten verlangen (soweit keine Aufbewahrungspflicht besteht).</div>
+        <div class="right-desc en">You can request erasure of your data (unless a retention obligation applies).</div>
+      </div>
+      <div class="right-card">
+        <div class="right-art">Art. 18 DSGVO / GDPR</div>
+        <div class="right-name de">Einschränkung</div>
+        <div class="right-name en">Restriction</div>
+        <div class="right-desc de">Du kannst die Einschränkung der Verarbeitung verlangen.</div>
+        <div class="right-desc en">You can request restriction of processing.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-art">Art. 20 DSGVO / GDPR</div>
+        <div class="right-name de">Datenübertragbarkeit</div>
+        <div class="right-name en">Data portability</div>
+        <div class="right-desc de">Du kannst deine Daten in einem maschinenlesbaren Format herausverlangen.</div>
+        <div class="right-desc en">You can request your data in a machine-readable format.</div>
+      </div>
+      <div class="right-card">
+        <div class="right-art">Art. 21 DSGVO / GDPR</div>
+        <div class="right-name de">Widerspruchsrecht</div>
+        <div class="right-name en">Right to object</div>
+        <div class="right-desc de">Du kannst der Verarbeitung auf Basis berechtigter Interessen widersprechen.</div>
+        <div class="right-desc en">You can object to processing based on legitimate interests.</div>
+      </div>
+    </div>
+
+    <p class="de" style="margin-top:16px">Um deine Rechte geltend zu machen, wende dich an: <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a></p>
+    <p class="en" style="margin-top:16px">To exercise your rights, contact: <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a></p>
+
+    <div class="warn-highlight" style="margin-top:14px">
+      <strong class="de">Hinweis zu localStorage-Daten:</strong>
+      <strong class="en">Note on localStorage data:</strong>
+      <span class="de"> Da localStorage-Daten ausschließlich in deinem Browser gespeichert werden und wir keinen Zugriff darauf haben, kannst du diese Daten nur selbst über die Einstellungen deines Browsers löschen. Ein Auskunftsersuchen gegenüber uns für diese Daten ergibt sich daher technisch nicht, da wir sie nicht besitzen.</span>
+      <span class="en"> Since localStorage data is stored exclusively in your browser and we have no access to it, you can only delete this data yourself via your browser settings. A right of access request against us for this data does not technically apply, as we do not hold it.</span>
+    </div>
+  </div>
+
+  <!-- ⑪ Beschwerderecht ───────────────────────────────────────────── -->
+  <div class="section" id="s11">
+    <div class="section-header">
+      <div class="section-icon icon-red">🏛️</div>
+      <div>
+        <div class="section-num de">11. Beschwerderecht bei der Aufsichtsbehörde</div>
+        <div class="section-num en">11. Right to lodge a complaint</div>
+        <div class="section-title de">Zuständige Datenschutz-Aufsichtsbehörde</div>
+        <div class="section-title en">Competent data protection supervisory authority</div>
+      </div>
+    </div>
+    <p class="de">Du hast gem. Art. 77 DSGVO das Recht, dich bei einer Aufsichtsbehörde zu beschweren, wenn du der Ansicht bist, dass die Verarbeitung deiner personenbezogenen Daten gegen die DSGVO verstößt. Da der Verantwortliche seinen Wohnsitz in Hessen hat, ist die zuständige Aufsichtsbehörde:</p>
+    <p class="en">Pursuant to Art. 77 GDPR, you have the right to lodge a complaint with a supervisory authority if you believe that the processing of your personal data infringes the GDPR. As the controller is resident in Hesse, the competent supervisory authority is:</p>
+    <div class="contact-card">
+      <div class="name de">Der Hessische Beauftragte für Datenschutz und Informationsfreiheit (HBDI)</div>
+      <div class="name en">The Hessian Commissioner for Data Protection and Freedom of Information (HBDI)</div>
+      <div class="line">Gustav-Stresemann-Ring 1</div>
+      <div class="line">65189 Wiesbaden</div>
+      <div class="line de">Deutschland</div>
+      <div class="line en">Germany</div>
+      <div class="line" style="margin-top:8px">
+        <span class="de">Telefon:</span><span class="en">Phone:</span> +49 (0) 611 / 1408 – 0
+      </div>
+      <div class="line">
+        E-Mail: <a href="mailto:poststelle@datenschutz.hessen.de">poststelle@datenschutz.hessen.de</a>
+      </div>
+      <div class="line">
+        Web: <a href="https://datenschutz.hessen.de" target="_blank" rel="noopener noreferrer">datenschutz.hessen.de</a>
+      </div>
+    </div>
+    <p class="de" style="margin-top:14px">Du kannst dich auch an die Aufsichtsbehörde deines eigenen Wohnsitz-Bundeslandes oder an den <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener noreferrer">Bundesbeauftragten für den Datenschutz und die Informationsfreiheit (BfDI)</a> wenden.</p>
+    <p class="en" style="margin-top:14px">You may also contact the supervisory authority of your own country of residence or the <a href="https://www.bfdi.bund.de" target="_blank" rel="noopener noreferrer">Federal Commissioner for Data Protection and Freedom of Information (BfDI)</a>.</p>
+  </div>
+
+  <!-- ⑫ Aktualität ────────────────────────────────────────────────── -->
+  <div class="section" id="s12">
+    <div class="section-header">
+      <div class="section-icon icon-gray">📅</div>
+      <div>
+        <div class="section-num de">12. Aktualität und Änderungen</div>
+        <div class="section-num en">12. Up-to-dateness and amendments</div>
+        <div class="section-title de">Stand dieser Datenschutzerklärung</div>
+        <div class="section-title en">Status of this privacy policy</div>
+      </div>
+    </div>
+    <p class="de">Diese Datenschutzerklärung hat den Stand <strong>März 2026</strong> und entspricht dem zum Zeitpunkt der Erstellung geltenden deutschen und europäischen Datenschutzrecht (insb. DSGVO, TDDDG, BDSG).</p>
+    <p class="en">This privacy policy is dated <strong>March 2026</strong> and complies with the German and European data protection law in force at the time of drafting (in particular GDPR, TDDDG, BDSG).</p>
+    <p class="de">Wir behalten uns vor, diese Datenschutzerklärung bei Änderungen der rechtlichen Lage, der technischen Infrastruktur oder der Funktionen der Website anzupassen. Die jeweils aktuelle Version ist unter dieser URL abrufbar. Über wesentliche Änderungen informieren wir durch einen deutlich sichtbaren Hinweis auf der Website.</p>
+    <p class="en">We reserve the right to update this privacy policy if there are changes in the legal framework, the technical infrastructure, or the website's functions. The current version is available at this URL. We will notify of material changes by means of a prominently visible notice on the website.</p>
+    <p class="de"><strong>Anwendbares Recht:</strong> Es gilt das Recht der Bundesrepublik Deutschland. Für Verbraucher aus der EU gilt zusätzlich das am jeweiligen Wohnort geltende Verbraucher-Schutzrecht.</p>
+    <p class="en"><strong>Applicable law:</strong> The law of the Federal Republic of Germany applies. For consumers within the EU, the consumer protection law of their country of residence additionally applies.</p>
+  </div>
+
+</main>
+
+<!-- ── Footer ────────────────────────────────────────────────────── -->
+<footer>
+  <p>© 2026 Anton Melnychuk · Auto Performance Tracker</p>
+  <p style="margin-top:8px">
+    <a href="impressum.html">Impressum</a>
+    <span class="sep">·</span>
+    <span style="color:var(--cyan)" class="de">Datenschutz Website</span>
+    <span style="color:var(--cyan)" class="en">Website Privacy</span>
+    <span class="sep">·</span>
+    <a href="privacy-policy.html" class="de">Datenschutz App</a>
+    <a href="privacy-policy.html" class="en">App Privacy</a>
+    <span class="sep">·</span>
+    <a href="agb.html">AGB / ToS</a>
+  </p>
+</footer>
+
+<!-- ── Sprachumschaltung ─────────────────────────────────────────── -->
+<script>
+  let currentLang = localStorage.getItem('apt_lang') || 'de';
+
+  function setLang(lang) {
+    currentLang = lang;
+    localStorage.setItem('apt_lang', lang);
+    document.documentElement.lang  = lang;
+    document.documentElement.dataset.lang = lang;
+    document.querySelectorAll('#btn-de, #btn-en').forEach(function(b) {
+      b.classList.toggle('active', b.id === 'btn-' + lang);
+    });
+  }
+
+  setLang(currentLang);
+</script>
+
+</body>
+</html>
