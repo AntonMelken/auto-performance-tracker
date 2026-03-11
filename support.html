@@ -635,10 +635,10 @@ function submitContactForm() {
 }
 
 // ── Language Switch ──────────────────────────────
-let currentLang = localStorage.getItem('lang') || 'de';
+let currentLang = localStorage.getItem('apt_lang') || 'de';
 function setLang(lang) {
   currentLang = lang;
-  localStorage.setItem('lang', lang);
+  localStorage.setItem('apt_lang', lang);
   document.documentElement.lang = lang;
   document.querySelectorAll('.de, .en').forEach(el => {
     el.style.display = el.classList.contains(lang) ? '' : 'none';
