@@ -410,22 +410,22 @@
       </div>
     </div>
 
-    <p class="de" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Nur Tankstellen-Ansicht</span></p>
-    <p class="en" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Gas station view only</span></p>
-    <p class="de">Zur Anzeige aktueller Kraftstoffpreise wird die Tankerkönig API genutzt.</p>
-    <p class="en">The Tankerkönig API is used to display current fuel prices.</p>
+    <p class="de" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Tankstellen-Ansicht</span> <span class="tag tag-blue">Fahrtstart (mit API-Key)</span></p>
+    <p class="en" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Gas station view</span> <span class="tag tag-blue">Trip start (with API key)</span></p>
+    <p class="de">Die Tankerkönig API wird für <strong>zwei Zwecke</strong> genutzt: (1) In der Tankstellen-Ansicht ruft die App auf expliziten Nutzerwunsch hin aktuelle Kraftstoffpreise in der Umgebung ab. (2) Beim Start einer Fahrt wird – sofern der Nutzer einen persönlichen API-Key hinterlegt hat – der aktuelle Kraftstoffpreis der bevorzugten oder nächstgelegenen Tankstelle automatisch abgerufen, um ihn der Fahrt zuzuordnen.</p>
+    <p class="en">The Tankerkönig API is used for <strong>two purposes</strong>: (1) In the gas station view, the app retrieves current fuel prices nearby on the user's explicit request. (2) At the start of a trip – if the user has stored a personal API key – the current fuel price of the preferred or nearest station is fetched automatically to associate it with the trip.</p>
     <ul>
       <li class="de"><span class="label">Anbieter:</span> tankerkoenig.de (Deutschland) – privater API-Dienst auf Basis der Daten der Markttransparenzstelle für Kraftstoffe (Bundeskartellamt)</li>
       <li class="en"><span class="label">Provider:</span> tankerkoenig.de (Germany) – private API service based on data from the Markttransparenzstelle für Kraftstoffe (Federal Cartel Office)</li>
-      <li class="de"><span class="label">Übertragene Daten:</span> Präzise GPS-Koordinaten (Breitengrad, Längengrad) und Suchradius</li>
-      <li class="en"><span class="label">Data transmitted:</span> Precise GPS coordinates (latitude, longitude) and search radius</li>
-      <li class="de"><span class="label">Zweck:</span> Kraftstoffpreisabfrage in deiner Nähe</li>
-      <li class="en"><span class="label">Purpose:</span> Querying fuel prices near your location</li>
-      <li class="de"><span class="label">Speicherung:</span> Keine – nur für die Abfrage verwendet</li>
-      <li class="en"><span class="label">Retention:</span> None – used only for the query</li>
+      <li class="de"><span class="label">Übertragene Daten:</span> Präzise GPS-Koordinaten (Breitengrad, Längengrad) und Suchradius; bei Favorit-Tankstelle: Stations-ID statt GPS-Koordinaten</li>
+      <li class="en"><span class="label">Data transmitted:</span> Precise GPS coordinates (latitude, longitude) and search radius; for favourite station: station ID instead of GPS coordinates</li>
+      <li class="de"><span class="label">Zweck:</span> (1) Kraftstoffpreisabfrage in der Umgebung; (2) automatische Fahrtpreiszuordnung beim Fahrtstart</li>
+      <li class="en"><span class="label">Purpose:</span> (1) Fuel price lookup in the area; (2) automatic fuel price assignment at trip start</li>
+      <li class="de"><span class="label">Speicherung:</span> Keine dauerhafte Speicherung der GPS-Koordinaten durch Tankerkönig; API-Anfragen sind transient und werden nicht für Nutzer-Tracking verwendet</li>
+      <li class="en"><span class="label">Retention:</span> No permanent storage of GPS coordinates by Tankerkönig; API requests are transient and not used for user tracking</li>
     </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · Tankerkönig verarbeitet Anfragedaten (IP-Adresse, GPS-Koordinaten) als eigenständiger Verantwortlicher gemäß eigener Datenschutzerklärung; ein gesonderter AVV zwischen App-Anbieter und Tankerkönig ist nicht erforderlich. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · Tankerkönig processes request data (IP address, GPS coordinates) as an independent controller under its own privacy policy; no separate DPA between the app provider and Tankerkönig is required. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzerfunktion Tankstellen-Ansicht) · Art. 6 Abs. 1 lit. f DSGVO (automatischer Fahrtstart-Abruf) · <em>Interessenabwägung (LIA):</em> Berechtigtes Interesse des Nutzers an der Zuordnung des aktuellen Kraftstoffpreises zur Fahrt; Übermittlung präziser GPS-Koordinaten transient und zweckgebunden; Tankerkönig speichert keine personenbezogenen Daten dauerhaft und führt kein Nutzer-Tracking durch; Eingriff in die Privatsphäre minimal und durch Nutzungsvorteil überwogen. · Tankerkönig verarbeitet Anfragedaten als eigenständiger Verantwortlicher; kein AVV erforderlich. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (gas station view feature) · Art. 6(1)(f) GDPR (automatic trip-start fetch) · <em>Balancing test (LIA):</em> Legitimate interest of the user in associating the current fuel price with their trip; GPS coordinates transmitted transiently and for a specific purpose; Tankerkönig stores no personal data permanently and conducts no user tracking; privacy impact is minimal and outweighed by user benefit. · Tankerkönig processes request data as an independent controller; no DPA required. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
 
     <p class="de" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">Nur EV-Ladesäulen-Ansicht · Optional</span></p>
     <p class="en" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">EV charging view only · Optional</span></p>
@@ -604,8 +604,8 @@
     <ul>
       <li class="de"><span class="label">Anbieter:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) · EU-US Data Privacy Framework (DPF) zertifiziert</li>
       <li class="en"><span class="label">Provider:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU Standard Contractual Clauses (Art. 46(2)(c) GDPR) · certified under EU-US Data Privacy Framework (DPF)</li>
-      <li class="de"><span class="label">Einwilligung:</span> Über Google User Messaging Platform (UMP) und Apple ATT-Prompt</li>
-      <li class="en"><span class="label">Consent:</span> Via Google User Messaging Platform (UMP) and Apple ATT prompt</li>
+      <li class="de"><span class="label">Einwilligung (Reihenfolge):</span> (1) Google User Messaging Platform (UMP) – erscheint beim ersten App-Start für EU-Nutzer; AdMob wird erst nach Abschluss dieses Dialogs initialisiert. (2) Apple App Tracking Transparency (ATT) – erscheint anschließend einmalig; ohne ATT-Freigabe wird kein IDFA verwendet. Widerruf jederzeit: iOS-Einstellungen → Datenschutz → Tracking.</li>
+      <li class="en"><span class="label">Consent (order):</span> (1) Google User Messaging Platform (UMP) – shown on first launch for EU users; AdMob is only initialised after this dialog is completed. (2) Apple App Tracking Transparency (ATT) – shown once afterwards; without ATT authorisation no IDFA is used. Revoke at any time: iOS Settings → Privacy → Tracking.</li>
       <li class="de"><span class="label">Mit Einwilligung:</span> Werbe-ID (IDFA), Gerätedaten – Art. 6 Abs. 1 lit. a DSGVO</li>
       <li class="en"><span class="label">With consent:</span> Advertising ID (IDFA), device data – Art. 6(1)(a) GDPR</li>
       <li class="de"><span class="label">Ohne Einwilligung:</span> Ausschließlich nicht-personalisierte, kontextbezogene Werbung (kein IDFA, kein Nutzer-Profiling) – Art. 6 Abs. 1 lit. f DSGVO · <em>Interessenabwägung (LIA):</em> Berechtigtes Interesse: wirtschaftliche Refinanzierung der kostenlosen App-Version. Gegenwiegende Interessen: Da ausschließlich kontextbezogene (nicht profilbasierte) Werbung ausgeliefert wird, ist der Eingriff in die Privatsphäre minimal; kein persistenter Identifier wird ohne Einwilligung verwendet. Das berechtigte Interesse überwiegt. · <strong>Widerspruchsrecht gem. Art. 21 DSGVO:</strong> Du kannst der Verarbeitung auf Basis berechtigter Interessen jederzeit per E-Mail an <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a> widersprechen.</li>
