@@ -322,14 +322,14 @@
     <ul>
       <li class="de"><span class="label">Anbieter:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
       <li class="en"><span class="label">Provider:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
-      <li class="de"><span class="label">Daten:</span> Fahrtdaten inkl. GPS-Punkte <strong>und Bewegungssensordaten (CoreMotion)</strong>, Fahrzeugprofile, Nutzerprofil (E-Mail, Anzeigename)</li>
-      <li class="en"><span class="label">Data:</span> Trip data incl. GPS points <strong>and motion sensor data (CoreMotion)</strong>, vehicle profiles, user profile (email, display name)</li>
-      <li class="de"><span class="label">Drittland:</span> Supabase Inc. (USA) – EU-Standardvertragsklauseln, Serverstandort EU</li>
-      <li class="en"><span class="label">Third country:</span> Supabase Inc. (USA) – EU Standard Contractual Clauses, server in EU</li>
+      <li class="de"><span class="label">Daten:</span> Fahrtdaten inkl. GPS-Punkte und berechnete Fahrt-Kennzahlen, Fahrzeugprofile, Nutzerprofil (E-Mail, Anzeigename). <em>Rohe Bewegungssensordaten (CoreMotion) verbleiben ausschließlich lokal auf dem Gerät und werden nicht synchronisiert.</em></li>
+      <li class="en"><span class="label">Data:</span> Trip data incl. GPS points and calculated trip metrics, vehicle profiles, user profile (email, display name). <em>Raw motion sensor data (CoreMotion) remains exclusively on-device and is not synced.</em></li>
+      <li class="de"><span class="label">Drittland:</span> Supabase Inc. (USA) – EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO); Supabase ist <em>nicht</em> unter dem EU-US Data Privacy Framework zertifiziert. Eine Transfer-Folgenabschätzung (TIA gem. Schrems II / EuGH C-311/18) wurde durchgeführt und dokumentiert (Serverstandort EU-Frankfurt reduziert das Übertragungsrisiko erheblich).</li>
+      <li class="en"><span class="label">Third country:</span> Supabase Inc. (USA) – EU Standard Contractual Clauses (Art. 46(2)(c) GDPR); Supabase is <em>not</em> certified under the EU-US Data Privacy Framework. A Transfer Impact Assessment (TIA per Schrems II / ECJ C-311/18) has been conducted and documented (EU-Frankfurt server location substantially mitigates the transfer risk).</li>
       <li class="de"><span class="label">AVV:</span> Auftragsverarbeitungsvertrag gem. Art. 28 DSGVO abgeschlossen</li>
       <li class="en"><span class="label">DPA:</span> Data Processing Agreement per Art. 28 GDPR in place</li>
-      <li class="de"><span class="label">Löschung:</span> Konto → Account löschen (innerhalb 30 Tagen vollständig gelöscht)</li>
-      <li class="en"><span class="label">Deletion:</span> Account → Delete Account (fully deleted within 30 days)</li>
+      <li class="de"><span class="label">Löschung:</span> Konto → Account löschen. Soft-Delete: sofortige Deaktivierung des Kontos, vollständige Datenlöschung innerhalb von 30 Tagen (keine weitere Datenverarbeitung nach Deaktivierung).</li>
+      <li class="en"><span class="label">Deletion:</span> Account → Delete Account. Soft-delete: account immediately deactivated, all data fully deleted within 30 days (no further processing after deactivation).</li>
     </ul>
     <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
     <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
@@ -424,8 +424,8 @@
       <li class="de"><span class="label">Speicherung:</span> Keine – nur für die Abfrage verwendet</li>
       <li class="en"><span class="label">Retention:</span> None – used only for the query</li>
     </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://creativecommons.tankerkoenig.de" target="_blank">creativecommons.tankerkoenig.de</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://creativecommons.tankerkoenig.de" target="_blank">creativecommons.tankerkoenig.de</a></p>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · Tankerkönig verarbeitet Anfragedaten (IP-Adresse, GPS-Koordinaten) als eigenständiger Verantwortlicher gemäß eigener Datenschutzerklärung; ein gesonderter AVV zwischen App-Anbieter und Tankerkönig ist nicht erforderlich. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · Tankerkönig processes request data (IP address, GPS coordinates) as an independent controller under its own privacy policy; no separate DPA between the app provider and Tankerkönig is required. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
 
     <p class="de" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">Nur EV-Ladesäulen-Ansicht · Optional</span></p>
     <p class="en" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">EV charging view only · Optional</span></p>
@@ -467,13 +467,13 @@
         <div class="section-num en">7. Speed Limit Detection &amp; LPG Stations (OpenStreetMap)</div>
       </div>
     </div>
-    <p class="de">Die Overpass API von OpenStreetMap wird für zwei Zwecke genutzt: (1) Echtzeit-Abruf von Tempolimits <strong>kontinuierlich während der Fahrt</strong> und (2) Suche nach LPG-Tankstellen in der Umgebung in der Tankstellen-Ansicht.</p>
-    <p class="en">The OpenStreetMap Overpass API is used for two purposes: (1) real-time retrieval of speed limits <strong>continuously during a trip</strong> and (2) searching for nearby LPG stations in the gas station view.</p>
+    <p class="de">Die Overpass API von OpenStreetMap wird für zwei Zwecke genutzt: (1) Echtzeit-Abruf von Tempolimits <strong>kontinuierlich während der Fahrt – ausschließlich für Pro-Abonnenten</strong> und (2) Suche nach LPG-Tankstellen in der Umgebung in der Tankstellen-Ansicht.</p>
+    <p class="en">The OpenStreetMap Overpass API is used for two purposes: (1) real-time retrieval of speed limits <strong>continuously during a trip – for Pro subscribers only</strong> and (2) searching for nearby LPG stations in the gas station view.</p>
     <ul>
       <li class="de"><span class="label">Anbieter:</span> OpenStreetMap Foundation (OSMF), London, UK · Server: overpass-api.de (Deutschland/EU) · Fallback: overpass.kumi.systems (EU)</li>
       <li class="en"><span class="label">Provider:</span> OpenStreetMap Foundation (OSMF), London, UK · Servers: overpass-api.de (Germany/EU) · Fallback: overpass.kumi.systems (EU)</li>
-      <li class="de"><span class="label">Daten (Tempolimit):</span> GPS-Koordinaten werden während der Fahrt bei Positionsänderungen kontinuierlich an die Overpass API übertragen. Die Koordinaten werden vor der Übertragung gerundet (~40m-Raster gebucketed) und nur bei Überschreitung eines adaptiven Schwellwerts je nach Geschwindigkeit gesendet. Die Übertragung ist ein öffentlicher, nicht authentifizierter Dienst; es wird kein AVV gefordert.</li>
-      <li class="en"><span class="label">Data (speed limit):</span> GPS coordinates are transmitted continuously to the Overpass API during a trip whenever the position changes sufficiently. Coordinates are rounded before transmission (~40m grid bucketed) and only sent when an adaptive threshold based on speed is exceeded. The service is public and unauthenticated; no DPA is required.</li>
+      <li class="de"><span class="label">Daten (Tempolimit) <span class="tag tag-blue">Pro only</span>:</span> GPS-Koordinaten werden während der Fahrt bei Positionsänderungen kontinuierlich an die Overpass API übertragen. Die Koordinaten werden vor der Übertragung gerundet (~40m-Raster gebucketed) und nur bei Überschreitung eines adaptiven Schwellwerts je nach Geschwindigkeit gesendet. Die Übertragung ist ein öffentlicher, nicht authentifizierter Dienst; es wird kein AVV gefordert.</li>
+      <li class="en"><span class="label">Data (speed limit) <span class="tag tag-blue">Pro only</span>:</span> GPS coordinates are transmitted continuously to the Overpass API during a trip whenever the position changes sufficiently. Coordinates are rounded before transmission (~40m grid bucketed) and only sent when an adaptive threshold based on speed is exceeded. The service is public and unauthenticated; no DPA is required.</li>
       <li class="de"><span class="label">Daten (LPG-Stationen):</span> Präzise GPS-Koordinaten mit Suchradius (Standard 15 km)</li>
       <li class="en"><span class="label">Data (LPG stations):</span> Precise GPS coordinates with search radius (default 15 km)</li>
       <li class="de"><span class="label">Zweck:</span> (1) Anzeige der aktuellen Geschwindigkeitsbegrenzung während der Fahrt; (2) LPG-Tankstellen in der Nähe</li>
@@ -608,8 +608,8 @@
       <li class="en"><span class="label">Consent:</span> Via Google User Messaging Platform (UMP) and Apple ATT prompt</li>
       <li class="de"><span class="label">Mit Einwilligung:</span> Werbe-ID (IDFA), Gerätedaten – Art. 6 Abs. 1 lit. a DSGVO</li>
       <li class="en"><span class="label">With consent:</span> Advertising ID (IDFA), device data – Art. 6(1)(a) GDPR</li>
-      <li class="de"><span class="label">Ohne Einwilligung:</span> Nur kontextbezogene Werbung – Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse: Refinanzierung und Weiterentwicklung der kostenlosen App-Version) · <strong>Widerspruchsrecht gem. Art. 21 DSGVO:</strong> Du kannst der Verarbeitung auf Basis berechtigter Interessen jederzeit per E-Mail an <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a> widersprechen.</li>
-      <li class="en"><span class="label">Without consent:</span> Context-based ads only – Art. 6(1)(f) GDPR (legitimate interest: funding and further development of the free app version) · <strong>Right to object per Art. 21 GDPR:</strong> You may object to processing based on legitimate interests at any time by emailing <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>.</li>
+      <li class="de"><span class="label">Ohne Einwilligung:</span> Ausschließlich nicht-personalisierte, kontextbezogene Werbung (kein IDFA, kein Nutzer-Profiling) – Art. 6 Abs. 1 lit. f DSGVO · <em>Interessenabwägung (LIA):</em> Berechtigtes Interesse: wirtschaftliche Refinanzierung der kostenlosen App-Version. Gegenwiegende Interessen: Da ausschließlich kontextbezogene (nicht profilbasierte) Werbung ausgeliefert wird, ist der Eingriff in die Privatsphäre minimal; kein persistenter Identifier wird ohne Einwilligung verwendet. Das berechtigte Interesse überwiegt. · <strong>Widerspruchsrecht gem. Art. 21 DSGVO:</strong> Du kannst der Verarbeitung auf Basis berechtigter Interessen jederzeit per E-Mail an <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a> widersprechen.</li>
+      <li class="en"><span class="label">Without consent:</span> Non-personalised, context-based ads only (no IDFA, no user profiling) – Art. 6(1)(f) GDPR · <em>Balancing test (LIA):</em> Legitimate interest: economic funding of the free app version. Counterbalancing interests: since exclusively context-based (non-profiling) ads are served, the privacy impact is minimal; no persistent identifier is used without consent. The legitimate interest prevails. · <strong>Right to object per Art. 21 GDPR:</strong> You may object to processing based on legitimate interests at any time by emailing <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>.</li>
       <li class="de"><span class="label">Speicherdauer:</span> Klick- und Impressionsdaten: 63 Tage (Google-Standard) · Aggregierte Berichtsdaten: bis zu 26 Monate · IDFA (mit Einwilligung): bis Widerruf der Einwilligung oder App-Deinstallation</li>
       <li class="en"><span class="label">Retention:</span> Click and impression data: 63 days (Google default) · Aggregated report data: up to 26 months · IDFA (with consent): until consent withdrawal or app uninstall</li>
     </ul>
@@ -631,8 +631,8 @@
     <ul>
       <li class="de"><span class="label">Anbieter:</span> Google LLC, USA · EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert</li>
       <li class="en"><span class="label">Provider:</span> Google LLC, USA · EU Standard Contractual Clauses · certified under EU-US Data Privacy Framework (DPF)</li>
-      <li class="de"><span class="label">Daten:</span> Stack-Traces, Gerätemodell, iOS-Version, App-Version, Zeitstempel; <strong>Nutzer-ID: die interne Supabase-User-UUID bei eingeloggten Nutzern</strong>, anonyme UUID für Gastnutzer</li>
-      <li class="en"><span class="label">Data:</span> Stack traces, device model, iOS version, app version, timestamp; <strong>user ID: the internal Supabase user UUID for logged-in users</strong>, anonymous UUID for guest users</li>
+      <li class="de"><span class="label">Daten:</span> Stack-Traces, Gerätemodell, iOS-Version, App-Version, Zeitstempel; <strong>Nutzer-ID: ein SHA-256-Hash der internen Supabase-User-UUID (Einweg-Pseudonymisierung – kein Rückschluss auf den Account möglich)</strong>, anonyme UUID für Gastnutzer</li>
+      <li class="en"><span class="label">Data:</span> Stack traces, device model, iOS version, app version, timestamp; <strong>user ID: a SHA-256 hash of the internal Supabase user UUID (one-way pseudonymisation – no reverse inference to the account possible)</strong>, anonymous UUID for guest users</li>
       <li class="de"><span class="label">Speicherdauer:</span> 90 Tage</li>
       <li class="en"><span class="label">Retention:</span> 90 days</li>
     </ul>
