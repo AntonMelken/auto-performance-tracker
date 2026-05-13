@@ -213,7 +213,7 @@
       <span class="de">Datenschutzerklärung</span>
       <span class="en">Privacy Policy</span>
     </h1>
-    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: März 2026 · v2</p>
+    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: Mai 2026 · v2</p>
     <p class="subtitle en">Auto Performance Tracker · Last updated: March 2026 · v2</p>
     <span class="badge de">Art. 13 DSGVO</span>
     <span class="badge en">Art. 13 GDPR</span>
@@ -398,7 +398,7 @@
       <li class="en"><span class="label">Provider:</span> PostHog Inc., 965 Mission St. Suite 200, San Francisco, CA 94103, USA · EU server: eu.posthog.com · EU Standard Contractual Clauses (Art. 46(2)(c) GDPR)</li>
       <li class="de"><span class="label">Daten:</span> Anonyme Geräte-ID (zufällige UUID, kein Nutzerbezug), App-Version, iOS-Version, Ereignistypen, gebucketete Messwerte. Keine GPS-Daten, kein IDFA.</li>
       <li class="en"><span class="label">Data:</span> Anonymous device ID (random UUID, no personal link), app version, iOS version, event types, bucketed metrics. No GPS data, no IDFA.</li>
-      <li class="de"><span class="label">Widerruf:</span> Einstellungen → Datenschutz → Analytics deaktivieren (sofort wirksam)</li>
+      <li class="de"><span class="label">Widerruf:</span> Jederzeit in Einstellungen → Datenschutz → Analytics deaktivieren oder über „Alle Einwilligungen widerrufen" (löscht Nachweis + zeigt Einwilligungs-Dialog beim nächsten App-Start erneut)</li>
       <li class="en"><span class="label">Withdrawal:</span> Settings → Privacy → Disable Analytics (immediate effect)</li>
     </ul>
     <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO · Speicherdauer: max. 12 Monate · <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a></p>
@@ -578,6 +578,8 @@
     <p class="en" style="margin-top:16px; font-size:13px"><strong>Note on providing data (Art. 13(2)(e) GDPR):</strong> Providing personal data is neither legally nor contractually required. Without location permission, trip recording is not available. Without motion permission, the driving score is unavailable. Cloud Sync and Analytics are fully optional. The app can be used in offline/guest mode without an account.</p>
     <p class="de" style="margin-top:8px; font-size:13px"><strong>Hinweis zum Widerruf von Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Ein Widerruf wirkt nur für die Zukunft; die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
     <p class="en" style="margin-top:8px; font-size:13px"><strong>Note on withdrawal of consent (Art. 7(3) GDPR):</strong> Withdrawal only takes effect for the future; the lawfulness of processing based on consent before its withdrawal remains unaffected.</p>
+    <p class="de" style="margin-top:8px"><strong>Einwilligung widerrufen:</strong> Einstellungen → Datenschutz → „Alle Einwilligungen widerrufen". Nach dem Widerruf wird beim nächsten App-Start der Einwilligungs-Dialog erneut angezeigt, sodass du deine Präferenzen neu konfigurieren kannst (Art. 7 Abs. 3 DSGVO).</p>
+    <p class="en" style="margin-top:8px"><strong>Revoke consent:</strong> Settings → Privacy → "Revoke all consents". After revocation, the consent dialog will be shown again on the next app launch so you can reconfigure your preferences (Art. 7(3) GDPR).</p>
   </div>
 
   <!-- ⑩ Datensicherheit -->
@@ -734,7 +736,7 @@
     <table class="data-table de">
       <tr><th>Datenkategorie</th><th>Speicherdauer</th></tr>
       <tr><td>Lokale Fahrtdaten (inkl. GPS-Punkte)</td><td>Bis manuelle Löschung / App-Deinstallation</td></tr>
-      <tr><td>Bewegungssensordaten (CoreMotion)</td><td>Teil der Fahrtdaten – gleiche Speicherdauer</td></tr>
+      <tr><td>CoreMotion-Rohdaten (25 Hz Beschleunigung/Gyroskop)</td><td>Automatisch nach 2 Jahren gelöscht; der berechnete Driving Score bleibt erhalten</td></tr>
       <tr><td>GPS-Punkte &amp; Sensordaten (iCloud CloudKit)</td><td>Bis App-Deinstallation oder manuelle Löschung in iCloud-Einstellungen</td></tr>
       <tr><td>Fahrt-Metadaten (Supabase, ohne GPS)</td><td>Bis Account-Löschung; Soft-Delete → 30 Tage</td></tr>
       <tr><td>Fahrzeugprofile (Supabase)</td><td>Bis Account-Löschung</td></tr>
@@ -744,6 +746,7 @@
       <tr><td>Firebase Analytics (Opt-In, nach Einwilligung)</td><td>Bis zu 14 Monate (Google-Standard)</td></tr>
       <tr><td>Analytics (PostHog, Opt-In)</td><td>Anonymisiert, max. 12 Monate</td></tr>
       <tr><td>Werbedaten AdMob (Klicks/Impressionen)</td><td>63 Tage · Aggregierte Berichte: bis 26 Monate · IDFA (mit Einwilligung): bis Widerruf</td></tr>
+      <tr><td>Kraftstoffpreise (Favorit-Tankstelle)</td><td>Lokaler Cache auf dem Gerät — gelöscht über Einstellungen → Datenschutz → „Tankstellen-Cache löschen" oder bei Deinstallation</td></tr>
       <tr><td>Absturz-Berichte (Crashlytics)</td><td>90 Tage (Firebase-Standard)</td></tr>
       <tr><td>Abonnement-Status (Pro-Flag)</td><td>Bis Account-Löschung; Apple StoreKit: gem. Apple-Richtlinie</td></tr>
       <tr><td>DSGVO-Audit-Log</td><td>Bis Account-Löschung</td></tr>
@@ -752,7 +755,7 @@
     <table class="data-table en">
       <tr><th>Data category</th><th>Retention period</th></tr>
       <tr><td>Local trip data (incl. GPS points)</td><td>Until manual deletion / app uninstall</td></tr>
-      <tr><td>Motion sensor data (CoreMotion)</td><td>Part of trip data – same retention period</td></tr>
+      <tr><td>CoreMotion raw data (25 Hz acceleration/gyroscope)</td><td>Automatically deleted after 2 years; the calculated driving score is retained</td></tr>
       <tr><td>GPS points &amp; sensor data (iCloud CloudKit)</td><td>Until app uninstall or manual deletion in iCloud settings</td></tr>
       <tr><td>Trip metadata (Supabase, no GPS)</td><td>Until account deletion; soft-deleted → 30 days</td></tr>
       <tr><td>Vehicle profiles (Supabase)</td><td>Until account deletion</td></tr>
@@ -762,6 +765,7 @@
       <tr><td>Firebase Analytics (opt-in, after consent)</td><td>Up to 14 months (Google standard)</td></tr>
       <tr><td>Analytics (PostHog, opt-in)</td><td>Anonymized, max. 12 months</td></tr>
       <tr><td>Ad data AdMob (clicks/impressions)</td><td>63 days · Aggregated reports: up to 26 months · IDFA (with consent): until withdrawal</td></tr>
+      <tr><td>Fuel prices (favourite station)</td><td>Local cache on device — deleted via Settings → Privacy → "Clear station cache" or on uninstall</td></tr>
       <tr><td>Crash reports (Crashlytics)</td><td>90 days (Firebase default)</td></tr>
       <tr><td>Subscription status (Pro flag)</td><td>Until account deletion; Apple StoreKit: per Apple policy</td></tr>
       <tr><td>GDPR audit log</td><td>Until account deletion</td></tr>
@@ -778,28 +782,72 @@
         <div class="section-num en">15. Data Processors (Art. 28 GDPR)</div>
       </div>
     </div>
-    <p class="de">Folgende Dienstleister verarbeiten personenbezogene Daten im Auftrag, jeweils mit Auftragsverarbeitungsvertrag (AVV) soweit gesetzlich erforderlich:</p>
-    <p class="en">The following service providers process personal data on behalf of the app, each with a Data Processing Agreement (DPA) where required by law:</p>
+    <p class="de">Die App übermittelt Daten an folgende Auftragsverarbeiter. Alle Anbieter wurden gemäß Art. 28 DSGVO vertraglich gebunden:</p>
+    <p class="en">The app transmits data to the following data processors. All providers are contractually bound pursuant to Art. 28 GDPR:</p>
     <ul class="de">
-      <li><a href="https://supabase.com/privacy" target="_blank">Supabase Inc.</a> – Cloud-Sync, Auth (AVV abgeschlossen · <a href="https://supabase.com/dpa" target="_blank">supabase.com/dpa</a>)</li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Analytics, Crashlytics, AdMob, Sign-In (AVV: Google Cloud Data Processing Addendum)</li>
-      <li><a href="https://posthog.com/privacy" target="_blank">PostHog Inc.</a> – Analytics (bei Opt-In; AVV abgeschlossen gem. Art. 28 DSGVO)</li>
+      <li>
+        <strong>PostHog Inc.</strong> (EU-Server Frankfurt, eu.posthog.com)<br>
+        Zweck: Anonyme Nutzungsanalytik — ausschließlich bei aktivem Opt-In des Nutzers.<br>
+        <a href="https://posthog.com/privacy" target="_blank">Datenschutz: posthog.com/privacy</a>
+      </li>
+      <li>
+        <strong>Google Ireland Ltd.</strong> (Dublin, Irland)<br>
+        Zweck: AdMob-Werbung (nur Free-Nutzer, ausschließlich nach UMP-Einwilligung) sowie Google Sign-In (Authentifizierung).<br>
+        <a href="https://policies.google.com/privacy" target="_blank">Datenschutz: policies.google.com/privacy</a>
+      </li>
+      <li>
+        <strong>Supabase Inc.</strong> (EU-Region Frankfurt, AWS eu-central-1)<br>
+        Zweck: Account-Metadaten (kein GPS, keine Bewegungsdaten), verschlüsselt gespeichert. SOC 2 Type II zertifiziert.<br>
+        <a href="https://supabase.com/privacy" target="_blank">Datenschutz: supabase.com/privacy</a>
+      </li>
+      <li>
+        <strong>Tankerkönig</strong> (creativecommons.tankerkoenig.de, Deutschland, Markant Handels GmbH &amp; Co. KG)<br>
+        Zweck: Abruf aktueller Kraftstoffpreise. Es werden gerundete Koordinaten übermittelt (±1,1 km Genauigkeit). Keine personenbezogenen Daten im engeren Sinne.
+      </li>
+      <li>
+        <strong>Open-Meteo</strong> (open-meteo.com, Schweiz)<br>
+        Zweck: Wetterdaten beim Fahrtabschluss für die physikalische Verbrauchsberechnung. Übermittelt werden gerundete Koordinaten und Fahrtdatum. Keine persistente Nutzerkennung.<br>
+        <a href="https://open-meteo.com/en/terms" target="_blank">Datenschutz: open-meteo.com/en/terms</a>
+      </li>
+      <li>
+        <strong>OpenStreetMap Overpass API</strong> (overpass-api.de / overpass.kumi.systems, Deutschland/EU)<br>
+        Zweck: Tempolimit-Abfragen während aktiver Fahrt (Pro-Funktion) sowie Tankstellen-Suche. Übermittelt werden gerundete Koordinaten (±1,1 km). Keine Nutzerkennung.<br>
+        <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Datenschutz: osmfoundation.org/wiki/Privacy_Policy</a>
+      </li>
     </ul>
-    <p class="de" style="margin-top:12px"><strong>Eigenständige Verantwortliche (keine Auftragsverarbeitung):</strong></p>
-    <p class="en" style="margin-top:12px"><strong>Independent controllers (not data processors):</strong></p>
-    <ul class="de">
-      <li><a href="https://apple.com/legal/privacy" target="_blank">Apple Inc.</a> – Sign-In mit Apple, StoreKit / In-App-Käufe, MetricKit, <strong>iCloud CloudKit (GPS-Punkte, Sensordaten, Fahrscore-Details)</strong>: Apple verarbeitet diese Daten als eigenständiger Verantwortlicher gemäß eigener Datenschutzrichtlinie; kein AVV erforderlich. Der Entwickler hat keinen Zugriff auf die in iCloud gespeicherten Daten.</li>
-      <li><a href="https://openchargemap.org/site/about/privacy" target="_blank">Open Charge Map Ltd.</a> – EV-Ladesäulen-Abfrage: OCM empfängt GPS-Koordinaten und verarbeitet diese als eigenständiger Verantwortlicher (kein Auftragsverarbeiter); kein AVV erforderlich. Drittlandtransfer ggf. gemäß OCM-Datenschutzrichtlinie.</li>
-    </ul>
+    <p class="de">Datenübertragungen in Drittstaaten (USA): Übertragungen zu PostHog Inc. und Google LLC erfolgen auf Grundlage der EU-Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO. Kopien der SCCs können auf Anfrage zur Verfügung gestellt werden.</p>
     <ul class="en">
-      <li><a href="https://supabase.com/privacy" target="_blank">Supabase Inc.</a> – Cloud Sync, Auth (DPA in place · <a href="https://supabase.com/dpa" target="_blank">supabase.com/dpa</a>)</li>
-      <li><a href="https://firebase.google.com/support/privacy" target="_blank">Google LLC / Firebase</a> – Analytics, Crashlytics, AdMob, Sign-In (DPA: Google Cloud Data Processing Addendum)</li>
-      <li><a href="https://posthog.com/privacy" target="_blank">PostHog Inc.</a> – Analytics (opt-in; DPA concluded per Art. 28 GDPR)</li>
+      <li>
+        <strong>PostHog Inc.</strong> (EU server Frankfurt, eu.posthog.com)<br>
+        Purpose: Anonymous usage analytics — exclusively when the user has actively opted in.<br>
+        <a href="https://posthog.com/privacy" target="_blank">Privacy: posthog.com/privacy</a>
+      </li>
+      <li>
+        <strong>Google Ireland Ltd.</strong> (Dublin, Ireland)<br>
+        Purpose: AdMob advertising (free users only, exclusively after UMP consent) and Google Sign-In (authentication).<br>
+        <a href="https://policies.google.com/privacy" target="_blank">Privacy: policies.google.com/privacy</a>
+      </li>
+      <li>
+        <strong>Supabase Inc.</strong> (EU region Frankfurt, AWS eu-central-1)<br>
+        Purpose: Account metadata (no GPS, no motion data), stored encrypted. SOC 2 Type II certified.<br>
+        <a href="https://supabase.com/privacy" target="_blank">Privacy: supabase.com/privacy</a>
+      </li>
+      <li>
+        <strong>Tankerkönig</strong> (creativecommons.tankerkoenig.de, Germany, Markant Handels GmbH &amp; Co. KG)<br>
+        Purpose: Retrieval of current fuel prices. Rounded coordinates are transmitted (±1.1 km accuracy). No personal data in the strict sense.
+      </li>
+      <li>
+        <strong>Open-Meteo</strong> (open-meteo.com, Switzerland)<br>
+        Purpose: Weather data at trip completion for physical fuel consumption calculation. Rounded coordinates and trip date are transmitted. No persistent user identifier.<br>
+        <a href="https://open-meteo.com/en/terms" target="_blank">Privacy: open-meteo.com/en/terms</a>
+      </li>
+      <li>
+        <strong>OpenStreetMap Overpass API</strong> (overpass-api.de / overpass.kumi.systems, Germany/EU)<br>
+        Purpose: Speed limit queries during active trips (Pro feature) and petrol station search. Rounded coordinates are transmitted (±1.1 km). No user identifier.<br>
+        <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Privacy: osmfoundation.org/wiki/Privacy_Policy</a>
+      </li>
     </ul>
-    <ul class="en" style="margin-top:0">
-      <li><a href="https://apple.com/legal/privacy" target="_blank">Apple Inc.</a> – Sign in with Apple, StoreKit / In-App Purchases, MetricKit, <strong>iCloud CloudKit (GPS points, sensor data, driving score details)</strong>: Apple processes this data as an independent controller under its own privacy policy; no DPA required. The developer has no access to data stored in iCloud.</li>
-      <li><a href="https://openchargemap.org/site/about/privacy" target="_blank">Open Charge Map Ltd.</a> – EV charging station queries: OCM receives GPS coordinates and processes them as an independent controller (not a data processor); no DPA required. Third-country transfers per OCM privacy policy.</li>
-    </ul>
+    <p class="en">Transfers to third countries (USA): Transfers to PostHog Inc. and Google LLC are made on the basis of EU Standard Contractual Clauses (SCCs) pursuant to Art. 46(2)(c) GDPR. Copies of the SCCs are available on request.</p>
   </div>
 
   <!-- ⑮b Profiling & Art. 22 -->
