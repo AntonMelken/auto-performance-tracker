@@ -213,8 +213,8 @@
       <span class="de">Datenschutzerklärung</span>
       <span class="en">Privacy Policy</span>
     </h1>
-    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: Juni 2026 · v3</p>
-    <p class="subtitle en">Auto Performance Tracker · Last updated: June 2026 · v3</p>
+    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: 13. Juni 2026 · v4</p>
+    <p class="subtitle en">Auto Performance Tracker · Last updated: 13 June 2026 · v4</p>
     <span class="badge de">Art. 13 DSGVO</span>
     <span class="badge en">Art. 13 GDPR</span>
   </div>
@@ -355,32 +355,7 @@
     <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
   </div>
 
-  <!-- ④ Analytics -->
-    <!-- ③b Firebase Analytics -->
-  <div class="section">
-    <div class="section-header">
-      <div class="section-icon icon-orange">📊</div>
-      <div>
-        <div class="section-num de">3b. Firebase Analytics</div>
-        <div class="section-num en">3b. Firebase Analytics</div>
-      </div>
-    </div>
-    <p class="de">Die App verwendet <strong>Firebase Analytics</strong> (Google LLC) zur anonymen Nutzungsanalyse. Firebase Analytics ist standardmäßig <strong>deaktiviert</strong> und wird erst nach expliziter Einwilligung aktiviert. Die Einwilligung kann jederzeit unter Einstellungen → Datenschutz → Analytics widerrufen werden.</p>
-    <p class="en">The app uses <strong>Firebase Analytics</strong> (Google LLC) for anonymous usage analysis. Firebase Analytics is <strong>disabled by default</strong> and is only activated after explicit consent. Consent can be withdrawn at any time under Settings → Privacy → Analytics.</p>
-    <ul>
-      <li class="de"><span class="label">Anbieter:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert</li>
-      <li class="en"><span class="label">Provider:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU Standard Contractual Clauses · EU-US Data Privacy Framework (DPF) certified</li>
-      <li class="de"><span class="label">Daten:</span> Anonymisierte Ereignisse (Screen-Aufrufe, Feature-Nutzung, Fahrtanzahl), App-Version, iOS-Version, Gerätemodell. <strong>Keine GPS-Daten, keine Namen, kein IDFA.</strong></li>
-      <li class="en"><span class="label">Data:</span> Anonymised events (screen views, feature usage, trip counts), app version, iOS version, device model. <strong>No GPS data, no names, no IDFA.</strong></li>
-      <li class="de"><span class="label">Speicherdauer:</span> Bis zu 14 Monate (Google-Standard)</li>
-      <li class="en"><span class="label">Retention:</span> Up to 14 months (Google standard)</li>
-      <li class="de"><span class="label">Deaktivierung:</span> Einstellungen → Datenschutz → Analytics deaktivieren (sofort wirksam)</li>
-      <li class="en"><span class="label">Disable:</span> Settings → Privacy → Disable Analytics (immediate effect)</li>
-    </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) · <strong>Widerrufsrecht (Art. 7 Abs. 3 DSGVO):</strong> Jederzeit in den App-Einstellungen (Einstellungen → Datenschutz → Analytics) oder per E-Mail; der Widerruf berührt nicht die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent) · <strong>Right to withdraw (Art. 7(3) GDPR):</strong> At any time in app settings (Settings → Privacy → Analytics) or by email; withdrawal does not affect the lawfulness of processing carried out prior to withdrawal. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
-  </div>
-
+  <!-- ④ Analytics (PostHog – Opt-In, EU-Server) -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-orange">📊</div>
@@ -399,7 +374,7 @@
       <li class="de"><span class="label">Daten:</span> Anonyme Geräte-ID (zufällige UUID, kein Nutzerbezug), App-Version, iOS-Version, Ereignistypen, gebucketete Messwerte. Keine GPS-Daten, kein IDFA.</li>
       <li class="en"><span class="label">Data:</span> Anonymous device ID (random UUID, no personal link), app version, iOS version, event types, bucketed metrics. No GPS data, no IDFA.</li>
       <li class="de"><span class="label">Widerruf:</span> Jederzeit in Einstellungen → Datenschutz → Analytics deaktivieren oder über „Alle Einwilligungen widerrufen" (löscht Nachweis + zeigt Einwilligungs-Dialog beim nächsten App-Start erneut)</li>
-      <li class="en"><span class="label">Withdrawal:</span> Settings → Privacy → Disable Analytics (immediate effect)</li>
+      <li class="en"><span class="label">Withdrawal:</span> Disable any time via Settings → Privacy → Analytics, or via "Revoke all consents" (deletes the proof of consent and re-shows the consent dialog on next app launch)</li>
     </ul>
     <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO · Speicherdauer: max. 12 Monate · <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a></p>
     <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR · Retention: max. 12 months · <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a></p>
@@ -666,7 +641,7 @@
     <p class="en" style="font-size:13px"><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
   </div>
 
-  <!-- ⑬ Crashlytics & Auth -->
+  <!-- ⑬ Crash/Diagnostics (Apple-native) & Auth -->
   <div class="section">
     <div class="section-header">
       <div class="section-icon icon-red">🐛</div>
@@ -675,23 +650,18 @@
         <div class="section-num en">13. Crash Reports, Performance &amp; Authentication</div>
       </div>
     </div>
-    <p class="de" style="margin-top:16px"><strong>Firebase Crashlytics</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Firebase Crashlytics</strong></p>
+    <p class="de" style="margin-top:16px"><strong>Absturz- &amp; Diagnoseberichte (Apple-nativ)</strong></p>
+    <p class="en" style="margin-top:16px"><strong>Crash &amp; Diagnostic Reports (Apple-native)</strong></p>
+    <p class="de">Die App verwendet <strong>kein Drittanbieter-Crash-SDK</strong> (insbesondere kein Firebase Crashlytics – es findet keine Datenübertragung an Google statt). Absturz- und Diagnosedaten werden ausschließlich über die in iOS integrierten Apple-Mechanismen erfasst und – sofern du dies in den iOS-Systemeinstellungen aktiviert hast (Einstellungen → Datenschutz &amp; Sicherheit → Analyse &amp; Verbesserungen → „Mit App-Entwicklern teilen") – von Apple verarbeitet und dem Entwickler in anonymisierter, aggregierter Form über App Store Connect bzw. Xcode bereitgestellt.</p>
+    <p class="en">The app uses <strong>no third-party crash SDK</strong> (in particular no Firebase Crashlytics – no data is transmitted to Google). Crash and diagnostic data are captured exclusively via Apple's built-in iOS mechanisms and – provided you have enabled this in iOS system settings (Settings → Privacy &amp; Security → Analytics &amp; Improvements → "Share with App Developers") – are processed by Apple and provided to the developer in anonymised, aggregated form via App Store Connect / Xcode.</p>
     <ul>
-      <li class="de"><span class="label">Anbieter:</span> Google LLC, USA · EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert</li>
-      <li class="en"><span class="label">Provider:</span> Google LLC, USA · EU Standard Contractual Clauses · certified under EU-US Data Privacy Framework (DPF)</li>
-      <li class="de"><span class="label">Daten:</span> Stack-Traces, Gerätemodell, iOS-Version, App-Version, Zeitstempel; <strong>Nutzer-ID: ein SHA-256-Hash der internen Supabase-User-UUID (Einweg-Pseudonymisierung – kein Rückschluss auf den Account möglich)</strong>, anonyme UUID für Gastnutzer</li>
-      <li class="en"><span class="label">Data:</span> Stack traces, device model, iOS version, app version, timestamp; <strong>user ID: a SHA-256 hash of the internal Supabase user UUID (one-way pseudonymisation – no reverse inference to the account possible)</strong>, anonymous UUID for guest users</li>
-      <li class="de"><span class="label">Speicherdauer:</span> 90 Tage</li>
-      <li class="en"><span class="label">Retention:</span> 90 days</li>
+      <li class="de"><span class="label">Daten:</span> Absturz-Stacktraces sowie Diagnose-Metriken (Startzeit, UI-Hänger, Energie, RAM, Schreibvorgänge), Gerätemodell, iOS-Version, App-Version. <strong>Keine vom Entwickler gesetzte Nutzerkennung</strong> und keine Verknüpfung mit deinem Konto.</li>
+      <li class="en"><span class="label">Data:</span> Crash stack traces and diagnostic metrics (launch time, UI hangs, energy, RAM, disk writes), device model, iOS version, app version. <strong>No developer-set user identifier</strong> and no link to your account.</li>
+      <li class="de"><span class="label">Bereitstellung:</span> Über das Apple-Framework MetricKit als anonymisierte Tages-Batches sowie über App Store Connect → Analysen. Die Erfassung wird ausschließlich über die iOS-Systemeinstellung gesteuert.</li>
+      <li class="en"><span class="label">Delivery:</span> Via Apple's MetricKit framework as anonymised daily batches and via App Store Connect → Analytics. Collection is controlled exclusively through the iOS system setting.</li>
     </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) · <strong>Widerrufsrecht (Art. 7 Abs. 3 DSGVO):</strong> Du kannst deine Einwilligung jederzeit widerrufen (Einstellungen → Datenschutz → Absturzberichte senden deaktivieren). Der Widerruf berührt nicht die Rechtmäßigkeit der bis dahin erfolgten Verarbeitung. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent) · <strong>Right to withdraw (Art. 7(3) GDPR):</strong> You may withdraw your consent at any time (Settings → Privacy → disable Send Crash Reports). Withdrawal does not affect the lawfulness of processing carried out prior to withdrawal. · <a href="https://firebase.google.com/support/privacy" target="_blank">Firebase Privacy</a></p>
-
-    <p class="de" style="margin-top:16px"><strong>Apple MetricKit (Performance-Diagnostik)</strong></p>
-    <p class="en" style="margin-top:16px"><strong>Apple MetricKit (Performance Diagnostics)</strong></p>
-    <p class="de">Das Apple MetricKit-Framework übermittelt täglich aggregierte Performance-Metriken an den Entwickler (Launch-Zeit, UI-Hänger, Energie, RAM, Schreibvorgänge). Diese Daten werden von Apple erhoben und als anonymisierte Batches bereitgestellt. Es handelt sich nicht um personenbezogene Daten im Sinne der DSGVO.</p>
-    <p class="en">The Apple MetricKit framework delivers daily aggregated performance metrics to the developer (launch time, UI hangs, energy, RAM, disk writes). This data is collected by Apple and provided as anonymised batches. It does not constitute personal data within the meaning of the GDPR.</p>
+    <p class="de" style="font-size:13px">Für die Erhebung und Verarbeitung dieser Daten ist Apple Inc. verantwortlich (<a href="https://www.apple.com/legal/privacy/" target="_blank">Apple-Datenschutzrichtlinie</a>). Die dem Entwickler bereitgestellten Berichte sind anonymisierte Aggregate ohne Personenbezug. Rechtsgrundlage, soweit überhaupt personenbezogen: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Stabilität und Fehlerbehebung); die Steuerung erfolgt über die iOS-Systemeinstellung.</p>
+    <p class="en" style="font-size:13px">Apple Inc. is responsible for the collection and processing of this data (<a href="https://www.apple.com/legal/privacy/" target="_blank">Apple Privacy Policy</a>). The reports provided to the developer are anonymised aggregates with no personal reference. Legal basis, insofar as personal at all: Art. 6(1)(f) GDPR (legitimate interest in stability and bug fixing); controlled via the iOS system setting.</p>
 
     <p class="de" style="margin-top:16px"><strong>E-Mail- &amp; Passwort-Authentifizierung</strong></p>
     <p class="en" style="margin-top:16px"><strong>Email &amp; Password Authentication</strong></p>
@@ -772,11 +742,10 @@
       <tr><td>Nutzerprofil (E-Mail, Name)</td><td>Bis Account-Löschung (innerhalb 30 Tagen)</td></tr>
       <tr><td>Authentifizierungsdaten (Passwort-Hash, Sitzungstoken) – Supabase Auth</td><td>Bis Account-Löschung; Sitzungstoken: bis Ablauf / Abmeldung</td></tr>
       <tr><td>Anonyme Konten (inaktiv)</td><td>Automatisch nach 180 Tagen Inaktivität</td></tr>
-      <tr><td>Firebase Analytics (Opt-In, nach Einwilligung)</td><td>Bis zu 14 Monate (Google-Standard)</td></tr>
       <tr><td>Analytics (PostHog, Opt-In)</td><td>Anonymisiert, max. 12 Monate</td></tr>
       <tr><td>Werbedaten AdMob (Klicks/Impressionen)</td><td>63 Tage · Aggregierte Berichte: bis 26 Monate · IDFA (mit Einwilligung): bis Widerruf</td></tr>
       <tr><td>Kraftstoffpreise (Favorit-Tankstelle)</td><td>Lokaler Cache auf dem Gerät — gelöscht über Einstellungen → Datenschutz → „Tankstellen-Cache löschen" oder bei Deinstallation</td></tr>
-      <tr><td>Absturz-Berichte (Crashlytics)</td><td>90 Tage (Firebase-Standard)</td></tr>
+      <tr><td>Absturz- &amp; Diagnoseberichte (Apple-nativ, MetricKit)</td><td>Anonymisierte Aggregate durch Apple; keine entwicklerseitige Speicherung mit Personenbezug</td></tr>
       <tr><td>Abonnement-Status (Pro-Flag)</td><td>Bis Account-Löschung; Apple StoreKit: gem. Apple-Richtlinie</td></tr>
       <tr><td>DSGVO-Audit-Log</td><td>Bis Account-Löschung</td></tr>
       <tr><td>Anonyme Geräte-ID (Analytics)</td><td>Bis App-Deinstallation</td></tr>
@@ -791,11 +760,10 @@
       <tr><td>User profile (email, name)</td><td>Until account deletion (within 30 days)</td></tr>
       <tr><td>Authentication data (password hash, session token) – Supabase Auth</td><td>Until account deletion; session token: until expiry / sign-out</td></tr>
       <tr><td>Anonymous accounts (inactive)</td><td>Automatically after 180 days of inactivity</td></tr>
-      <tr><td>Firebase Analytics (opt-in, after consent)</td><td>Up to 14 months (Google standard)</td></tr>
       <tr><td>Analytics (PostHog, opt-in)</td><td>Anonymized, max. 12 months</td></tr>
       <tr><td>Ad data AdMob (clicks/impressions)</td><td>63 days · Aggregated reports: up to 26 months · IDFA (with consent): until withdrawal</td></tr>
       <tr><td>Fuel prices (favourite station)</td><td>Local cache on device — deleted via Settings → Privacy → "Clear station cache" or on uninstall</td></tr>
-      <tr><td>Crash reports (Crashlytics)</td><td>90 days (Firebase default)</td></tr>
+      <tr><td>Crash &amp; diagnostic reports (Apple-native, MetricKit)</td><td>Anonymised aggregates by Apple; no developer-side storage with personal reference</td></tr>
       <tr><td>Subscription status (Pro flag)</td><td>Until account deletion; Apple StoreKit: per Apple policy</td></tr>
       <tr><td>GDPR audit log</td><td>Until account deletion</td></tr>
       <tr><td>Anonymous device ID (analytics)</td><td>Until app uninstall</td></tr>
@@ -843,8 +811,18 @@
         Zweck: Tempolimit-Abfragen während aktiver Fahrt (Pro-Funktion) sowie Tankstellen-Suche. Übermittelt werden gerundete Koordinaten (±1,1 km). Keine Nutzerkennung.<br>
         <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Datenschutz: osmfoundation.org/wiki/Privacy_Policy</a>
       </li>
+      <li>
+        <strong>Open Charge Map Ltd.</strong> (api.openchargemap.io, Vereinigtes Königreich – eigenständiger Verantwortlicher)<br>
+        Zweck: Anzeige von EV-Ladestationen in der Nähe (optional, nur auf Nutzerwunsch). Übermittelt werden präzise Koordinaten und Suchradius. Keine Nutzerkennung.<br>
+        <a href="https://openchargemap.org/site/about/privacy" target="_blank">Datenschutz: openchargemap.org/site/about/privacy</a>
+      </li>
+      <li>
+        <strong>Apple Inc.</strong> (Cupertino, USA – Karten-, Geocoding- &amp; Routendienste / MapKit; eigenständiger Verantwortlicher)<br>
+        Zweck: Karten-Anzeige, Adress-/Zielsuche und Routenberechnung im optionalen Navi-Modus. Übermittelt werden Suchanfragen, Start-/Zielkoordinaten und die Geräte-IP. Apple verwendet nach eigenen Angaben rotierende Kennungen ohne Verknüpfung zur Apple-ID.<br>
+        <a href="https://www.apple.com/legal/privacy/" target="_blank">Datenschutz: apple.com/legal/privacy</a>
+      </li>
     </ul>
-    <p class="de">Datenübertragungen in Drittstaaten (USA): Übertragungen zu PostHog Inc. und Google LLC erfolgen auf Grundlage der EU-Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO. Kopien der SCCs können auf Anfrage zur Verfügung gestellt werden.</p>
+    <p class="de">Datenübertragungen in Drittstaaten (USA): Übertragungen zu PostHog Inc., Google LLC und Apple Inc. erfolgen auf Grundlage der EU-Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO bzw. – für die Apple-Kartendienste – auf Grundlage der Apple-Datenschutzrichtlinie. Für das Vereinigte Königreich (Open Charge Map) besteht ein Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Kopien der SCCs können auf Anfrage zur Verfügung gestellt werden.</p>
     <ul class="en">
       <li>
         <strong>PostHog Inc.</strong> (EU server Frankfurt, eu.posthog.com)<br>
@@ -875,8 +853,18 @@
         Purpose: Speed limit queries during active trips (Pro feature) and petrol station search. Rounded coordinates are transmitted (±1.1 km). No user identifier.<br>
         <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Privacy: osmfoundation.org/wiki/Privacy_Policy</a>
       </li>
+      <li>
+        <strong>Open Charge Map Ltd.</strong> (api.openchargemap.io, United Kingdom – independent controller)<br>
+        Purpose: Displaying nearby EV charging stations (optional, only on user request). Precise coordinates and search radius are transmitted. No user identifier.<br>
+        <a href="https://openchargemap.org/site/about/privacy" target="_blank">Privacy: openchargemap.org/site/about/privacy</a>
+      </li>
+      <li>
+        <strong>Apple Inc.</strong> (Cupertino, USA – maps, geocoding &amp; routing / MapKit; independent controller)<br>
+        Purpose: Map display, address/destination search and route calculation in the optional navigation mode. Search queries, start/destination coordinates and the device IP are transmitted. Per Apple, rotating identifiers are used with no link to your Apple ID.<br>
+        <a href="https://www.apple.com/legal/privacy/" target="_blank">Privacy: apple.com/legal/privacy</a>
+      </li>
     </ul>
-    <p class="en">Transfers to third countries (USA): Transfers to PostHog Inc. and Google LLC are made on the basis of EU Standard Contractual Clauses (SCCs) pursuant to Art. 46(2)(c) GDPR. Copies of the SCCs are available on request.</p>
+    <p class="en">Transfers to third countries (USA): Transfers to PostHog Inc., Google LLC and Apple Inc. are made on the basis of EU Standard Contractual Clauses (SCCs) pursuant to Art. 46(2)(c) GDPR or – for the Apple map services – on the basis of Apple's Privacy Policy. For the United Kingdom (Open Charge Map), an EU Commission adequacy decision applies (Art. 45 GDPR). Copies of the SCCs are available on request.</p>
   </div>
 
   <!-- ⑮b Profiling & Art. 22 -->
@@ -900,6 +888,10 @@
     </ul>
     <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Standort- und Bewegungsberechtigung)</p>
     <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS location and motion permission)</p>
+    <p class="de" style="margin-top:16px"><strong>On-Device-KI (optionaler „Race Coach")</strong></p>
+    <p class="en" style="margin-top:16px"><strong>On-Device AI (optional "Race Coach")</strong></p>
+    <p class="de">Die optionale Funktion „Race Coach" erzeugt aus deinen Mess- und Fahrtdaten kurze textuelle Hinweise mithilfe des <strong>geräteinternen Apple-Foundation-Modells</strong> (Apple Intelligence). Die Verarbeitung erfolgt <strong>ausschließlich lokal auf deinem Gerät</strong>; hierfür werden keine Daten an den Entwickler oder an Dritte übertragen. Die Funktion ist nur auf unterstützten Geräten mit aktivierter Apple Intelligence verfügbar.</p>
+    <p class="en">The optional "Race Coach" feature generates short textual hints from your measurement and trip data using Apple's <strong>on-device foundation model</strong> (Apple Intelligence). Processing happens <strong>exclusively locally on your device</strong>; no data is transmitted to the developer or any third party for this purpose. The feature is only available on supported devices with Apple Intelligence enabled.</p>
   </div>
 
   <!-- ⑯ Änderungen -->
