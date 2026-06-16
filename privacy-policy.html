@@ -213,8 +213,8 @@
       <span class="de">Datenschutzerklärung</span>
       <span class="en">Privacy Policy</span>
     </h1>
-    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: 13. Juni 2026 · v4</p>
-    <p class="subtitle en">Auto Performance Tracker · Last updated: 13 June 2026 · v4</p>
+    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: 16. Juni 2026 · v5</p>
+    <p class="subtitle en">Auto Performance Tracker · Last updated: 16 June 2026 · v5</p>
     <span class="badge de">Art. 13 DSGVO</span>
     <span class="badge en">Art. 13 GDPR</span>
   </div>
@@ -342,8 +342,8 @@
     <ul>
       <li class="de"><span class="label">Anbieter:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
       <li class="en"><span class="label">Provider:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
-      <li class="de"><span class="label">Daten:</span> Fahrt-Metadaten (Titel, Datum, Distanz, Dauer, Ø-Geschwindigkeit, Score-Wert, Notizen, Kraftstoffverbrauch), Fahrzeugprofile (Name, Kraftstoffart, Verbrauch), Nutzerprofil (E-Mail, Anzeigename). <strong>Keine GPS-Koordinaten, keine Bewegungssensordaten.</strong></li>
-      <li class="en"><span class="label">Data:</span> Trip metadata (title, date, distance, duration, average speed, score value, notes, fuel consumption), vehicle profiles (name, fuel type, consumption), user profile (email, display name). <strong>No GPS coordinates, no motion sensor data.</strong></li>
+      <li class="de"><span class="label">Daten:</span> Fahrt-Metadaten (Titel, Datum, Distanz, Dauer, Ø-Geschwindigkeit, Score-Wert, Notizen, Kraftstoffverbrauch), Fahrzeugprofile (Name, Kraftstoffart, Verbrauch), Nutzerprofil (E-Mail, Anzeigename) sowie – nur falls du Preise meldest – selbst gemeldete Community-Tankstellenpreise (siehe Abschnitt 6). <strong>Keine GPS-Koordinaten deines Fahrtverlaufs, keine Bewegungssensordaten.</strong></li>
+      <li class="en"><span class="label">Data:</span> Trip metadata (title, date, distance, duration, average speed, score value, notes, fuel consumption), vehicle profiles (name, fuel type, consumption), user profile (email, display name) and – only if you report prices – your own community fuel-price reports (see section 6). <strong>No GPS coordinates of your trip track, no motion sensor data.</strong></li>
       <li class="de"><span class="label">Drittland:</span> Supabase Inc. (USA) – EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO); Supabase ist <em>nicht</em> unter dem EU-US Data Privacy Framework zertifiziert. Eine Transfer-Folgenabschätzung (TIA gem. Schrems II / EuGH C-311/18) wurde durchgeführt (Serverstandort EU-Frankfurt reduziert Übertragungsrisiko erheblich; keine sensitiven GPS-Daten betroffen).</li>
       <li class="en"><span class="label">Third country:</span> Supabase Inc. (USA) – EU Standard Contractual Clauses (Art. 46(2)(c) GDPR); Supabase is <em>not</em> certified under the EU-US Data Privacy Framework. A Transfer Impact Assessment (TIA per Schrems II / ECJ C-311/18) has been conducted (EU-Frankfurt server location substantially mitigates the risk; no sensitive GPS data involved).</li>
       <li class="de"><span class="label">AVV:</span> Auftragsverarbeitungsvertrag gem. Art. 28 DSGVO abgeschlossen</li>
@@ -421,6 +421,25 @@
     </ul>
     <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzerfunktion Tankstellen-Ansicht) · Art. 6 Abs. 1 lit. f DSGVO (automatischer Fahrtstart-Abruf) · <em>Interessenabwägung (LIA):</em> Berechtigtes Interesse des Nutzers an der Zuordnung des aktuellen Kraftstoffpreises zur Fahrt; Übermittlung präziser GPS-Koordinaten transient und zweckgebunden; Tankerkönig speichert keine personenbezogenen Daten dauerhaft und führt kein Nutzer-Tracking durch; Eingriff in die Privatsphäre minimal und durch Nutzungsvorteil überwogen. · Tankerkönig verarbeitet Anfragedaten als eigenständiger Verantwortlicher; kein AVV erforderlich. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
     <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (gas station view feature) · Art. 6(1)(f) GDPR (automatic trip-start fetch) · <em>Balancing test (LIA):</em> Legitimate interest of the user in associating the current fuel price with their trip; GPS coordinates transmitted transiently and for a specific purpose; Tankerkönig stores no personal data permanently and conducts no user tracking; privacy impact is minimal and outweighed by user benefit. · Tankerkönig processes request data as an independent controller; no DPA required. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
+
+    <p class="de" style="margin-top:20px"><strong>Community-Tankstellenpreise (LPG / Autogas)</strong> <span class="tag tag-orange">Nur bei eigener Preis-Meldung · Konto erforderlich</span></p>
+    <p class="en" style="margin-top:20px"><strong>Community Fuel Prices (LPG / Autogas)</strong> <span class="tag tag-orange">Only when you report a price · Account required</span></p>
+    <p class="de">Da es für LPG/Autogas keine offizielle Preisquelle (Markttransparenzstelle/Tankerkönig) gibt, können Nutzer Preise selbst melden. Meldest du einen Preis, wird dieser in der Datenbank des Entwicklers (Supabase, EU-Frankfurt) gespeichert und – <strong>aggregiert und ohne deine Identität</strong> – anderen Nutzern angezeigt, damit alle aktuelle LPG-Preise sehen.</p>
+    <p class="en">As there is no official price source (Markttransparenzstelle/Tankerkönig) for LPG/autogas, users may report prices themselves. When you report a price, it is stored in the developer's database (Supabase, EU-Frankfurt) and shown to other users – <strong>aggregated and without your identity</strong> – so that everyone can see current LPG prices.</p>
+    <ul>
+      <li class="de"><span class="label">Auslöser:</span> Nur bei aktiver, bewusster Preis-Meldung durch dich („Preis speichern"). Kein automatisches Erfassen.</li>
+      <li class="en"><span class="label">Trigger:</span> Only on your active, deliberate price report ("save price"). No automatic collection.</li>
+      <li class="de"><span class="label">Gespeicherte Daten:</span> Tankstellenname/-kennung, Koordinaten der Tankstelle (öffentlicher Ort, <em>nicht</em> dein Standortverlauf), gemeldeter Preis, Zeitpunkt, verknüpft mit deiner Konto-Kennung (User-ID).</li>
+      <li class="en"><span class="label">Stored data:</span> Station name/ID, station coordinates (a public location, <em>not</em> your movement track), reported price, timestamp, linked to your account ID (user ID).</li>
+      <li class="de"><span class="label">Sichtbarkeit für andere:</span> Andere Nutzer sehen nur den <strong>aggregierten Median-Preis pro Tankstelle</strong> der letzten 21 Tage – <strong>niemals deine User-ID oder Identität</strong>. Der Lesezugriff erfolgt über eine Datenbankfunktion, die die User-ID technisch nie herausgibt.</li>
+      <li class="en"><span class="label">Visibility to others:</span> Other users only see the <strong>aggregated median price per station</strong> over the last 21 days – <strong>never your user ID or identity</strong>. Read access uses a database function that never returns the user ID.</li>
+      <li class="de"><span class="label">Server / Anbieter:</span> Supabase Inc., Server EU-Frankfurt (AWS eu-central-1); AVV gem. Art. 28 DSGVO (siehe Abschnitt 3).</li>
+      <li class="en"><span class="label">Server / provider:</span> Supabase Inc., EU-Frankfurt server (AWS eu-central-1); DPA per Art. 28 GDPR (see section 3).</li>
+      <li class="de"><span class="label">Löschung:</span> Du kannst eigene Meldungen jederzeit zurücknehmen. Bei Konto-Löschung wird die Verknüpfung zu dir entfernt (Anonymisierung); der reine Preiswert verbleibt dann ohne Personenbezug als anonyme Community-Information.</li>
+      <li class="en"><span class="label">Deletion:</span> You can withdraw your own reports any time. On account deletion the link to you is removed (anonymisation); the price value then remains, without any personal reference, as anonymous community information.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch aktive Meldung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer aktuellen Community-Preisübersicht). Die geteilten Daten betreffen öffentliche Preisinformationen; durch Aggregation und das technische Weglassen der User-ID besteht für andere Nutzer kein Personenbezug.</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via active reporting) and Art. 6(1)(f) GDPR (legitimate interest in a current community price overview). The shared data concerns public price information; through aggregation and the technical omission of the user ID, no personal reference is available to other users.</p>
 
     <p class="de" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">Nur EV-Ladesäulen-Ansicht · Optional</span></p>
     <p class="en" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">EV charging view only · Optional</span></p>
