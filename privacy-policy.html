@@ -213,8 +213,8 @@
       <span class="de">Datenschutzerklärung</span>
       <span class="en">Privacy Policy</span>
     </h1>
-    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: 16. Juni 2026 · v5</p>
-    <p class="subtitle en">Auto Performance Tracker · Last updated: 16 June 2026 · v5</p>
+    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: 9. August 2026 · v6</p>
+    <p class="subtitle en">Auto Performance Tracker · Last updated: 9 August 2026 · v6</p>
     <span class="badge de">Art. 13 DSGVO</span>
     <span class="badge en">Art. 13 GDPR</span>
   </div>
@@ -342,8 +342,8 @@
     <ul>
       <li class="de"><span class="label">Anbieter:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
       <li class="en"><span class="label">Provider:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
-      <li class="de"><span class="label">Daten:</span> Fahrt-Metadaten (Titel, Datum, Distanz, Dauer, Ø-Geschwindigkeit, Score-Wert, Notizen, Kraftstoffverbrauch), Fahrzeugprofile (Name, Kraftstoffart, Verbrauch), Nutzerprofil (E-Mail, Anzeigename) sowie – nur falls du Preise meldest – selbst gemeldete Community-Tankstellenpreise (siehe Abschnitt 6). <strong>Keine GPS-Koordinaten deines Fahrtverlaufs, keine Bewegungssensordaten.</strong></li>
-      <li class="en"><span class="label">Data:</span> Trip metadata (title, date, distance, duration, average speed, score value, notes, fuel consumption), vehicle profiles (name, fuel type, consumption), user profile (email, display name) and – only if you report prices – your own community fuel-price reports (see section 6). <strong>No GPS coordinates of your trip track, no motion sensor data.</strong></li>
+      <li class="de"><span class="label">Daten:</span> Nutzerprofil (E-Mail, Anzeigename, Pro-Status) sowie – nur falls du Preise meldest – selbst gemeldete Community-Tankstellenpreise (siehe Abschnitt 6). Fahrt-Kennzahlen werden <strong>nur</strong> bei aktivierter Einwilligung übertragen (siehe „Fahrt-Kennzahlen" unten). <strong>Keine GPS-Koordinaten deines Fahrtverlaufs, keine Bewegungssensordaten.</strong></li>
+      <li class="en"><span class="label">Data:</span> User profile (email, display name, Pro status) and – only if you report prices – your own community fuel-price reports (see section 6). Trip metrics are transmitted <strong>only</strong> if you have enabled the corresponding consent (see "Trip metrics" below). <strong>No GPS coordinates of your trip track, no motion sensor data.</strong></li>
       <li class="de"><span class="label">Drittland:</span> Supabase Inc. (USA) – EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO); Supabase ist <em>nicht</em> unter dem EU-US Data Privacy Framework zertifiziert. Eine Transfer-Folgenabschätzung (TIA gem. Schrems II / EuGH C-311/18) wurde durchgeführt (Serverstandort EU-Frankfurt reduziert Übertragungsrisiko erheblich; keine sensitiven GPS-Daten betroffen).</li>
       <li class="en"><span class="label">Third country:</span> Supabase Inc. (USA) – EU Standard Contractual Clauses (Art. 46(2)(c) GDPR); Supabase is <em>not</em> certified under the EU-US Data Privacy Framework. A Transfer Impact Assessment (TIA per Schrems II / ECJ C-311/18) has been conducted (EU-Frankfurt server location substantially mitigates the risk; no sensitive GPS data involved).</li>
       <li class="de"><span class="label">AVV:</span> Auftragsverarbeitungsvertrag gem. Art. 28 DSGVO abgeschlossen</li>
@@ -351,8 +351,29 @@
       <li class="de"><span class="label">Löschung:</span> Konto → Account löschen. Soft-Delete: sofortige Deaktivierung, vollständige Datenlöschung innerhalb von 30 Tagen.</li>
       <li class="en"><span class="label">Deletion:</span> Account → Delete Account. Soft-delete: account immediately deactivated, all data fully deleted within 30 days.</li>
     </ul>
-    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
-    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzerprofil – zur Bereitstellung deines Kontos erforderlich) · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (user profile – required to provide your account) · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
+
+    <p class="de" style="margin-top:16px"><strong>Fahrt-Kennzahlen</strong> <span class="tag tag-blue">Opt-in · Standardmäßig AUS · Keine Strecken</span></p>
+    <p class="en" style="margin-top:16px"><strong>Trip metrics</strong> <span class="tag tag-blue">Opt-in · OFF by default · No routes</span></p>
+    <p class="de">Du kannst optional zulassen, dass <strong>zusammengefasste Kennzahlen</strong> deiner Fahrten mit deinem Konto synchronisiert werden. Das hilft uns zu verstehen, wie die App im Alltag genutzt wird, und dir, deine Werte nach einem Gerätewechsel wiederzufinden. Diese Funktion ist <strong>standardmäßig deaktiviert</strong> – ohne deine ausdrückliche Einwilligung wird keine einzige Fahrt übertragen.</p>
+    <p class="en">You can optionally allow <strong>aggregated metrics</strong> of your trips to be synchronised with your account. This helps us understand how the app is used in practice, and helps you recover your figures after switching devices. This feature is <strong>disabled by default</strong> – without your explicit consent, no trip is transmitted at all.</p>
+    <ul>
+      <li class="de"><span class="label">Übertragen wird:</span> Distanz, Dauer, Ø- und Höchstgeschwindigkeit, Effizienz-Score, Verbrauch, Kosten, Start-/Endzeitpunkt sowie die Kennung des zugeordneten Fahrzeugprofils.</li>
+      <li class="en"><span class="label">What is transmitted:</span> distance, duration, average and maximum speed, efficiency score, consumption, cost, start/end time, and the identifier of the assigned vehicle profile.</li>
+      <li class="de"><span class="label">Ausdrücklich NICHT übertragen:</span> GPS-Punkte und Streckenverläufe, Start- und Zieladressen, Fahrttitel und Notizen, Bewegungssensordaten. Die Datenbanktabelle besitzt für Koordinaten <strong>keine Felder</strong> – eine Übertragung des Streckenverlaufs ist technisch ausgeschlossen, nicht bloß unterlassen.</li>
+      <li class="en"><span class="label">Explicitly NOT transmitted:</span> GPS points and route tracks, start and destination addresses, trip titles and notes, motion sensor data. The database table has <strong>no fields</strong> for coordinates – transmitting a route track is technically impossible, not merely omitted.</li>
+      <li class="de"><span class="label">Personenbezug:</span> Die Werte sind <strong>pseudonym, nicht anonym</strong> – sie sind deinem Konto zugeordnet. Wir bezeichnen sie deshalb bewusst nicht als „anonyme Statistik".</li>
+      <li class="en"><span class="label">Personal reference:</span> The values are <strong>pseudonymous, not anonymous</strong> – they are linked to your account. We therefore deliberately do not call them "anonymous statistics".</li>
+      <li class="de"><span class="label">Zweck:</span> Nutzungsübersicht des Betreibers (Anzahl Fahrten, gefahrene Kilometer, Aktivität) sowie Wiederherstellung deiner Kennzahlen nach Gerätewechsel.</li>
+      <li class="en"><span class="label">Purpose:</span> Operator usage overview (number of trips, kilometres driven, activity) and restoration of your figures after switching devices.</li>
+      <li class="de"><span class="label">Widerruf:</span> Einstellungen → „Fahrt-Kennzahlen mit Konto synchronisieren" ausschalten. Der Widerruf <strong>löscht die bereits übertragenen Kennzahlen unverzüglich vom Server</strong> und wirkt für die Zukunft. Er ist genauso einfach wie die Einwilligung (Art. 7 Abs. 3 DSGVO).</li>
+      <li class="en"><span class="label">Withdrawal:</span> Settings → turn off "Sync trip metrics with account". Withdrawal <strong>immediately deletes the metrics already transmitted from the server</strong> and takes effect for the future. It is as easy as granting consent (Art. 7(3) GDPR).</li>
+      <li class="de"><span class="label">Speicherdauer:</span> Bis zum Widerruf oder zur Kontolöschung. Löschst du eine Fahrt in der App, wird die zugehörige Kennzahl-Zeile beim nächsten Abgleich ebenfalls entfernt.</li>
+      <li class="en"><span class="label">Retention:</span> Until withdrawal or account deletion. If you delete a trip in the app, the corresponding metrics row is removed at the next synchronisation.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) · <strong>Einwilligungsnachweis (Art. 7 Abs. 1 DSGVO):</strong> Beim Aktivieren des Schalters werden Zeitstempel, Methode und die Version dieser Datenschutzerklärung protokolliert. · <strong>Hinweis:</strong> Bis einschließlich Version 5 dieser Erklärung war an dieser Stelle ein Sync von Fahrt-Metadaten einschließlich Titel und Notizen auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO beschrieben. Dieser Sync war seit dem 25. März 2026 technisch nicht mehr aktiv; er wurde durch die hier beschriebene, einwilligungsbasierte Übertragung ohne Titel und Notizen ersetzt.</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent) · <strong>Proof of consent (Art. 7(1) GDPR):</strong> When you enable the toggle, the timestamp, method, and version of this privacy policy are recorded. · <strong>Note:</strong> Up to and including version 5 of this policy, this section described a sync of trip metadata including titles and notes based on Art. 6(1)(b) GDPR. That sync had been technically inactive since 25 March 2026; it has been replaced by the consent-based transfer described here, which excludes titles and notes.</p>
   </div>
 
   <!-- ④ Analytics (PostHog – Opt-In, EU-Server) -->
