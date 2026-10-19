@@ -1,0 +1,1041 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <base href="../../">
+  <meta name="robots" content="noindex, follow">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Privacy Policy / Datenschutzerklärung – Auto Performance Tracker</title>
+  <meta name="description" content="Privacy Policy for Auto Performance Tracker – GDPR/DSGVO compliant. Learn how we handle your data, what we collect, and your rights as a user.">
+  <meta name="robots" content="index, follow">
+  <link rel="canonical" href="https://antonmelken.github.io/auto-performance-tracker/privacy-policy.html">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://antonmelken.github.io/auto-performance-tracker/privacy-policy.html">
+  <meta property="og:title" content="Privacy Policy – Auto Performance Tracker">
+  <meta property="og:description" content="GDPR/DSGVO compliant privacy policy for the Auto Performance Tracker iOS app.">
+  <meta property="og:site_name" content="Auto Performance Tracker">
+  <style>
+    :root {
+      --bg:       #080C14;
+      --bg2:      #0D1420;
+      --card:     #111827;
+      --card2:    #1A2336;
+      --border:   rgba(255,255,255,0.07);
+      --cyan:     #22D3EE;
+      --cyan2:    #06B6D4;
+      --green:    #22C55E;
+      --amber:    #F59E0B;
+      --orange:   #FB923C;
+      --red:      #EF4444;
+      --text:     #F1F5F9;
+      --muted:    #94A3B8;
+      --radius:   18px;
+      --radius-sm:12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Helvetica Neue', 'Segoe UI', sans-serif;
+      background: var(--bg); color: var(--text);
+      line-height: 1.75; font-size: 15px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 0 24px; height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,12,20,0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 16px; }
+    .nav-links { display: flex; gap: 20px; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.85rem; font-weight: 500;
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+
+    /* ── Lang switcher ── */
+    .lang-switcher {
+      display: flex; gap: 4px;
+      background: var(--card); border-radius: 50px; padding: 4px;
+    }
+    .lang-btn {
+      border: none; background: transparent; cursor: pointer;
+      color: var(--muted); font-size: 0.8rem; font-weight: 600;
+      letter-spacing: 0.04em; padding: 5px 12px; border-radius: 50px;
+      font-family: inherit; transition: all .2s;
+    }
+    .lang-btn.active {
+      background: var(--cyan2); color: #000;
+    }
+    .lang-btn:not(.active):hover { color: var(--text); }
+
+    /* ── Layout ── */
+    .container { max-width: 820px; margin: 0 auto; padding: 100px 24px 80px; }
+
+    /* ── Header ── */
+    .header {
+      text-align: center; padding: 48px 0 40px;
+      border-bottom: 1px solid var(--border); margin-bottom: 48px;
+    }
+    .shield { font-size: 52px; margin-bottom: 16px; }
+    h1 { font-size: 26px; font-weight: 800; color: var(--text); margin-bottom: 8px; }
+    .subtitle { color: var(--muted); font-size: 14px; margin-bottom: 16px; }
+    .badge {
+      display: inline-block;
+      background: rgba(34,211,238,0.1); border: 1px solid rgba(34,211,238,0.25);
+      color: var(--cyan); border-radius: 50px; padding: 5px 16px;
+      font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; text-transform: uppercase;
+    }
+
+    /* ── Section card ── */
+    .section {
+      background: var(--card); border: 1px solid var(--border);
+      border-radius: var(--radius); padding: 28px; margin-bottom: 18px;
+    }
+    .section-header {
+      display: flex; align-items: center; gap: 14px; margin-bottom: 20px;
+    }
+    .section-icon {
+      width: 42px; height: 42px; border-radius: 10px;
+      display: flex; align-items: center; justify-content: center;
+      font-size: 20px; flex-shrink: 0;
+    }
+    .section-title { font-size: 17px; font-weight: 700; color: var(--text); }
+    .section-num { color: var(--muted); font-size: 13px; margin-bottom: 2px; }
+
+    p { color: var(--muted); margin-bottom: 12px; line-height: 1.7; }
+    p strong { color: var(--text); }
+    ul { padding-left: 0; list-style: none; margin-bottom: 12px; }
+    ul li {
+      position: relative; padding-left: 20px;
+      margin-bottom: 8px; color: var(--muted);
+    }
+    ul li::before { content: "›"; position: absolute; left: 0; color: var(--cyan); }
+    .label { font-weight: 600; color: var(--text); }
+    a { color: var(--cyan); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── Tags ── */
+    .tag {
+      display: inline-block; font-size: 11px; padding: 2px 9px; border-radius: 50px;
+      font-weight: 700; letter-spacing: 0.06em; margin-right: 4px; vertical-align: middle;
+    }
+    .tag-green  { background: rgba(34,211,238,0.1); color: var(--cyan); border: 1px solid rgba(34,211,238,0.25); }
+    .tag-blue   { background: rgba(34,211,238,0.08); color: var(--cyan); border: 1px solid rgba(34,211,238,0.2); }
+    .tag-orange { background: rgba(245,158,11,0.1); color: var(--amber); border: 1px solid rgba(245,158,11,0.25); }
+
+    /* ── Table ── */
+    .data-table { width: 100%; border-collapse: collapse; margin-top: 12px; font-size: 14px; }
+    .data-table td, .data-table th {
+      padding: 10px 14px; border: 1px solid var(--border); text-align: left; color: var(--muted);
+    }
+    .data-table th { background: rgba(34,211,238,0.06); color: var(--cyan); font-weight: 600; }
+    .data-table tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+
+    /* ── Contact block ── */
+    .contact-block {
+      background: rgba(34,211,238,0.05); border: 1px solid rgba(34,211,238,0.2);
+      border-radius: var(--radius); padding: 28px 24px; text-align: center; margin-top: 40px;
+    }
+    .contact-block p { color: var(--muted); }
+    .contact-email { color: var(--cyan) !important; font-weight: 700; }
+
+    /* ── Icon colors ── */
+    .icon-purple { background: rgba(129,140,248,0.15); }
+    .icon-green  { background: rgba(34,211,238,0.12); }
+    .icon-blue   { background: rgba(34,211,238,0.10); }
+    .icon-orange { background: rgba(249,115,22,0.15); }
+    .icon-red    { background: rgba(239,68,68,0.15); }
+
+    .icon-teal   { background: rgba(20,184,166,0.15); }
+    .icon-sky    { background: rgba(34,211,238,0.12); }
+    .icon-indigo { background: rgba(99,102,241,0.15); }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 64px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center; color: var(--muted); font-size: 13px;
+    }
+    .footer a { color: var(--cyan); }
+
+    /* ── Language visibility (set via data-lang on <html>) ── */
+    html:not([data-lang="en"]) .en { display: none; }
+    html[data-lang="en"] .de { display: none; }
+
+    @media (max-width: 600px) {
+      .container { padding: 90px 16px 80px; }
+      .section { padding: 20px; }
+      .nav-links { display: none; }
+    }
+  </style>
+  <!-- Set lang early to prevent flash of wrong language -->
+  <script>document.documentElement.dataset.lang = localStorage.getItem('apt_lang') || 'de';</script>
+</head>
+<body>
+
+<!-- Nav -->
+<nav aria-label="Main navigation">
+  <a class="nav-logo" href="index.html">
+    <img src="AppIcon-1024.png" alt="Auto Performance Tracker Logo">
+    Auto Performance Tracker
+  </a>
+    <div class="nav-right">
+      <div class="nav-links">
+        <a href="support.html">Support & Kontakt</a>
+        <a href="agb.html">AGB</a>
+        <a href="impressum.html">Impressum</a>
+        <a href="privacy-policy.html" class="active">Datenschutz</a>
+      </div>
+      <div class="lang-switcher">
+        <button class="lang-btn active" id="btn-de" onclick="setLang('de')">🇩🇪 DE</button>
+        <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+      </div>
+    </div>
+</nav>
+
+<div class="container">
+
+  <!-- Header -->
+  <div class="header">
+    <div class="shield">🔒</div>
+    <h1>
+      <span class="de">Datenschutzerklärung</span>
+      <span class="en">Privacy Policy</span>
+    </h1>
+    <p class="subtitle de">Auto Performance Tracker · Zuletzt aktualisiert: 9. August 2026 · v6</p>
+    <p class="subtitle en">Auto Performance Tracker · Last updated: 9 August 2026 · v6</p>
+    <span class="badge de">Art. 13 DSGVO</span>
+    <span class="badge en">Art. 13 GDPR</span>
+  </div>
+
+  <!-- ① Verantwortlicher -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-purple">👤</div>
+      <div>
+        <div class="section-num de">1. Verantwortlicher</div>
+        <div class="section-num en">1. Data Controller</div>
+        <div class="section-title">Anton Melnychuk</div>
+      </div>
+    </div>
+    <p class="de">
+      <span class="label">Anschrift:</span> Heppenheimer Straße 39, 64658 Fürth im Odenwald, Deutschland<br>
+      <span class="label">E-Mail:</span> <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a><br>
+      <span class="label">Antwortzeit:</span> innerhalb von 72 Stunden.<br>
+      <span class="label">Datenschutzbeauftragter (Art. 13 Abs. 1 lit. b DSGVO):</span> Es ist kein Datenschutzbeauftragter benannt. Die Benennung ist für dieses Angebot gesetzlich nicht erforderlich (Art. 37 DSGVO).<br>
+      <span class="label">Aufsichtsbehörde (Art. 77 DSGVO):</span> Hessischer Beauftragter für Datenschutz und Informationsfreiheit, Poststraße 22, 65189 Wiesbaden · <a href="https://datenschutz.hessen.de" target="_blank">datenschutz.hessen.de</a>
+    </p>
+    <p class="en">
+      <span class="label">Address:</span> Heppenheimer Straße 39, 64658 Fürth im Odenwald, Germany<br>
+      <span class="label">Email:</span> <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a><br>
+      <span class="label">Response time:</span> within 72 hours.<br>
+      <span class="label">Data Protection Officer (Art. 13(1)(b) GDPR):</span> No Data Protection Officer has been appointed. Appointment is not legally required for this offering (Art. 37 GDPR).<br>
+      <span class="label">Supervisory authority (Art. 77 GDPR):</span> Hessischer Beauftragter für Datenschutz und Informationsfreiheit, Poststraße 22, 65189 Wiesbaden, Germany · <a href="https://datenschutz.hessen.de" target="_blank">datenschutz.hessen.de</a>
+    </p>
+  </div>
+
+  <!-- ② GPS -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">📍</div>
+      <div>
+        <div class="section-num de">2. Standortdaten &amp; Bewegungssensoren</div>
+        <div class="section-num en">2. Location Data &amp; Motion Sensors</div>
+        <div class="section-title de">GPS-Tracking &amp; CoreMotion</div>
+        <div class="section-title en">GPS Tracking &amp; CoreMotion</div>
+      </div>
+    </div>
+
+    <p class="de" style="margin-top:16px"><strong>GPS-Standortdaten</strong></p>
+    <p class="en" style="margin-top:16px"><strong>GPS Location Data</strong></p>
+    <p class="de">Die App erfasst präzise GPS-Daten (Breitengrad, Längengrad, Höhe, Geschwindigkeit, Kurs) <strong>ausschließlich</strong> während einer aktiven Fahrtaufzeichnung – auch im Hintergrund, solange die Aufzeichnung läuft (UIBackgroundModes: location). Die GPS-Hardware bleibt beim Öffnen der App inaktiv und wird erst beim Starten der Aufzeichnung aktiviert.</p>
+    <p class="en">The app collects precise GPS data (latitude, longitude, altitude, speed, heading) <strong>exclusively</strong> during an active trip recording – including in the background while recording is active (UIBackgroundModes: location). The GPS hardware remains inactive when the app is opened and is only activated when recording starts.</p>
+    <ul>
+      <li class="de"><span class="label">Berechtigung:</span> iOS-Standortberechtigung „Immer erlauben" (erforderlich für Hintergrund-Aufzeichnung)</li>
+      <li class="en"><span class="label">Permission:</span> iOS location permission "Always Allow" (required for background recording)</li>
+      <li class="de"><span class="label">Zweck:</span> Berechnung von Strecke, Geschwindigkeit, Routenverlauf</li>
+      <li class="en"><span class="label">Purpose:</span> Calculating distance, speed, and route</li>
+      <li class="de"><span class="label">Lokal:</span> Standardmäßig ausschließlich lokal auf deinem Gerät gespeichert</li>
+      <li class="en"><span class="label">Local:</span> By default stored exclusively locally on your device</li>
+      <li class="de"><span class="label">Cloud:</span> GPS-Rohdaten werden <strong>ausschließlich via iCloud (CloudKit)</strong> in deinem persönlichen Apple-Account synchronisiert – sie gelangen nie zu Supabase oder anderen Drittanbietern.</li>
+      <li class="en"><span class="label">Cloud:</span> Raw GPS data is synchronised <strong>exclusively via iCloud (CloudKit)</strong> within your personal Apple account – it never reaches Supabase or any other third party.</li>
+      <li class="de"><span class="label">Einwilligungswiderruf:</span> iOS-Einstellungen → Datenschutz &amp; Sicherheit → Ortungsdienste → Auto Performance Tracker → „Nie" auswählen. Widerruf verhindert zukünftige Aufzeichnungen, berührt aber keine bereits gespeicherten Daten.</li>
+      <li class="en"><span class="label">Consent withdrawal:</span> iOS Settings → Privacy &amp; Security → Location Services → Auto Performance Tracker → select "Never". Withdrawal prevents future recordings but does not affect already stored data.</li>
+      <li class="de"><span class="label">Löschung:</span> Einstellungen → Datenverwaltung → Alle Fahrten löschen</li>
+      <li class="en"><span class="label">Deletion:</span> Settings → Data Management → Delete All Trips</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) · <strong>Einwilligungsnachweis (Art. 7 Abs. 1 DSGVO):</strong> Die App zeigt beim ersten Start einen eigenen Einwilligungsbildschirm (ConsentView), der den Standortzugriff als erforderliche Kernfunktion erläutert. Anschließend fragt iOS separat nach der Standortberechtigung. Zeitstempel, Methode und Einwilligungsstatus werden lokal und (bei eingeloggten Nutzern) im Cloud-Audit-Log gespeichert. iCloud/CloudKit-Sync: unterliegt Apples Datenschutzrichtlinie; kein separater Consent erforderlich (Nutzerdaten im eigenen Apple-Account).</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent) · <strong>Consent documentation (Art. 7(1) GDPR):</strong> On first launch the app presents a dedicated consent screen (ConsentView) explaining location access as a required core feature. iOS then separately requests location permission. Timestamp, method, and consent status are stored locally and (for signed-in users) in a cloud audit log. iCloud/CloudKit sync: subject to Apple's privacy policy; no separate consent required (data stored in user's own Apple account).</p>
+
+    <p class="de" style="margin-top:20px"><strong>Bewegungssensordaten (CoreMotion)</strong> <span class="tag tag-blue">Nur während Aufzeichnung</span></p>
+    <p class="en" style="margin-top:20px"><strong>Motion Sensor Data (CoreMotion)</strong> <span class="tag tag-blue">Recording only</span></p>
+    <p class="de">Während der Fahrtaufzeichnung erfasst die App zusätzlich Beschleunigungssensor- und Kreiselsensordaten (Gyroskop) über das iOS CoreMotion-Framework mit ca. 50 Hz.</p>
+    <p class="en">During trip recording the app additionally collects accelerometer and gyroscope data via the iOS CoreMotion framework at approx. 50 Hz.</p>
+    <ul>
+      <li class="de"><span class="label">Daten:</span> Linearbeschleunigung (x/y/z), Rotationsrate (x/y/z), Zeitstempel</li>
+      <li class="en"><span class="label">Data:</span> Linear acceleration (x/y/z), rotation rate (x/y/z), timestamps</li>
+      <li class="de"><span class="label">Zweck:</span> Berechnung des Fahrerscores sowie Erkennung harter Brems- und Beschleunigungsmanöver</li>
+      <li class="en"><span class="label">Purpose:</span> Calculating the driving score and detecting harsh braking or acceleration events</li>
+      <li class="de"><span class="label">Speicherung:</span> Ausschließlich lokal als Teil der Fahrtdaten (SwiftData, binär kodiert, max. ~2,6 MB pro Fahrt im RAM-Cap)</li>
+      <li class="en"><span class="label">Storage:</span> Exclusively locally as part of trip data (SwiftData, binary encoded, max. ~2.6 MB per trip in RAM cap)</li>
+      <li class="de"><span class="label">Cloud:</span> Werden via <strong>iCloud (CloudKit)</strong> zusammen mit den Fahrtdaten synchronisiert – kein Drittanbieter erhält Zugriff auf diese Daten</li>
+      <li class="en"><span class="label">Cloud:</span> Synchronised together with trip data via <strong>iCloud (CloudKit)</strong> – no third party has access to this data</li>
+      <li class="de"><span class="label">Drittanbieter:</span> Keine Weitergabe an Dritte</li>
+      <li class="en"><span class="label">Third parties:</span> Not shared with any third party</li>
+      <li class="de"><span class="label">Einwilligungswiderruf:</span> iOS-Einstellungen → Datenschutz &amp; Sicherheit → Bewegung &amp; Fitness → Auto Performance Tracker deaktivieren</li>
+      <li class="en"><span class="label">Consent withdrawal:</span> iOS Settings → Privacy &amp; Security → Motion &amp; Fitness → disable Auto Performance Tracker</li>
+      <li class="de"><span class="label">Löschung:</span> Gleichzeitig mit der zugehörigen Fahrt</li>
+      <li class="en"><span class="label">Deletion:</span> Together with the associated trip</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Bewegungsberechtigung – NSMotionUsageDescription)</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS motion permission – NSMotionUsageDescription)</p>
+  </div>
+
+  <!-- ③ Cloud-Sync -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">☁️</div>
+      <div>
+        <div class="section-num de">3. Datenspeicherung &amp; Cloud-Sync</div>
+        <div class="section-num en">3. Data Storage &amp; Cloud Sync</div>
+        <div class="section-title de">Lokale &amp; Cloud-Speicherung</div>
+        <div class="section-title en">Local &amp; Cloud Storage</div>
+      </div>
+    </div>
+    <p class="de"><strong>Lokal (SwiftData):</strong> Fahrtdaten, Fahrzeugprofile und Kraftstoffpreise werden standardmäßig nur auf deinem Gerät gespeichert.</p>
+    <p class="en"><strong>Local (SwiftData):</strong> Trip data, vehicle profiles, and fuel prices are stored only on your device by default.</p>
+    <p class="de"><strong>iCloud-Backup</strong> (automatisch, falls aktiviert): GPS-Daten sind vom iCloud-Backup <strong>ausgeschlossen</strong> (isExcludedFromBackup = true). Nur App-Einstellungen können im Backup enthalten sein. Unterliegt Apples Datenschutzerklärung. Kein Entwicklerzugang.</p>
+    <p class="en"><strong>iCloud Backup</strong> (automatic, if enabled): GPS data is <strong>excluded</strong> from iCloud Backup (isExcludedFromBackup = true). Only app settings may be included in the backup. Subject to Apple's privacy policy. No developer access.</p>
+
+    <p class="de" style="margin-top:16px"><strong>iCloud CloudKit-Sync</strong> <span class="tag tag-green">GPS-Daten · Automatisch · Kein Drittanbieter</span></p>
+    <p class="en" style="margin-top:16px"><strong>iCloud CloudKit Sync</strong> <span class="tag tag-green">GPS data · Automatic · No third party</span></p>
+    <p class="de">GPS-Rohdaten, Bewegungssensordaten und Fahrscore-Details werden <strong>ausschließlich</strong> via Apple CloudKit in deinem persönlichen iCloud-Account synchronisiert. Diese Daten verlassen nie Apples Infrastruktur und sind für den App-Entwickler <strong>vollständig unzugänglich</strong>.</p>
+    <p class="en">Raw GPS data, motion sensor data, and driving score details are synchronised <strong>exclusively</strong> via Apple CloudKit within your personal iCloud account. This data never leaves Apple's infrastructure and is <strong>completely inaccessible</strong> to the app developer.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> Apple Inc. – iCloud CloudKit; unterliegt Apples Datenschutzrichtlinie</li>
+      <li class="en"><span class="label">Provider:</span> Apple Inc. – iCloud CloudKit; subject to Apple's privacy policy</li>
+      <li class="de"><span class="label">Daten:</span> GPS-Punkte (Breitengrad, Längengrad, Höhe, Geschwindigkeit, Kurs, Zeitstempel), CoreMotion-Rohdaten, Fahrscore-Details</li>
+      <li class="en"><span class="label">Data:</span> GPS points (latitude, longitude, altitude, speed, heading, timestamp), raw CoreMotion data, driving score details</li>
+      <li class="de"><span class="label">Drittlandübermittlung:</span> Apple Inc. (USA) – Angemessenheitsbeschluss nicht erforderlich, da der Entwickler keinen Zugriff auf die Daten hat; Verarbeitung ausschließlich unter Apple-ID des Nutzers</li>
+      <li class="en"><span class="label">Third-country transfer:</span> Apple Inc. (USA) – no adequacy decision required as the developer has no access to the data; processing exclusively under the user's Apple ID</li>
+      <li class="de"><span class="label">Löschung:</span> Automatisch bei App-Deinstallation oder manuell über iOS-Einstellungen → iCloud → App-Daten verwalten</li>
+      <li class="en"><span class="label">Deletion:</span> Automatically upon app uninstall or manually via iOS Settings → iCloud → Manage App Data</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: kein gesonderter Consent erforderlich – die Daten verbleiben im iCloud-Account des Nutzers unter Apples Datenschutzrichtlinie · <a href="https://apple.com/legal/privacy" target="_blank">apple.com/legal/privacy</a></p>
+    <p class="en" style="font-size:13px">Legal basis: no separate consent required – data remains in the user's iCloud account under Apple's privacy policy · <a href="https://apple.com/legal/privacy" target="_blank">apple.com/legal/privacy</a></p>
+
+    <p class="de" style="margin-top:16px"><strong>Supabase Cloud-Sync</strong> <span class="tag tag-blue">Nur Metadaten · Konto erforderlich · Kein GPS</span></p>
+    <p class="en" style="margin-top:16px"><strong>Supabase Cloud Sync</strong> <span class="tag tag-blue">Metadata only · Account required · No GPS</span></p>
+    <p class="de">Supabase erhält <strong>ausschließlich nicht-sensitive Metadaten</strong> – GPS-Punkte und Bewegungssensordaten werden <strong>nie</strong> an Supabase übertragen.</p>
+    <p class="en">Supabase receives <strong>only non-sensitive metadata</strong> – GPS points and motion sensor data are <strong>never</strong> transmitted to Supabase.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
+      <li class="en"><span class="label">Provider:</span> Supabase Inc.; Server: EU (Frankfurt, AWS eu-central-1)</li>
+      <li class="de"><span class="label">Daten:</span> Nutzerprofil (E-Mail, Anzeigename, Pro-Status) sowie – nur falls du Preise meldest – selbst gemeldete Community-Tankstellenpreise (siehe Abschnitt 6). Fahrt-Kennzahlen werden <strong>nur</strong> bei aktivierter Einwilligung übertragen (siehe „Fahrt-Kennzahlen" unten). <strong>Keine GPS-Koordinaten deines Fahrtverlaufs, keine Bewegungssensordaten.</strong></li>
+      <li class="en"><span class="label">Data:</span> User profile (email, display name, Pro status) and – only if you report prices – your own community fuel-price reports (see section 6). Trip metrics are transmitted <strong>only</strong> if you have enabled the corresponding consent (see "Trip metrics" below). <strong>No GPS coordinates of your trip track, no motion sensor data.</strong></li>
+      <li class="de"><span class="label">Drittland:</span> Supabase Inc. (USA) – EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO); Supabase ist <em>nicht</em> unter dem EU-US Data Privacy Framework zertifiziert. Eine Transfer-Folgenabschätzung (TIA gem. Schrems II / EuGH C-311/18) wurde durchgeführt (Serverstandort EU-Frankfurt reduziert Übertragungsrisiko erheblich; keine sensitiven GPS-Daten betroffen).</li>
+      <li class="en"><span class="label">Third country:</span> Supabase Inc. (USA) – EU Standard Contractual Clauses (Art. 46(2)(c) GDPR); Supabase is <em>not</em> certified under the EU-US Data Privacy Framework. A Transfer Impact Assessment (TIA per Schrems II / ECJ C-311/18) has been conducted (EU-Frankfurt server location substantially mitigates the risk; no sensitive GPS data involved).</li>
+      <li class="de"><span class="label">AVV:</span> Auftragsverarbeitungsvertrag gem. Art. 28 DSGVO abgeschlossen</li>
+      <li class="en"><span class="label">DPA:</span> Data Processing Agreement per Art. 28 GDPR in place</li>
+      <li class="de"><span class="label">Löschung:</span> Konto → Account löschen. Soft-Delete: sofortige Deaktivierung, vollständige Datenlöschung innerhalb von 30 Tagen.</li>
+      <li class="en"><span class="label">Deletion:</span> Account → Delete Account. Soft-delete: account immediately deactivated, all data fully deleted within 30 days.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzerprofil – zur Bereitstellung deines Kontos erforderlich) · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (user profile – required to provide your account) · <a href="https://supabase.com/privacy" target="_blank">supabase.com/privacy</a></p>
+
+    <p class="de" style="margin-top:16px"><strong>Fahrt-Kennzahlen</strong> <span class="tag tag-blue">Opt-in · Standardmäßig AUS · Keine Strecken</span></p>
+    <p class="en" style="margin-top:16px"><strong>Trip metrics</strong> <span class="tag tag-blue">Opt-in · OFF by default · No routes</span></p>
+    <p class="de">Du kannst optional zulassen, dass <strong>zusammengefasste Kennzahlen</strong> deiner Fahrten mit deinem Konto synchronisiert werden. Das hilft uns zu verstehen, wie die App im Alltag genutzt wird, und dir, deine Werte nach einem Gerätewechsel wiederzufinden. Diese Funktion ist <strong>standardmäßig deaktiviert</strong> – ohne deine ausdrückliche Einwilligung wird keine einzige Fahrt übertragen.</p>
+    <p class="en">You can optionally allow <strong>aggregated metrics</strong> of your trips to be synchronised with your account. This helps us understand how the app is used in practice, and helps you recover your figures after switching devices. This feature is <strong>disabled by default</strong> – without your explicit consent, no trip is transmitted at all.</p>
+    <ul>
+      <li class="de"><span class="label">Übertragen wird:</span> Distanz, Dauer, Ø- und Höchstgeschwindigkeit, Effizienz-Score, Verbrauch, Kosten, Start-/Endzeitpunkt sowie die Kennung des zugeordneten Fahrzeugprofils.</li>
+      <li class="en"><span class="label">What is transmitted:</span> distance, duration, average and maximum speed, efficiency score, consumption, cost, start/end time, and the identifier of the assigned vehicle profile.</li>
+      <li class="de"><span class="label">Ausdrücklich NICHT übertragen:</span> GPS-Punkte und Streckenverläufe, Start- und Zieladressen, Fahrttitel und Notizen, Bewegungssensordaten. Die Datenbanktabelle besitzt für Koordinaten <strong>keine Felder</strong> – eine Übertragung des Streckenverlaufs ist technisch ausgeschlossen, nicht bloß unterlassen.</li>
+      <li class="en"><span class="label">Explicitly NOT transmitted:</span> GPS points and route tracks, start and destination addresses, trip titles and notes, motion sensor data. The database table has <strong>no fields</strong> for coordinates – transmitting a route track is technically impossible, not merely omitted.</li>
+      <li class="de"><span class="label">Personenbezug:</span> Die Werte sind <strong>pseudonym, nicht anonym</strong> – sie sind deinem Konto zugeordnet. Wir bezeichnen sie deshalb bewusst nicht als „anonyme Statistik".</li>
+      <li class="en"><span class="label">Personal reference:</span> The values are <strong>pseudonymous, not anonymous</strong> – they are linked to your account. We therefore deliberately do not call them "anonymous statistics".</li>
+      <li class="de"><span class="label">Zweck:</span> Nutzungsübersicht des Betreibers (Anzahl Fahrten, gefahrene Kilometer, Aktivität) sowie Wiederherstellung deiner Kennzahlen nach Gerätewechsel.</li>
+      <li class="en"><span class="label">Purpose:</span> Operator usage overview (number of trips, kilometres driven, activity) and restoration of your figures after switching devices.</li>
+      <li class="de"><span class="label">Widerruf:</span> Einstellungen → „Fahrt-Kennzahlen mit Konto synchronisieren" ausschalten. Der Widerruf <strong>löscht die bereits übertragenen Kennzahlen unverzüglich vom Server</strong> und wirkt für die Zukunft. Er ist genauso einfach wie die Einwilligung (Art. 7 Abs. 3 DSGVO).</li>
+      <li class="en"><span class="label">Withdrawal:</span> Settings → turn off "Sync trip metrics with account". Withdrawal <strong>immediately deletes the metrics already transmitted from the server</strong> and takes effect for the future. It is as easy as granting consent (Art. 7(3) GDPR).</li>
+      <li class="de"><span class="label">Speicherdauer:</span> Bis zum Widerruf oder zur Kontolöschung. Löschst du eine Fahrt in der App, wird die zugehörige Kennzahl-Zeile beim nächsten Abgleich ebenfalls entfernt.</li>
+      <li class="en"><span class="label">Retention:</span> Until withdrawal or account deletion. If you delete a trip in the app, the corresponding metrics row is removed at the next synchronisation.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung) · <strong>Einwilligungsnachweis (Art. 7 Abs. 1 DSGVO):</strong> Beim Aktivieren des Schalters werden Zeitstempel, Methode und die Version dieser Datenschutzerklärung protokolliert. · <strong>Hinweis:</strong> Bis einschließlich Version 5 dieser Erklärung war an dieser Stelle ein Sync von Fahrt-Metadaten einschließlich Titel und Notizen auf Grundlage von Art. 6 Abs. 1 lit. b DSGVO beschrieben. Dieser Sync war seit dem 25. März 2026 technisch nicht mehr aktiv; er wurde durch die hier beschriebene, einwilligungsbasierte Übertragung ohne Titel und Notizen ersetzt.</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent) · <strong>Proof of consent (Art. 7(1) GDPR):</strong> When you enable the toggle, the timestamp, method, and version of this privacy policy are recorded. · <strong>Note:</strong> Up to and including version 5 of this policy, this section described a sync of trip metadata including titles and notes based on Art. 6(1)(b) GDPR. That sync had been technically inactive since 25 March 2026; it has been replaced by the consent-based transfer described here, which excludes titles and notes.</p>
+  </div>
+
+  <!-- ④ Analytics (PostHog – Opt-In, EU-Server) -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">📊</div>
+      <div>
+        <div class="section-num de">4. Analysedaten</div>
+        <div class="section-num en">4. Analytics</div>
+        <div class="section-title de"><span class="tag tag-green">Opt-In · Standard: AUS</span></div>
+        <div class="section-title en"><span class="tag tag-green">Opt-In · Default: OFF</span></div>
+      </div>
+    </div>
+    <p class="de">Analytics ist <strong>standardmäßig deaktiviert</strong>. Freiwillige Aktivierung: Einstellungen → Datenschutz.</p>
+    <p class="en">Analytics is <strong>disabled by default</strong>. Optional activation: Settings → Privacy.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> PostHog Inc., 965 Mission St. Suite 200, San Francisco, CA 94103, USA · EU-Server: eu.posthog.com · EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO)</li>
+      <li class="en"><span class="label">Provider:</span> PostHog Inc., 965 Mission St. Suite 200, San Francisco, CA 94103, USA · EU server: eu.posthog.com · EU Standard Contractual Clauses (Art. 46(2)(c) GDPR)</li>
+      <li class="de"><span class="label">Daten:</span> Anonyme Geräte-ID (zufällige UUID, kein Nutzerbezug), App-Version, iOS-Version, Ereignistypen, gebucketete Messwerte. Keine GPS-Daten, kein IDFA.</li>
+      <li class="en"><span class="label">Data:</span> Anonymous device ID (random UUID, no personal link), app version, iOS version, event types, bucketed metrics. No GPS data, no IDFA.</li>
+      <li class="de"><span class="label">Widerruf:</span> Jederzeit in Einstellungen → Datenschutz → Analytics deaktivieren oder über „Alle Einwilligungen widerrufen" (löscht Nachweis + zeigt Einwilligungs-Dialog beim nächsten App-Start erneut)</li>
+      <li class="en"><span class="label">Withdrawal:</span> Disable any time via Settings → Privacy → Analytics, or via "Revoke all consents" (deletes the proof of consent and re-shows the consent dialog on next app launch)</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO · Speicherdauer: max. 12 Monate · <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR · Retention: max. 12 months · <a href="https://posthog.com/privacy" target="_blank">posthog.com/privacy</a></p>
+  </div>
+
+  <!-- ⑤ Fahrzeugprofile -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-teal">🚗</div>
+      <div>
+        <div class="section-num de">5. Fahrzeugprofile</div>
+        <div class="section-num en">5. Vehicle Profiles</div>
+      </div>
+    </div>
+    <p class="de">Fahrzeugprofile (Name, Kraftstoffart, Verbrauchswert, Kraftstoffpreis) werden <strong>standardmäßig lokal</strong> auf deinem Gerät gespeichert und nicht weitergegeben.</p>
+    <p class="en">Vehicle profiles (name, fuel type, consumption, fuel price) are <strong>stored locally by default</strong> on your device and not shared.</p>
+    <p class="de">Bei aktiviertem <strong>Cloud-Sync</strong> werden Fahrzeugprofile ebenfalls auf den EU-Servern von Supabase synchronisiert (siehe Abschnitt 3). Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO.</p>
+    <p class="en">When <strong>Cloud Sync</strong> is enabled, vehicle profiles are also synchronized to Supabase EU servers (see section 3). Legal basis: Art. 6(1)(b) GDPR.</p>
+  </div>
+
+  <!-- ⑥ Tankerkönig + OpenChargeMap -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">⛽</div>
+      <div>
+        <div class="section-num de">6. Kraftstoffpreise &amp; EV-Ladestationen</div>
+        <div class="section-num en">6. Fuel Prices &amp; EV Charging Stations</div>
+      </div>
+    </div>
+
+    <p class="de" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Tankstellen-Ansicht</span> <span class="tag tag-blue">Fahrtstart (mit API-Key)</span></p>
+    <p class="en" style="margin-top:4px"><strong>Tankerkönig API</strong> <span class="tag tag-orange">Gas station view</span> <span class="tag tag-blue">Trip start (with API key)</span></p>
+    <p class="de">Die Tankerkönig API wird für <strong>zwei Zwecke</strong> genutzt: (1) In der Tankstellen-Ansicht ruft die App auf expliziten Nutzerwunsch hin aktuelle Kraftstoffpreise in der Umgebung ab. (2) Beim Start einer Fahrt wird – sofern der Nutzer einen persönlichen API-Key hinterlegt hat – der aktuelle Kraftstoffpreis der bevorzugten oder nächstgelegenen Tankstelle automatisch abgerufen, um ihn der Fahrt zuzuordnen.</p>
+    <p class="en">The Tankerkönig API is used for <strong>two purposes</strong>: (1) In the gas station view, the app retrieves current fuel prices nearby on the user's explicit request. (2) At the start of a trip – if the user has stored a personal API key – the current fuel price of the preferred or nearest station is fetched automatically to associate it with the trip.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> tankerkoenig.de (Deutschland) – privater API-Dienst auf Basis der Daten der Markttransparenzstelle für Kraftstoffe (Bundeskartellamt)</li>
+      <li class="en"><span class="label">Provider:</span> tankerkoenig.de (Germany) – private API service based on data from the Markttransparenzstelle für Kraftstoffe (Federal Cartel Office)</li>
+      <li class="de"><span class="label">Übertragene Daten:</span> Präzise GPS-Koordinaten (Breitengrad, Längengrad) und Suchradius; bei Favorit-Tankstelle: Stations-ID statt GPS-Koordinaten</li>
+      <li class="en"><span class="label">Data transmitted:</span> Precise GPS coordinates (latitude, longitude) and search radius; for favourite station: station ID instead of GPS coordinates</li>
+      <li class="de"><span class="label">Zweck:</span> (1) Kraftstoffpreisabfrage in der Umgebung; (2) automatische Fahrtpreiszuordnung beim Fahrtstart</li>
+      <li class="en"><span class="label">Purpose:</span> (1) Fuel price lookup in the area; (2) automatic fuel price assignment at trip start</li>
+      <li class="de"><span class="label">Speicherung:</span> Keine dauerhafte Speicherung der GPS-Koordinaten durch Tankerkönig; API-Anfragen sind transient und werden nicht für Nutzer-Tracking verwendet</li>
+      <li class="en"><span class="label">Retention:</span> No permanent storage of GPS coordinates by Tankerkönig; API requests are transient and not used for user tracking</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Nutzerfunktion Tankstellen-Ansicht) · Art. 6 Abs. 1 lit. f DSGVO (automatischer Fahrtstart-Abruf) · <em>Interessenabwägung (LIA):</em> Berechtigtes Interesse des Nutzers an der Zuordnung des aktuellen Kraftstoffpreises zur Fahrt; Übermittlung präziser GPS-Koordinaten transient und zweckgebunden; Tankerkönig speichert keine personenbezogenen Daten dauerhaft und führt kein Nutzer-Tracking durch; Eingriff in die Privatsphäre minimal und durch Nutzungsvorteil überwogen. · Tankerkönig verarbeitet Anfragedaten als eigenständiger Verantwortlicher; kein AVV erforderlich. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (gas station view feature) · Art. 6(1)(f) GDPR (automatic trip-start fetch) · <em>Balancing test (LIA):</em> Legitimate interest of the user in associating the current fuel price with their trip; GPS coordinates transmitted transiently and for a specific purpose; Tankerkönig stores no personal data permanently and conducts no user tracking; privacy impact is minimal and outweighed by user benefit. · Tankerkönig processes request data as an independent controller; no DPA required. · <a href="https://tankerkoenig.de" target="_blank">tankerkoenig.de</a></p>
+
+    <p class="de" style="margin-top:20px"><strong>Community-Tankstellenpreise (LPG / Autogas)</strong> <span class="tag tag-orange">Nur bei eigener Preis-Meldung · Konto erforderlich</span></p>
+    <p class="en" style="margin-top:20px"><strong>Community Fuel Prices (LPG / Autogas)</strong> <span class="tag tag-orange">Only when you report a price · Account required</span></p>
+    <p class="de">Da es für LPG/Autogas keine offizielle Preisquelle (Markttransparenzstelle/Tankerkönig) gibt, können Nutzer Preise selbst melden. Meldest du einen Preis, wird dieser in der Datenbank des Entwicklers (Supabase, EU-Frankfurt) gespeichert und – <strong>aggregiert und ohne deine Identität</strong> – anderen Nutzern angezeigt, damit alle aktuelle LPG-Preise sehen.</p>
+    <p class="en">As there is no official price source (Markttransparenzstelle/Tankerkönig) for LPG/autogas, users may report prices themselves. When you report a price, it is stored in the developer's database (Supabase, EU-Frankfurt) and shown to other users – <strong>aggregated and without your identity</strong> – so that everyone can see current LPG prices.</p>
+    <ul>
+      <li class="de"><span class="label">Auslöser:</span> Nur bei aktiver, bewusster Preis-Meldung durch dich („Preis speichern"). Kein automatisches Erfassen.</li>
+      <li class="en"><span class="label">Trigger:</span> Only on your active, deliberate price report ("save price"). No automatic collection.</li>
+      <li class="de"><span class="label">Gespeicherte Daten:</span> Tankstellenname/-kennung, Koordinaten der Tankstelle (öffentlicher Ort, <em>nicht</em> dein Standortverlauf), gemeldeter Preis, Zeitpunkt, verknüpft mit deiner Konto-Kennung (User-ID).</li>
+      <li class="en"><span class="label">Stored data:</span> Station name/ID, station coordinates (a public location, <em>not</em> your movement track), reported price, timestamp, linked to your account ID (user ID).</li>
+      <li class="de"><span class="label">Sichtbarkeit für andere:</span> Andere Nutzer sehen nur den <strong>aggregierten Median-Preis pro Tankstelle</strong> der letzten 21 Tage – <strong>niemals deine User-ID oder Identität</strong>. Der Lesezugriff erfolgt über eine Datenbankfunktion, die die User-ID technisch nie herausgibt.</li>
+      <li class="en"><span class="label">Visibility to others:</span> Other users only see the <strong>aggregated median price per station</strong> over the last 21 days – <strong>never your user ID or identity</strong>. Read access uses a database function that never returns the user ID.</li>
+      <li class="de"><span class="label">Server / Anbieter:</span> Supabase Inc., Server EU-Frankfurt (AWS eu-central-1); AVV gem. Art. 28 DSGVO (siehe Abschnitt 3).</li>
+      <li class="en"><span class="label">Server / provider:</span> Supabase Inc., EU-Frankfurt server (AWS eu-central-1); DPA per Art. 28 GDPR (see section 3).</li>
+      <li class="de"><span class="label">Löschung:</span> Du kannst eigene Meldungen jederzeit zurücknehmen. Bei Konto-Löschung wird die Verknüpfung zu dir entfernt (Anonymisierung); der reine Preiswert verbleibt dann ohne Personenbezug als anonyme Community-Information.</li>
+      <li class="en"><span class="label">Deletion:</span> You can withdraw your own reports any time. On account deletion the link to you is removed (anonymisation); the price value then remains, without any personal reference, as anonymous community information.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung durch aktive Meldung) sowie Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an einer aktuellen Community-Preisübersicht). Die geteilten Daten betreffen öffentliche Preisinformationen; durch Aggregation und das technische Weglassen der User-ID besteht für andere Nutzer kein Personenbezug.</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via active reporting) and Art. 6(1)(f) GDPR (legitimate interest in a current community price overview). The shared data concerns public price information; through aggregation and the technical omission of the user ID, no personal reference is available to other users.</p>
+
+    <p class="de" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">Nur EV-Ladesäulen-Ansicht · Optional</span></p>
+    <p class="en" style="margin-top:20px"><strong>OpenChargeMap API</strong> <span class="tag tag-blue">EV charging view only · Optional</span></p>
+    <p class="de">Zur Anzeige von EV-Ladestationen in der Nähe wird die OpenChargeMap API verwendet.</p>
+    <p class="en">The OpenChargeMap API is used to display nearby EV charging stations.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> Open Charge Map Ltd., UK / Community-betrieben; api.openchargemap.io</li>
+      <li class="en"><span class="label">Provider:</span> Open Charge Map Ltd., UK / community-operated; api.openchargemap.io</li>
+      <li class="de"><span class="label">Übertragene Daten:</span> Präzise GPS-Koordinaten (Breitengrad, Längengrad) und Suchradius</li>
+      <li class="en"><span class="label">Data transmitted:</span> Precise GPS coordinates (latitude, longitude) and search radius</li>
+      <li class="de"><span class="label">Zweck:</span> Anzeige von EV-Ladestationen in der Umgebung</li>
+      <li class="en"><span class="label">Purpose:</span> Displaying EV charging stations near your location</li>
+      <li class="de"><span class="label">Speicherung:</span> Keine serverseitige Speicherung der GPS-Koordinaten durch den Entwickler</li>
+      <li class="en"><span class="label">Retention:</span> No server-side storage of GPS coordinates by the developer</li>
+      <li class="de"><span class="label">Drittland:</span> UK-basierter Dienst. Das Vereinigte Königreich verfügt seit dem Brexit über einen Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO, gültig bis 2027 verlängert). Darüber hinaus ggf. Übermittlung in weitere Drittländer gemäß <a href="https://openchargemap.org/site/about/privacy" target="_blank">OCM-Datenschutzrichtlinie</a>.</li>
+      <li class="en"><span class="label">Third country:</span> UK-based service. The United Kingdom holds an EU Commission adequacy decision post-Brexit (Art. 45 GDPR). Additional transfers to third countries are possible per <a href="https://openchargemap.org/site/about/privacy" target="_blank">OCM Privacy Policy</a>.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO · <a href="https://openchargemap.org/site/about/privacy" target="_blank">openchargemap.org/site/about/privacy</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR · <a href="https://openchargemap.org/site/about/privacy" target="_blank">openchargemap.org/site/about/privacy</a></p>
+
+    <p class="de" style="margin-top:20px"><strong>Google Maps (Navigations-Deep-Link)</strong> <span class="tag tag-orange">Nur bei explizitem Nutzer-Tap</span></p>
+    <p class="en" style="margin-top:20px"><strong>Google Maps (Navigation Deep-Link)</strong> <span class="tag tag-orange">Only on explicit user tap</span></p>
+    <p class="de">Wenn du in der Tankstellen-Ansicht auf den Navigations-Button tippst, wird die Google Maps App (oder Website) mit den GPS-Koordinaten der ausgewählten Tankstelle als Deep-Link geöffnet. Dabei überträgt Google potentiell Standortdaten gemäß der eigenen Datenschutzrichtlinie.</p>
+    <p class="en">When you tap the navigation button in the gas station view, the Google Maps app (or website) is opened with the GPS coordinates of the selected station as a deep-link. Google may thereby process location data according to its own privacy policy.</p>
+    <ul>
+      <li class="de"><span class="label">Auslöser:</span> Nur bei bewusstem Antippen des Navigations-Buttons – kein automatisches Tracking</li>
+      <li class="en"><span class="label">Trigger:</span> Only on deliberate tap of the navigation button – no automatic tracking</li>
+      <li class="de"><span class="label">Verantwortlich:</span> Google LLC verarbeitet Daten als eigenständiger Verantwortlicher gemäß <a href="https://policies.google.com/privacy" target="_blank">Google Datenschutzrichtlinie</a></li>
+      <li class="en"><span class="label">Controller:</span> Google LLC processes data as an independent controller under its <a href="https://policies.google.com/privacy" target="_blank">Privacy Policy</a></li>
+    </ul>
+  </div>
+
+  <!-- ⑦ OpenStreetMap -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">🗺️</div>
+      <div>
+        <div class="section-num de">7. Tempolimit-Erkennung &amp; LPG-Stationen (OpenStreetMap)</div>
+        <div class="section-num en">7. Speed Limit Detection &amp; LPG Stations (OpenStreetMap)</div>
+      </div>
+    </div>
+    <p class="de">Die Overpass API von OpenStreetMap wird für zwei Zwecke genutzt: (1) Echtzeit-Abruf von Tempolimits <strong>kontinuierlich während der Fahrt – ausschließlich für Pro-Abonnenten</strong> und (2) Suche nach LPG-Tankstellen in der Umgebung in der Tankstellen-Ansicht.</p>
+    <p class="en">The OpenStreetMap Overpass API is used for two purposes: (1) real-time retrieval of speed limits <strong>continuously during a trip – for Pro subscribers only</strong> and (2) searching for nearby LPG stations in the gas station view.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> OpenStreetMap Foundation (OSMF), London, UK · Server: overpass-api.de (Deutschland/EU) · Fallback: overpass.kumi.systems (EU)</li>
+      <li class="en"><span class="label">Provider:</span> OpenStreetMap Foundation (OSMF), London, UK · Servers: overpass-api.de (Germany/EU) · Fallback: overpass.kumi.systems (EU)</li>
+      <li class="de"><span class="label">Daten (Tempolimit) <span class="tag tag-blue">Pro only</span>:</span> GPS-Koordinaten werden während der Fahrt bei Positionsänderungen kontinuierlich an die Overpass API übertragen. Die Koordinaten werden vor der Übertragung gerundet (~40m-Raster gebucketed) und nur bei Überschreitung eines adaptiven Schwellwerts je nach Geschwindigkeit gesendet. Die Übertragung ist ein öffentlicher, nicht authentifizierter Dienst; es wird kein AVV gefordert.</li>
+      <li class="en"><span class="label">Data (speed limit) <span class="tag tag-blue">Pro only</span>:</span> GPS coordinates are transmitted continuously to the Overpass API during a trip whenever the position changes sufficiently. Coordinates are rounded before transmission (~40m grid bucketed) and only sent when an adaptive threshold based on speed is exceeded. The service is public and unauthenticated; no DPA is required.</li>
+      <li class="de"><span class="label">Daten (LPG-Stationen):</span> Präzise GPS-Koordinaten mit Suchradius (Standard 15 km)</li>
+      <li class="en"><span class="label">Data (LPG stations):</span> Precise GPS coordinates with search radius (default 15 km)</li>
+      <li class="de"><span class="label">Zweck:</span> (1) Anzeige der aktuellen Geschwindigkeitsbegrenzung während der Fahrt; (2) LPG-Tankstellen in der Nähe</li>
+      <li class="en"><span class="label">Purpose:</span> (1) Displaying the current speed limit while driving; (2) LPG stations nearby</li>
+      <li class="de"><span class="label">Speicherung:</span> Keine Dauerspeicherung durch den Entwickler (lokaler Cache max. 600 Einträge). Overpass API ist ein öffentlicher Dienst ohne Nutzer-Tracking.</li>
+      <li class="en"><span class="label">Retention:</span> No persistent storage by the developer (local cache max. 600 entries). Overpass API is a public service without user tracking.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung: Tempolimit-Funktion) · <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Datenschutz</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (performance of contract: speed limit feature) · <a href="https://wiki.osmfoundation.org/wiki/Privacy_Policy" target="_blank">OSM Privacy Policy</a></p>
+  </div>
+
+  <!-- ⑦b Navigation & Karten (Apple MapKit) -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-sky">🧭</div>
+      <div>
+        <div class="section-num de">7b. Navigation &amp; Karten (Apple MapKit)</div>
+        <div class="section-num en">7b. Navigation &amp; Maps (Apple MapKit)</div>
+      </div>
+    </div>
+    <p class="de">Für die Karten-Anzeige, Adresssuche, Routenberechnung und die Ortschafts-Anzeige im <strong>optionalen Navi-Modus</strong> nutzt die App Apple MapKit sowie die Apple-Geocoding-Dienste. Der Navi-Modus wird nur aktiv, wenn du im Aufnahme-Screen „NAVI" wählst.</p>
+    <p class="en">For map display, address search, route calculation and the locality display in the <strong>optional navigation mode</strong>, the app uses Apple MapKit and Apple's geocoding services. Navigation mode is only active when you select "NAVI" on the recording screen.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
+      <li class="en"><span class="label">Provider:</span> Apple Inc., One Apple Park Way, Cupertino, CA 95014, USA</li>
+      <li class="de"><span class="label">Übertragene Daten:</span> Such-Anfragen (Adresseingabe), Start- und Zielkoordinaten (Routenberechnung), aktuelle Position (Reverse-Geocoding der Ortschaft bei „Freie Fahrt") sowie die Geräte-IP-Adresse.</li>
+      <li class="en"><span class="label">Transmitted data:</span> Search queries (address input), start and destination coordinates (route calculation), current position (reverse-geocoding of the locality during "Free Drive") and the device IP address.</li>
+      <li class="de"><span class="label">Zweck:</span> (1) Anzeige der Karte, (2) Adress- und Zielsuche, (3) Berechnung von Route, Distanz und Ankunftszeit, (4) Anzeige der aktuellen Ortschaft im Modus „Freie Fahrt".</li>
+      <li class="en"><span class="label">Purpose:</span> (1) Displaying the map, (2) address/destination search, (3) computing route, distance and arrival time, (4) displaying the current locality in "Free Drive" mode.</li>
+      <li class="de"><span class="label">Drosselung (Datenminimierung):</span> Im Modus „Freie Fahrt" wird die Ortschaft nur gedrosselt abgefragt — frühestens alle 10 Sekunden und erst ab ~200 m Bewegung. Im Stand erfolgt keine Abfrage.</li>
+      <li class="en"><span class="label">Throttling (data minimisation):</span> In "Free Drive" mode the locality is queried only in a throttled manner — at most every 10 seconds and only after ~200 m of movement. No query is made while stationary.</li>
+      <li class="de"><span class="label">Verarbeitung durch Apple:</span> Apple verarbeitet diese Anfragen als eigenverantwortliche Stelle gemäß der Apple-Datenschutzrichtlinie. Apple verknüpft Karten- und Suchanfragen nach eigenen Angaben nicht mit deiner Apple-ID und verwendet rotierende Kennungen.</li>
+      <li class="en"><span class="label">Processing by Apple:</span> Apple processes these requests as an independent controller under Apple's Privacy Policy. Per Apple, map and search requests are not associated with your Apple ID and use rotating identifiers.</li>
+      <li class="de"><span class="label">Speicherung:</span> Keine Dauerspeicherung durch den Entwickler. Die berechnete geplante Route wird ausschließlich lokal/iCloud (CloudKit) zur Fahrt gespeichert, nicht an Dritte übermittelt.</li>
+      <li class="en"><span class="label">Retention:</span> No persistent storage by the developer. The computed planned route is stored only locally/iCloud (CloudKit) with the trip and is not transmitted to third parties.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Erfüllung der vom Nutzer angeforderten Navi-Funktion). Drittstaaten-Transfer (USA): Verarbeitung durch Apple auf Grundlage der Apple-Datenschutzrichtlinie. · <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple Datenschutz</a></p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (performance of the navigation function requested by the user). Third-country transfer (USA): processing by Apple under Apple's Privacy Policy. · <a href="https://www.apple.com/legal/privacy/" target="_blank">Apple Privacy</a></p>
+  </div>
+
+  <!-- ⑧ Export -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-sky">📤</div>
+      <div>
+        <div class="section-num de">8. Datenexport</div>
+        <div class="section-num en">8. Data Export</div>
+      </div>
+    </div>
+    <p class="de">Die App bietet eine Exportfunktion (CSV, JSON). Exportierte Dateien verbleiben in deiner Kontrolle. Beim Teilen über iOS-Mechanismen (AirDrop, Mail etc.) giltst du als verantwortliche Person für die weitere Verarbeitung.</p>
+    <p class="en">The app offers an export function (CSV, JSON). Exported files remain under your control. When sharing via iOS mechanisms (AirDrop, Mail, etc.), you become the responsible party for further processing.</p>
+  </div>
+
+  <!-- ⑧b Benachrichtigungen -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-sky">🔔</div>
+      <div>
+        <div class="section-num de">8b. Lokale Benachrichtigungen</div>
+        <div class="section-num en">8b. Local Notifications</div>
+      </div>
+    </div>
+    <p class="de">Die App kann lokale Push-Benachrichtigungen senden (wöchentliche, monatliche und jährliche Fahrtenstatistiken sowie Meilenstein-Hinweise). Alle Benachrichtigungen werden <strong>ausschließlich lokal</strong> auf deinem Gerät berechnet und erzeugt. Es werden keine Daten an externe Server übertragen.</p>
+    <p class="en">The app may send local push notifications (weekly, monthly and annual trip statistics, and milestone reminders). All notifications are generated <strong>exclusively locally</strong> on your device. No data is transmitted to external servers.</p>
+    <ul>
+      <li class="de"><span class="label">Daten:</span> Lokal berechnete Zusammenfassungen (Fahrtanzahl, Durchschnittsscore) – kein Serverzugriff</li>
+      <li class="en"><span class="label">Data:</span> Locally computed summaries (trip count, average score) – no server access</li>
+      <li class="de"><span class="label">Berechtigung:</span> iOS fragt einmalig nach Erlaubnis für Benachrichtigungen (UNUserNotificationCenter)</li>
+      <li class="en"><span class="label">Permission:</span> iOS requests notification permission once (UNUserNotificationCenter)</li>
+      <li class="de"><span class="label">Deaktivierung:</span> iOS-Einstellungen → Mitteilungen → Auto Performance Tracker oder Einstellungen → Benachrichtigungen in der App</li>
+      <li class="en"><span class="label">Disable:</span> iOS Settings → Notifications → Auto Performance Tracker, or Settings → Notifications in the app</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Benachrichtigungsberechtigung). Keine Übermittlung an Dritte.</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS notification permission). Not shared with any third party.</p>
+  </div>
+
+  <!-- ⑨ Rechte -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-purple">🤝</div>
+      <div>
+        <div class="section-num de">9. Deine Rechte (DSGVO)</div>
+        <div class="section-num en">9. Your Rights (GDPR)</div>
+      </div>
+    </div>
+    <ul class="de">
+      <li>Auskunft (Art. 15) – Welche Daten werden verarbeitet?</li>
+      <li>Berichtigung (Art. 16) – Korrektur falscher Daten</li>
+      <li>Löschung (Art. 17) – Jederzeit über die App oder per E-Mail</li>
+      <li>Einschränkung (Art. 18) – Verarbeitung einschränken lassen</li>
+      <li>Mitteilung (Art. 19) – Unterrichtung der Empfänger bei Berichtigung oder Löschung deiner Daten</li>
+      <li>Datenübertragbarkeit (Art. 20) – via Export-Funktion (CSV/JSON)</li>
+      <li>Widerspruch (Art. 21) – Gegen berechtigte Interessen</li>
+      <li>Einwilligungswiderruf (Art. 7 Abs. 3) – Jederzeit, ohne Angabe von Gründen</li>
+      <li>Beschwerde bei Aufsichtsbehörde (Art. 77)</li>
+    </ul>
+    <ul class="en">
+      <li>Access (Art. 15) – What data is processed?</li>
+      <li>Rectification (Art. 16) – Correction of incorrect data</li>
+      <li>Erasure (Art. 17) – Anytime via the app or by email</li>
+      <li>Restriction (Art. 18) – Limit processing</li>
+      <li>Notification (Art. 19) – Notification of recipients upon rectification or erasure of your data</li>
+      <li>Data portability (Art. 20) – via export function (CSV/JSON)</li>
+      <li>Objection (Art. 21) – Against legitimate interests</li>
+      <li>Withdrawal of consent (Art. 7(3)) – At any time, without giving reasons</li>
+      <li>Lodge complaint with supervisory authority (Art. 77)</li>
+    </ul>
+    <p class="de" style="margin-top:8px">Zur Ausübung deiner Rechte: <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a></p>
+    <p class="en" style="margin-top:8px">To exercise your rights: <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a></p>
+    <p class="de" style="margin-top:16px; font-size:13px"><strong>Hinweis zur Bereitstellung von Daten (Art. 13 Abs. 2 lit. e DSGVO):</strong> Die Bereitstellung personenbezogener Daten ist weder gesetzlich noch vertraglich vorgeschrieben. Ohne GPS-Berechtigung ist die Fahrtaufzeichnung nicht möglich. Ohne Bewegungsberechtigung entfällt der Fahrscore. Cloud-Sync und Analytics sind vollständig optional. Du kannst die App im Offline-/Gastmodus ohne Konto nutzen.</p>
+    <p class="en" style="margin-top:16px; font-size:13px"><strong>Note on providing data (Art. 13(2)(e) GDPR):</strong> Providing personal data is neither legally nor contractually required. Without location permission, trip recording is not available. Without motion permission, the driving score is unavailable. Cloud Sync and Analytics are fully optional. The app can be used in offline/guest mode without an account.</p>
+    <p class="de" style="margin-top:8px; font-size:13px"><strong>Hinweis zum Widerruf von Einwilligungen (Art. 7 Abs. 3 DSGVO):</strong> Ein Widerruf wirkt nur für die Zukunft; die Rechtmäßigkeit der aufgrund der Einwilligung bis zum Widerruf erfolgten Verarbeitung bleibt unberührt.</p>
+    <p class="en" style="margin-top:8px; font-size:13px"><strong>Note on withdrawal of consent (Art. 7(3) GDPR):</strong> Withdrawal only takes effect for the future; the lawfulness of processing based on consent before its withdrawal remains unaffected.</p>
+    <p class="de" style="margin-top:8px"><strong>Einwilligung widerrufen:</strong> Einstellungen → Datenschutz → „Alle Einwilligungen widerrufen". Nach dem Widerruf wird beim nächsten App-Start der Einwilligungs-Dialog erneut angezeigt, sodass du deine Präferenzen neu konfigurieren kannst (Art. 7 Abs. 3 DSGVO).</p>
+    <p class="en" style="margin-top:8px"><strong>Revoke consent:</strong> Settings → Privacy → "Revoke all consents". After revocation, the consent dialog will be shown again on the next app launch so you can reconfigure your preferences (Art. 7(3) GDPR).</p>
+  </div>
+
+  <!-- ⑩ Datensicherheit -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-green">🛡️</div>
+      <div>
+        <div class="section-num de">10. Datensicherheit</div>
+        <div class="section-num en">10. Data Security</div>
+      </div>
+    </div>
+    <p class="de">Lokale Daten liegen im geschützten iOS-App-Container. Bei Cloud-Sync: TLS-verschlüsselte Übertragung, Supabase ist SOC 2 Type II zertifiziert. Im Falle einer Datenschutzverletzung werden betroffene Nutzer und die Aufsichtsbehörde gemäß Art. 33/34 DSGVO informiert.</p>
+    <p class="en">Local data resides in the protected iOS app container. Cloud Sync: TLS-encrypted transfer, Supabase is SOC 2 Type II certified. In case of a data breach, affected users and the supervisory authority are notified per Art. 33/34 GDPR.</p>
+  </div>
+
+  <!-- ⑪ Minderjährige -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-red">👶</div>
+      <div>
+        <div class="section-num de">11. Minderjährige</div>
+        <div class="section-num en">11. Minors</div>
+      </div>
+    </div>
+    <p class="de">Die App ist ausschließlich für Nutzer ab <strong>17 Jahren</strong> bestimmt. Die Altersgrenze von 17 Jahren entspricht dem App-Store-Altersrating (17+) sowie § 1 der Nutzungsbedingungen. Die App ist kein Online-Dienst, der sich gezielt an Kinder oder Jugendliche richtet.</p>
+    <p class="en">The app is exclusively intended for users aged <strong>17 and over</strong>. The minimum age of 17 corresponds to the App Store age rating (17+) and § 1 of the Terms of Use. The app is not an online service specifically targeting children or minors.</p>
+    <p class="de"><span class="label">Alters-Gate:</span> Die App implementiert beim ersten Start einen verpflichtenden Alterscheck (Eingabe des Geburtsjahres). Personen unter 17 Jahren wird der Zugang dauerhaft gesperrt. Es werden wissentlich keine personenbezogenen Daten von Personen unter 17 Jahren erhoben. Werden dem Anbieter Anhaltspunkte bekannt, dass dennoch Daten einer Person unter 17 Jahren verarbeitet werden, werden diese Daten unverzüglich gelöscht und ein etwaiges Konto gesperrt.</p>
+    <p class="en"><span class="label">Age Gate:</span> The app implements a mandatory age check on first launch (birth year entry). Persons under 17 are permanently blocked from access. No personal data of persons under 17 is knowingly collected. If the provider becomes aware that data of a person under 17 has been processed, such data will be deleted immediately and any associated account suspended.</p>
+  </div>
+
+  <!-- ⑫ Werbung -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">📢</div>
+      <div>
+        <div class="section-num de">12. Werbung (Google AdMob)</div>
+        <div class="section-num en">12. Advertising (Google AdMob)</div>
+      </div>
+    </div>
+    <p class="de">Die kostenlose Version zeigt Werbeanzeigen über Google AdMob. Pro-Abonnenten erhalten keine Werbung.</p>
+    <p class="en">The free version shows ads via Google AdMob. Pro subscribers see no ads.</p>
+    <ul>
+      <li class="de"><span class="label">Anbieter:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) · EU-US Data Privacy Framework (DPF) zertifiziert</li>
+      <li class="en"><span class="label">Provider:</span> Google LLC, 1600 Amphitheatre Pkwy, Mountain View, CA 94043, USA · EU Standard Contractual Clauses (Art. 46(2)(c) GDPR) · certified under EU-US Data Privacy Framework (DPF)</li>
+      <li class="de"><span class="label">Einwilligung (Reihenfolge):</span> (1) Google User Messaging Platform (UMP) – erscheint beim ersten App-Start für EU-Nutzer; AdMob wird erst nach Abschluss dieses Dialogs initialisiert. (2) Apple App Tracking Transparency (ATT) – erscheint anschließend einmalig; ohne ATT-Freigabe wird kein IDFA verwendet. Widerruf jederzeit: iOS-Einstellungen → Datenschutz → Tracking.</li>
+      <li class="en"><span class="label">Consent (order):</span> (1) Google User Messaging Platform (UMP) – shown on first launch for EU users; AdMob is only initialised after this dialog is completed. (2) Apple App Tracking Transparency (ATT) – shown once afterwards; without ATT authorisation no IDFA is used. Revoke at any time: iOS Settings → Privacy → Tracking.</li>
+      <li class="de"><span class="label">Mit Einwilligung:</span> Werbe-ID (IDFA), Gerätedaten – Art. 6 Abs. 1 lit. a DSGVO</li>
+      <li class="en"><span class="label">With consent:</span> Advertising ID (IDFA), device data – Art. 6(1)(a) GDPR</li>
+      <li class="de"><span class="label">Ohne Einwilligung:</span> Ausschließlich nicht-personalisierte, kontextbezogene Werbung (kein IDFA, kein Nutzer-Profiling) – Art. 6 Abs. 1 lit. f DSGVO · <em>Interessenabwägung (LIA):</em> Berechtigtes Interesse: wirtschaftliche Refinanzierung der kostenlosen App-Version. Gegenwiegende Interessen: Da ausschließlich kontextbezogene (nicht profilbasierte) Werbung ausgeliefert wird, ist der Eingriff in die Privatsphäre minimal; kein persistenter Identifier wird ohne Einwilligung verwendet. Das berechtigte Interesse überwiegt. · <strong>Widerspruchsrecht gem. Art. 21 DSGVO:</strong> Du kannst der Verarbeitung auf Basis berechtigter Interessen jederzeit per E-Mail an <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a> widersprechen.</li>
+      <li class="en"><span class="label">Without consent:</span> Non-personalised, context-based ads only (no IDFA, no user profiling) – Art. 6(1)(f) GDPR · <em>Balancing test (LIA):</em> Legitimate interest: economic funding of the free app version. Counterbalancing interests: since exclusively context-based (non-profiling) ads are served, the privacy impact is minimal; no persistent identifier is used without consent. The legitimate interest prevails. · <strong>Right to object per Art. 21 GDPR:</strong> You may object to processing based on legitimate interests at any time by emailing <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>.</li>
+      <li class="de"><span class="label">Speicherdauer:</span> Klick- und Impressionsdaten: 63 Tage (Google-Standard) · Aggregierte Berichtsdaten: bis zu 26 Monate · IDFA (mit Einwilligung): bis Widerruf der Einwilligung oder App-Deinstallation</li>
+      <li class="en"><span class="label">Retention:</span> Click and impression data: 63 days (Google default) · Aggregated report data: up to 26 months · IDFA (with consent): until consent withdrawal or app uninstall</li>
+    </ul>
+    <p class="de" style="font-size:13px"><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+    <p class="en" style="font-size:13px"><a href="https://policies.google.com/privacy" target="_blank">policies.google.com/privacy</a></p>
+  </div>
+
+  <!-- ⑬ Crash/Diagnostics (Apple-native) & Auth -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-red">🐛</div>
+      <div>
+        <div class="section-num de">13. Absturz-Berichte, Performance &amp; Authentifizierung</div>
+        <div class="section-num en">13. Crash Reports, Performance &amp; Authentication</div>
+      </div>
+    </div>
+    <p class="de" style="margin-top:16px"><strong>Absturz- &amp; Diagnoseberichte (Apple-nativ)</strong></p>
+    <p class="en" style="margin-top:16px"><strong>Crash &amp; Diagnostic Reports (Apple-native)</strong></p>
+    <p class="de">Die App verwendet <strong>kein Drittanbieter-Crash-SDK</strong> (insbesondere kein Firebase Crashlytics – es findet keine Datenübertragung an Google statt). Absturz- und Diagnosedaten werden ausschließlich über die in iOS integrierten Apple-Mechanismen erfasst und – sofern du dies in den iOS-Systemeinstellungen aktiviert hast (Einstellungen → Datenschutz &amp; Sicherheit → Analyse &amp; Verbesserungen → „Mit App-Entwicklern teilen") – von Apple verarbeitet und dem Entwickler in anonymisierter, aggregierter Form über App Store Connect bzw. Xcode bereitgestellt.</p>
+    <p class="en">The app uses <strong>no third-party crash SDK</strong> (in particular no Firebase Crashlytics – no data is transmitted to Google). Crash and diagnostic data are captured exclusively via Apple's built-in iOS mechanisms and – provided you have enabled this in iOS system settings (Settings → Privacy &amp; Security → Analytics &amp; Improvements → "Share with App Developers") – are processed by Apple and provided to the developer in anonymised, aggregated form via App Store Connect / Xcode.</p>
+    <ul>
+      <li class="de"><span class="label">Daten:</span> Absturz-Stacktraces sowie Diagnose-Metriken (Startzeit, UI-Hänger, Energie, RAM, Schreibvorgänge), Gerätemodell, iOS-Version, App-Version. <strong>Keine vom Entwickler gesetzte Nutzerkennung</strong> und keine Verknüpfung mit deinem Konto.</li>
+      <li class="en"><span class="label">Data:</span> Crash stack traces and diagnostic metrics (launch time, UI hangs, energy, RAM, disk writes), device model, iOS version, app version. <strong>No developer-set user identifier</strong> and no link to your account.</li>
+      <li class="de"><span class="label">Bereitstellung:</span> Über das Apple-Framework MetricKit als anonymisierte Tages-Batches sowie über App Store Connect → Analysen. Die Erfassung wird ausschließlich über die iOS-Systemeinstellung gesteuert.</li>
+      <li class="en"><span class="label">Delivery:</span> Via Apple's MetricKit framework as anonymised daily batches and via App Store Connect → Analytics. Collection is controlled exclusively through the iOS system setting.</li>
+    </ul>
+    <p class="de" style="font-size:13px">Für die Erhebung und Verarbeitung dieser Daten ist Apple Inc. verantwortlich (<a href="https://www.apple.com/legal/privacy/" target="_blank">Apple-Datenschutzrichtlinie</a>). Die dem Entwickler bereitgestellten Berichte sind anonymisierte Aggregate ohne Personenbezug. Rechtsgrundlage, soweit überhaupt personenbezogen: Art. 6 Abs. 1 lit. f DSGVO (berechtigtes Interesse an Stabilität und Fehlerbehebung); die Steuerung erfolgt über die iOS-Systemeinstellung.</p>
+    <p class="en" style="font-size:13px">Apple Inc. is responsible for the collection and processing of this data (<a href="https://www.apple.com/legal/privacy/" target="_blank">Apple Privacy Policy</a>). The reports provided to the developer are anonymised aggregates with no personal reference. Legal basis, insofar as personal at all: Art. 6(1)(f) GDPR (legitimate interest in stability and bug fixing); controlled via the iOS system setting.</p>
+
+    <p class="de" style="margin-top:16px"><strong>E-Mail- &amp; Passwort-Authentifizierung</strong></p>
+    <p class="en" style="margin-top:16px"><strong>Email &amp; Password Authentication</strong></p>
+    <p class="de">Die App ermöglicht die Registrierung und Anmeldung per E-Mail-Adresse und Passwort über Supabase Auth.</p>
+    <p class="en">The app allows registration and sign-in via email address and password through Supabase Auth.</p>
+    <ul>
+      <li class="de"><span class="label">Daten:</span> E-Mail-Adresse, Passwort (ausschließlich als Bcrypt-Hash gespeichert – das Klartextpasswort verlässt das Gerät nicht), Registrierungszeitstempel, Sitzungstoken</li>
+      <li class="en"><span class="label">Data:</span> Email address, password (stored exclusively as bcrypt hash – plaintext password never leaves the device), registration timestamp, session token</li>
+      <li class="de"><span class="label">Bestätigungs-E-Mail:</span> Supabase versendet nach der Registrierung eine Verifizierungs-E-Mail. Dabei verarbeitet Supabase die E-Mail-Adresse für den Versand über die eigene Mail-Infrastruktur.</li>
+      <li class="en"><span class="label">Confirmation email:</span> Supabase sends a verification email after registration. Supabase processes the email address for delivery via its own mail infrastructure.</li>
+      <li class="de"><span class="label">Speicherort:</span> Supabase Auth (EU-Server Frankfurt)</li>
+      <li class="en"><span class="label">Storage:</span> Supabase Auth (EU server Frankfurt)</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO (Vertragserfüllung / Kontoverwaltung)</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR (contract performance / account management)</p>
+
+    <p class="de" style="margin-top:16px"><strong>Anonyme Anmeldung (Gastzugang)</strong></p>
+    <p class="en" style="margin-top:16px"><strong>Anonymous Sign-In (Guest Access)</strong></p>
+    <p class="de">Die App bietet einen Gastzugang ohne Registrierung. Dabei wird von Supabase eine anonyme Sitzung mit einer zufälligen UUID erstellt.</p>
+    <p class="en">The app offers guest access without registration. Supabase creates an anonymous session with a random UUID.</p>
+    <ul>
+      <li class="de"><span class="label">Daten:</span> Anonyme UUID (kein Personenbezug), Sitzungstoken, Erstellungszeitstempel</li>
+      <li class="en"><span class="label">Data:</span> Anonymous UUID (no personal reference), session token, creation timestamp</li>
+      <li class="de"><span class="label">Löschung:</span> Automatisch nach 180 Tagen Inaktivität oder manuell über „Account löschen"</li>
+      <li class="en"><span class="label">Deletion:</span> Automatically after 180 days of inactivity or manually via "Delete Account"</li>
+      <li class="de"><span class="label">Konto-Upgrade:</span> Anonyme Konten können durch Verknüpfung einer E-Mail-Adresse in vollständige Konten umgewandelt werden</li>
+      <li class="en"><span class="label">Account upgrade:</span> Anonymous accounts can be converted to full accounts by linking an email address</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. b DSGVO</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(b) GDPR</p>
+
+    <p class="de" style="margin-top:16px"><strong>DSGVO-Audit-Log</strong></p>
+    <p class="en" style="margin-top:16px"><strong>GDPR Audit Log</strong></p>
+    <p class="de">Zur Erfüllung der Rechenschaftspflicht gemäß Art. 5 Abs. 2 DSGVO protokolliert die App datenschutzrelevante Aktionen in einer sicheren Datenbanktabelle bei Supabase.</p>
+    <p class="en">To fulfil the accountability obligation under Art. 5(2) GDPR, the app records privacy-relevant actions in a secure database table at Supabase.</p>
+    <ul>
+      <li class="de"><span class="label">Protokollierte Ereignisse:</span> Anmeldung (mit Anbieter-Typ: E-Mail, Apple, Google, Anonym), Abmeldung, Einwilligungserteilung</li>
+      <li class="en"><span class="label">Logged events:</span> Sign-in (with provider type: email, Apple, Google, anonymous), sign-out, consent granted</li>
+      <li class="de"><span class="label">Zweck:</span> Nachweis der Rechtmäßigkeit der Verarbeitung</li>
+      <li class="en"><span class="label">Purpose:</span> Evidence of lawful processing</li>
+      <li class="de"><span class="label">Speicherung:</span> Supabase (EU-Server Frankfurt) · Löschung: gleichzeitig mit Account-Löschung</li>
+      <li class="en"><span class="label">Storage:</span> Supabase (EU server Frankfurt) · Deletion: simultaneously with account deletion</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. c DSGVO (rechtliche Verpflichtung / Art. 5 Abs. 2 DSGVO)</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(c) GDPR (legal obligation / Art. 5(2) GDPR)</p>
+
+    <p class="de" style="margin-top:16px"><strong>Google Sign-In</strong></p>
+    <p class="en" style="margin-top:16px"><strong>Google Sign-In</strong></p>
+    <p class="de">Google verarbeitet Authentifizierungsdaten (ID-Token). Die App erhält nur E-Mail und Anzeigename. <span class="label">Drittland:</span> Google LLC, USA – EU-Standardvertragsklauseln · EU-US Data Privacy Framework (DPF) zertifiziert. Art. 6 Abs. 1 lit. b DSGVO. <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
+    <p class="en">Google processes authentication data (ID token). The app only receives email and display name. <span class="label">Third country:</span> Google LLC, USA – EU Standard Contractual Clauses · EU-US Data Privacy Framework (DPF) certified. Art. 6(1)(b) GDPR. <a href="https://policies.google.com/privacy">policies.google.com/privacy</a></p>
+    <p class="de" style="margin-top:16px"><strong>Apple Sign-In</strong></p>
+    <p class="en" style="margin-top:16px"><strong>Apple Sign-In</strong></p>
+    <p class="de">Apple verarbeitet Authentifizierungsdaten eigenständig. Die App erhält optional eine maskierte E-Mail-Adresse. Art. 6 Abs. 1 lit. b DSGVO. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
+    <p class="en">Apple processes authentication data independently. The app optionally receives a masked email address. Art. 6(1)(b) GDPR. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
+
+    <p class="de" style="margin-top:16px"><strong>Apple StoreKit / In-App-Käufe</strong></p>
+    <p class="en" style="margin-top:16px"><strong>Apple StoreKit / In-App Purchases</strong></p>
+    <p class="de">Käufe und Abonnements werden ausschließlich über Apple StoreKit abgewickelt. Die App erhält von Apple lediglich den Entitlement-Status (Pro-Abonnement aktiv: ja/nein). Apple verarbeitet alle Zahlungsdaten gemäß eigener Datenschutzrichtlinie. Im Cloud-Konto wird der Pro-Status als Boolean-Wert gespeichert. Art. 6 Abs. 1 lit. b DSGVO. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
+    <p class="en">Purchases and subscriptions are processed exclusively via Apple StoreKit. The app only receives the entitlement status from Apple (Pro subscription active: yes/no). Apple processes all payment data per its own privacy policy. The Pro status is stored as a boolean value in the cloud account. Art. 6(1)(b) GDPR. <a href="https://apple.com/legal/privacy">apple.com/legal/privacy</a></p>
+  </div>
+
+  <!-- ⑭ Speicherdauern -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-indigo">⏱️</div>
+      <div>
+        <div class="section-num de">14. Speicherdauern</div>
+        <div class="section-num en">14. Retention Periods</div>
+      </div>
+    </div>
+    <table class="data-table de">
+      <tr><th>Datenkategorie</th><th>Speicherdauer</th></tr>
+      <tr><td>Lokale Fahrtdaten (inkl. GPS-Punkte)</td><td>Bis manuelle Löschung / App-Deinstallation</td></tr>
+      <tr><td>CoreMotion-Rohdaten (25 Hz Beschleunigung/Gyroskop)</td><td>Automatisch nach 2 Jahren gelöscht; der berechnete Driving Score bleibt erhalten</td></tr>
+      <tr><td>GPS-Punkte &amp; Sensordaten (iCloud CloudKit)</td><td>Bis App-Deinstallation oder manuelle Löschung in iCloud-Einstellungen</td></tr>
+      <tr><td>Fahrt-Metadaten (Supabase, ohne GPS)</td><td>Bis Account-Löschung; Soft-Delete → 30 Tage</td></tr>
+      <tr><td>Fahrzeugprofile (Supabase)</td><td>Bis Account-Löschung</td></tr>
+      <tr><td>Nutzerprofil (E-Mail, Name)</td><td>Bis Account-Löschung (innerhalb 30 Tagen)</td></tr>
+      <tr><td>Authentifizierungsdaten (Passwort-Hash, Sitzungstoken) – Supabase Auth</td><td>Bis Account-Löschung; Sitzungstoken: bis Ablauf / Abmeldung</td></tr>
+      <tr><td>Anonyme Konten (inaktiv)</td><td>Automatisch nach 180 Tagen Inaktivität</td></tr>
+      <tr><td>Analytics (PostHog, Opt-In)</td><td>Anonymisiert, max. 12 Monate</td></tr>
+      <tr><td>Werbedaten AdMob (Klicks/Impressionen)</td><td>63 Tage · Aggregierte Berichte: bis 26 Monate · IDFA (mit Einwilligung): bis Widerruf</td></tr>
+      <tr><td>Kraftstoffpreise (Favorit-Tankstelle)</td><td>Lokaler Cache auf dem Gerät — gelöscht über Einstellungen → Datenschutz → „Tankstellen-Cache löschen" oder bei Deinstallation</td></tr>
+      <tr><td>Absturz- &amp; Diagnoseberichte (Apple-nativ, MetricKit)</td><td>Anonymisierte Aggregate durch Apple; keine entwicklerseitige Speicherung mit Personenbezug</td></tr>
+      <tr><td>Abonnement-Status (Pro-Flag)</td><td>Bis Account-Löschung; Apple StoreKit: gem. Apple-Richtlinie</td></tr>
+      <tr><td>DSGVO-Audit-Log</td><td>Bis Account-Löschung</td></tr>
+      <tr><td>Anonyme Geräte-ID (Analytics)</td><td>Bis App-Deinstallation</td></tr>
+    </table>
+    <table class="data-table en">
+      <tr><th>Data category</th><th>Retention period</th></tr>
+      <tr><td>Local trip data (incl. GPS points)</td><td>Until manual deletion / app uninstall</td></tr>
+      <tr><td>CoreMotion raw data (25 Hz acceleration/gyroscope)</td><td>Automatically deleted after 2 years; the calculated driving score is retained</td></tr>
+      <tr><td>GPS points &amp; sensor data (iCloud CloudKit)</td><td>Until app uninstall or manual deletion in iCloud settings</td></tr>
+      <tr><td>Trip metadata (Supabase, no GPS)</td><td>Until account deletion; soft-deleted → 30 days</td></tr>
+      <tr><td>Vehicle profiles (Supabase)</td><td>Until account deletion</td></tr>
+      <tr><td>User profile (email, name)</td><td>Until account deletion (within 30 days)</td></tr>
+      <tr><td>Authentication data (password hash, session token) – Supabase Auth</td><td>Until account deletion; session token: until expiry / sign-out</td></tr>
+      <tr><td>Anonymous accounts (inactive)</td><td>Automatically after 180 days of inactivity</td></tr>
+      <tr><td>Analytics (PostHog, opt-in)</td><td>Anonymized, max. 12 months</td></tr>
+      <tr><td>Ad data AdMob (clicks/impressions)</td><td>63 days · Aggregated reports: up to 26 months · IDFA (with consent): until withdrawal</td></tr>
+      <tr><td>Fuel prices (favourite station)</td><td>Local cache on device — deleted via Settings → Privacy → "Clear station cache" or on uninstall</td></tr>
+      <tr><td>Crash &amp; diagnostic reports (Apple-native, MetricKit)</td><td>Anonymised aggregates by Apple; no developer-side storage with personal reference</td></tr>
+      <tr><td>Subscription status (Pro flag)</td><td>Until account deletion; Apple StoreKit: per Apple policy</td></tr>
+      <tr><td>GDPR audit log</td><td>Until account deletion</td></tr>
+      <tr><td>Anonymous device ID (analytics)</td><td>Until app uninstall</td></tr>
+    </table>
+  </div>
+
+  <!-- ⑮ Auftragsverarbeiter -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">📋</div>
+      <div>
+        <div class="section-num de">15. Auftragsverarbeiter (Art. 28 DSGVO)</div>
+        <div class="section-num en">15. Data Processors (Art. 28 GDPR)</div>
+      </div>
+    </div>
+    <p class="de">Die App übermittelt Daten an folgende Auftragsverarbeiter. Alle Anbieter wurden gemäß Art. 28 DSGVO vertraglich gebunden:</p>
+    <p class="en">The app transmits data to the following data processors. All providers are contractually bound pursuant to Art. 28 GDPR:</p>
+    <ul class="de">
+      <li>
+        <strong>PostHog Inc.</strong> (EU-Server Frankfurt, eu.posthog.com)<br>
+        Zweck: Anonyme Nutzungsanalytik — ausschließlich bei aktivem Opt-In des Nutzers.<br>
+        <a href="https://posthog.com/privacy" target="_blank">Datenschutz: posthog.com/privacy</a>
+      </li>
+      <li>
+        <strong>Google Ireland Ltd.</strong> (Dublin, Irland)<br>
+        Zweck: AdMob-Werbung (nur Free-Nutzer, ausschließlich nach UMP-Einwilligung) sowie Google Sign-In (Authentifizierung).<br>
+        <a href="https://policies.google.com/privacy" target="_blank">Datenschutz: policies.google.com/privacy</a>
+      </li>
+      <li>
+        <strong>Supabase Inc.</strong> (EU-Region Frankfurt, AWS eu-central-1)<br>
+        Zweck: Account-Metadaten (kein GPS, keine Bewegungsdaten), verschlüsselt gespeichert. SOC 2 Type II zertifiziert.<br>
+        <a href="https://supabase.com/privacy" target="_blank">Datenschutz: supabase.com/privacy</a>
+      </li>
+      <li>
+        <strong>Tankerkönig</strong> (creativecommons.tankerkoenig.de, Deutschland, Markant Handels GmbH &amp; Co. KG)<br>
+        Zweck: Abruf aktueller Kraftstoffpreise. Es werden gerundete Koordinaten übermittelt (±1,1 km Genauigkeit). Keine personenbezogenen Daten im engeren Sinne.
+      </li>
+      <li>
+        <strong>Open-Meteo</strong> (open-meteo.com, Schweiz)<br>
+        Zweck: Wetterdaten beim Fahrtabschluss für die physikalische Verbrauchsberechnung. Übermittelt werden gerundete Koordinaten und Fahrtdatum. Keine persistente Nutzerkennung.<br>
+        <a href="https://open-meteo.com/en/terms" target="_blank">Datenschutz: open-meteo.com/en/terms</a>
+      </li>
+      <li>
+        <strong>OpenStreetMap Overpass API</strong> (overpass-api.de / overpass.kumi.systems, Deutschland/EU)<br>
+        Zweck: Tempolimit-Abfragen während aktiver Fahrt (Pro-Funktion) sowie Tankstellen-Suche. Übermittelt werden gerundete Koordinaten (±1,1 km). Keine Nutzerkennung.<br>
+        <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Datenschutz: osmfoundation.org/wiki/Privacy_Policy</a>
+      </li>
+      <li>
+        <strong>Open Charge Map Ltd.</strong> (api.openchargemap.io, Vereinigtes Königreich – eigenständiger Verantwortlicher)<br>
+        Zweck: Anzeige von EV-Ladestationen in der Nähe (optional, nur auf Nutzerwunsch). Übermittelt werden präzise Koordinaten und Suchradius. Keine Nutzerkennung.<br>
+        <a href="https://openchargemap.org/site/about/privacy" target="_blank">Datenschutz: openchargemap.org/site/about/privacy</a>
+      </li>
+      <li>
+        <strong>Apple Inc.</strong> (Cupertino, USA – Karten-, Geocoding- &amp; Routendienste / MapKit; eigenständiger Verantwortlicher)<br>
+        Zweck: Karten-Anzeige, Adress-/Zielsuche und Routenberechnung im optionalen Navi-Modus. Übermittelt werden Suchanfragen, Start-/Zielkoordinaten und die Geräte-IP. Apple verwendet nach eigenen Angaben rotierende Kennungen ohne Verknüpfung zur Apple-ID.<br>
+        <a href="https://www.apple.com/legal/privacy/" target="_blank">Datenschutz: apple.com/legal/privacy</a>
+      </li>
+    </ul>
+    <p class="de">Datenübertragungen in Drittstaaten (USA): Übertragungen zu PostHog Inc., Google LLC und Apple Inc. erfolgen auf Grundlage der EU-Standardvertragsklauseln (SCCs) gemäß Art. 46 Abs. 2 lit. c DSGVO bzw. – für die Apple-Kartendienste – auf Grundlage der Apple-Datenschutzrichtlinie. Für das Vereinigte Königreich (Open Charge Map) besteht ein Angemessenheitsbeschluss der EU-Kommission (Art. 45 DSGVO). Kopien der SCCs können auf Anfrage zur Verfügung gestellt werden.</p>
+    <ul class="en">
+      <li>
+        <strong>PostHog Inc.</strong> (EU server Frankfurt, eu.posthog.com)<br>
+        Purpose: Anonymous usage analytics — exclusively when the user has actively opted in.<br>
+        <a href="https://posthog.com/privacy" target="_blank">Privacy: posthog.com/privacy</a>
+      </li>
+      <li>
+        <strong>Google Ireland Ltd.</strong> (Dublin, Ireland)<br>
+        Purpose: AdMob advertising (free users only, exclusively after UMP consent) and Google Sign-In (authentication).<br>
+        <a href="https://policies.google.com/privacy" target="_blank">Privacy: policies.google.com/privacy</a>
+      </li>
+      <li>
+        <strong>Supabase Inc.</strong> (EU region Frankfurt, AWS eu-central-1)<br>
+        Purpose: Account metadata (no GPS, no motion data), stored encrypted. SOC 2 Type II certified.<br>
+        <a href="https://supabase.com/privacy" target="_blank">Privacy: supabase.com/privacy</a>
+      </li>
+      <li>
+        <strong>Tankerkönig</strong> (creativecommons.tankerkoenig.de, Germany, Markant Handels GmbH &amp; Co. KG)<br>
+        Purpose: Retrieval of current fuel prices. Rounded coordinates are transmitted (±1.1 km accuracy). No personal data in the strict sense.
+      </li>
+      <li>
+        <strong>Open-Meteo</strong> (open-meteo.com, Switzerland)<br>
+        Purpose: Weather data at trip completion for physical fuel consumption calculation. Rounded coordinates and trip date are transmitted. No persistent user identifier.<br>
+        <a href="https://open-meteo.com/en/terms" target="_blank">Privacy: open-meteo.com/en/terms</a>
+      </li>
+      <li>
+        <strong>OpenStreetMap Overpass API</strong> (overpass-api.de / overpass.kumi.systems, Germany/EU)<br>
+        Purpose: Speed limit queries during active trips (Pro feature) and petrol station search. Rounded coordinates are transmitted (±1.1 km). No user identifier.<br>
+        <a href="https://osmfoundation.org/wiki/Privacy_Policy" target="_blank">Privacy: osmfoundation.org/wiki/Privacy_Policy</a>
+      </li>
+      <li>
+        <strong>Open Charge Map Ltd.</strong> (api.openchargemap.io, United Kingdom – independent controller)<br>
+        Purpose: Displaying nearby EV charging stations (optional, only on user request). Precise coordinates and search radius are transmitted. No user identifier.<br>
+        <a href="https://openchargemap.org/site/about/privacy" target="_blank">Privacy: openchargemap.org/site/about/privacy</a>
+      </li>
+      <li>
+        <strong>Apple Inc.</strong> (Cupertino, USA – maps, geocoding &amp; routing / MapKit; independent controller)<br>
+        Purpose: Map display, address/destination search and route calculation in the optional navigation mode. Search queries, start/destination coordinates and the device IP are transmitted. Per Apple, rotating identifiers are used with no link to your Apple ID.<br>
+        <a href="https://www.apple.com/legal/privacy/" target="_blank">Privacy: apple.com/legal/privacy</a>
+      </li>
+    </ul>
+    <p class="en">Transfers to third countries (USA): Transfers to PostHog Inc., Google LLC and Apple Inc. are made on the basis of EU Standard Contractual Clauses (SCCs) pursuant to Art. 46(2)(c) GDPR or – for the Apple map services – on the basis of Apple's Privacy Policy. For the United Kingdom (Open Charge Map), an EU Commission adequacy decision applies (Art. 45 GDPR). Copies of the SCCs are available on request.</p>
+  </div>
+
+  <!-- ⑮b Profiling & Art. 22 -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-orange">🤖</div>
+      <div>
+        <div class="section-num de">15b. Profilbildung &amp; automatisierte Entscheidungen (Art. 13 Abs. 2 lit. f DSGVO)</div>
+        <div class="section-num en">15b. Profiling &amp; Automated Decisions (Art. 13(2)(f) GDPR)</div>
+      </div>
+    </div>
+    <p class="de">Die App erstellt auf Basis der GPS- und Bewegungssensordaten einer Fahrt automatisiert einen <strong>Fahrerscore</strong> (0–100). Dieser Score bewertet Fahrstil-Aspekte wie Beschleunigungsverhalten, Bremsmanöver, Kurvenfahrten und Geschwindigkeitskonsistenz. Dies stellt eine <strong>Profilbildung</strong> im Sinne von Art. 4 Nr. 4 DSGVO dar.</p>
+    <p class="en">The app automatically generates a <strong>driving score</strong> (0–100) based on GPS and motion sensor data from each trip. This score evaluates driving style aspects such as acceleration behaviour, braking, cornering, and speed consistency. This constitutes <strong>profiling</strong> within the meaning of Art. 4(4) GDPR.</p>
+    <ul>
+      <li class="de"><span class="label">Zweck:</span> Rückmeldung über den eigenen Fahrstil, ausschließlich zur persönlichen Information</li>
+      <li class="en"><span class="label">Purpose:</span> Feedback about your driving style, exclusively for personal information</li>
+      <li class="de"><span class="label">Logik:</span> Gewichtete Berechnung aus Sensor-Rohdaten ausschließlich lokal auf deinem Gerät. Der Score verlässt das Gerät nur via iCloud (CloudKit) im eigenen Apple-Account – er gelangt nie zu Supabase oder Drittanbietern.</li>
+      <li class="en"><span class="label">Logic:</span> Weighted calculation from raw sensor data exclusively locally on your device. The score only leaves the device via iCloud (CloudKit) within your own Apple account – it never reaches Supabase or any third party.</li>
+      <li class="de"><span class="label">Auswirkung:</span> Der Score hat <strong>keine rechtlichen Folgen</strong> und dient ausschließlich der persönlichen Information des Nutzers. Es werden keine Entscheidungen auf Basis des Scores getroffen, die rechtliche Wirkung entfalten oder dich in ähnlicher Weise erheblich beeinträchtigen (Art. 22 Abs. 1 DSGVO nicht anwendbar).</li>
+      <li class="en"><span class="label">Impact:</span> The score has <strong>no legal consequences</strong> and serves solely for the user's personal information. No decisions are made based on the score that produce legal effects or similarly significantly affect you (Art. 22(1) GDPR not applicable).</li>
+    </ul>
+    <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung via iOS-Standort- und Bewegungsberechtigung)</p>
+    <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR (consent via iOS location and motion permission)</p>
+    <p class="de" style="margin-top:16px"><strong>On-Device-KI (optionaler „Race Coach")</strong></p>
+    <p class="en" style="margin-top:16px"><strong>On-Device AI (optional "Race Coach")</strong></p>
+    <p class="de">Die optionale Funktion „Race Coach" erzeugt aus deinen Mess- und Fahrtdaten kurze textuelle Hinweise mithilfe des <strong>geräteinternen Apple-Foundation-Modells</strong> (Apple Intelligence). Die Verarbeitung erfolgt <strong>ausschließlich lokal auf deinem Gerät</strong>; hierfür werden keine Daten an den Entwickler oder an Dritte übertragen. Die Funktion ist nur auf unterstützten Geräten mit aktivierter Apple Intelligence verfügbar.</p>
+    <p class="en">The optional "Race Coach" feature generates short textual hints from your measurement and trip data using Apple's <strong>on-device foundation model</strong> (Apple Intelligence). Processing happens <strong>exclusively locally on your device</strong>; no data is transmitted to the developer or any third party for this purpose. The feature is only available on supported devices with Apple Intelligence enabled.</p>
+  </div>
+
+  <!-- ⑯ Änderungen -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-indigo">🔄</div>
+      <div>
+        <div class="section-num de">16. Änderungen</div>
+        <div class="section-num en">16. Changes</div>
+      </div>
+    </div>
+    <p class="de">Diese Datenschutzerklärung kann bei App-Updates angepasst werden. Das Datum der letzten Änderung ist stets oben angegeben. Bei wesentlichen Änderungen wird in der App informiert. Aktuelle Version: Einstellungen → Datenschutzerklärung.</p>
+    <p class="en">This policy may be updated with app updates. The date of the last change is always shown at the top. Users are notified in-app about material changes. Current version: Settings → Privacy Policy.</p>
+  </div>
+
+  <!-- ⑰ Website-Hinweis (TDDDG) -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-blue">🌐</div>
+      <div>
+        <div class="section-num de">17. Website-Hinweis (TDDDG §25)</div>
+        <div class="section-num en">17. Website Notice (TDDDG §25)</div>
+      </div>
+    </div>
+    <p class="de">Diese Datenschutz-Website (privacy-policy.html) speichert über JavaScript <strong>ausschließlich</strong> deine Sprachauswahl (Deutsch/Englisch) im lokalen Speicher deines Browsers (<code>localStorage</code>). Dieser Speicherzugriff ist gemäß § 25 Abs. 2 Nr. 2 TDDDG unbedingt erforderlich, um die gewählte Sprache über den Seitenaufruf hinaus zu erhalten, und erfordert daher keine separate Einwilligung. Es werden keine Tracking-Cookies, Werbe-Cookies oder Analyse-Cookies auf dieser Website eingesetzt.</p>
+    <p class="en">This privacy policy page (privacy-policy.html) uses JavaScript to store <strong>only</strong> your language selection (German/English) in your browser's local storage (<code>localStorage</code>). This storage access is strictly necessary under §25(2)(2) TDDDG to retain your chosen language across page loads and therefore requires no separate consent. No tracking cookies, advertising cookies or analytics cookies are used on this website.</p>
+  </div>
+
+  <!-- ⑱ Website-Hosting -->
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon icon-indigo">🖥️</div>
+      <div>
+        <div class="section-num de">18. Website-Hosting (GitHub Pages)</div>
+        <div class="section-num en">18. Website Hosting (GitHub Pages)</div>
+        <div class="section-title de">Infrastruktur dieser Website</div>
+        <div class="section-title en">Website Infrastructure</div>
+      </div>
+    </div>
+    <p class="de">Diese Website wird über den Dienst <strong>GitHub Pages</strong> der GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) – einer Tochtergesellschaft der Microsoft Corporation – bereitgestellt. Beim Abruf der Website werden technische Zugriffsdaten (<strong>IP-Adresse, Datum/Uhrzeit, aufgerufene Seite, Browser-Typ, Betriebssystem</strong>) in Server-Logs von GitHub verarbeitet. Diese Verarbeitung ist für den technischen Betrieb der Website unerlässlich.</p>
+    <p class="en">This website is hosted via <strong>GitHub Pages</strong> by GitHub, Inc. (88 Colin P Kelly Jr St, San Francisco, CA 94107, USA) – a subsidiary of Microsoft Corporation. When you access the website, technical access data (<strong>IP address, date/time, page accessed, browser type, operating system</strong>) is processed in GitHub's server logs. This processing is essential for the technical operation of the website.</p>
+    <ul>
+      <li class="de"><span class="label">Rechtsgrundlage:</span> Art. 6 Abs. 1 lit. f DSGVO – berechtigtes Interesse an der Bereitstellung und dem sicheren Betrieb der Website</li>
+      <li class="en"><span class="label">Legal basis:</span> Art. 6(1)(f) GDPR – legitimate interest in providing and securely operating the website</li>
+      <li class="de"><span class="label">Drittlandübermittlung:</span> GitHub, Inc. (USA) – Datenübermittlung auf Basis von EU-Standardvertragsklauseln (Art. 46 Abs. 2 lit. c DSGVO) und GitHub's Data Processing Agreement (DPA)</li>
+      <li class="en"><span class="label">Third-country transfer:</span> GitHub, Inc. (USA) – data transfer based on EU Standard Contractual Clauses (Art. 46(2)(c) GDPR) and GitHub's Data Processing Agreement (DPA)</li>
+      <li class="de"><span class="label">Speicherdauer:</span> Gemäß GitHub-Datenschutzrichtlinie (üblicherweise max. 90 Tage Server-Logs)</li>
+      <li class="en"><span class="label">Retention:</span> According to GitHub's privacy policy (typically max. 90 days for server logs)</li>
+      <li class="de"><span class="label">Auftragsverarbeitung:</span> GitHub agiert als Auftragsverarbeiter gemäß Art. 28 DSGVO; ein DPA ist mit GitHub abgeschlossen</li>
+      <li class="en"><span class="label">Data processing agreement:</span> GitHub acts as a data processor under Art. 28 GDPR; a DPA is in place with GitHub</li>
+    </ul>
+    <p class="de" style="font-size:13px">GitHub Datenschutzerklärung: <a href="https://docs.github.com/de/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">docs.github.com · GitHub Privacy Statement</a></p>
+    <p class="en" style="font-size:13px">GitHub Privacy Statement: <a href="https://docs.github.com/en/site-policy/privacy-policies/github-general-privacy-statement" target="_blank" rel="noopener">docs.github.com · GitHub Privacy Statement</a></p>
+    <p class="de" style="font-size:13px; margin-top:8px"><strong>Kein eigener Tracking-Code:</strong> Der Websitebetreiber setzt auf dieser Website <strong>keine eigenen Analyse-, Werbe- oder Tracking-Cookies</strong> ein. Die einzige First-Party-Speicherung ist die Sprachauswahl im localStorage (§17).</p>
+    <p class="en" style="font-size:13px; margin-top:8px"><strong>No tracking code:</strong> The website operator does <strong>not use any analytics, advertising, or tracking cookies</strong> on this website. The only first-party storage is the language preference in localStorage (§17).</p>
+  </div>
+
+  <!-- Contact -->
+  <div class="contact-block">
+    <p style="font-size:32px; margin-bottom:12px">🔒</p>
+    <p class="de" style="font-weight:700; color:var(--text); font-size:16px; margin-bottom:8px">Fragen zum Datenschutz?</p>
+    <p class="en" style="font-weight:700; color:var(--text); font-size:16px; margin-bottom:8px">Questions about Privacy?</p>
+    <p class="de" style="color:var(--muted); margin-bottom:16px">Wende dich jederzeit an:</p>
+    <p class="en" style="color:var(--muted); margin-bottom:16px">Feel free to contact me anytime:</p>
+    <a href="mailto:contact@melnychuk-anton.de" class="contact-link">contact@melnychuk-anton.de</a>
+    <p class="de" style="color:var(--muted); font-size:13px; margin-top:12px">Antwortzeit in der Regel innerhalb von 72 Stunden</p>
+    <p class="en" style="color:var(--muted); font-size:13px; margin-top:12px">Response time is usually within 72 hours</p>
+  </div>
+
+</div><!-- /.container -->
+
+<footer class="footer">
+  <p>
+    <a href="index.html">Home</a> ·
+    <a href="support.html" class="de">Support & Kontakt</a>
+    <a href="support.html" class="en">Support & Contact</a> ·
+    <a href="agb.html">AGB / Terms</a> ·
+    <a href="impressum.html">Impressum</a> ·
+    <a href="privacy-policy.html">Datenschutz / Privacy</a>
+  </p>
+  <p style="margin-top:8px">© 2026 Anton Melnychuk · Auto Performance Tracker</p>
+</footer>
+
+<script>
+// ── Language Switch ──────────────────────────────
+// CSS handles visibility via html[data-lang] selector — no inline styles needed
+let currentLang = localStorage.getItem('apt_lang') || 'de';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('apt_lang', lang);
+  document.documentElement.lang = lang;
+  document.documentElement.dataset.lang = lang;
+  document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
+    b.classList.toggle('active', b.id === 'btn-' + lang);
+  });
+}
+setLang(currentLang);
+</script>
+
+<!-- ARCHIV-HINWEIS (automatisch eingefügt, Inhalt der Fassung unverändert) -->
+<style>body{padding-bottom:84px !important}</style>
+<div role="note" style="position:fixed;left:0;right:0;bottom:0;z-index:100000;background:#F59E0B;color:#111;font:600 14px/1.45 -apple-system,BlinkMacSystemFont,'Helvetica Neue',sans-serif;padding:12px 16px;text-align:center;box-shadow:0 -4px 16px rgba(0,0,0,.35)">⚠️ Archivierte Fassung – gültig vom 09.08.2026 bis 18.10.2026. Nicht mehr aktuell. <a href="privacy-policy.html" style="color:#111;text-decoration:underline">Aktuelle Fassung</a> · <a href="archiv/index.html" style="color:#111;text-decoration:underline">Alle Fassungen</a><br><span style="font-weight:500">Archived version – valid from 2026-08-09 to 2026-10-18. No longer current.</span></div>
+</body>
+</html>

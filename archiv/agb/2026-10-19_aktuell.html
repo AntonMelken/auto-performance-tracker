@@ -1,0 +1,533 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <base href="../../">
+  <meta name="robots" content="noindex, follow">
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title class="de">AGB – Auto Performance Tracker</title>
+  <meta name="description" content="Terms and Conditions / Allgemeine Geschäftsbedingungen – Auto Performance Tracker by Anton Melnychuk. Valid from March 2026.">
+  <style>
+    :root {
+      --bg:       #080C14;
+      --bg2:      #0D1420;
+      --card:     #111827;
+      --card2:    #1A2336;
+      --border:   rgba(255,255,255,0.07);
+      --cyan:     #22D3EE;
+      --cyan2:    #06B6D4;
+      --green:    #22C55E;
+      --amber:    #F59E0B;
+      --text:     #F1F5F9;
+      --muted:    #94A3B8;
+      --radius:   18px;
+      --radius-sm:12px;
+    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    body {
+      font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text',
+                   'Helvetica Neue', 'Segoe UI', sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.75;
+      font-size: 15px;
+    }
+
+    /* ── Nav ── */
+    nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 999;
+      padding: 0 24px;
+      height: 64px;
+      display: flex; align-items: center; justify-content: space-between;
+      background: rgba(8,12,20,0.75);
+      backdrop-filter: blur(20px) saturate(180%);
+      -webkit-backdrop-filter: blur(20px) saturate(180%);
+      border-bottom: 1px solid var(--border);
+      transition: all 0.3s;
+    }
+    .nav-logo {
+      display: flex; align-items: center; gap: 10px;
+      font-weight: 700; font-size: 1.05rem;
+      text-decoration: none; color: var(--text);
+    }
+    .nav-logo img { width: 32px; height: 32px; border-radius: 8px; }
+    .nav-right { display: flex; align-items: center; gap: 20px; }
+    .nav-links { display: flex; gap: 20px; align-items: center; }
+    .nav-links a {
+      color: var(--muted); font-size: 0.85rem; font-weight: 500;
+      text-decoration: none; transition: color .2s;
+    }
+    .nav-links a:hover { color: var(--text); }
+    .nav-links a.active { color: var(--cyan); font-weight: 600; }
+    .lang-switcher { display: flex; gap: 6px; }
+    .lang-btn {
+      background: rgba(255,255,255,0.05);
+      border: 1px solid rgba(255,255,255,0.12);
+      border-radius: 6px; padding: 4px 10px;
+      font-size: 0.75rem; font-weight: 600;
+      color: var(--muted); cursor: pointer; transition: all .2s;
+    }
+    .lang-btn.active {
+      background: rgba(34,211,238,0.15);
+      border-color: rgba(34,211,238,0.4);
+      color: var(--cyan);
+    }
+    .lang-btn:not(.active):hover { color: var(--text); }
+
+    /* ── Layout ── */
+    .container {
+      max-width: 760px; margin: 0 auto;
+      padding: 112px 24px 96px;
+    }
+
+    /* ── Page header ── */
+    .page-header { margin-bottom: 48px; }
+    .page-header h1 {
+      font-size: 28px; font-weight: 800; color: var(--text); margin-bottom: 8px;
+    }
+    .page-header p { color: var(--muted); font-size: 14px; }
+    .law-badge {
+      display: inline-flex; align-items: center; gap: 6px;
+      margin-top: 14px;
+      background: rgba(34,211,238,0.1);
+      border: 1px solid rgba(34,211,238,0.25);
+      border-radius: 50px; padding: 5px 14px;
+      font-size: 0.72rem; font-weight: 700;
+      letter-spacing: 0.1em; text-transform: uppercase;
+      color: var(--cyan);
+    }
+
+    /* ── TOC ── */
+    .toc-bar {
+      display: flex; gap: 6px; flex-wrap: wrap;
+      padding: 16px 20px;
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius-sm);
+      margin-bottom: 28px;
+    }
+    .toc-bar a {
+      font-size: 0.7rem; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.06em; color: var(--muted);
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.07);
+      border-radius: 50px; padding: 4px 10px;
+      text-decoration: none; transition: all 0.2s; white-space: nowrap;
+    }
+    .toc-bar a:hover { color: var(--cyan); border-color: rgba(34,211,238,0.3); background: rgba(34,211,238,0.07); }
+
+    /* ── AGB Paragraphs ── */
+    .agb-para {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 22px 24px;
+      margin-bottom: 14px;
+      scroll-margin-top: 88px;
+    }
+    .agb-para:last-child { margin-bottom: 0; }
+    .agb-para-title {
+      display: flex; align-items: center; gap: 10px;
+      margin-bottom: 14px;
+    }
+    .agb-para-num {
+      background: rgba(34,211,238,0.15);
+      color: var(--cyan);
+      font-size: 0.68rem; font-weight: 800;
+      letter-spacing: 0.08em; text-transform: uppercase;
+      padding: 3px 9px; border-radius: 6px; flex-shrink: 0;
+    }
+    .agb-para-heading {
+      font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.08em;
+      color: var(--cyan);
+    }
+    .agb-text { font-size: 14px; color: var(--muted); line-height: 1.75; }
+    .agb-text p { margin-bottom: 10px; }
+    .agb-text p:last-child { margin-bottom: 0; }
+    .agb-text a { color: var(--cyan); }
+    .agb-text strong { color: var(--text); }
+    .agb-info-box {
+      background: rgba(34,211,238,0.06);
+      border: 1px solid rgba(34,211,238,0.18);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin: 10px 0;
+      font-size: 13px; color: var(--muted); line-height: 1.6;
+    }
+    .agb-warn-box {
+      background: rgba(245,158,11,0.07);
+      border: 1px solid rgba(245,158,11,0.22);
+      border-radius: 10px;
+      padding: 12px 16px;
+      margin: 10px 0;
+      display: flex; gap: 10px;
+      font-size: 13px; color: #FCD34D; line-height: 1.6;
+    }
+    .agb-items {
+      list-style: none; padding: 0; margin: 10px 0 0;
+      display: flex; flex-direction: column; gap: 7px;
+    }
+    .agb-items li {
+      display: flex; gap: 10px; align-items: flex-start;
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.05);
+      border-radius: 9px;
+      padding: 8px 12px;
+      font-size: 13px; color: var(--muted); line-height: 1.55;
+    }
+    .agb-items li .n {
+      flex-shrink: 0; width: 20px; height: 20px;
+      background: rgba(34,211,238,0.14); color: var(--cyan);
+      border-radius: 5px; display: flex; align-items: center;
+      justify-content: center; font-size: 10px; font-weight: 800; margin-top: 1px;
+    }
+    .agb-sub-label {
+      font-size: 11px; font-weight: 700; text-transform: uppercase;
+      letter-spacing: 0.07em; color: var(--cyan);
+      margin: 14px 0 6px; display: block;
+    }
+
+    /* ── Footer ── */
+    .footer {
+      margin-top: 64px; padding-top: 32px;
+      border-top: 1px solid var(--border);
+      text-align: center; color: var(--muted); font-size: 13px;
+    }
+    .footer a { color: var(--cyan); text-decoration: none; }
+    .footer a:hover { text-decoration: underline; }
+
+    /* ── Language visibility ── */
+    html:not([data-lang="en"]) .en { display: none; }
+    html[data-lang="en"] .de { display: none; }
+
+    @media (max-width: 600px) {
+      .container { padding: 96px 16px 80px; }
+      .agb-para { padding: 16px; }
+      .nav-links { display: none; }
+      nav { padding: 0 16px; }
+    }
+  </style>
+  <script>document.documentElement.dataset.lang = localStorage.getItem('apt_lang') || 'de';</script>
+</head>
+<body>
+
+<nav aria-label="Legal navigation">
+  <a class="nav-logo" href="index.html">
+    <img src="AppIcon-1024.png" alt="Auto Performance Tracker Logo">
+    Auto Performance Tracker
+  </a>
+  <div class="nav-right">
+    <div class="nav-links">
+      <a href="support.html" class="de">Support & Kontakt</a>
+      <a href="support.html" class="en">Support & Contact</a>
+      <a href="agb.html" class="active de">AGB</a>
+      <a href="agb.html" class="active en">Terms</a>
+      <a href="impressum.html" class="de">Impressum</a>
+      <a href="impressum.html" class="en">Legal Notice</a>
+      <a href="datenschutz-website.html" class="de">Datenschutz</a>
+      <a href="datenschutz-website.html" class="en">Privacy</a>
+    </div>
+    <div class="lang-switcher">
+      <button class="lang-btn active" id="btn-de" onclick="setLang('de')">🇩🇪 DE</button>
+      <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+    </div>
+  </div>
+</nav>
+
+<div class="container">
+
+  <div class="page-header">
+    <h1 class="de">Allgemeine Geschäftsbedingungen</h1>
+    <h1 class="en">Terms and Conditions</h1>
+    <p class="de">Auto Performance Tracker · §§ 305 ff. BGB</p>
+    <p class="en">Auto Performance Tracker · German Civil Code §§ 305 ff. BGB</p>
+    <div class="law-badge de">📋 Stand: 19. Oktober 2026</div>
+    <div class="law-badge en">📋 Valid from: 19 October 2026</div>
+  </div>
+
+  <!-- §1 -->
+  <div class="agb-para" id="agb1">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 1</span>
+      <span class="agb-para-heading de">Geltungsbereich und Vertragsparteien</span>
+      <span class="agb-para-heading en">Scope and Contracting Parties</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Diese Allgemeinen Geschäftsbedingungen (<strong>„AGB"</strong>) gelten für die Nutzung der App <strong>Auto Performance Tracker</strong>, bereitgestellt von:</p>
+      <p class="en">These Terms and Conditions (<strong>"Terms"</strong>) govern the use of the app <strong>Auto Performance Tracker</strong>, provided by:</p>
+      <div class="agb-info-box">
+        <strong style="color:var(--text)">Anton Melnychuk</strong><br>
+        Heppenheimer Straße 39, 64658 Fürth im Odenwald, Deutschland<br>
+        E-Mail: <a href="mailto:contact@melnychuk-anton.de">contact@melnychuk-anton.de</a>
+      </div>
+      <p class="de" style="margin-top:10px">Die App richtet sich an Privatpersonen zu <strong>nicht gewerblichen Zwecken</strong>.</p>
+      <p class="en" style="margin-top:10px">The app is intended for private individuals for <strong>non-commercial purposes</strong>.</p>
+      <div class="agb-warn-box">
+        <span>⚠️</span>
+        <span class="de">Die Nutzung ist nur für Personen ab <strong>17 Jahren</strong> gestattet. Personen unter 17 Jahren dürfen die App nicht verwenden. Erfährt der Anbieter, dass eine Person unter 17 Jahren die App nutzt, ist er berechtigt, ein etwaiges Konto zu sperren und die verarbeiteten Daten zu löschen. Minderjährige (unter 18 Jahren) benötigen für den Abschluss eines kostenpflichtigen Abonnements die Zustimmung ihrer Erziehungsberechtigten (§§ 107 ff. BGB), soweit nicht § 110 BGB greift. Die Erstattung bereits gezahlter Entgelte erfolgt über Apple (§ 4).</span>
+        <span class="en">Use is only permitted for persons aged <strong>17 and over</strong>. Persons under 17 may not use the app. If the provider learns that a person under 17 is using the app, it may block any account and delete the data processed. Minors (under 18) require the consent of their parents or guardians to take out a paid subscription (§§ 107 ff. BGB German Civil Code), unless § 110 BGB applies. Refunds of fees already paid are handled via Apple (§ 4).</span>
+      </div>
+      <p class="de" style="margin-top:10px">Abweichende Bedingungen des Nutzers werden nicht Vertragsbestandteil.</p>
+      <p class="en" style="margin-top:10px">The user's own conflicting terms do not become part of the contract.</p>
+    </div>
+  </div>
+
+  <!-- §2 -->
+  <div class="agb-para" id="agb2">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 2</span>
+      <span class="agb-para-heading de">Leistungsumfang und Verfügbarkeit</span>
+      <span class="agb-para-heading en">Scope of Services and Availability</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Die App bietet GPS-gestützte Fahrtaufzeichnung, Geschwindigkeitsmessung, Fahrtenstatistiken, Kraftstoffkostenberechnung und weitere fahrzeugbezogene Funktionen.</p>
+      <p class="en">The app offers GPS-based trip recording, speed measurement, trip statistics, fuel cost calculation, and other vehicle-related features.</p>
+      <p class="de">Die App wird nach dem aktuellen Stand der Technik bereitgestellt. Gesetzliche Gewährleistungsrechte von Verbrauchern (§§ 327 ff. BGB) bleiben unberührt. Der Anbieter ist berechtigt, Funktionen weiterzuentwickeln, anzupassen oder einzustellen, sofern dies nicht zu einer wesentlichen Beeinträchtigung des vertraglich vereinbarten Leistungsumfangs führt.</p>
+      <p class="en">The app is provided in accordance with the current state of technology. Statutory warranty rights of consumers (§§ 327 ff. BGB) remain unaffected. The provider is entitled to further develop, adjust, or discontinue features, provided this does not materially impair the contractually agreed scope of services.</p>
+      <div class="agb-warn-box">
+        <span>📢</span>
+        <span class="de"><strong>Einstellung des Dienstes / wesentliche Änderungen für Pro-Abonnenten:</strong> Bei einer geplanten Einstellung der App oder wesentlichen Einschränkung des Pro-Funktionsumfangs werden aktive Pro-Abonnenten <strong>mindestens 30 Tage im Voraus</strong> per App-Benachrichtigung oder E-Mail informiert. Verbleibende Restlaufzeiten aktiver Abonnementzeiträume werden anteilig erstattet; die Abwicklung erfolgt über den Apple App Store (Apple Refund-Policy).</span>
+        <span class="en"><strong>Discontinuation / material changes for Pro subscribers:</strong> If the app is planned to be discontinued or the Pro feature set materially reduced, active Pro subscribers will be notified <strong>at least 30 days in advance</strong> via app notification or email. Remaining periods of active subscriptions will be refunded on a pro-rata basis; settlement is handled via the Apple App Store (Apple Refund Policy).</span>
+      </div>
+      <span class="agb-sub-label de">📋 Kostenloser Funktionsumfang</span>
+      <span class="agb-sub-label en">📋 Free Tier</span>
+      <p class="de">Die kostenlose Version enthält <strong>Werbung</strong> und ist beschränkt auf <strong>1.500 km</strong> Aufzeichnung pro Monat, <strong>1 Fahrzeug</strong> und insgesamt <strong>3 Messläufe</strong> im Race-Modus. Die Detail-Analyse (7 Kategorien, Verlauf und persönliche Tipps), die Tempolimit-Anzeige (Beta), unbegrenzte Race-Messungen und die Werbefreiheit sind <strong>Pro-Abonnenten</strong> vorbehalten. Navigation, Spritpreise, Tankbuch und Wartung sind auch in der kostenlosen Version enthalten.</p>
+      <p class="en">The free version contains <strong>ads</strong> and is limited to <strong>1,500 km</strong> of recording per month, <strong>1 vehicle</strong> and a total of <strong>3 runs</strong> in race mode. The detailed analysis (7 categories, history and personal tips), the speed-limit display (beta), unlimited race runs and an ad-free experience are reserved for <strong>Pro subscribers</strong>. Navigation, fuel prices, fuel log and maintenance are also included in the free version.</p>
+    </div>
+  </div>
+
+  <!-- §3 -->
+  <div class="agb-para" id="agb3">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 3</span>
+      <span class="agb-para-heading de">Nutzerkonto und Registrierung</span>
+      <span class="agb-para-heading en">User Account and Registration</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Für bestimmte Funktionen ist ein Nutzerkonto erforderlich. Bei der Registrierung sind <strong>wahrheitsgemäße Angaben</strong> zu machen. Pro Person ist nur ein Konto zulässig.</p>
+      <p class="en">Certain features require a user account. During registration, <strong>accurate information</strong> must be provided. Only one account per person is permitted.</p>
+      <p class="de">Der Nutzer ist für alle Aktivitäten unter seinem Konto verantwortlich und darf Zugangsdaten nicht an Dritte weitergeben. Bei unbefugter Nutzung ist der Anbieter unverzüglich per E-Mail zu informieren.</p>
+      <p class="en">The user is responsible for all activities under their account and must not share login credentials with third parties. In the event of unauthorized use, the provider must be informed immediately by email.</p>
+      <p class="de">Der Anbieter kann Konten bei Verstoß gegen diese AGB <strong>sperren oder löschen</strong>.</p>
+      <p class="en">The provider may <strong>suspend or delete</strong> accounts in the event of a violation of these Terms.</p>
+    </div>
+  </div>
+
+  <!-- §4 -->
+  <div class="agb-para" id="agb4">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 4</span>
+      <span class="agb-para-heading de">In-App-Käufe und Abonnements</span>
+      <span class="agb-para-heading en">In-App Purchases and Subscriptions</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Die App enthält kostenpflichtige Zusatzfunktionen. Die Abwicklung erfolgt ausschließlich über den <strong>Apple App Store</strong>. Verkäufer ist <strong>Apple</strong> (für Kunden in der EU die Apple Distribution International Ltd., Irland): Apple schließt den Kaufvertrag mit dem Nutzer, erhebt den Kaufpreis und führt die Umsatzsteuer ab. Der Anbieter (Anton Melnychuk) ist nicht Vertragspartner des Zahlungsvorgangs. Es gelten die <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Bedingungen für Medienservices von Apple</a>.</p>
+      <p class="en">The app contains paid additional features. All transactions are processed exclusively via the <strong>Apple App Store</strong>. The seller is <strong>Apple</strong> (for customers in the EU, Apple Distribution International Ltd., Ireland): Apple enters into the purchase contract with the user, collects the purchase price and remits VAT. The provider (Anton Melnychuk) is not a party to the payment transaction. <a href="https://www.apple.com/legal/internet-services/itunes/" target="_blank" rel="noopener">Apple Media Services Terms</a> apply.</p>
+      <span class="agb-sub-label de">📅 Abonnements</span>
+      <span class="agb-sub-label en">📅 Subscriptions</span>
+      <p class="de">Abonnements verlängern sich <strong>automatisch</strong>, sofern nicht mindestens <strong>24 Stunden vor Ablauf</strong> des Abrechnungszeitraums in den iOS-Einstellungen gekündigt wird. Rückerstattungen sind direkt beim Apple Support zu beantragen.</p>
+      <p class="en">Subscriptions renew <strong>automatically</strong> unless cancelled in iOS Settings at least <strong>24 hours before</strong> the end of the billing period. Refunds must be requested directly from Apple Support.</p>
+      <div class="agb-info-box">
+        <span class="de">Die aktuellen Preise findest du im <strong>Apple App Store</strong>. Die dort angezeigten Preise sind verbindlich.</span>
+        <span class="en">Current prices are shown in the <strong>Apple App Store</strong>. The prices displayed there are binding.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- §5 -->
+  <div class="agb-para" id="agb5">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 5</span>
+      <span class="agb-para-heading de">Widerrufsrecht (Verbraucher)</span>
+      <span class="agb-para-heading en">Right of Withdrawal (Consumers)</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Verbrauchern steht bei kostenpflichtigen In-App-Käufen ein gesetzliches <strong>Widerrufsrecht von 14 Tagen</strong> zu (§§ 312g, 355 BGB).</p>
+      <p class="en">Consumers have a statutory <strong>14-day right of withdrawal</strong> for paid in-app purchases (§§ 312g, 355 BGB).</p>
+      <p class="de">Das Widerrufsrecht erlischt bei digitalen Inhalten vorzeitig, wenn der Nutzer der sofortigen Ausführung <strong>ausdrücklich</strong> zugestimmt und dabei bestätigt hat, dadurch sein Widerrufsrecht zu verlieren (§ 356 Abs. 5 BGB). Diese aktive Bestätigung erfolgt im Apple App Store im Rahmen des Kaufvorgangs durch den Nutzer selbst (Apple-eigener Dialog). Die Abwicklung von Käufen, Widerrufen und Rückerstattungen liegt in der Hand von Apple Inc. als Zahlungsabwickler; ein etwaiger Widerruf ist direkt beim Apple Support geltend zu machen (<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>).</p>
+      <p class="en">The right of withdrawal lapses prematurely for digital content if the user has <strong>expressly</strong> agreed to immediate performance and acknowledged losing the right of withdrawal (§ 356(5) BGB). This active confirmation is made by the user within the Apple App Store purchase flow (Apple's own dialog). Purchases, withdrawals, and refunds are handled by Apple Inc. as payment processor; any withdrawal must be asserted directly with Apple Support (<a href="https://reportaproblem.apple.com" target="_blank" rel="noopener">reportaproblem.apple.com</a>).</p>
+      <div class="agb-warn-box">
+        <span>ℹ️</span>
+        <span class="de">Bei einer kostenlosen Testphase (Trial) beginnt die Leistungserbringung unmittelbar – das Widerrufsrecht erlischt daher mit dem Start der Testphase, sofern du der sofortigen Ausführung im Apple-Kaufdialog ausdrücklich zugestimmt hast.</span>
+        <span class="en">With a free trial, performance begins immediately – the right of withdrawal therefore lapses upon the start of the trial period, provided you expressly agreed to immediate performance in the Apple purchase dialog.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- §6 -->
+  <div class="agb-para" id="agb6">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 6</span>
+      <span class="agb-para-heading de">Nutzungsrechte</span>
+      <span class="agb-para-heading en">License</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Mit dem Download erhält der Nutzer ein <strong>einfaches, nicht übertragbares, nicht unterlizenzierbares Recht</strong> zur privaten, nicht kommerziellen Nutzung der App auf einem eigenen Apple-Gerät.</p>
+      <p class="en">Upon download, the user receives a <strong>non-exclusive, non-transferable, non-sublicensable licence</strong> to use the app privately and non-commercially on a personal Apple device.</p>
+      <p class="de">Das Recht endet automatisch bei AGB-Verstoß oder Deinstallation. Alle Urheberrechte verbleiben beim Anbieter.</p>
+      <p class="en">The licence terminates automatically upon breach of these Terms or uninstallation. All intellectual property rights remain with the provider.</p>
+    </div>
+  </div>
+
+  <!-- §7 -->
+  <div class="agb-para" id="agb7">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 7</span>
+      <span class="agb-para-heading de">Verbotene Nutzung</span>
+      <span class="agb-para-heading en">Prohibited Use</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Dem Nutzer ist es untersagt:</p>
+      <p class="en">Users are prohibited from:</p>
+    </div>
+    <ul class="agb-items">
+      <li><span class="n">1</span><span class="de">Die App zu dekompilieren, disassemblieren oder den Quellcode zu ermitteln (<strong>Reverse Engineering</strong>)</span><span class="en">Decompiling, disassembling, or reverse-engineering the app</span></li>
+      <li><span class="n">2</span><span class="de">Die App zu kopieren, modifizieren oder kommerziell zu verwerten</span><span class="en">Copying, modifying, or commercially exploiting the app</span></li>
+      <li><span class="n">3</span><span class="de">Die App für <strong>rechtswidrige Zwecke</strong> zu nutzen</span><span class="en">Using the app for <strong>illegal purposes</strong></span></li>
+      <li><span class="n">4</span><span class="de">Server durch Bots oder automatisierte Abfragen <strong>zu überlasten oder zu missbrauchen</strong></span><span class="en"><strong>Overloading or abusing</strong> servers through bots or automated queries</span></li>
+      <li><span class="n">5</span><span class="de">Sicherheitsmechanismen zu umgehen oder in die App-Integrität einzugreifen</span><span class="en">Circumventing security mechanisms or tampering with the app's integrity</span></li>
+      <li><span class="n">6</span><span class="de">Fremde Nutzerkonten zu nutzen oder auf Daten anderer zuzugreifen</span><span class="en">Using another user's account or accessing other users' data</span></li>
+      <li><span class="n">7</span><span class="de">Die App während der <strong>aktiven Fahrzeugführung</strong> verkehrsgefährdend zu bedienen (StVO gilt)</span><span class="en">Operating the app in a traffic-endangering manner while <strong>actively driving</strong> (traffic regulations apply)</span></li>
+    </ul>
+  </div>
+
+  <!-- §8 -->
+  <div class="agb-para" id="agb8">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 8</span>
+      <span class="agb-para-heading de">GPS-Daten und Messgenauigkeit</span>
+      <span class="agb-para-heading en">GPS Data and Measurement Accuracy</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Kernfunktionen erfordern GPS-Zugriff, der über die Geräteeinstellungen erteilt wird. Die Messgenauigkeit hängt vom Satellitenempfang ab (Tunnel, Bebauung etc.).</p>
+      <p class="en">Core features require GPS access, which is granted via device settings. Measurement accuracy depends on satellite reception (tunnels, buildings, etc.).</p>
+      <div class="agb-warn-box">
+        <span>📍</span>
+        <span class="de">GPS-basierte Werte sind <strong>keine rechtsverbindlichen Messwerte</strong> im Sinne des Eichrechts. Der Anbieter haftet nicht für Messungenauigkeiten.</span>
+        <span class="en">GPS-based values are <strong>not legally binding measurements</strong> within the meaning of weights and measures law. The provider is not liable for measurement inaccuracies.</span>
+      </div>
+    </div>
+  </div>
+
+  <!-- §9 -->
+  <div class="agb-para" id="agb9">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 9</span>
+      <span class="agb-para-heading de">Haftungsbeschränkung</span>
+      <span class="agb-para-heading en">Limitation of Liability</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Der Anbieter haftet <strong>uneingeschränkt</strong> bei Vorsatz, grober Fahrlässigkeit sowie bei Verletzung von Leben, Körper oder Gesundheit.</p>
+      <p class="en">The provider is liable <strong>without limitation</strong> for intentional acts, gross negligence, and injury to life, body, or health.</p>
+      <p class="de">Bei leicht fahrlässiger Verletzung von Kardinalpflichten haftet der Anbieter begrenzt auf den vorhersehbaren, vertragstypischen Schaden. Im Übrigen ist die Haftung für leichte Fahrlässigkeit <strong>ausgeschlossen</strong>, insbesondere für:</p>
+      <p class="en">For slight negligence in breach of cardinal obligations, liability is limited to the foreseeable, typical contractual damage. Otherwise, liability for slight negligence is <strong>excluded</strong>, in particular for:</p>
+      <ul class="agb-items" style="margin-top:10px">
+        <li><span class="n">→</span><span class="de">GPS-Messungenauigkeiten und fehlerhafte Anzeigen</span><span class="en">GPS measurement inaccuracies and incorrect displays</span></li>
+        <li><span class="n">→</span><span class="de">Datenverlust durch Geräteausfall oder OS-Updates</span><span class="en">Data loss due to device failure or OS updates</span></li>
+        <li><span class="n">→</span><span class="de">Schäden durch Nutzung während des Fahrens</span><span class="en">Damage caused by use while driving</span></li>
+        <li><span class="n">→</span><span class="de">Schäden durch Nichtverfügbarkeit der App</span><span class="en">Damage caused by unavailability of the app</span></li>
+      </ul>
+      <p class="de" style="margin-top:10px">Diese Beschränkungen gelten nicht bei arglistigem Verschweigen, Garantieübernahme oder Ansprüchen nach dem Produkthaftungsgesetz.</p>
+      <p class="en" style="margin-top:10px">These limitations do not apply in cases of fraudulent concealment, warranty guarantees, or claims under the Product Liability Act.</p>
+    </div>
+  </div>
+
+  <!-- §10 -->
+  <div class="agb-para" id="agb10">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 10</span>
+      <span class="agb-para-heading de">Datenschutz</span>
+      <span class="agb-para-heading en">Data Protection</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Der Anbieter verarbeitet personenbezogene Daten ausschließlich gem. DSGVO und BDSG. Einzelheiten entnimmt der Nutzer der <a href="privacy-policy.html" target="_blank" rel="noopener"><strong>Datenschutzerklärung</strong></a>.</p>
+      <p class="en">The provider processes personal data exclusively in accordance with GDPR and BDSG. Details can be found in the <a href="privacy-policy.html" target="_blank" rel="noopener"><strong>Privacy Policy</strong></a>.</p>
+    </div>
+  </div>
+
+  <!-- §11 -->
+  <div class="agb-para" id="agb11">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 11</span>
+      <span class="agb-para-heading de">Änderungen der AGB</span>
+      <span class="agb-para-heading en">Amendments to These Terms</span>
+    </div>
+    <div class="agb-text">
+      <p class="de">Der Anbieter kann diese AGB mit Wirkung für die Zukunft ändern.</p>
+      <p class="en">The provider may amend these Terms with future effect.</p>
+      <p class="de"><strong>Wesentliche Änderungen</strong> (insbesondere Erweiterung des Leistungsumfangs, Preisänderungen, neue Pflichten für Nutzer) werden mindestens <strong>30 Tage vor Inkrafttreten</strong> per In-App-Benachrichtigung und/oder E-Mail angekündigt. Bei solchen Änderungen wird eine <strong>aktive Bestätigung</strong> (In-App-Dialog) eingeholt. Ohne Bestätigung bleibt die bisherige AGB-Version gültig.</p>
+      <p class="en"><strong>Material amendments</strong> (in particular expansions of scope, price changes, or new obligations for users) will be announced at least <strong>30 days before taking effect</strong> via in-app notification and/or email. For such changes, <strong>active confirmation</strong> (in-app dialog) will be obtained. Without confirmation, the previous version of these Terms remains in effect.</p>
+      <p class="de"><strong>Redaktionelle oder klarstellende Änderungen</strong> (z.&nbsp;B. Korrekturen von Tippfehlern, Präzisierungen ohne inhaltliche Auswirkung) können ohne gesonderte Ankündigung vorgenommen werden.</p>
+      <p class="en"><strong>Editorial or clarifying amendments</strong> (e.g. typo corrections, clarifications without substantive effect) may be made without separate notice.</p>
+      <p class="de"><strong>Frühere Fassungen:</strong> Alle bisherigen Fassungen dieser AGB sind mit ihrem Gültigkeitszeitraum im <a href="archiv/index.html">Archiv</a> abrufbar. So lässt sich nachvollziehen, welche Fassung zu welchem Zeitpunkt galt.</p>
+      <p class="en"><strong>Previous versions:</strong> all previous versions of these Terms are available with their period of validity in the <a href="archiv/index.html">archive</a>, so it can be traced which version applied at which time.</p>
+    </div>
+  </div>
+
+  <!-- §12 -->
+  <div class="agb-para" id="agb12">
+    <div class="agb-para-title">
+      <span class="agb-para-num">§ 12</span>
+      <span class="agb-para-heading de">Schlussbestimmungen</span>
+      <span class="agb-para-heading en">Final Provisions</span>
+    </div>
+    <div class="agb-text">
+      <span class="agb-sub-label de">⚖️ Anwendbares Recht</span>
+      <span class="agb-sub-label en">⚖️ Applicable Law</span>
+      <p class="de">Es gilt deutsches Recht unter Ausschluss des UN-Kaufrechts (CISG). Zwingende Verbraucherschutzvorschriften des EU-Aufenthaltslandes bleiben unberührt.</p>
+      <p class="en">German law applies, excluding the UN Convention on Contracts for the International Sale of Goods (CISG). Mandatory consumer protection provisions of the EU country of residence remain unaffected.</p>
+      <span class="agb-sub-label de">🏛️ Gerichtsstand</span>
+      <span class="agb-sub-label en">🏛️ Jurisdiction</span>
+      <p class="de">Für Unternehmer: ausschließlicher Gerichtsstand ist der Sitz des Anbieters. Für Verbraucher gilt der gesetzliche Gerichtsstand.</p>
+      <p class="en">For businesses: exclusive place of jurisdiction is the provider's registered address. For consumers, the statutory place of jurisdiction applies.</p>
+      <span class="agb-sub-label de">🔗 EU-Streitbeilegung</span>
+      <span class="agb-sub-label en">🔗 EU Dispute Resolution</span>
+      <p class="de">Die EU-ODR-Plattform wurde am 20.07.2025 abgeschaltet. Informationen zu Schlichtungsstellen: <a href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_de" target="_blank" rel="noopener">consumer-redress.ec.europa.eu</a>. Der Anbieter nimmt an keinem Schlichtungsverfahren teil und ist dazu nicht verpflichtet.</p>
+      <p class="en">The EU ODR platform was shut down on 20 July 2025. Information on alternative dispute resolution bodies is available from the European Commission at: <a href="https://consumer-redress.ec.europa.eu/dispute-resolution-bodies_de" target="_blank" rel="noopener">consumer-redress.ec.europa.eu</a>. The provider does not participate in and is not obliged to participate in any dispute resolution proceedings.</p>
+      <span class="agb-sub-label de">🍎 Apple-Hinweis</span>
+      <span class="agb-sub-label en">🍎 Apple Notice</span>
+      <p class="de">Diese AGB bestehen zwischen Nutzer und Anbieter (Anton Melnychuk). Apple Inc. ist kein Vertragspartner, hat aber als Drittbegünstigter das Recht, diese AGB durchzusetzen.</p>
+      <p class="en">These Terms are between the user and the provider (Anton Melnychuk). Apple Inc. is not a party to these Terms but, as a third-party beneficiary, has the right to enforce them.</p>
+      <span class="agb-sub-label de">🔧 Salvatorische Klausel</span>
+      <span class="agb-sub-label en">🔧 Severability</span>
+      <p class="de">Unwirksame Einzelbestimmungen berühren die Gültigkeit der übrigen AGB nicht. Es gilt die gesetzliche Regelung.</p>
+      <p class="en">If any individual provision of these Terms is invalid, the validity of the remaining Terms shall not be affected. The applicable statutory provision shall apply instead.</p>
+    </div>
+  </div>
+
+</div><!-- /.container -->
+
+<footer class="footer">
+  <p>
+    <a href="index.html">Home</a> ·
+    <a href="support.html" class="de">Support & Kontakt</a>
+    <a href="support.html" class="en">Support & Contact</a> ·
+    <a href="agb.html" class="de">AGB</a>
+    <a href="agb.html" class="en">Terms</a> ·
+    <a href="impressum.html" class="de">Impressum</a>
+    <a href="impressum.html" class="en">Legal Notice</a> ·
+    <a href="privacy-policy.html" class="de">Datenschutz</a>
+    <a href="privacy-policy.html" class="en">Privacy</a>
+  </p>
+  <p style="margin-top:8px">© 2026 Anton Melnychuk · Auto Performance Tracker</p>
+</footer>
+
+<script>
+// ── Language Switch ──────────────────────────────
+// CSS handles visibility via html[data-lang] selector — no inline styles needed
+let currentLang = localStorage.getItem('apt_lang') || 'de';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('apt_lang', lang);
+  document.documentElement.lang = lang;
+  document.documentElement.dataset.lang = lang;
+  document.querySelectorAll('#btn-de, #btn-en').forEach(b => {
+    b.classList.toggle('active', b.id === 'btn-' + lang);
+  });
+}
+setLang(currentLang);
+</script>
+</body>
+</html>

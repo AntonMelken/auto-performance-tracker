@@ -1,0 +1,153 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Archiv der Rechtstexte – Auto Performance Tracker</title>
+  <meta name="description" content="Alle bisherigen Fassungen der AGB und Datenschutzerklärungen des Auto Performance Tracker mit Gültigkeitszeitraum.">
+  <meta name="robots" content="index, follow">
+  <style>
+    :root { --bg:#080C14; --card:#111827; --border:rgba(255,255,255,0.07); --cyan:#22D3EE; --cyan2:#06B6D4;
+            --text:#F1F5F9; --muted:#94A3B8; --radius:18px; }
+    * { box-sizing:border-box; margin:0; padding:0; }
+    body { font-family:-apple-system,BlinkMacSystemFont,'SF Pro Text','Helvetica Neue','Segoe UI',sans-serif;
+           background:var(--bg); color:var(--text); line-height:1.7; font-size:15px; }
+    nav { position:sticky; top:0; z-index:10; padding:0 24px; height:64px; display:flex; align-items:center;
+          justify-content:space-between; background:rgba(8,12,20,0.85); backdrop-filter:blur(20px);
+          -webkit-backdrop-filter:blur(20px); border-bottom:1px solid var(--border); }
+    .nav-logo { display:flex; align-items:center; gap:10px; font-weight:700; text-decoration:none; color:var(--text); }
+    .nav-logo img { width:32px; height:32px; border-radius:8px; }
+    .lang-switcher { display:flex; gap:4px; background:var(--card); border-radius:50px; padding:4px; }
+    .lang-btn { border:none; background:transparent; cursor:pointer; color:var(--muted); font-size:0.8rem; font-weight:600;
+                padding:5px 12px; border-radius:50px; font-family:inherit; }
+    .lang-btn.active { background:var(--cyan2); color:#000; }
+    .container { max-width:900px; margin:0 auto; padding:40px 16px 80px; }
+    h1 { font-size:26px; font-weight:800; margin-bottom:8px; }
+    p { color:var(--muted); margin-bottom:12px; }
+    a { color:var(--cyan); text-decoration:none; }
+    a:hover { text-decoration:underline; }
+    .section { background:var(--card); border:1px solid var(--border); border-radius:var(--radius); padding:24px; margin-top:18px; }
+    .section-header { display:flex; align-items:center; gap:12px; margin-bottom:12px; }
+    .section-icon { font-size:22px; }
+    .section-title { font-size:17px; font-weight:700; }
+    .table-wrap { overflow-x:auto; }
+    .data-table { width:100%; border-collapse:collapse; font-size:14px; }
+    .data-table td, .data-table th { padding:9px 12px; border:1px solid var(--border); text-align:left; color:var(--muted); vertical-align:top; }
+    .data-table th { background:rgba(34,211,238,0.06); color:var(--cyan); font-weight:600; }
+    .data-table strong { color:var(--text); }
+    .footer { margin-top:48px; padding-top:24px; border-top:1px solid var(--border); text-align:center; color:var(--muted); font-size:13px; }
+    html:not([data-lang="en"]) .en { display:none; }
+    html[data-lang="en"] .de { display:none; }
+    @media (max-width:600px) { .data-table td, .data-table th { padding:7px 8px; font-size:13px; } }
+  </style>
+  <script>document.documentElement.dataset.lang = localStorage.getItem('apt_lang') || 'de';</script>
+</head>
+<body>
+<nav aria-label="Main navigation">
+  <a class="nav-logo" href="../index.html"><img src="../AppIcon-1024.png" alt="Auto Performance Tracker Logo">Auto Performance Tracker</a>
+  <div class="lang-switcher">
+    <button class="lang-btn active" id="btn-de" onclick="setLang('de')">🇩🇪 DE</button>
+    <button class="lang-btn" id="btn-en" onclick="setLang('en')">🇬🇧 EN</button>
+  </div>
+</nav>
+<div class="container">
+  <h1><span class="de">Archiv der Rechtstexte</span><span class="en">Archive of legal texts</span></h1>
+  <p class="de">Hier findest du alle bisherigen Fassungen der AGB und der Datenschutzerklärungen mit ihrem Gültigkeitszeitraum. Die Fassungen sind unverändert aus der öffentlichen Versionsgeschichte dieser Website übernommen (<a href="https://github.com/AntonMelken/auto-performance-tracker/commits/main" target="_blank" rel="noopener">GitHub</a>). Die Commit-Kennung ermöglicht es, jede Fassung dort zu überprüfen. Mehrere Fassungen an einem Tag stammen aus Korrekturen während der Erstveröffentlichung im März 2026.</p>
+  <p class="en">This page lists all previous versions of the Terms and Conditions and the privacy policies with their period of validity. The versions are taken unchanged from the public version history of this website (<a href="https://github.com/AntonMelken/auto-performance-tracker/commits/main" target="_blank" rel="noopener">GitHub</a>); the commit ID allows each version to be verified there. Several versions on one day result from corrections during the initial publication in March 2026.</p>
+  <p class="de">Für einen Vertrag gilt die AGB-Fassung, die bei Vertragsschluss gültig war, sofern du nicht einer späteren Fassung zugestimmt hast (§ 11 AGB). Bei Einwilligungen in der App wird die Version der Datenschutzerklärung zusammen mit dem Zeitpunkt protokolliert.</p>
+  <p class="en">A contract is governed by the version of the Terms in force when it was concluded, unless you agreed to a later version (§ 11 of the Terms). For consents given in the app, the version of the privacy policy is logged together with the time.</p>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">📜</div>
+      <div>
+        <div class="section-title de">Allgemeine Geschäftsbedingungen (AGB)</div>
+        <div class="section-title en">Terms and Conditions</div>
+      </div>
+    </div>
+    <div class="table-wrap"><table class="data-table">
+      <tr><th><span class="de">Fassung</span><span class="en">Version</span></th><th><span class="de">Gültig</span><span class="en">Valid</span></th><th><span class="de">Nachweis</span><span class="en">Record</span></th></tr>
+      <tr><td><a href="agb/2026-10-19_aktuell.html"><span class="de">Fassung vom 19.10.2026</span><span class="en">Version of 2026-10-19</span></a></td><td><span class="de">seit 19.10.2026 · <strong>aktuell</strong></span><span class="en">since 2026-10-19 · <strong>current</strong></span></td><td><a href="../agb.html"><span class="de">Live-Seite</span><span class="en">live page</span></a></td></tr>
+      <tr><td><a href="agb/2026-06-13_bae905f.html"><span class="de">Fassung vom 13.06.2026</span><span class="en">Version of 2026-06-13</span></a></td><td><span class="de">13.06.2026 – 18.10.2026</span><span class="en">2026-06-13 – 2026-10-18</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/bae905f" target="_blank" rel="noopener">Commit bae905f</a></td></tr>
+      <tr><td><a href="agb/2026-03-17_f4928f7.html"><span class="de">Fassung vom 17.03.2026</span><span class="en">Version of 2026-03-17</span></a></td><td><span class="de">17.03.2026 – 12.06.2026</span><span class="en">2026-03-17 – 2026-06-12</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/f4928f7" target="_blank" rel="noopener">Commit f4928f7</a></td></tr>
+      <tr><td><a href="agb/2026-03-14_f354012.html"><span class="de">Fassung vom 14.03.2026</span><span class="en">Version of 2026-03-14</span></a></td><td><span class="de">14.03.2026 – 16.03.2026</span><span class="en">2026-03-14 – 2026-03-16</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/f354012" target="_blank" rel="noopener">Commit f354012</a></td></tr>
+      <tr><td><a href="agb/2026-03-11_fab2c7d.html"><span class="de">Fassung vom 11.03.2026</span><span class="en">Version of 2026-03-11</span></a></td><td><span class="de">11.03.2026 – 13.03.2026</span><span class="en">2026-03-11 – 2026-03-13</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/fab2c7d" target="_blank" rel="noopener">Commit fab2c7d</a></td></tr>
+      <tr><td><a href="agb/2026-03-11_d0ec5c3.html"><span class="de">Fassung vom 11.03.2026</span><span class="en">Version of 2026-03-11</span></a></td><td><span class="de">11.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-11 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/d0ec5c3" target="_blank" rel="noopener">Commit d0ec5c3</a></td></tr>
+      <tr><td><a href="agb/2026-03-10_acc2c56.html"><span class="de">Fassung vom 10.03.2026</span><span class="en">Version of 2026-03-10</span></a></td><td><span class="de">10.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-10 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/acc2c56" target="_blank" rel="noopener">Commit acc2c56</a></td></tr>
+      <tr><td><a href="agb/2026-03-09_fc4786d.html"><span class="de">Fassung vom 09.03.2026</span><span class="en">Version of 2026-03-09</span></a></td><td><span class="de">09.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-09 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/fc4786d" target="_blank" rel="noopener">Commit fc4786d</a></td></tr>
+      <tr><td><a href="agb/2026-03-08_6a3087a.html"><span class="de">Fassung vom 08.03.2026</span><span class="en">Version of 2026-03-08</span></a></td><td><span class="de">08.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-08 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/6a3087a" target="_blank" rel="noopener">Commit 6a3087a</a></td></tr>
+      <tr><td><a href="agb/2026-03-07_5d0c636.html"><span class="de">Fassung vom 07.03.2026</span><span class="en">Version of 2026-03-07</span></a></td><td><span class="de">07.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-07 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/5d0c636" target="_blank" rel="noopener">Commit 5d0c636</a></td></tr>
+    </table></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🔒</div>
+      <div>
+        <div class="section-title de">Datenschutzerklärung der App</div>
+        <div class="section-title en">App Privacy Policy</div>
+      </div>
+    </div>
+    <div class="table-wrap"><table class="data-table">
+      <tr><th><span class="de">Fassung</span><span class="en">Version</span></th><th><span class="de">Gültig</span><span class="en">Valid</span></th><th><span class="de">Nachweis</span><span class="en">Record</span></th></tr>
+      <tr><td><a href="datenschutz-app/2026-10-19_aktuell.html"><span class="de">Fassung vom 19.10.2026 (v7)</span><span class="en">Version of 2026-10-19 (v7)</span></a></td><td><span class="de">seit 19.10.2026 · <strong>aktuell</strong></span><span class="en">since 2026-10-19 · <strong>current</strong></span></td><td><a href="../privacy-policy.html"><span class="de">Live-Seite</span><span class="en">live page</span></a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-08-09_668bd68.html"><span class="de">Fassung vom 09.08.2026 (v6)</span><span class="en">Version of 2026-08-09 (v6)</span></a></td><td><span class="de">09.08.2026 – 18.10.2026</span><span class="en">2026-08-09 – 2026-10-18</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/668bd68" target="_blank" rel="noopener">Commit 668bd68</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-06-16_22da7c5.html"><span class="de">Fassung vom 16.06.2026 (v5)</span><span class="en">Version of 2026-06-16 (v5)</span></a></td><td><span class="de">16.06.2026 – 08.08.2026</span><span class="en">2026-06-16 – 2026-08-08</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/22da7c5" target="_blank" rel="noopener">Commit 22da7c5</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-06-13_bae905f.html"><span class="de">Fassung vom 13.06.2026 (v4)</span><span class="en">Version of 2026-06-13 (v4)</span></a></td><td><span class="de">13.06.2026 – 15.06.2026</span><span class="en">2026-06-13 – 2026-06-15</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/bae905f" target="_blank" rel="noopener">Commit bae905f</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-06-05_bdcda16.html"><span class="de">Fassung vom 05.06.2026 (v3)</span><span class="en">Version of 2026-06-05 (v3)</span></a></td><td><span class="de">05.06.2026 – 12.06.2026</span><span class="en">2026-06-05 – 2026-06-12</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/bdcda16" target="_blank" rel="noopener">Commit bdcda16</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-05-13_35747fa.html"><span class="de">Fassung vom 13.05.2026 (v2)</span><span class="en">Version of 2026-05-13 (v2)</span></a></td><td><span class="de">13.05.2026 – 04.06.2026</span><span class="en">2026-05-13 – 2026-06-04</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/35747fa" target="_blank" rel="noopener">Commit 35747fa</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-21_aaa19e5.html"><span class="de">Fassung vom 21.03.2026 (v2)</span><span class="en">Version of 2026-03-21 (v2)</span></a></td><td><span class="de">21.03.2026 – 12.05.2026</span><span class="en">2026-03-21 – 2026-05-12</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/aaa19e5" target="_blank" rel="noopener">Commit aaa19e5</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-17_34b1fad.html"><span class="de">Fassung vom 17.03.2026 (v2)</span><span class="en">Version of 2026-03-17 (v2)</span></a></td><td><span class="de">17.03.2026 – 20.03.2026</span><span class="en">2026-03-17 – 2026-03-20</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/34b1fad" target="_blank" rel="noopener">Commit 34b1fad</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-16_21c8ac3.html"><span class="de">Fassung vom 16.03.2026</span><span class="en">Version of 2026-03-16</span></a></td><td><span class="de">16.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-16 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/21c8ac3" target="_blank" rel="noopener">Commit 21c8ac3</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-14_7c3322b.html"><span class="de">Fassung vom 14.03.2026</span><span class="en">Version of 2026-03-14</span></a></td><td><span class="de">14.03.2026 – 15.03.2026</span><span class="en">2026-03-14 – 2026-03-15</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/7c3322b" target="_blank" rel="noopener">Commit 7c3322b</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-14_0665334.html"><span class="de">Fassung vom 14.03.2026</span><span class="en">Version of 2026-03-14</span></a></td><td><span class="de">14.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-14 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/0665334" target="_blank" rel="noopener">Commit 0665334</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-14_f354012.html"><span class="de">Fassung vom 14.03.2026</span><span class="en">Version of 2026-03-14</span></a></td><td><span class="de">14.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-14 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/f354012" target="_blank" rel="noopener">Commit f354012</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-11_f4c54d5.html"><span class="de">Fassung vom 11.03.2026</span><span class="en">Version of 2026-03-11</span></a></td><td><span class="de">11.03.2026 – 13.03.2026</span><span class="en">2026-03-11 – 2026-03-13</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/f4c54d5" target="_blank" rel="noopener">Commit f4c54d5</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-11_fab2c7d.html"><span class="de">Fassung vom 11.03.2026</span><span class="en">Version of 2026-03-11</span></a></td><td><span class="de">11.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-11 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/fab2c7d" target="_blank" rel="noopener">Commit fab2c7d</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-11_d0ec5c3.html"><span class="de">Fassung vom 11.03.2026</span><span class="en">Version of 2026-03-11</span></a></td><td><span class="de">11.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-11 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/d0ec5c3" target="_blank" rel="noopener">Commit d0ec5c3</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-10_db59746.html"><span class="de">Fassung vom 10.03.2026</span><span class="en">Version of 2026-03-10</span></a></td><td><span class="de">10.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-10 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/db59746" target="_blank" rel="noopener">Commit db59746</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-10_bb221ce.html"><span class="de">Fassung vom 10.03.2026</span><span class="en">Version of 2026-03-10</span></a></td><td><span class="de">10.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-10 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/bb221ce" target="_blank" rel="noopener">Commit bb221ce</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-10_50c218c.html"><span class="de">Fassung vom 10.03.2026</span><span class="en">Version of 2026-03-10</span></a></td><td><span class="de">10.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-10 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/50c218c" target="_blank" rel="noopener">Commit 50c218c</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-10_4ffdd0f.html"><span class="de">Fassung vom 10.03.2026</span><span class="en">Version of 2026-03-10</span></a></td><td><span class="de">10.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-10 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/4ffdd0f" target="_blank" rel="noopener">Commit 4ffdd0f</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-10_4722945.html"><span class="de">Fassung vom 10.03.2026</span><span class="en">Version of 2026-03-10</span></a></td><td><span class="de">10.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-10 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/4722945" target="_blank" rel="noopener">Commit 4722945</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-10_d1786a5.html"><span class="de">Fassung vom 10.03.2026</span><span class="en">Version of 2026-03-10</span></a></td><td><span class="de">10.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-10 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/d1786a5" target="_blank" rel="noopener">Commit d1786a5</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-09_8c4f441.html"><span class="de">Fassung vom 09.03.2026</span><span class="en">Version of 2026-03-09</span></a></td><td><span class="de">09.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-09 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/8c4f441" target="_blank" rel="noopener">Commit 8c4f441</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-08_494c0a0.html"><span class="de">Fassung vom 08.03.2026</span><span class="en">Version of 2026-03-08</span></a></td><td><span class="de">08.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-08 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/494c0a0" target="_blank" rel="noopener">Commit 494c0a0</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-07_3c3f5a3.html"><span class="de">Fassung vom 07.03.2026</span><span class="en">Version of 2026-03-07</span></a></td><td><span class="de">07.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-07 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/3c3f5a3" target="_blank" rel="noopener">Commit 3c3f5a3</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-07_ab46461.html"><span class="de">Fassung vom 07.03.2026</span><span class="en">Version of 2026-03-07</span></a></td><td><span class="de">07.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-07 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/ab46461" target="_blank" rel="noopener">Commit ab46461</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-04_29e8984.html"><span class="de">Fassung vom 04.03.2026</span><span class="en">Version of 2026-03-04</span></a></td><td><span class="de">04.03.2026 – 06.03.2026</span><span class="en">2026-03-04 – 2026-03-06</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/29e8984" target="_blank" rel="noopener">Commit 29e8984</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-03_0a6c840.html"><span class="de">Fassung vom 03.03.2026</span><span class="en">Version of 2026-03-03</span></a></td><td><span class="de">03.03.2026 (am selben Tag ersetzt)</span><span class="en">2026-03-03 (replaced the same day)</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/0a6c840" target="_blank" rel="noopener">Commit 0a6c840</a></td></tr>
+      <tr><td><a href="datenschutz-app/2026-03-01_dcb131c.html"><span class="de">Fassung vom 01.03.2026</span><span class="en">Version of 2026-03-01</span></a></td><td><span class="de">01.03.2026 – 02.03.2026</span><span class="en">2026-03-01 – 2026-03-02</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/dcb131c" target="_blank" rel="noopener">Commit dcb131c</a></td></tr>
+    </table></div>
+  </div>
+  <div class="section">
+    <div class="section-header">
+      <div class="section-icon">🌐</div>
+      <div>
+        <div class="section-title de">Datenschutzerklärung der Website</div>
+        <div class="section-title en">Website Privacy Policy</div>
+      </div>
+    </div>
+    <div class="table-wrap"><table class="data-table">
+      <tr><th><span class="de">Fassung</span><span class="en">Version</span></th><th><span class="de">Gültig</span><span class="en">Valid</span></th><th><span class="de">Nachweis</span><span class="en">Record</span></th></tr>
+      <tr><td><a href="datenschutz-website/2026-10-19_aktuell.html"><span class="de">Fassung vom 19.10.2026</span><span class="en">Version of 2026-10-19</span></a></td><td><span class="de">seit 19.10.2026 · <strong>aktuell</strong></span><span class="en">since 2026-10-19 · <strong>current</strong></span></td><td><a href="../datenschutz-website.html"><span class="de">Live-Seite</span><span class="en">live page</span></a></td></tr>
+      <tr><td><a href="datenschutz-website/2026-03-11_eeeebfe.html"><span class="de">Fassung vom 11.03.2026</span><span class="en">Version of 2026-03-11</span></a></td><td><span class="de">11.03.2026 – 18.10.2026</span><span class="en">2026-03-11 – 2026-10-18</span></td><td><a href="https://github.com/AntonMelken/auto-performance-tracker/commit/eeeebfe" target="_blank" rel="noopener">Commit eeeebfe</a></td></tr>
+    </table></div>
+  </div>
+  <div class="footer">
+    <a href="../index.html">Home</a> · <a href="../agb.html">AGB / Terms</a> · <a href="../impressum.html">Impressum</a> ·
+    <a href="../privacy-policy.html">Datenschutz App</a> · <a href="../datenschutz-website.html">Datenschutz Website</a>
+    <p style="margin-top:8px">© 2026 Anton Melnychuk · Auto Performance Tracker</p>
+  </div>
+</div>
+<script>
+let currentLang = localStorage.getItem('apt_lang') || 'de';
+function setLang(lang) {
+  currentLang = lang;
+  localStorage.setItem('apt_lang', lang);
+  document.documentElement.lang = lang;
+  document.documentElement.dataset.lang = lang;
+  document.querySelectorAll('#btn-de, #btn-en').forEach(b => b.classList.toggle('active', b.id === 'btn-' + lang));
+}
+setLang(currentLang);
+</script>
+</body>
+</html>
