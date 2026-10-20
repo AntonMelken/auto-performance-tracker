@@ -220,8 +220,8 @@
       <span class="de">Datenschutzerklärung</span>
       <span class="en">Privacy Policy</span>
     </h1>
-    <p class="subtitle de">Auto Performance Tracker (iOS-App) · Zuletzt aktualisiert: 19. Oktober 2026 · Version 7</p>
-    <p class="subtitle en">Auto Performance Tracker (iOS app) · Last updated: 19 October 2026 · Version 7</p>
+    <p class="subtitle de">Auto Performance Tracker (iOS-App) · Zuletzt aktualisiert: 20. Oktober 2026 · Version 8</p>
+    <p class="subtitle en">Auto Performance Tracker (iOS app) · Last updated: 20 October 2026 · Version 8</p>
     <span class="badge de">Art. 13 DSGVO</span>
     <span class="badge en">Art. 13 GDPR</span>
   </div>
@@ -459,24 +459,41 @@
       <div>
         <div class="section-num de">7. Nutzungsanalyse</div>
         <div class="section-num en">7. Usage analytics</div>
-        <div class="section-title de">PostHog · nur mit Einwilligung · standardmäßig aus</div>
-        <div class="section-title en">PostHog · consent only · off by default</div>
+        <div class="section-title de">Eigener Server · nur mit Einwilligung · standardmäßig aus</div>
+        <div class="section-title en">Own server · consent only · off by default</div>
       </div>
     </div>
-    <p class="de">Nur wenn du zustimmst (im Datenschutz-Dialog der App oder unter Einstellungen → Datenschutz), sendet die App Nutzungsereignisse an PostHog.</p>
-    <p class="en">Only if you agree (in the app's privacy dialog or under Settings → Privacy) does the app send usage events to PostHog.</p>
+    <p class="de">Nur wenn du zustimmst (im Datenschutz-Dialog der App oder unter Einstellungen → Datenschutz), sendet die App Nutzungsereignisse an unseren Server bei Supabase (Abschnitt 5). Wir werten sie selbst aus; einen weiteren Analyse-Anbieter gibt es nicht. Das gilt ab App-Version 1.3.0. Ältere Versionen nutzen PostHog (siehe unten).</p>
+    <p class="en">Only if you agree (in the app's privacy dialog or under Settings → Privacy) does the app send usage events to our server at Supabase (section 5). We analyse them ourselves; there is no other analytics provider. This applies from app version 1.3.0; older versions use PostHog (see below).</p>
     <ul>
-      <li class="de"><span class="label">Daten:</span> eine zufällige Kennung, die nur dafür auf dem Gerät erzeugt wird, Ereignisse (App geöffnet, Fahrt abgeschlossen, genutzte Funktion), bei Fahrten nur Wertebereiche (z. B. „10–50 km“, Verbrauchs- und Score-Bereich, Tageszeit-Abschnitt), App- und iOS-Version. Technisch bedingt wird deine IP-Adresse übermittelt. Keine GPS-Daten, kein Name, keine E-Mail, keine Werbe-ID.</li>
-      <li class="en"><span class="label">Data:</span> a random identifier created on the device solely for this purpose, events (app opened, trip completed, feature used), for trips only value ranges (e.g. “10–50 km”, consumption and score range, time-of-day bucket), app and iOS version. Your IP address is transmitted for technical reasons. No GPS data, no name, no email, no advertising ID.</li>
-      <li class="de"><span class="label">Widerruf:</span> Einstellungen → Datenschutz → Analyse ausschalten. Die Kennung wird dann auf dem Gerät gelöscht. Stimmst du später erneut zu, entsteht eine neue Kennung, die mit der alten nicht verknüpft ist.</li>
-      <li class="en"><span class="label">Withdrawal:</span> Settings → Privacy → switch analytics off. The identifier is then deleted on the device; if you agree again later, a new, unlinked identifier is created.</li>
-      <li class="de"><span class="label">Anbieter (Auftragsverarbeiter):</span> PostHog Inc., USA. Die Daten werden in der EU gespeichert (PostHog Cloud EU, Frankfurt am Main). Es besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO; für etwaige Zugriffe aus den USA gelten die EU-Standardvertragsklauseln. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></li>
-      <li class="en"><span class="label">Provider (processor):</span> PostHog Inc., USA. Data is stored in the EU (PostHog Cloud EU, Frankfurt am Main). A data processing agreement under Art. 28 GDPR is in place; any access from the USA is covered by the EU Standard Contractual Clauses. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></li>
-      <li class="de"><span class="label">Speicherdauer:</span> höchstens 12 Monate.</li>
-      <li class="en"><span class="label">Retention:</span> at most 12 months.</li>
+      <li class="de"><span class="label">Kennung:</span> eine zufällige Geräte-ID, die erst beim Einschalten auf dem Gerät entsteht. Sie ist nicht mit deinem Gastzugang oder Konto verknüpft: Die App sendet die Ereignisse ohne deine Anmeldedaten, nur mit dem öffentlichen Schlüssel der App, und die Server-Tabelle hat kein Feld für eine Nutzerkennung. Im Datenschutz-Protokoll (Abschnitt 5) steht nur, ob du zugestimmt hast, nicht die Geräte-ID.</li>
+      <li class="en"><span class="label">Identifier:</span> a random device ID that is only created on the device when you switch analytics on. It is not linked to your guest access or account: the app sends the events without your sign-in data, using only the app's public key, and the server table has no field for a user identifier. The privacy log (section 5) only records whether you agreed, not the device ID.</li>
+      <li class="de"><span class="label">Ereignisse:</span> App-Start, abgeschlossene Fahrt und genutzte Funktion. Zu einer Fahrt nur Wertebereiche: Distanz (z. B. „10–50 km“), Verbrauch, Score und Tageszeit-Abschnitt (Nacht, Morgen, Nachmittag, Abend).</li>
+      <li class="en"><span class="label">Events:</span> app launch, completed trip and feature used. For a trip only value ranges: distance (e.g. “10–50 km”), fuel consumption, score and time of day (night, morning, afternoon, evening).</li>
+      <li class="de"><span class="label">Außerdem:</span> App-Version mit Build-Nummer, iOS-Version und der Zeitpunkt des Ereignisses, auf die volle Stunde gerundet. Der Server vermerkt zusätzlich, wann die Daten bei ihm eingegangen sind.</li>
+      <li class="en"><span class="label">Also:</span> app version with build number, iOS version and the time of the event, rounded to the full hour. The server also records when the data arrived.</li>
+      <li class="de"><span class="label">Nicht erfasst:</span> GPS-Daten, Orte, Name, E-Mail, Werbe-ID und Freitext. Der Server nimmt nur die festgelegten Ereignisse und Werte an und verwirft alles andere.</li>
+      <li class="en"><span class="label">Not collected:</span> GPS data, places, name, email, advertising ID and free text. The server only accepts the defined events and values and discards everything else.</li>
+      <li class="de"><span class="label">IP-Adresse:</span> Beim Senden verarbeitet der Server technisch bedingt deine IP-Adresse in seinen Protokollen (Abschnitt 5). Mit den Ereignissen wird sie nicht gespeichert.</li>
+      <li class="en"><span class="label">IP address:</span> when the app sends events, the server technically processes your IP address in its logs (section 5). It is not stored with the events.</li>
+      <li class="de"><span class="label">Auf dem Gerät:</span> Bis zum Senden, etwa ohne Netz, warten höchstens 200 Ereignisse auf dem Gerät.</li>
+      <li class="en"><span class="label">On the device:</span> until they are sent, e.g. while offline, at most 200 events wait on the device.</li>
+      <li class="de"><span class="label">Zweck und Auswertung:</span> Verbesserung der App-Funktionen. Ausgewertet wird nur zusammengefasst im Verwaltungsbereich des Betreibers, z. B. aktive Geräte pro Tag, abgeschlossene Fahrten, häufig genutzte Funktionen und verbreitete App-Versionen.</li>
+      <li class="en"><span class="label">Purpose and analysis:</span> improving the app's features. The data is only analysed in aggregate in the operator's admin area, e.g. active devices per day, completed trips, frequently used features and common app versions.</li>
+      <li class="de"><span class="label">Speicherdauer:</span> höchstens 12 Monate. Ältere Ereignisse löscht der Server jede Nacht automatisch.</li>
+      <li class="en"><span class="label">Retention:</span> at most 12 months. The server deletes older events automatically every night.</li>
+      <li class="de"><span class="label">Widerruf:</span> Einstellungen → Datenschutz → Analyse ausschalten (oder „Alle Einwilligungen widerrufen“). Die App löscht dann die Geräte-ID und noch nicht gesendete Ereignisse auf dem Gerät und lässt <strong>alle unter dieser ID gespeicherten Ereignisse vom Server löschen</strong>, sofort oder, wenn du gerade offline bist, sobald wieder eine Verbindung besteht. Stimmst du später erneut zu, entsteht eine neue ID, die mit der alten nicht verknüpft ist.</li>
+      <li class="en"><span class="label">Withdrawal:</span> Settings → Privacy → switch analytics off (or “Revoke all consent”). The app then deletes the device ID and any unsent events on the device and has <strong>all events stored under this ID deleted from the server</strong>, immediately or, if you are offline, as soon as a connection is available again. If you agree again later, a new ID is created that is not linked to the old one.</li>
+      <li class="de"><span class="label">Anbieter (Auftragsverarbeiter):</span> Supabase Inc., Server in Frankfurt am Main (Einzelheiten in Abschnitt 5).</li>
+      <li class="en"><span class="label">Provider (processor):</span> Supabase Inc., servers in Frankfurt am Main (details in section 5).</li>
     </ul>
     <p class="de" style="font-size:13px">Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG (Einwilligung).</p>
     <p class="en" style="font-size:13px">Legal basis: Art. 6(1)(a) GDPR and § 25(1) TDDDG (consent).</p>
+
+    <p class="de" style="margin-top:16px"><strong>Nur App-Versionen bis 1.2.x: PostHog</strong> <span class="tag tag-orange">Übergang</span></p>
+    <p class="en" style="margin-top:16px"><strong>App versions up to 1.2.x only: PostHog</strong> <span class="tag tag-orange">Transition</span></p>
+    <p class="de" style="font-size:13px">Hast du noch nicht auf Version 1.3.0 aktualisiert und der Analyse zugestimmt, sendet die App dieselben Ereignisse und Wertebereiche stattdessen an PostHog, dort aber mit genauem Zeitpunkt und deiner IP-Adresse. Anbieter (Auftragsverarbeiter) ist PostHog Inc., USA. Die Daten werden in der EU gespeichert (PostHog Cloud EU, Frankfurt am Main). Es besteht ein Auftragsverarbeitungsvertrag nach Art. 28 DSGVO; für etwaige Zugriffe aus den USA gelten die EU-Standardvertragsklauseln. Speicherdauer: höchstens 12 Monate. Beim Widerruf in diesen Versionen wird nur die Kennung auf dem Gerät gelöscht; bereits gesendete Ereignisse bleiben bis zum Ende der Speicherdauer bei PostHog. Mit dem Update auf 1.3.0 endet die Übertragung an PostHog. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO und § 25 Abs. 1 TDDDG. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></p>
+    <p class="en" style="font-size:13px">If you have not yet updated to version 1.3.0 and have agreed to analytics, the app sends the same events and value ranges to PostHog instead, but with the exact time and your IP address. The provider (processor) is PostHog Inc., USA. Data is stored in the EU (PostHog Cloud EU, Frankfurt am Main). A data processing agreement under Art. 28 GDPR is in place; any access from the USA is covered by the EU Standard Contractual Clauses. Retention: at most 12 months. If you withdraw consent in these versions, only the identifier on the device is deleted; events already sent remain with PostHog until the end of the retention period. Updating to 1.3.0 ends the transfer to PostHog. Legal basis: Art. 6(1)(a) GDPR and § 25(1) TDDDG. <a href="https://posthog.com/privacy" target="_blank" rel="noopener">posthog.com/privacy</a></p>
   </div>
 
   <!-- 8 Werbung -->
@@ -687,6 +704,11 @@
     <p class="en">The app contains no third-party crash SDK. If you enabled “Share with App Developers” in iOS Settings (Privacy &amp; Security → Analytics &amp; Improvements), Apple provides crash reports and performance metrics (e.g. launch time, memory, energy) without a user identifier to the developer via App Store Connect and Xcode. The app does receive these reports via Apple's MetricKit interface but neither stores nor transmits them. Apple is responsible for collecting them.</p>
     <p class="de" style="font-size:13px">Rechtsgrundlage, soweit personenbezogen: Art. 6 Abs. 1 lit. f DSGVO. Das berechtigte Interesse ist die Fehlerbehebung und Stabilität der App.</p>
     <p class="en" style="font-size:13px">Legal basis, where personal data is involved: Art. 6(1)(f) GDPR (legitimate interest: fixing errors and app stability).</p>
+
+    <p class="de" style="margin-top:16px"><strong>Nur App-Versionen bis 1.2.x: Firebase Crashlytics</strong> <span class="tag tag-orange">Übergang</span></p>
+    <p class="en" style="margin-top:16px"><strong>App versions up to 1.2.x only: Firebase Crashlytics</strong> <span class="tag tag-orange">Transition</span></p>
+    <p class="de" style="font-size:13px">Ältere Versionen enthalten zusätzlich Firebase Crashlytics der Google LLC (USA). Nur wenn du dort unter Einstellungen „Absturzberichte senden“ eingeschaltet hast, überträgt die App Absturz- und Fehlerberichte an Google: Programmzustand zum Zeitpunkt des Fehlers, Fehlermeldungen der App, Leistungswerte aus MetricKit, Gerätemodell, iOS- und App-Version, Zeitpunkt, eine Installationskennung und, wenn du angemeldet bist, einen Hashwert deiner Nutzerkennung. Google verarbeitet die Daten als Auftragsverarbeiter und speichert sie 90 Tage. Die Übermittlung in die USA stützt sich auf das EU-US Data Privacy Framework. Abschalten: denselben Schalter ausschalten. Ab Version 1.3.0 ist Crashlytics nicht mehr enthalten. Rechtsgrundlage: Art. 6 Abs. 1 lit. a DSGVO (Einwilligung).</p>
+    <p class="en" style="font-size:13px">Older versions also contain Firebase Crashlytics by Google LLC (USA). Only if you switched on “Send Crash Reports” in their settings does the app send crash and error reports to Google: program state at the time of the error, the app's error messages, performance metrics from MetricKit, device model, iOS and app version, time, an installation identifier and, if you are signed in, a hash of your user identifier. Google processes the data as a processor and keeps it for 90 days. The transfer to the USA is based on the EU-US Data Privacy Framework. To stop it, switch the same setting off. From version 1.3.0, Crashlytics is no longer included. Legal basis: Art. 6(1)(a) GDPR (consent).</p>
   </div>
 
   <!-- 18 Empfänger -->
@@ -703,10 +725,10 @@
     <p class="de"><strong>Auftragsverarbeiter</strong> (verarbeiten nach Weisung, Vertrag nach Art. 28 DSGVO):</p>
     <p class="en"><strong>Processors</strong> (process on instruction, contract under Art. 28 GDPR):</p>
     <ul>
-      <li class="de">Supabase Inc. – Gastzugang, Konto, Datenschutz-Protokoll, Fahrt-Kennzahlen, LPG-Preise (Abschnitte 5, 6, 9); Server in Frankfurt am Main; EU-Standardvertragsklauseln</li>
-      <li class="en">Supabase Inc. – guest access, account, privacy log, trip statistics, LPG prices (sections 5, 6, 9); servers in Frankfurt am Main; EU Standard Contractual Clauses</li>
-      <li class="de">PostHog Inc. – Nutzungsanalyse nur mit Einwilligung (Abschnitt 7); Speicherung in Frankfurt am Main; EU-Standardvertragsklauseln</li>
-      <li class="en">PostHog Inc. – usage analytics with consent only (section 7); stored in Frankfurt am Main; EU Standard Contractual Clauses</li>
+      <li class="de">Supabase Inc. – Gastzugang, Konto, Datenschutz-Protokoll, Fahrt-Kennzahlen, Nutzungsanalyse, LPG-Preise (Abschnitte 5, 6, 7, 9); Server in Frankfurt am Main; EU-Standardvertragsklauseln</li>
+      <li class="en">Supabase Inc. – guest access, account, privacy log, trip statistics, usage analytics, LPG prices (sections 5, 6, 7, 9); servers in Frankfurt am Main; EU Standard Contractual Clauses</li>
+      <li class="de"><strong>Nur App-Versionen bis 1.2.x:</strong> PostHog Inc. – Nutzungsanalyse nur mit Einwilligung (Abschnitt 7); Speicherung in Frankfurt am Main; EU-Standardvertragsklauseln. Google LLC – Firebase Crashlytics nur mit Einwilligung (Abschnitt 17); EU-US Data Privacy Framework</li>
+      <li class="en"><strong>App versions up to 1.2.x only:</strong> PostHog Inc. – usage analytics with consent only (section 7); stored in Frankfurt am Main; EU Standard Contractual Clauses. Google LLC – Firebase Crashlytics with consent only (section 17); EU-US Data Privacy Framework</li>
     </ul>
     <p class="de"><strong>Eigenständig Verantwortliche</strong> (erhalten Daten für eine von dir genutzte Funktion und verarbeiten sie nach eigenen Bestimmungen):</p>
     <p class="en"><strong>Independent controllers</strong> (receive data for a feature you use and process it under their own terms):</p>
@@ -753,7 +775,8 @@
       <tr><td>Konto, Profil, Datenschutz-Protokoll (Server)</td><td>bis zur Kontolöschung, dann sofort</td></tr>
       <tr><td>Fahrt-Kennzahlen (Server, Opt-in)</td><td>bis Widerruf oder Kontolöschung; gelöschte Fahrten spätestens nach 90 Tagen</td></tr>
       <tr><td>Gemeldete LPG-Preise (Server)</td><td>bis zur Kontolöschung, danach ohne Personenbezug</td></tr>
-      <tr><td>Analyse-Kennung (Gerät) / Ereignisse (PostHog)</td><td>bis Widerruf / höchstens 12 Monate</td></tr>
+      <tr><td>Nutzungsanalyse: Geräte-ID (Gerät) / Ereignisse (Server, Opt-in)</td><td>bis Widerruf / höchstens 12 Monate; bei Widerruf sofort gelöscht</td></tr>
+      <tr><td>Nur App-Versionen bis 1.2.x: Ereignisse (PostHog) / Absturzberichte (Google Crashlytics)</td><td>höchstens 12 Monate / 90 Tage</td></tr>
       <tr><td>Werbung (Google)</td><td>nach den Richtlinien von Google</td></tr>
       <tr><td>Pro-Status (Schlüsselbund)</td><td>bis zur nächsten Prüfung</td></tr>
       <tr><td>E-Mails an den Support</td><td>bis die Anfrage erledigt ist; längstens 3 Jahre, sofern keine gesetzliche Aufbewahrungspflicht besteht</td></tr>
@@ -770,7 +793,8 @@
       <tr><td>Account, profile, privacy log (server)</td><td>until account deletion, then immediately</td></tr>
       <tr><td>Trip statistics (server, opt-in)</td><td>until withdrawal or account deletion; deleted trips after 90 days at the latest</td></tr>
       <tr><td>Reported LPG prices (server)</td><td>until account deletion, then without personal reference</td></tr>
-      <tr><td>Analytics identifier (device) / events (PostHog)</td><td>until withdrawal / at most 12 months</td></tr>
+      <tr><td>Usage analytics: device ID (device) / events (server, opt-in)</td><td>until withdrawal / at most 12 months; deleted immediately on withdrawal</td></tr>
+      <tr><td>App versions up to 1.2.x only: events (PostHog) / crash reports (Google Crashlytics)</td><td>at most 12 months / 90 days</td></tr>
       <tr><td>Advertising (Google)</td><td>according to Google's policies</td></tr>
       <tr><td>Pro status (keychain)</td><td>until the next check</td></tr>
       <tr><td>Support emails</td><td>until the request is resolved; at most 3 years unless a statutory retention obligation applies</td></tr>
@@ -857,16 +881,16 @@
       <div>
         <div class="section-num de">24. Änderungen dieser Erklärung</div>
         <div class="section-num en">24. Changes to this policy</div>
-        <div class="section-title de">Version 7 · 19. Oktober 2026</div>
-        <div class="section-title en">Version 7 · 19 October 2026</div>
+        <div class="section-title de">Version 8 · 20. Oktober 2026</div>
+        <div class="section-title en">Version 8 · 20 October 2026</div>
       </div>
     </div>
     <p class="de">Wir passen diese Erklärung an, wenn sich die App oder die Rechtslage ändert. Die aktuelle Fassung ist immer hier und in der App unter Einstellungen → Datenschutzerklärung abrufbar. Über wesentliche Änderungen informieren wir dich in der App, spätestens mit dem nächsten App-Update. Eine Einwilligung, die du erteilt hast, erweitern wir nicht ohne erneute Zustimmung.</p>
     <p class="de">Alle früheren Fassungen dieser Erklärung findest du mit ihrem Gültigkeitszeitraum im <a href="archiv/index.html">Archiv</a>.</p>
     <p class="en">We update this policy when the app or the legal situation changes. The current version is always available here and in the app under Settings → Privacy Policy. We will inform you about material changes in the app, at the latest with the next app update. We do not extend the scope of any consent you have given without asking again.</p>
     <p class="en">All previous versions of this policy are available with their period of validity in the <a href="archiv/index.html">archive</a>.</p>
-    <p class="de" style="font-size:13px"><strong>Änderungen gegenüber Version 6:</strong> Angaben an den tatsächlichen Stand der App angepasst. Dazu gehören: Gastzugang beim ersten Start, sofortige Kontolöschung, automatische Löschung inaktiver Gastzugänge, Gerätebackup, Sensorrate, Tempolimit-Abfrage in Gebieten, Wetter, „Was ist neu“, Werbe-Einwilligung ändern, Rechtsgrundlage für Standort und Sensoren (Vertragserfüllung statt Einwilligung, wie bereits im Datenschutz-Dialog der App angegeben), Trennung von Auftragsverarbeitern und eigenständig Verantwortlichen sowie die aktuelle Anschrift der Aufsichtsbehörde.</p>
-    <p class="en" style="font-size:13px"><strong>Changes since version 6:</strong> information aligned with the actual state of the app, including guest access on first launch, immediate account deletion, automatic deletion of inactive guest accesses, device backup, sensor rate, area-based speed-limit requests, weather, “What's new”, changing ad consent, legal basis for location and sensors (performance of contract instead of consent, as already stated in the app's privacy dialog), separation of processors and independent controllers, and the current address of the supervisory authority.</p>
+    <p class="de" style="font-size:13px"><strong>Änderungen gegenüber Version 7:</strong> Die Nutzungsanalyse läuft ab App-Version 1.3.0 über unseren eigenen Server bei Supabase in Frankfurt statt über PostHog. Die Ereignisse sind nicht mit deinem Konto verknüpft, der Zeitpunkt ist auf die Stunde gerundet, und ein Widerruf löscht jetzt auch die gespeicherten Ereignisse. Für App-Versionen bis 1.2.x sind PostHog und Firebase Crashlytics als Übergang beschrieben (Abschnitte 7 und 17). Was sich in früheren Fassungen geändert hat, zeigt das Archiv.</p>
+    <p class="en" style="font-size:13px"><strong>Changes since version 7:</strong> from app version 1.3.0, usage analytics runs on our own server at Supabase in Frankfurt instead of PostHog. The events are not linked to your account, the time is rounded to the hour, and withdrawing consent now also deletes the stored events. For app versions up to 1.2.x, PostHog and Firebase Crashlytics are described as a transition (sections 7 and 17). The archive shows what changed in earlier versions.</p>
   </div>
 
 
